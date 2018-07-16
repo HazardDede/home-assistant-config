@@ -16,10 +16,12 @@ homeassistant:
   customize_domain: !include customize/_domain.yaml
 
   packages: !include_dir_named packages
-  # zway_basic: !include packages/zway_basic.yaml
 
 # Enables the frontend
 frontend:
+
+# Enables the iOS companion app
+ios:
 
 # Enables configuration UI
 config:
@@ -66,10 +68,6 @@ notify: !include_dir_list notifications
 sensor: !include_dir_list sensors
 # binary_sensor: !include_dir_list binary_sensors
 # switch: !include_dir_list switches
-
-# Services
-script: !include_dir_merge_named scripts
-rest_command: !include services/rest_command.yaml
 
 # Text to speech
 tts:

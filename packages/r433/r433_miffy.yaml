@@ -1,12 +1,19 @@
 binary_sensor:
-  - name: r433_miffy_state
-    platform: command_line
-    command: "curl -X GET --silent --header 'Accept: application/json' 'http://rpi-433rc:5000/devices/miffy'"
+  - platform: mqtt
+    state_topic: "r433/miffy/switch"
+    name: r433_miffy_state
+    payload_on: "on"
+    payload_off: "off"
     device_class: light
-    value_template: '{{value_json.state}}'
-    payload_on: 'on'
-    payload_off: 'off'
-    scan_interval: 5
+
+  # - name: r433_miffy_state
+  #   platform: command_line
+  #   command: "curl -X GET --silent --header 'Accept: application/json' 'http://rpi-433rc:5000/devices/miffy'"
+  #   device_class: light
+  #   value_template: '{{value_json.state}}'
+  #   payload_on: 'on'
+  #   payload_off: 'off'
+  #   scan_interval: 5
 
 switch:
   - platform: template

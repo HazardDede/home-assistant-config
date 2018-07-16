@@ -81,4 +81,8 @@ cloud:
 group: !include groups.yaml
 # automation: !include automations.yaml
 
-device_tracker: !include_dir_list tracker
+device_tracker: 
+  - platform: fritz
+    host: 192.168.178.1
+    new_device_defaults:
+      track_new_devices: False

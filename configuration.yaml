@@ -82,6 +82,14 @@ group: !include groups.yaml
 device_tracker: 
   - platform: fritz
     host: 192.168.178.1
-    consider_home: 10
+    consider_home: 180
     new_device_defaults:
       track_new_devices: False
+
+panel_iframe:
+  router:
+    title: 'Router'
+    url: 'http://192.168.178.1'
+  rpimonitor:
+    title: 'RPi Monitor'
+    url: 'http://services:8888'

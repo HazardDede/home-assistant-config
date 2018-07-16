@@ -1,7 +1,7 @@
 binary_sensor:
   - name: r433_moon_state
     platform: command_line
-    command: "curl -X GET --silent --header 'Accept: application/json' 'http://192.168.178.60:5555/devices/moon'"
+    command: "curl -X GET --silent --header 'Accept: application/json' 'http://rpi-433rc:5000/devices/moon'"
     device_class: light
     value_template: '{{value_json.state}}'
     payload_on: 'on'

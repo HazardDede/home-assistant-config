@@ -1,0 +1,8 @@
+sensor.load_1m:
+  icon: mdi:speedometer
+
+sensor.load_5m:
+  icon: mdi:speedometer
+
+sensor.load_15m:
+  icon: mdi:speedometer

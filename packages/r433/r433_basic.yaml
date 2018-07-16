@@ -1,0 +1,9 @@
+rest_command:
+  # Required parameter:
+  # - device_name
+  r433_switch_on:
+    url: 'http://services:5555/devices/{{device_name}}/on'
+    method: get
+  r433_switch_off:
+    url: 'http://services:5555/devices/{{device_name}}/off'
+    method: get

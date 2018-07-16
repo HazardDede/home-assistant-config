@@ -1,0 +1,109 @@
+exterior:
+  name: Elmshorn
+  entities:
+    - sensor.date__time
+    - sun.sun
+    - sensor.moon
+    - sensor.weather_temperature
+    - sensor.weather_humidity
+    - sensor.weather_cloudiness
+
+connections:
+  name: Connections
+  entities:
+    - sensor.hamburg_hbf_to_elmshorn
+    - sensor.elmshorn_to_hamburg_hbf
+
+system:
+  name: System
+  entities:
+    - sensor.cpuspeed
+    - sensor.processor_use
+    - sensor.memory_use_percent
+    - sensor.disk_use_percent_
+    - sensor.swap_use_percent
+    - sensor.load_1m
+    - sensor.load_5m
+    - sensor.load_15m
+    - sensor.since_last_boot
+
+living:
+  name: "Living"
+  entities:
+    - sensor.living_temperature
+    - sensor.hallway_temperature
+    - switch.zway_device_4
+    - switch.zway_device_5
+    - switch.zway_device_17
+    - switch.zway_device_20
+
+krymmel:
+  name: "Krymmel's End"
+  entities:
+    - sensor.gallery_temperature
+    - switch.zway_device_13
+
+bedroom:
+  name: "Bedroom"
+  entities:
+    - sensor.bedroom_temperature
+    - switch.zway_device_21
+
+peanut:
+  name: "Peanut"
+  entities:
+    - sensor.nursery_temperature
+    - switch.r433_moon
+    - switch.r433_miffy
+
+temperature_ground:
+  name: "Ground floor (°C)"
+  entities:
+    - sensor.living_temperature
+    - sensor.hallway_temperature
+
+temperature_first:
+  name: "First floor (°C)"
+  entities:
+    - sensor.gallery_temperature
+    - sensor.nursery_temperature
+    - sensor.bedroom_temperature
+
+heater:
+  name: "Heater"
+  entities:
+    - input_number.zway_device_6
+    - input_number.zway_device_9
+    - input_number.zway_device_12
+
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - device_tracker.dennis
+    - device_tracker.jennifer
+    - sensor.weather_symbol
+    - group.exterior
+    - group.connections
+    - group.living
+    - group.krymmel
+    - group.bedroom
+    - group.peanut
+
+temperature_tab:
+  name: "Temperature"
+  view: yes
+  icon: "mdi:thermometer-lines"
+  entities:
+    - sensor.living_humidity
+    - group.temperature_ground
+    - group.temperature_first
+    - group.heater
+
+monitoring_tab:
+  name: Monitoring
+  view: yes
+  icon: mdi:desktop-classic
+  entities:
+    - group.system

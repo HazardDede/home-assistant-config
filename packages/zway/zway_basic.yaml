@@ -1,0 +1,58 @@
+rest_command:
+  # Required parameter:
+  # - device_id
+  zway_switch_on:
+    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(255)'
+    method: get
+    username: !secret zway_user
+    password: !secret zway_pwd
+  # Required parameter:
+  # - device_id
+  zway_switch_off:
+    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(0)'
+    method: get
+    username: !secret zway_user
+    password: !secret zway_pwd
+  # Required parameter:
+  # - device_id
+  # - setpoint
+  zway_heater_setpoint:
+    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[67].Set(1,{{setpoint}})'
+    method: get
+    username: !secret zway_user
+    password: !secret zway_pwd
+
+script:
+  # Required parameter: 
+  # - device_id
+  zway_switch_on:
+    sequence:
+      - service: rest_command.zway_switch_on
+        data_template:
+          device_id: "{{device_id}}"
+      - service: mqtt.publish
+        data_template:
+          topic: "zway/device_{{device_id}}/switch"
+          payload: "on"
+          retain: True
+  # Required parameter: 
+  # - device_id
+  zway_switch_off:
+    sequence:
+      - service: rest_command.zway_switch_off
+        data_template:
+          device_id: "{{device_id}}"
+      - service: mqtt.publish
+        data_template:
+          topic: "zway/device_{{device_id}}/switch"
+          payload: "off"
+          retain: True
+  # Required parameter: 
+  # - device_id
+  # - setpoint
+  zway_heater_setpoint:
+    sequence:
+      - service: rest_command.zway_heater_setpoint
+        data_template:
+          device_id: "{{device_id}}"
+          setpoint: "{{setpoint}}"

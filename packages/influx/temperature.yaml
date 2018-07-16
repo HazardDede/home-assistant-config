@@ -1,0 +1,46 @@
+sensor:
+  - platform: influxdb
+    host: !secret influx_host
+    username: !secret influx_user
+    password: !secret influx_pwd
+    queries:
+      - name: living_temperature
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"room" = ''living'''
+        measurement: '"environment"'
+        field: temperature
+        database: home
+      - name: gallery_temperature
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"room" = ''gallery'''
+        measurement: '"environment"'
+        field: temperature
+        database: home
+      - name: nursery_temperature
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"room" = ''nursery'''
+        measurement: '"environment"'
+        field: temperature
+        database: home
+      - name: bedroom_temperature
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"room" = ''bedroom'''
+        measurement: '"environment"'
+        field: temperature
+        database: home
+      - name: hallway_temperature
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"room" = ''hallway'''
+        measurement: '"environment"'
+        field: temperature
+        database: home

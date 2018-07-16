@@ -1,0 +1,17 @@
+sensor.living_temperature:
+  friendly_name: Living
+
+sensor.living_humidity:
+  friendly_name: Humidity
+
+sensor.hallway_temperature:
+  friendly_name: Hallway
+
+sensor.gallery_temperature:
+  friendly_name: Gallery
+
+sensor.nursery_temperature:
+  friendly_name: Peanut
+
+sensor.bedroom_temperature:
+  friendly_name: Bedroom

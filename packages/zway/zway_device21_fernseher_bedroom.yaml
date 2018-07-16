@@ -1,0 +1,27 @@
+binary_sensor:
+  - platform: mqtt
+    state_topic: "zway/device_21/switch"
+    name: zway_device_21
+    payload_on: "on"
+    payload_off: "off"
+    device_class: light
+
+switch:
+  - platform: template
+    switches:
+      zway_device_21:
+        value_template: "{{ is_state('binary_sensor.zway_device_21', 'on') }}"
+        turn_on:
+          service: script.zway_switch_on
+          data:
+            device_id: 21
+        turn_off:
+          service: script.zway_switch_off
+          data:
+            device_id: 21
+        icon_template: >-
+          {% if is_state('binary_sensor.zway_device_21', 'on') %}
+            mdi:television-classic
+          {% else %}
+            mdi:television-classic-off
+          {% endif %}

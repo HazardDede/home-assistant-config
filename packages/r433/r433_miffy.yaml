@@ -21,11 +21,11 @@ switch:
       r433_miffy:
         value_template: "{{ is_state('binary_sensor.r433_miffy_state', 'on') }}"
         turn_on:
-          service: rest_command.r433_switch_on
+          service: script.r433_switch_on
           data:
             device_name: miffy
         turn_off:
-          service: rest_command.r433_switch_off
+          service: script.r433_switch_off
           data:
             device_name: miffy
         icon_template: mdi:rabbit

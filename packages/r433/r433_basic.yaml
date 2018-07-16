@@ -7,3 +7,29 @@ rest_command:
   r433_switch_off:
     url: 'http://rpi-433rc:5000/devices/{{device_name}}/off'
     method: get
+
+script:
+  # Required parameter: 
+  # - device_name
+  r433_switch_on:
+    sequence:
+      - service: rest_command.r433_switch_on
+        data_template:
+          device_name: "{{device_name}}"
+      - service: mqtt.publish
+        data_template:
+          topic: "r433/{{device_name}}/switch"
+          payload: "on"
+          retain: True
+  # Required parameter: 
+  # - device_name
+  r433_switch_off:
+    sequence:
+      - service: rest_command.r433_switch_off
+        data_template:
+          device_name: "{{device_name}}"
+      - service: mqtt.publish
+        data_template:
+          topic: "r433/{{device_name}}/switch"
+          payload: "off"
+          retain: True

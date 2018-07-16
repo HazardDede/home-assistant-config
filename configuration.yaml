@@ -95,3 +95,5 @@ panel_iframe:
     title: 'RPi Monitor'
     url: 'http://services:8888'
     icon: mdi:raspberrypi
+
+zone: !include_dir_list zones

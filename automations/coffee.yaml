@@ -1,0 +1,37 @@
+- alias: "Coffee maker on in the morning (weekend)"
+  trigger:
+    platform: time
+    at: '06:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - sat
+          - sun
+      - condition: state
+        entity_id: group.all_devices
+        state: home
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.zway_device_20
+- alias: "Coffee maker on in the morning (workdays)"
+  trigger:
+    platform: time
+    at: '04:50:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: group.all_devices
+        state: home
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.zway_device_20

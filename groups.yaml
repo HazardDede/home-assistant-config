@@ -108,3 +108,10 @@ monitoring_tab:
     - sensor.speedtest_upload
     - sensor.speedtest_ping
     - group.system
+
+settings_tab:
+  name: Settings
+  view: yes
+  icon: mdi:settings-outline
+  entities:
+    - group.all_automations

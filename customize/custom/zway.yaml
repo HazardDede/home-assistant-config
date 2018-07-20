@@ -4,7 +4,7 @@ switch.zway_device_4:
 switch.zway_device_5:
   friendly_name: "The Man with hat"
 
-binary_switch.zway_device_7:
+binary_sensor.zway_device_7:
   friendly_name: "Motion (hallway)"
 
 input_number.zway_device_12:
@@ -16,7 +16,7 @@ switch.zway_device_13:
 switch.zway_device_17:
   friendly_name: "Fruitbox lamp"
 
-binary_switch.zway_device_19:
+binary_sensor.zway_device_19:
   friendly_name: "Motion (nursery)"
 
 switch.zway_device_20:
@@ -25,8 +25,8 @@ switch.zway_device_20:
 switch.zway_device_21:
   friendly_name: "TV (bedroom)"
 
-binary_switch.zway_device_23:
+binary_sensor.zway_device_23:
   friendly_name: "Motion (bedroom)"
 
-binary_switch.zway_device_24:
+binary_sensor.zway_device_24:
   friendly_name: "Motion (gallery)"

@@ -1,0 +1,10 @@
+- alias: 'Unexpected entrance'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.zway_device_7
+    from: "off"
+    to: "on"
+  action:
+    service: notify.notify
+    data:
+      message: "Unexpected Entrance"

@@ -16,3 +16,11 @@ sensor:
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 4
+    monitored_conditions:
+      - ping
+      - download
+      - upload

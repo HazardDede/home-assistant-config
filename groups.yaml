@@ -103,4 +103,5 @@ monitoring_tab:
   view: yes
   icon: mdi:desktop-classic
   entities:
+    - sensor.speedtest
     - group.system

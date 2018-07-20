@@ -12,7 +12,7 @@ connections:
   name: Connections
   entities:
     - sensor.hamburg_hbf_to_elmshorn
-    - sensor.elmshorn_to_hamburg_hbf
+    - sensor.elmshorn_to_hamburgaltona
 
 system:
   name: System

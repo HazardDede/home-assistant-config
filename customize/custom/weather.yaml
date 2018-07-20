@@ -3,7 +3,7 @@ sensor.weather_cloudiness:
   icon: mdi:cloud-outline
 
 sensor.weather_humidity:
-  friendly_name: Humidity
+  friendly_name: Humidity (Outdoor)
   icon: mdi:water-percent
 
 sensor.weather_symbol:

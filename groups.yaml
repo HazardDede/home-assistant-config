@@ -96,7 +96,9 @@ temperature_tab:
   view: yes
   icon: "mdi:thermometer-lines"
   entities:
+    - sensor.weather_temperature
     - sensor.living_humidity
+    - sensor.weather_humidity
     - group.temperature_ground
     - group.temperature_first
     - group.heater

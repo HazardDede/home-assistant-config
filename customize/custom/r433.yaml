@@ -1,5 +1,5 @@
 switch.r433_moon:
-  friendly_name: "Mond"
+  friendly_name: "Moon"
 
 switch.r433_miffy:
   friendly_name: "Miffy"

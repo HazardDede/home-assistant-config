@@ -2,7 +2,7 @@ sensor.living_temperature:
   friendly_name: Living
 
 sensor.living_humidity:
-  friendly_name: Humidity
+  friendly_name: Humidity (Indoor)
 
 sensor.hallway_temperature:
   friendly_name: Hallway

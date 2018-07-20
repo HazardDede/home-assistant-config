@@ -77,10 +77,10 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - sensor.dennis
-    - sensor.jennifer
-    - group.family_status
+    - device_tracker.dennis
+    - device_tracker.jennifer
     - sensor.weather_symbol
+    - group.family_status
     - group.exterior
     - group.connections
     - group.living

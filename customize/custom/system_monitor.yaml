@@ -6,3 +6,7 @@ sensor.load_5m:
 
 sensor.load_15m:
   icon: mdi:speedometer
+
+sensor.cpu_temp:
+  friendly_name: CPU Temperature
+  icon: mdi:temperature-celsius

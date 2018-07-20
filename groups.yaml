@@ -61,6 +61,8 @@ temperature_ground:
   entities:
     - sensor.living_temperature
     - sensor.hallway_temperature
+    - input_number.zway_device_9
+    - input_number.zway_device_6
 
 temperature_first:
   name: "First floor (°C)"
@@ -68,12 +70,6 @@ temperature_first:
     - sensor.gallery_temperature
     - sensor.nursery_temperature
     - sensor.bedroom_temperature
-
-heater:
-  name: "Heater"
-  entities:
-    - input_number.zway_device_6
-    - input_number.zway_device_9
     - input_number.zway_device_12
 
 default_view:
@@ -101,7 +97,6 @@ temperature_tab:
     - sensor.weather_humidity
     - group.temperature_ground
     - group.temperature_first
-    - group.heater
 
 monitoring_tab:
   name: Monitoring

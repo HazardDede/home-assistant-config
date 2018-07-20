@@ -1,0 +1,5 @@
+name: Work (ML)
+latitude: !secret work_ml_latitude
+longitude: !secret work_ml_longitude
+radius: 50
+icon: mdi:worker

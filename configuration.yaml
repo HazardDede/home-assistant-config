@@ -65,7 +65,7 @@ mqtt:
 notify: !include_dir_list notifications
 
 # Devices
-sensor: !include_dir_list sensors
+# sensor: !include_dir_list sensors
 # binary_sensor: !include_dir_list binary_sensors
 # switch: !include_dir_list switches
 
@@ -79,12 +79,7 @@ cloud:
 group: !include groups.yaml
 # automation: !include automations.yaml
 
-device_tracker: 
-  - platform: fritz
-    host: 192.168.178.1
-    consider_home: 180
-    new_device_defaults:
-      track_new_devices: False
+device_tracker: !include_dir_list tracker
 
 panel_iframe:
   router:
@@ -95,5 +90,9 @@ panel_iframe:
     title: 'RPi Monitor'
     url: 'http://services:8888'
     icon: mdi:raspberrypi
+  zway:
+    title: 'Z-Way'
+    url: 'http://192.168.178.44:8083/'
+    icon: mdi:access-point
 
 zone: !include_dir_list zones

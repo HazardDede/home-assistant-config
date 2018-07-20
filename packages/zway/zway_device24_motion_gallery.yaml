@@ -1,0 +1,7 @@
+binary_sensor:
+  - platform: mqtt
+    state_topic: "zway/device_24/motion"
+    name: zway_device_24
+    payload_on: "on"
+    payload_off: "off"
+    device_class: motion

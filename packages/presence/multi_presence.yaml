@@ -41,24 +41,24 @@ automation:
   - alias: Mark person as just arrived
     trigger:
       - platform: state
-        entity_id: device_tracker.dennis
+        entity_id: sensor.dennis
         from: 'not_home'
         to: 'home'
       - platform: state
-        entity_id: device_tracker.jennifer
+        entity_id: sensor.jennifer
         from: 'not_home'
         to: 'home'
     action:
       - service: input_select.select_option
         data_template:
           entity_id: >
-            {% if trigger.entity_id == 'device_tracker.dennis' %}
+            {% if trigger.entity_id == 'sensor.dennis' %}
               input_select.dennis_state
             {% else %}
               input_select.jennifer_state
             {% endif %}
           option: >
-            {% if trigger.entity_id == 'device_tracker.dennis' %}
+            {% if trigger.entity_id == 'sensor.dennis' %}
               {% if states.input_select.dennis_state.state == 'Just Left' %}
                 Home
               {% else %}
@@ -105,18 +105,18 @@ automation:
   - alias: Mark person as just left
     trigger:
       - platform: state
-        entity_id: device_tracker.dennis
+        entity_id: sensor.dennis
         from: 'home'
         to: 'not_home'
       - platform: state
-        entity_id: device_tracker.jennifer
+        entity_id: sensor.jennifer
         from: 'home'
         to: 'not_home'
     action:
       - service: input_select.select_option
         data_template:
           entity_id: >
-            {% if trigger.entity_id == 'device_tracker.dennis' %}
+            {% if trigger.entity_id == 'sensor.dennis' %}
               input_select.dennis_state
             {% else %}
               input_select.jennifer_state

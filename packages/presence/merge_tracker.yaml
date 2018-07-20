@@ -1,0 +1,22 @@
+group:
+  dennis:
+    name: Dennis
+    entities:
+      - device_tracker.dennis
+  jennifer:
+    name: Jennifer
+    entities:
+      - device_tracker.jennifer
+
+sensor:
+  - platform: template
+    sensors:
+      dennis:
+        value_template: '{{ states.group.dennis.state }}'
+        friendly_name: 'Dennis'
+  - platform: template
+    sensors:
+      jennifer:
+        value_template: '{{ states.group.jennifer.state }}'
+        friendly_name: 'Jennifer'
+    

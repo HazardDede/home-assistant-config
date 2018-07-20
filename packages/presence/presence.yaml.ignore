@@ -1,0 +1,15 @@
+input_boolean:
+  presence_state:
+    name: Determine somebody is home
+    initial: on
+
+sensor:
+  - platform: template
+    sensors:
+      presence:
+        value_template: '{{ states.input_boolean.presence_state.state }}'
+        friendly_name: Presence
+
+automation:
+  trigger:
+    platform: state

@@ -79,8 +79,6 @@ cloud:
 group: !include groups.yaml
 # automation: !include automations.yaml
 
-device_tracker: !include_dir_list tracker
-
 panel_iframe:
   router:
     title: 'Router'

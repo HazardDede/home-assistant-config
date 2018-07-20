@@ -79,6 +79,7 @@ default_view:
   entities:
     - device_tracker.dennis
     - device_tracker.jennifer
+    - group.family_status
     - sensor.weather_symbol
     - group.exterior
     - group.connections

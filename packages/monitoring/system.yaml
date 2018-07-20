@@ -10,3 +10,10 @@ sensor:
       - type: load_5m
       - type: load_15m
       - type: since_last_boot
+  - platform: command_line
+    name: cpu_temp
+    friendly_name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, remove degree symbol below
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'

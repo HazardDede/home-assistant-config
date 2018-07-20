@@ -9,6 +9,9 @@
       entity_id: group.all_devices
       state: not_home
   action:
-    service: notify.pushbullet
-    data:
-      message: "Unexpected Entrance"
+    - service: notify.notify
+      data:
+        message: "Unexpected Entrance"
+    - service: notify.pushbullet
+      data:
+        message: "Unexpected Entrance"

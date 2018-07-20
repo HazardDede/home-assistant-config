@@ -19,4 +19,3 @@ sensor:
       jennifer:
         value_template: '{{ states.group.jennifer.state }}'
         friendly_name: 'Jennifer'
-    

@@ -9,6 +9,7 @@ input_number:
 
 automation:
   - alias: "Bathroom heater - Adjust setpoint"
+    initial_state: True
     trigger:
       platform: state
       entity_id: input_number.zway_device_6

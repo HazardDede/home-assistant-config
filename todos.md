@@ -1,9 +1,12 @@
-* Motion Sensor via MQTT
-* Zway Panel
+* Motion Sensor via MQTT (done)
+* Zway Panel (done)
 * Grafana Panel
 * Fritzbox Call List
 * Fritzbox Net Monitor
 * Luminescence
+
+* Bilder
+* Automatic on of automations
 
 * iFrame Weather
 

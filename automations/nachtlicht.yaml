@@ -1,4 +1,5 @@
 - alias: 'Night light on in the evening'
+  initial_state: True
   trigger:
     platform: sun
     event: sunset
@@ -7,6 +8,7 @@
     service: homeassistant.turn_on
     entity_id: switch.zway_device_13
 - alias: 'Night light off in the morning'
+  initial_state: True
   trigger:
     platform: sun
     event: sunrise

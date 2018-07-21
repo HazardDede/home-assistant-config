@@ -39,6 +39,7 @@ group:
 
 automation:
   - alias: Mark person as just arrived
+    initial_state: True
     trigger:
       - platform: state
         entity_id: sensor.dennis
@@ -72,6 +73,7 @@ automation:
               {% endif %}
             {% endif %}
   - alias: Mark person as home
+    initial_state: True
     trigger:
       - platform: state
         entity_id: input_select.dennis_state
@@ -103,6 +105,7 @@ automation:
           option: Home
   
   - alias: Mark person as just left
+    initial_state: True
     trigger:
       - platform: state
         entity_id: sensor.dennis
@@ -122,8 +125,8 @@ automation:
               input_select.jennifer_state
             {% endif %}
           option: Just Left
-  
   - alias: Mark person as away
+    initial_state: True
     trigger:
       - platform: state
         entity_id: input_select.dennis_state
@@ -147,6 +150,7 @@ automation:
           option: Away
   
   - alias: Mark person as extended away
+    initial_state: True
     trigger:
       - platform: state
         entity_id: input_select.dennis_state

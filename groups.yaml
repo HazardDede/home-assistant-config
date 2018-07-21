@@ -32,6 +32,7 @@ living:
   entities:
     - sensor.living_temperature
     - sensor.hallway_temperature
+    - sensor.hallway_luminescence
     - binary_sensor.zway_device_7
     - switch.zway_device_4
     - switch.zway_device_5
@@ -42,6 +43,7 @@ krymmel:
   name: "Krymmel's End"
   entities:
     - sensor.gallery_temperature
+    - sensor.gallery_luminescence
     - binary_sensor.zway_device_24
     - switch.zway_device_13
 
@@ -49,6 +51,7 @@ bedroom:
   name: "Bedroom"
   entities:
     - sensor.bedroom_temperature
+    - sensor.bedroom_luminescence
     - binary_sensor.zway_device_23
     - switch.zway_device_21
 
@@ -56,6 +59,7 @@ peanut:
   name: "Peanut"
   entities:
     - sensor.nursery_temperature
+    - sensor.nursery_luminescence
     - binary_sensor.zway_device_19
     - switch.r433_moon
     - switch.r433_miffy

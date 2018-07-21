@@ -15,3 +15,15 @@ sensor.nursery_temperature:
 
 sensor.bedroom_temperature:
   friendly_name: Bedroom
+
+sensor.gallery_luminescence:
+  friendly_name: Gallery
+
+sensor.nursery_luminescence:
+  friendly_name: Peanut
+
+sensor.bedroom_luminescence:
+  friendly_name: Bedroom
+
+sensor.hallway_luminescence:
+  friendly_name: Hallway

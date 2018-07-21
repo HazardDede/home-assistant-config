@@ -3,10 +3,10 @@
 * Grafana Panel
 * Fritzbox Call List
 * Fritzbox Net Monitor
-* Luminescence
+* Luminescence (done)
 
 * Bilder
-* Automatic on of automations
+* Automatic on of automations (done)
 
 * iFrame Weather
 

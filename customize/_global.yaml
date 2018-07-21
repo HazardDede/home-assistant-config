@@ -1,4 +1,2 @@
-# "binary_sensor.zway_device_*":
-#   hidden: true
-# "script.zway_*":
-#   hidden: true
+sensor.*_luminescence:
+  icon: mdi:white-balance-sunny

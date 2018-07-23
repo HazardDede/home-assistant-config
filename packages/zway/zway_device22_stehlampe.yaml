@@ -7,8 +7,8 @@ light:
   - platform: template
     lights:
       zway_device_22:
-        level_template: "{{ sensor.zway_device_22|int }}"
-        value_template: "{{ sensor.zway_device_22|int > 0 }}"
+        level_template: "{{ states.sensor.zway_device_22.state|int }}"
+        value_template: "{{ states.sensor.zway_device_22.state|int > 0 }}"
         turn_on:
           service: script.zway_light
           data_template:

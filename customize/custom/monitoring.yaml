@@ -1,0 +1,30 @@
+sensor.load_1m:
+  icon: mdi:speedometer
+
+sensor.load_5m:
+  icon: mdi:speedometer
+
+sensor.load_15m:
+  icon: mdi:speedometer
+
+sensor.cpu_temp:
+  friendly_name: CPU Temperature
+  icon: mdi:temperature-celsius
+
+sensor.fritzbox_netmonitor:
+  friendly_name: Fritzbox Status
+
+sensor.net_external_ip:
+  friendly_name: External IP
+
+sensor.net_rate_up:
+  friendly_name: Current upstream
+
+sensor.net_rate_down:
+  friendly_name: Current downstream
+
+sensor.net_rate_up_max:
+  friendly_name: Max upstream
+
+sensor.net_rate_down_max:
+  friendly_name: Max upstream

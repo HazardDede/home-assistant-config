@@ -21,6 +21,14 @@ rest_command:
     method: get
     username: !secret zway_user
     password: !secret zway_pwd
+  # Required parameter.
+  # - device_id
+  # - level
+  zway_light:
+    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[38].Set({{level}})'
+    method: get
+    username: !secret zway_user
+    password: !secret zway_pwd
 
 script:
   # Required parameter: 
@@ -56,3 +64,12 @@ script:
         data_template:
           device_id: "{{device_id}}"
           setpoint: "{{setpoint}}"
+  # Required paraemeter:
+  # - device_id
+  # - brightness
+  zway_light:
+    sequence:
+      - service: rest_command.zway_light
+        data_template:
+          device_id: "{{device_id}}"
+          level: "{{brightness}}"

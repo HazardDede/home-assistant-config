@@ -48,6 +48,7 @@ living:
     - switch.zway_device_4
     - switch.zway_device_5
     - switch.zway_device_17
+    - light.zway_device_22
     - switch.zway_device_20
 
 krymmel:

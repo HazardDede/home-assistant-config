@@ -20,6 +20,8 @@ homeassistant:
 # Sets the logging level
 logger:
   default: warning
+  logs:
+    homeassistant.components.http: info
 
 # Enables the frontend
 frontend:

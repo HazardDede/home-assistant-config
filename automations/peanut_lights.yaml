@@ -1,4 +1,3 @@
-automation:
 - alias: Turn on nursery lights when there is movement
   initial: 'on'
   trigger:
@@ -10,7 +9,6 @@ automation:
       entity_id: switch.r433_moon
     - service: homeassistant.turn_on
       entity_id: switch.r433_miffy
-
 - alias: Turn off nursery light some minutes after last movement
   initial: 'on'
   trigger:

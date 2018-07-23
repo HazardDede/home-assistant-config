@@ -13,7 +13,7 @@ light:
           service: script.zway_light
           data_template:
             device_id: 22
-            brightness: 25
+            brightness: 65
         turn_off:
           service: script.zway_light
           data_template:

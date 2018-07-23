@@ -39,6 +39,7 @@ net:
 
 living:
   name: "Living"
+  control: hidden
   entities:
     - sensor.living_temperature
     - sensor.hallway_temperature
@@ -51,6 +52,7 @@ living:
 
 krymmel:
   name: "Krymmel's End"
+  control: hidden
   entities:
     - sensor.gallery_temperature
     - sensor.gallery_luminescence
@@ -59,6 +61,7 @@ krymmel:
 
 bedroom:
   name: "Bedroom"
+  control: hidden
   entities:
     - sensor.bedroom_temperature
     - sensor.bedroom_luminescence
@@ -67,6 +70,7 @@ bedroom:
 
 peanut:
   name: "Peanut"
+  control: hidden
   entities:
     - sensor.nursery_temperature
     - sensor.nursery_luminescence

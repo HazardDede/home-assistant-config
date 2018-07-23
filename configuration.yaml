@@ -83,6 +83,32 @@ recorder:
 
 # Enables support for tracking state changes over time
 history:
+  exclude:
+    domains:
+      - automation
+      - script
+      - weblink
+      - updater
+      - group
+    entities:
+      - binary_sensor.r433_miffy_state
+      - binary_sensor.r433_moon_state
+      - binary_sensor.zway_device_13
+      - binary_sensor.zway_device_17
+      - binary_sensor.zway_device_20
+      - binary_sensor.zway_device_21
+      - binary_sensor.zway_device_4
+      - binary_sensor.zway_device_5
+      - sensor.zway_device_22
+      - input_select.dennis_state
+      - input_select.jennifer_state
+      - sensor.date__time
+      - sensor.elmshorn_to_hamburgaltona
+      - sensor.hamburg_hbf_to_elmshorn
+      - sensor.moon
+      - sensor.net_external_ip
+      - sensor.since_last_boot
+      - sensor.weather_symbol
 
 # View all events in a logbook
 logbook:

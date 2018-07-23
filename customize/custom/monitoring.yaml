@@ -27,4 +27,4 @@ sensor.net_rate_up_max:
   friendly_name: Max upstream
 
 sensor.net_rate_down_max:
-  friendly_name: Max upstream
+  friendly_name: Max downstream

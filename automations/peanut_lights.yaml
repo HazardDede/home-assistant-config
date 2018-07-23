@@ -1,0 +1,26 @@
+automation:
+- alias: Turn on nursery lights when there is movement
+  initial: 'on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.zway_device_19
+    to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.r433_moon
+    - service: homeassistant.turn_on
+      entity_id: switch.r433_miffy
+
+- alias: Turn off nursery light some minutes after last movement
+  initial: 'on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.zway_device_19
+    to: 'off'
+    for:
+      minutes: 2
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.r433_moon
+    - service: homeassistant.turn_off
+      entity_id: switch.r433_miffy

@@ -1,9 +1,14 @@
+sensor:
+  - platform: mqtt
+    state_topic: "zway/device_22/brightness"
+    name: zway_device_22
+
 light:
   - platform: template
     lights:
       zway_device_22:
-        # level_template: "{{ sensor.theater_brightness.attributes.lux|int }}"
-        # value_template: "{{ sensor.theater_brightness.attributes.lux|int > 0 }}"
+        level_template: "{{ sensor.zway_device_22|int }}"
+        value_template: "{{ sensor.zway_device_22|int > 0 }}"
         turn_on:
           service: script.zway_light
           data_template:

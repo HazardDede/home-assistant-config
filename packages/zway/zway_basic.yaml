@@ -73,3 +73,8 @@ script:
         data_template:
           device_id: "{{device_id}}"
           level: "{{brightness}}"
+      - service: mqtt.publish
+        data_template:
+          topic: "zway/device_{{device_id}}/brightness"
+          payload: "{{brightness}}"
+          retain: True

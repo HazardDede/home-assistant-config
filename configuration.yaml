@@ -17,6 +17,10 @@ homeassistant:
 
   packages: !include_dir_named packages
 
+# Sets the logging level
+logger:
+  default: warning
+
 # Enables the frontend
 frontend:
 

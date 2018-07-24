@@ -37,3 +37,16 @@
   action:
     service: homeassistant.turn_on
     entity_id: switch.zway_device_20
+- alias: "Coffee maker is ready"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: switch.zway_device_20
+    to: "on"
+    for:
+      minutes: 20
+  action:
+    - service: notify.notify
+      data:
+        message: "Coffee maker is ready to rumble"
+

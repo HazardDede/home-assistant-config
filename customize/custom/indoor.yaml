@@ -1,20 +1,26 @@
 sensor.living_temperature:
   friendly_name: Living
+  icon: mdi:thermometer
 
 sensor.living_humidity:
   friendly_name: Humidity (Indoor)
+  icon: mdi:water-percent
 
 sensor.hallway_temperature:
   friendly_name: Hallway
+  icon: mdi:thermometer
 
 sensor.gallery_temperature:
   friendly_name: Gallery
+  icon: mdi:thermometer
 
 sensor.nursery_temperature:
   friendly_name: Peanut
+  icon: mdi:thermometer
 
 sensor.bedroom_temperature:
   friendly_name: Bedroom
+  icon: mdi:thermometer
 
 sensor.gallery_luminescence:
   friendly_name: Gallery

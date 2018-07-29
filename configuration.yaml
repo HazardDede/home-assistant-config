@@ -48,7 +48,7 @@ updater:
   # include_used_components: true
 
 # Discover some devices automatically
-discovery:
+# discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -137,14 +137,7 @@ tts:
 cloud:
 
 # Emulated Hue
-emulated_hue:
-  listen_port: 80
-  upnp_bind_multicast: true
-  expose_by_default: false
-  entities:
-    light.zway_device_22:
-      name: "Stehlampe"
-      hidden: false
+emulated_hue: !include alexa.yaml
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations

@@ -2,10 +2,10 @@ rest_command:
   # Required parameter:
   # - device_name
   r433_switch_on:
-    url: 'http://localhost:5000/devices/{{device_name}}/on'
+    url: 'http://localhost:5555/devices/{{device_name}}/on'
     method: get
   r433_switch_off:
-    url: 'http://localhost:5000/devices/{{device_name}}/off'
+    url: 'http://localhost:5555/devices/{{device_name}}/off'
     method: get
 
 script:

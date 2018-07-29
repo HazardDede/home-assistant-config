@@ -4,7 +4,7 @@ sensor:
     username: !secret influx_user
     password: !secret influx_pwd
     queries:
-      - name: living_humidity_raw
+      - name: living_humidity
         unit_of_measurement: "%"
         value_template: '{{ value | round(1) }}'
         group_function: last
@@ -12,13 +12,3 @@ sensor:
         measurement: '"environment"'
         field: humidity
         database: home
-  - platform: filter
-    name: living_humidity
-    entity_id: sensor.living_humidity
-    filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2

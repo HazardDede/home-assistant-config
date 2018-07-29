@@ -26,19 +26,11 @@ sensor:
     name: net_rate_up
     entity_id: sensor.net_rate_up_raw
     filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2
+      - filter: range
+        lower_bound: 0
   - platform: filter
     name: net_rate_down
     entity_id: sensor.net_rate_down_raw
     filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2
+      - filter: range
+        lower_bound: 0

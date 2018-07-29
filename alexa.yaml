@@ -1,32 +1,31 @@
-emulated_hue:
-  listen_port: 80
-  upnp_bind_multicast: true
-  expose_by_default: false
-  entities:
-    light.zway_device_22:
-      name: "Stehlampe"
-      hidden: false
-    switch.r433_miffy:
-      name: "Miffy Lampe"
-      hidden: false
-    switch.r433_moon:
-      name: "Mondlampe"
-      hidden: false
-    switch.zway_device_13:
-      name: "Galerielampe"
-      hidden: false
-    switch.zway_device_17:
-      name: "Schlittenlampe"
-      hidden: false
-    switch.zway_device_20:
-      name: "Kaffeemaschine"
-      hidden: false
-    switch.zway_device_21:
-      name: "Fernseher Schlafzimmer"
-      hidden: false
-    switch.zway_device_4:
-      name: "Fernseher Wohnzimmer"
-      hidden: false
-    switch.zway_device_5:
-      name: "Mann mit Hut"
-      hidden: false
+listen_port: 80
+upnp_bind_multicast: true
+expose_by_default: false
+entities:
+  light.zway_device_22:
+    name: "Stehlampe"
+    hidden: false
+  switch.r433_miffy:
+    name: "Miffy Lampe"
+    hidden: false
+  switch.r433_moon:
+    name: "Mondlampe"
+    hidden: false
+  switch.zway_device_13:
+    name: "Galerielampe"
+    hidden: false
+  switch.zway_device_17:
+    name: "Schlittenlampe"
+    hidden: false
+  switch.zway_device_20:
+    name: "Kaffeemaschine"
+    hidden: false
+  switch.zway_device_21:
+    name: "Fernseher Schlafzimmer"
+    hidden: false
+  switch.zway_device_4:
+    name: "Fernseher Wohnzimmer"
+    hidden: false
+  switch.zway_device_5:
+    name: "Mann mit Hut"
+    hidden: false

@@ -4,7 +4,7 @@ sensor:
     username: !secret influx_user
     password: !secret influx_pwd
     queries:
-      - name: living_temperature
+      - name: living_temperature_raw
         unit_of_measurement: °C
         value_template: '{{ value | round(1) }}'
         group_function: last
@@ -44,3 +44,10 @@ sensor:
         measurement: '"environment"'
         field: temperature
         database: home
+  - platform: filter
+    name: living_temperature
+    entity_id: sensor.living_temperature_raw
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0

@@ -6,11 +6,11 @@ sensor:
       net_external_ip:
         value_template: "{{ states.sensor.fritz_netmonitor.attributes.external_ip }}"
         icon_template: mdi:nuke
-      net_rate_up:
+      net_rate_up_raw:
         unit_of_measurement: "MBit/s"
         icon_template: mdi:upload
         value_template: "{{(states.sensor.fritz_netmonitor.attributes.transmission_rate_up * 8 / 1000 / 1000)|round(2)}}"
-      net_rate_down:
+      net_rate_down_raw:
         unit_of_measurement: "MBit/s"
         icon_template: mdi:download
         value_template: "{{(states.sensor.fritz_netmonitor.attributes.transmission_rate_down * 8 / 1000 / 1000)|round(2)}}"
@@ -22,3 +22,15 @@ sensor:
         unit_of_measurement: "MBit/s"
         icon_template: mdi:progress-download
         value_template: "{{(states.sensor.fritz_netmonitor.attributes.max_byte_rate_down * 8 / 1000 / 1000)|round(2)}}"
+  - platform: filter
+    name: net_rate_up
+    entity_id: sensor.net_rate_up_raw
+    filters:
+      - filter: range
+        lower_bound: 0
+  - platform: filter
+    name: net_rate_down
+    entity_id: sensor.net_rate_down_raw
+    filters:
+      - filter: range
+        lower_bound: 0

@@ -20,24 +20,24 @@ scene:
         state: on
         brightness: 100
 
-light:
-  - platform: template
-    lights:
-      living_cinema:
-        turn_on: 
-          service: scene.turn_on
-          data:
-            entity_id: scene.living_cinematic
-        turn_off:
-          service: scene.turn_on
-          data:
-            entity_id: scene.living_lights_off
-      living:
-        turn_on: 
-          service: scene.turn_on
-          data:
-            entity_id: scene.living_lights_on
-        turn_off:
-          service: scene.turn_on
-          data:
-            entity_id: scene.living_lights_off
+# light:
+#   - platform: template
+#     lights:
+#       living_cinema:
+#         turn_on: 
+#           service: scene.turn_on
+#           data:
+#             entity_id: scene.living_cinematic
+#         turn_off:
+#           service: scene.turn_on
+#           data:
+#             entity_id: scene.living_lights_off
+#       living:
+#         turn_on: 
+#           service: scene.turn_on
+#           data:
+#             entity_id: scene.living_lights_on
+#         turn_off:
+#           service: scene.turn_on
+#           data:
+#             entity_id: scene.living_lights_off

@@ -22,15 +22,13 @@ sensor:
         unit_of_measurement: "MBit/s"
         icon_template: mdi:progress-download
         value_template: "{{(states.sensor.fritz_netmonitor.attributes.max_byte_rate_down * 8 / 1000 / 1000)|round(2)}}"
-  - platform: filter
-    name: net_rate_up
-    entity_id: sensor.net_rate_up_raw
-    filters:
-      - filter: range
-        lower_bound: 0
-  - platform: filter
-    name: net_rate_down
-    entity_id: sensor.net_rate_down_raw
-    filters:
-      - filter: range
-        lower_bound: 0
+  - platform: template
+    sensors:
+      net_rate_up:
+        unit_of_measurement: "MBit/s"
+        icon_template: mdi:upload
+        value_template: "{% if states.sensor.net_rate_up_raw.state|int < 0 %}0.00{% else %}{{states.sensor.net_rate_up_raw.state|float|round(2)}}{% endif %}"
+      net_rate_down:
+        unit_of_measurement: "MBit/s"
+        icon_template: mdi:download
+        value_template: "{% if states.sensor.net_rate_down_raw.state|int < 0 %}0.00{% else %}{{states.sensor.net_rate_down_raw.state|float|round(2)}}{% endif %}"

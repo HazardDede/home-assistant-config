@@ -1,8 +1,12 @@
 sensor:
-- platform: yr
-  name: weather
-  monitored_conditions:
-    - temperature
-    - symbol
-    - humidity
-    - cloudiness
+  - platform: yr
+    name: weather
+    monitored_conditions:
+      - temperature
+      - symbol
+      - humidity
+      - cloudiness
+  - platform: template
+    sensors:
+      weather_iframe:
+        value_template: iframe

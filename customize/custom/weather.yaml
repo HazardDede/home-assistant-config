@@ -11,3 +11,11 @@ sensor.weather_symbol:
 
 sensor.weather_temperature:
   friendly_name: Temperature
+
+sensor.weather_iframe:
+  custom_ui_state_card: state-card-iframe
+  config:
+    height: 220
+    width: 100
+    scale: 0.75
+    url: "https://forecast.io/embed/?#lat=53.751355&lon=9.663252&units=ca"

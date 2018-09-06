@@ -8,6 +8,11 @@ exterior:
     - sensor.weather_humidity
     - sensor.weather_cloudiness
 
+weather_iframe:
+  name: ' '
+  entities:
+    - sensor.weather_iframe
+
 system:
   name: System
   entities:
@@ -111,6 +116,7 @@ weather_tab:
     - sensor.weather_temperature
     - sensor.living_humidity
     - sensor.weather_humidity
+    - group.weather_iframe
     - group.exterior
     - group.temperature_ground
     - group.temperature_first

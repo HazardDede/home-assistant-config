@@ -8,12 +8,6 @@ exterior:
     - sensor.weather_humidity
     - sensor.weather_cloudiness
 
-connections:
-  name: Connections
-  entities:
-    - sensor.hamburg_hbf_to_elmshorn
-    - sensor.elmshorn_to_hamburgaltona
-
 system:
   name: System
   entities:
@@ -102,23 +96,22 @@ default_view:
   entities:
     - device_tracker.dennis
     - device_tracker.jennifer
-    - sensor.weather_symbol
     - group.family_status
-    - group.exterior
-    - group.connections
     - group.living
     - group.krymmel
     - group.bedroom
     - group.peanut
 
-temperature_tab:
-  name: "Temperature"
+weather_tab:
+  name: "Weather"
   view: yes
-  icon: "mdi:thermometer-lines"
+  icon: "mdi:weather-cloudy"
   entities:
+    - sensor.weather_symbol
     - sensor.weather_temperature
     - sensor.living_humidity
     - sensor.weather_humidity
+    - group.exterior
     - group.temperature_ground
     - group.temperature_first
 

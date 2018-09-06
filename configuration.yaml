@@ -74,8 +74,6 @@ recorder:
       - input_select.dennis_state
       - input_select.jennifer_state
       - sensor.date__time
-      - sensor.elmshorn_to_hamburgaltona
-      - sensor.hamburg_hbf_to_elmshorn
       - sensor.moon
       - sensor.net_external_ip
       - sensor.since_last_boot
@@ -103,8 +101,6 @@ history:
       - input_select.dennis_state
       - input_select.jennifer_state
       - sensor.date__time
-      - sensor.elmshorn_to_hamburgaltona
-      - sensor.hamburg_hbf_to_elmshorn
       - sensor.moon
       - sensor.net_external_ip
       - sensor.since_last_boot

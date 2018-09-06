@@ -1,5 +1,5 @@
 sensor:
-- platform: time_date
-  name: date_time
-  display_options:
-    - 'date_time'
+  - platform: time_date
+    name: date_time
+    display_options:
+      - 'date_time'

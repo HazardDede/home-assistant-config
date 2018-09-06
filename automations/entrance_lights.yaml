@@ -1,0 +1,18 @@
+- alias: Turn on living room lights when there is an entrance
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.zway_device_7
+    to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.hallway_luminescence
+      below: 3
+    - condition: template
+      value_template: "{{ not is_state('sensor.dennis_status', 'Home') }}"
+      # State can be: Home, Just Arrived, Just Left, Away, Extended Away
+    - condition: template
+      value_template: "{{ not is_state('sensor.jennifer_status', 'Home') }}"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.living_lights_on

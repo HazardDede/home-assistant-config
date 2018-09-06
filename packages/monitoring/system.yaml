@@ -11,11 +11,18 @@ sensor:
       - type: load_15m
       - type: since_last_boot
   - platform: command_line
-    name: cpu_temp
+    name: cpu_temp_raw
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
+  - platform: filter
+    name: cpu_temp
+    entity_id: sensor.cpu_temp_raw
+    filters:
+      - filter: time_simple_moving_average
+        window_size: 00:01
+        precision: 2
   - platform: speedtest
     minute: 30
     hour:

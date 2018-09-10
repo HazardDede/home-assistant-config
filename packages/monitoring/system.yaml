@@ -21,7 +21,7 @@ sensor:
     entity_id: sensor.cpu_temp_raw
     filters:
       - filter: time_simple_moving_average
-        window_size: 00:01
+        window_size: 00:03
         precision: 2
   - platform: speedtest
     minute: 30

@@ -114,7 +114,7 @@ weather_tab:
   icon: "mdi:weather-cloudy"
   entities:
     - sensor.weather_symbol
-    - group.weather_iframe
+    # - group.weather_iframe
     - group.exterior
     - group.temperature_ground
     - group.temperature_first

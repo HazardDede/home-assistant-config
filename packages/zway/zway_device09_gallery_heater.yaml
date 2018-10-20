@@ -18,3 +18,13 @@ automation:
         data_template:
           device_id: 9
           setpoint: "{{ trigger.to_state.state | int }}"
+  - alias: "Gallery heater - Pull setpoint"
+    initial_state: True
+    trigger:
+      platform: mqtt
+      topic: 'zway/device_9/setpoint'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.zway_device_9
+        value: "{{ trigger.payload }}"

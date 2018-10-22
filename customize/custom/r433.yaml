@@ -3,3 +3,6 @@ switch.r433_moon:
 
 switch.r433_miffy:
   friendly_name: "Miffy"
+
+switch.r433_bedlamp:
+  friendly_name: "Bedlamp"

@@ -68,6 +68,7 @@ bedroom:
     - sensor.bedroom_luminescence
     - binary_sensor.zway_device_23
     - switch.zway_device_21
+    - switch.r433_moon
 
 peanut:
   name: "Peanut"

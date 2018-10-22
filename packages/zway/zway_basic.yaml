@@ -73,8 +73,8 @@ script:
         data_template:
           device_id: "{{device_id}}"
           level: "{% if (brightness|int / 255 * 100)|round > 99 %}99{% else %}{{(brightness|int / 255 * 100)|round}}{% endif %}"
-      # - service: mqtt.publish
-      #   data_template:
-      #     topic: "zway/device_{{device_id}}/brightness"
-      #     payload: "{{brightness|int}}"
-      #     retain: True
+      - service: mqtt.publish
+        data_template:
+          topic: "zway/device_{{device_id}}/brightness"
+          payload: "{{brightness|int}}"
+          retain: True

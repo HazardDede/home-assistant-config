@@ -11,6 +11,9 @@ entities:
   switch.r433_moon:
     name: "Mondlampe"
     hidden: false
+  switch.r433_bedlamp:
+    name: "Bettlampe"
+    hidden: false
   switch.zway_device_13:
     name: "Galerielampe"
     hidden: false

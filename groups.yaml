@@ -80,6 +80,11 @@ peanut:
     - switch.r433_moon
     - switch.r433_miffy
 
+climate_control:
+  name: "Climate Controller"
+  entities:
+    - input_select.heating_mode
+
 temperature_ground:
   name: "Ground floor (°C)"
   entities:
@@ -109,14 +114,15 @@ default_view:
     - group.bedroom
     - group.peanut
 
-weather_tab:
-  name: "Weather"
+climate_tab:
+  name: "Climate"
   view: yes
-  icon: "mdi:weather-cloudy"
+  icon: "mdi:thermometer-lines"
   entities:
     - sensor.weather_symbol
     # - group.weather_iframe
     - group.exterior
+    - group.climate_control
     - group.temperature_ground
     - group.temperature_first
 

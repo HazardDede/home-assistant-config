@@ -1,0 +1,9 @@
+input_select:
+  heating_mode:
+    name: "Heating mode"
+    options:
+      - Comfort
+      - Energy saving
+      - Frost protection
+    icon:
+      mdi:radiator

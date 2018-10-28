@@ -1,0 +1,14 @@
+input_boolean:
+  splash_time:
+    name: Splash time (today)
+    icon: mdi:hot-tub
+
+automation:
+  - alias: "Reset splash time"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '00:00:00'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.splash_time

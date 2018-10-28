@@ -1,0 +1,10 @@
+binary_sensor:
+  - platform: ping
+    name: zway_ping
+    host: 192.168.178.44
+
+homeassistant:
+  customize:
+    binary_sensor.zway_ping:  
+      friendly_name: "Zway"
+      icon: mdi:z-wave

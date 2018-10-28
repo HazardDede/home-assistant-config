@@ -37,6 +37,11 @@ net:
     - sensor.net_rate_down_max
     - sensor.net_rate_up_max
 
+server:
+  name: Server
+  entities: 
+    - binary_sensor.zway_ping
+
 living:
   name: "Living"
   control: hidden
@@ -84,6 +89,7 @@ climate_control:
   name: "Climate Controller"
   entities:
     - input_select.heating_mode
+    - input_boolean.splash_time
 
 temperature_ground:
   name: "Ground floor (°C)"
@@ -138,6 +144,7 @@ monitoring_tab:
     - sensor.speedtest_ping
     - group.system
     - group.net
+    - group.server
 
 settings_tab:
   name: Settings

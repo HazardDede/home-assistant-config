@@ -1,0 +1,30 @@
+input_number:
+  zway_device_8:
+    name: "Nursery heater"
+    min: 6
+    max: 28
+    step: 1
+    unit_of_measurement: "°C"
+    icon: mdi:thermostat
+
+automation:
+  - alias: "Nursery heater - Adjust setpoint"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_number.zway_device_8
+    action:
+      - service: script.zway_heater_setpoint
+        data_template:
+          device_id: 8
+          setpoint: "{{ trigger.to_state.state | int }}"
+  - alias: "Nursery heater - Pull setpoint"
+    initial_state: True
+    trigger:
+      platform: mqtt
+      topic: 'zway/device_8/setpoint'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.zway_device_8
+        value: "{{ trigger.payload }}"

@@ -100,6 +100,8 @@ temperature_first:
     - sensor.nursery_temperature
     - sensor.bedroom_temperature
     - input_number.zway_device_12
+    - input_number.zway_device_8
+    - input_number.zway_device_11
 
 default_view:
   name: Home

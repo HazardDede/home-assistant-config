@@ -7,9 +7,6 @@ switch.zway_device_5:
 binary_sensor.zway_device_7:
   friendly_name: "Motion (hallway)"
 
-input_number.zway_device_12:
-  name: "Hallway heater"
-
 switch.zway_device_13:
   friendly_name: "Vintage lamp"
 

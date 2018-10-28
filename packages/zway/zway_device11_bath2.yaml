@@ -1,0 +1,30 @@
+input_number:
+  zway_device_11:
+    name: "Bath (upstairs) heater"
+    min: 6
+    max: 28
+    step: 1
+    unit_of_measurement: "°C"
+    icon: mdi:thermostat
+
+automation:
+  - alias: "Bath (upstairs) heater - Adjust setpoint"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_number.zway_device_11
+    action:
+      - service: script.zway_heater_setpoint
+        data_template:
+          device_id: 11
+          setpoint: "{{ trigger.to_state.state | int }}"
+  - alias: "Bath (upstairs) heater - Pull setpoint"
+    initial_state: True
+    trigger:
+      platform: mqtt
+      topic: 'zway/device_11/setpoint'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.zway_device_11
+        value: "{{ trigger.payload }}"

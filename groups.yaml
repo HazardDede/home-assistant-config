@@ -96,7 +96,7 @@ temperature_ground:
   entities:
     - sensor.living_temperature
     - sensor.hallway_temperature
-    - input_number.zway_device_9
+    - input_number.zway_device_12
     - input_number.zway_device_6
 
 temperature_first:
@@ -105,7 +105,7 @@ temperature_first:
     - sensor.gallery_temperature
     - sensor.nursery_temperature
     - sensor.bedroom_temperature
-    - input_number.zway_device_12
+    - input_number.zway_device_9
     - input_number.zway_device_8
     - input_number.zway_device_11
 

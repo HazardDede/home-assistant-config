@@ -40,6 +40,8 @@ net:
 server:
   name: Server
   entities: 
+    - binary_sensor.fritz_ping
+    - binary_sensor.mediaserver_ping
     - binary_sensor.zway_ping
 
 living:

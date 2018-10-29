@@ -3,9 +3,23 @@ binary_sensor:
     name: zway_ping
     host: 192.168.178.44
     scan_interval: 30
+  - platform: ping
+    name: fritz_ping
+    host: 192.168.178.1
+    scan_interval: 30
+  - platform: ping
+    name: mediaserver_ping
+    host: 192.168.178.52
+    scan_interval: 30
 
 homeassistant:
   customize:
     binary_sensor.zway_ping:  
       friendly_name: "Zway"
       icon: mdi:z-wave
+    binary_sensor.fritz_ping:  
+      friendly_name: "FritzBox"
+      icon: mdi:router-wireless
+    binary_sensor.mediaserver_ping:  
+      friendly_name: "Mediaserver (NAS)"
+      icon: mdi:nas

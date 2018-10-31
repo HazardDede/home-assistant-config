@@ -1,5 +1,4 @@
-- alias: 'Unexpected entrance'
-  initial_state: True
+- alias: 'Notify: Unexpected entrance'
   trigger:
     platform: state
     entity_id: binary_sensor.zway_device_7

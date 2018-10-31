@@ -6,14 +6,14 @@ input_boolean:
 automation:
   - alias: "Reset splash time"
     initial_state: True
+    hide_entity: True
     trigger:
       platform: time
       at: '00:00:00'
     action:
       service: input_boolean.turn_off
       entity_id: input_boolean.splash_time
-  - alias: "Notify splash time"
-    initial_state: True
+  - alias: "Notify: Splash time"
     trigger:
       platform: time
       at: '19:15:00'

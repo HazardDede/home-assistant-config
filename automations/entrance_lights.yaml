@@ -1,5 +1,4 @@
 - alias: Turn on living room lights when there is an entrance
-  initial_state: True
   trigger:
     platform: state
     entity_id: binary_sensor.zway_device_7

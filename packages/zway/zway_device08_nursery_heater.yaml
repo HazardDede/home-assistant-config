@@ -10,6 +10,7 @@ input_number:
 automation:
   - alias: "Nursery heater - Adjust setpoint"
     initial_state: True
+    hide_entity: True
     trigger:
       platform: state
       entity_id: input_number.zway_device_8
@@ -20,6 +21,7 @@ automation:
           setpoint: "{{ trigger.to_state.state | int }}"
   - alias: "Nursery heater - Pull setpoint"
     initial_state: True
+    hide_entity: True
     trigger:
       platform: mqtt
       topic: 'zway/device_8/setpoint'

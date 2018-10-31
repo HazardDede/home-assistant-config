@@ -1,5 +1,4 @@
 - alias: "Coffee maker on in the morning (weekend)"
-  initial_state: True
   trigger:
     platform: time
     at: '06:30:00'
@@ -18,7 +17,6 @@
     service: homeassistant.turn_on
     entity_id: switch.zway_device_20
 - alias: "Coffee maker on in the morning (workdays)"
-  initial_state: True
   trigger:
     platform: time
     at: '04:50:00'
@@ -37,8 +35,7 @@
   action:
     service: homeassistant.turn_on
     entity_id: switch.zway_device_20
-- alias: "Coffee maker is ready"
-  initial_state: True
+- alias: "Notify: Coffee maker is ready"
   trigger:
     platform: state
     entity_id: switch.zway_device_20
@@ -49,4 +46,3 @@
     - service: notify.notify
       data:
         message: "Coffee maker is ready to rumble"
-

@@ -77,13 +77,13 @@ sun:
 mqtt:
   broker: !secret mqtt_host
 
-influxdb:
-  host: !secret influx_host
-  username: !secret influx_user
-  password: !secret influx_pwd
-  database: ha
-  exclude:
-    !include exclude_entities.yaml
+# influxdb:
+#   host: !secret influx_host
+#   username: !secret influx_user
+#   password: !secret influx_pwd
+#   database: ha
+#   exclude:
+#     !include exclude_entities.yaml
 
 # Setting up notifications
 notify: !include_dir_list notifications

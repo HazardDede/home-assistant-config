@@ -57,56 +57,12 @@ conversation:
 
 recorder:
   exclude:
-    domains:
-      - automation
-      - script
-      - weblink
-      - updater
-      - group
-    entities:
-      - binary_sensor.r433_miffy_state
-      - binary_sensor.r433_moon_state
-      - binary_sensor.zway_device_13
-      - binary_sensor.zway_device_17
-      - binary_sensor.zway_device_20
-      - binary_sensor.zway_device_21
-      - binary_sensor.zway_device_4
-      - binary_sensor.zway_device_5
-      - sensor.zway_device_22
-      - input_select.dennis_state
-      - input_select.jennifer_state
-      - sensor.date__time
-      - sensor.moon
-      - sensor.net_external_ip
-      - sensor.since_last_boot
-      - sensor.weather_symbol
+    !include exclude_entities.yaml
 
 # Enables support for tracking state changes over time
 history:
   exclude:
-    domains:
-      - automation
-      - script
-      - weblink
-      - updater
-      - group
-    entities:
-      - binary_sensor.r433_miffy_state
-      - binary_sensor.r433_moon_state
-      - binary_sensor.zway_device_13
-      - binary_sensor.zway_device_17
-      - binary_sensor.zway_device_20
-      - binary_sensor.zway_device_21
-      - binary_sensor.zway_device_4
-      - binary_sensor.zway_device_5
-      - sensor.zway_device_22
-      - input_select.dennis_state
-      - input_select.jennifer_state
-      - sensor.date__time
-      - sensor.moon
-      - sensor.net_external_ip
-      - sensor.since_last_boot
-      - sensor.weather_symbol
+    !include exclude_entities.yaml
 
 # View all events in a logbook
 logbook:
@@ -117,15 +73,20 @@ map:
 # Track the sun
 sun:
 
+# External MQTT host
 mqtt:
   broker: !secret mqtt_host
 
-notify: !include_dir_list notifications
+influxdb:
+  host: !secret influx_host
+  username: !secret influx_user
+  password: !secret influx_pwd
+  database: ha
+  exclude:
+    !include exclude_entities.yaml
 
-# Devices
-# sensor: !include_dir_list sensors
-# binary_sensor: !include_dir_list binary_sensors
-# switch: !include_dir_list switches
+# Setting up notifications
+notify: !include_dir_list notifications
 
 # Text to speech
 tts:
@@ -137,6 +98,7 @@ cloud:
 # Emulated Hue
 emulated_hue: !include alexa.yaml
 
+# Groups and automation
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 
@@ -149,9 +111,9 @@ panel_iframe:
     title: 'RPi Monitor'
     url: 'http://services:8888'
     icon: mdi:raspberrypi
-  zway:
-    title: 'Z-Way'
-    url: 'http://192.168.178.44:8083/'
-    icon: mdi:access-point
+  grafana:
+    title: 'Grafana'
+    url: 'http://services:3000'
+    icon: mdi:chart-line   
 
 zone: !include_dir_list zones

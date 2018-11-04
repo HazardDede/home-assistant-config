@@ -1,0 +1,147 @@
+title: Smarthome
+
+resources:
+  - url: /local/lovelace/group-card.js?v=1
+    type: js
+
+views:
+  - title: Home
+    icon: mdi:home
+    id: home
+    badges:
+      - device_tracker.dennis
+      - device_tracker.jennifer
+    cards:
+      - id: home_tracker
+        type: entities
+        entities:
+          - sensor.jennifer_status
+          - sensor.dennis_status
+      - id: home_living
+        type: entities
+        title: "Living room"
+        entities:
+          - sensor.living_temperature
+          - sensor.hallway_temperature
+          - sensor.hallway_luminescence
+          - binary_sensor.zway_device_7
+          - switch.zway_device_4
+          - switch.zway_device_5
+          - switch.zway_device_17
+          - light.zway_device_22
+          - switch.zway_device_20
+      - id: home_krymmel
+        type: entities
+        title: "Krymmel's End"
+        entities:
+          - sensor.gallery_temperature
+          - sensor.gallery_luminescence
+          - binary_sensor.zway_device_24
+          - switch.zway_device_13
+      - id: home_bedroom
+        type: entities
+        title: "Bedroom"
+        entities:
+          - sensor.bedroom_temperature
+          - sensor.bedroom_luminescence
+          - binary_sensor.zway_device_23
+          - switch.zway_device_21
+          - switch.r433_bedlamp
+      - id: home_peanut
+        type: entities
+        title: "Peanut's Playground"
+        entities:
+          - sensor.nursery_temperature
+          - sensor.nursery_luminescence
+          - binary_sensor.zway_device_19
+          - switch.r433_moon
+          - switch.r433_miffy
+  - title: Climate
+    id: climate
+    icon: mdi:thermometer-lines
+    badges:
+      - sensor.weather_symbol
+    cards:
+      - id: climate_exterior
+        type: entities
+        title: Elmshorn
+        entities:
+          - sensor.date__time
+          - sun.sun
+          - sensor.moon
+          - sensor.weather_temperature
+          - sensor.weather_cloudiness
+          - sensor.weather_humidity
+          - sensor.living_humidity
+      - id: climate_control
+        type: entities
+        title: Climate Controller
+        entities:
+          - input_select.heating_mode
+          - input_boolean.splash_time
+      - id: climate_ground
+        type: entities
+        title: "Ground floor (°C)"
+        entities:
+          - sensor.living_temperature
+          - sensor.hallway_temperature
+          - input_number.zway_device_12
+          - input_number.zway_device_6
+      - id: climate_first
+        type: entities
+        title: "First floor (°C)"
+        entities:
+          - sensor.gallery_temperature
+          - sensor.nursery_temperature
+          - sensor.bedroom_temperature
+          - input_number.zway_device_9
+          - input_number.zway_device_8
+          - input_number.zway_device_11
+  - title: Monitoring
+    id: monitoring
+    icon: mdi:desktop-classic
+    badges:
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
+    cards:
+      - id: mon_system
+        type: entities
+        title: System
+        entities:
+          - sensor.processor_use
+          - sensor.cpu_temp
+          - sensor.memory_use_percent
+          - sensor.disk_use_percent_
+          - sensor.swap_use_percent
+          - sensor.load_1m
+          - sensor.load_5m
+          - sensor.load_15m
+          - sensor.since_last_boot
+      - id: mon_net
+        type: entities
+        title: Network
+        entities:
+          - sensor.fritz_netmonitor
+          - sensor.net_external_ip
+          - sensor.net_rate_down
+          - sensor.net_rate_up
+          - sensor.net_rate_down_max
+          - sensor.net_rate_up_max
+      - id: mon_server
+        type: entities
+        title: Server
+        entities:
+          - binary_sensor.fritz_ping
+          - binary_sensor.mediaserver_ping
+          - binary_sensor.zway_ping
+  - title: Settings
+    id: settings
+    icon: mdi:settings-outline
+    cards:
+      - type: custom:group-card
+        id: all_automations
+        card:
+          type: entities
+          title: Automations
+        group: group.all_automations

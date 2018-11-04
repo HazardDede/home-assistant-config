@@ -16,6 +16,7 @@ homeassistant:
   customize_domain: !include customize/_domain.yaml
   auth_providers:
    - type: trusted_networks
+   - type: homeassistant
 
   packages: !include_dir_named packages
 

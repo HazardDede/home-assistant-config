@@ -9,11 +9,6 @@ exterior:
     - sensor.weather_humidity
     - sensor.living_humidity
 
-weather_iframe:
-  name: ' '
-  entities:
-    - sensor.weather_iframe
-
 system:
   name: System
   entities:
@@ -130,7 +125,6 @@ climate_tab:
   icon: "mdi:thermometer-lines"
   entities:
     - sensor.weather_symbol
-    # - group.weather_iframe
     - group.exterior
     - group.climate_control
     - group.temperature_ground

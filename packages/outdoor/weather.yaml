@@ -6,10 +6,6 @@ sensor:
       - symbol
       - humidity
       - cloudiness
-  - platform: template
-    sensors:
-      weather_iframe:
-        value_template: iframe
 
 # OpenweatherMap
 weather:

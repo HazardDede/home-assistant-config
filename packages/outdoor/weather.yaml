@@ -10,3 +10,9 @@ sensor:
     sensors:
       weather_iframe:
         value_template: iframe
+
+# OpenweatherMap
+weather:
+  - platform: openweathermap
+    api_key: !secret openweathermap_api_key
+    mode: daily

@@ -13,3 +13,11 @@ home-assistant_v2.db
 known_devices.yaml
 
 secrets.yaml
+
+www/rooms
+
+emulated_hue_ids.json
+
+.storage/
+
+.ios.conf

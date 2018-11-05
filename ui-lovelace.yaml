@@ -48,31 +48,30 @@ views:
           - switch.zway_device_21
           - switch.r433_bedlamp
       - id: home_peanut
-        type: entities
-        title: "Peanut's Playground"
-        entities:
-          - sensor.nursery_temperature
-          - sensor.nursery_luminescence
-          - binary_sensor.zway_device_19
-          - switch.r433_moon
-          - switch.r433_miffy
+        type: vertical-stack
+        cards:
+          - id: home_peanut_glance
+            type: picture-glance
+            title: "Peanut's Playground"
+            entities:
+              - binary_sensor.zway_device_19
+              - switch.r433_moon
+              - switch.r433_miffy
+            image: /local/rooms/peanut.jpg
+            aspect_ratio: "16:9"
+          - id: home_peanut_info
+            type: glance
+            show_name: False
+            entities:
+              - sensor.nursery_temperature
+              - sensor.nursery_luminescence
   - title: Climate
     id: climate
     icon: mdi:thermometer-lines
     badges:
       - sensor.weather_symbol
+      - sensor.living_humidity
     cards:
-      - id: climate_exterior
-        type: entities
-        title: Elmshorn
-        entities:
-          - sensor.date__time
-          - sun.sun
-          - sensor.moon
-          - sensor.weather_temperature
-          - sensor.weather_cloudiness
-          - sensor.weather_humidity
-          - sensor.living_humidity
       - id: climate_control
         type: entities
         title: Climate Controller
@@ -80,23 +79,56 @@ views:
           - input_select.heating_mode
           - input_boolean.splash_time
       - id: climate_ground
-        type: entities
-        title: "Ground floor (°C)"
-        entities:
-          - sensor.living_temperature
-          - sensor.hallway_temperature
-          - input_number.zway_device_12
-          - input_number.zway_device_6
+        type: vertical-stack
+        cards:
+          - id: climate_ground_temp
+            type: history-graph
+            title: "Ground floor (°C)"
+            refresh_interval: 10
+            entities:
+              - sensor.living_temperature
+              - sensor.hallway_temperature
+          - id: climate_ground_setpoints
+            type: entities
+            entities:
+              - input_number.zway_device_12
+              - input_number.zway_device_6
       - id: climate_first
+        type: vertical-stack
+        cards:
+          - id: climate_first_temp
+            type: history-graph
+            title: "First floor (°C)"
+            refresh_interval: 10
+            entities:
+              - sensor.gallery_temperature
+              - sensor.nursery_temperature
+              - sensor.bedroom_temperature
+          - id: climate_first_setpoints
+            type: entities
+            entities:
+              - input_number.zway_device_9
+              - input_number.zway_device_8
+              - input_number.zway_device_11
+  - title: Weather
+    id: weather
+    icon: mdi:weather-partlycloudy
+    cards:
+      - id: weather_exterior
         type: entities
-        title: "First floor (°C)"
+        title: Elmshorn
         entities:
-          - sensor.gallery_temperature
-          - sensor.nursery_temperature
-          - sensor.bedroom_temperature
-          - input_number.zway_device_9
-          - input_number.zway_device_8
-          - input_number.zway_device_11
+          - sensor.date__time
+          - sun.sun
+          - sensor.moon
+          - sensor.weather_cloudiness
+      - id: weather_forecast
+        type: weather-forecast
+        entity: weather.openweathermap
+      - id: weather_windy
+        type: iframe
+        url: https://embed.windy.com/embed2.html
+        aspect_ratio: 75%
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic

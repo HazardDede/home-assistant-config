@@ -88,6 +88,8 @@ views:
             entities:
               - sensor.living_temperature
               - sensor.hallway_temperature
+              - sensor.bath_downstairs_setpoint
+              - sensor.living_setpoint
           - id: climate_ground_setpoints
             type: entities
             entities:
@@ -104,6 +106,8 @@ views:
               - sensor.gallery_temperature
               - sensor.nursery_temperature
               - sensor.bedroom_temperature
+              - sensor.living_setpoint
+              - sensor.nursery_setpoint
           - id: climate_first_setpoints
             type: entities
             entities:

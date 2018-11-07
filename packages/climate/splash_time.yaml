@@ -13,10 +13,11 @@ automation:
     action:
       service: input_boolean.turn_off
       entity_id: input_boolean.splash_time
+  # Better: Timeframe + on + Temperature reached
   - alias: "Notify: Splash time"
     trigger:
       platform: time
-      at: '19:15:00'
+      at: '19:00:00'
     condition:
       - condition: state
         entity_id: 'input_boolean.splash_time'

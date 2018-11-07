@@ -12,11 +12,11 @@ switch:
       zway_device_17:
         value_template: "{{ is_state('binary_sensor.zway_device_17', 'on') }}"
         turn_on:
-          service: script.zway_switch_on
+          service: rest_command.zway_switch_on
           data:
             device_id: 17
         turn_off:
-          service: script.zway_switch_off
+          service: rest_command.zway_switch_off
           data:
             device_id: 17
         icon_template: >-

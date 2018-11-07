@@ -1,6 +1,8 @@
 sensor:
   - platform: mqtt
-    state_topic: "zway/device_22/brightness"
+    state_topic: "zway/device_22/level"
+    # We have to convert the zway value (0 - 99) to a hass compatible one (0 - 255)
+    value_template: "{% if (value|int * 255 / 100)|round > 255 %}255{% else %}{{(value|int * 255 / 100)|round}}{% endif %}"
     name: zway_device_22
 
 light:
@@ -10,17 +12,18 @@ light:
         level_template: "{{ states.sensor.zway_device_22.state|int }}"
         value_template: "{{ states.sensor.zway_device_22.state|int > 0 }}"
         turn_on:
-          service: script.zway_light
+          service: rest_command.zway_light
           data_template:
             device_id: 22
-            brightness: 65
+            level: 25  # 0 - 99
         turn_off:
-          service: script.zway_light
+          service: rest_command.zway_light
           data_template:
             device_id: 22
-            brightness: 0
+            level: 0  # 0 - 99
         set_level:
-          service: script.zway_light
+          service: rest_command.zway_light
           data_template:
             device_id: 22
-            brightness: "{{ brightness }}"
+            # We have to convert the hass brightness (0 - 255) to a zway compatible (0 - 99) one
+            level: "{% if (brightness|int / 255 * 100)|round > 99 %}99{% else %}{{(brightness|int / 255 * 100)|round}}{% endif %}"

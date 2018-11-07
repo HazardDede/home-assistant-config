@@ -15,7 +15,7 @@ automation:
       platform: state
       entity_id: input_number.zway_device_6
     action:
-      - service: script.zway_heater_setpoint
+      - service: rest_command.zway_heater_setpoint
         data_template:
           device_id: 6
           setpoint: "{{ trigger.to_state.state | int }}"

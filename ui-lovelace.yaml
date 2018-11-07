@@ -150,16 +150,16 @@ views:
           - sensor.load_5m
           - sensor.load_15m
           - sensor.since_last_boot
-      - id: mon_net
-        type: entities
-        title: Network
-        entities:
-          - sensor.fritz_netmonitor
-          - sensor.net_external_ip
-          - sensor.net_rate_down
-          - sensor.net_rate_up
-          - sensor.net_rate_down_max
-          - sensor.net_rate_up_max
+      # - id: mon_net
+      #   type: entities
+      #   title: Network
+      #   entities:
+      #     - sensor.fritz_netmonitor
+      #     - sensor.net_external_ip
+      #     - sensor.net_rate_down
+      #     - sensor.net_rate_up
+      #     - sensor.net_rate_down_max
+      #     - sensor.net_rate_up_max
       - id: mon_server
         type: entities
         title: Server

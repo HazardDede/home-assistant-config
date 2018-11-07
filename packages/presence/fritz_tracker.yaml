@@ -3,5 +3,6 @@ device_tracker:
     host: 192.168.178.1
     consider_home: 90
     scan_interval: 60
+    interval_seconds: 60
     new_device_defaults:
       track_new_devices: False

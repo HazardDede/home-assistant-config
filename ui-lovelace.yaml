@@ -60,11 +60,18 @@ views:
             image: /local/rooms/peanut.jpg
             aspect_ratio: "16:9"
           - id: home_peanut_info
-            type: glance
-            show_name: False
-            entities:
-              - sensor.nursery_temperature
-              - sensor.nursery_luminescence
+            type: horizontal-stack
+            cards:
+              - id: home_peanut_info_temp
+                type: sensor
+                entity: sensor.nursery_temperature
+                name: Temperature
+                height: 50
+              - id: home_peanut_info_lumen
+                type: sensor
+                entity: sensor.nursery_luminescence
+                name: Luminescence
+                height: 50
   - title: Climate
     id: climate
     icon: mdi:thermometer-lines
@@ -175,8 +182,21 @@ views:
     id: settings
     icon: mdi:settings-outline
     cards:
+      - id: settings_guest_wifi
+        type: vertical-stack
+        cards:
+          - id: settings_guest_wifi_info
+            type: markdown
+            title: Guest Wifi
+            content: >
+              "SSID: **Humletorp Gastzugang**
+              Key: **welcome1!**"
+          - id: settings_guest_wifi_button
+            type: entities
+            entities:
+              - input_boolean.guestwifi
       - type: custom:group-card
-        id: all_automations
+        id: settings_all_automations
         card:
           type: entities
           title: Automations

@@ -1,3 +1,5 @@
+.vscode/
+
 venv/
 
 deps/
@@ -21,3 +23,5 @@ emulated_hue_ids.json
 .storage/
 
 .ios.conf
+
+*.pyc

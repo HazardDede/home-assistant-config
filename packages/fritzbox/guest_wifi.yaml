@@ -1,0 +1,29 @@
+fritzbox_guestwifi:
+  host: 192.168.178.1
+  password: !secret fritzbox_pwd
+
+input_boolean:
+  guestwifi:
+    name: "Guest Wifi"
+    icon: mdi:wifi
+    initial: off
+
+automation:
+  - alias: "Guest Wifi: Turn on"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.guestwifi
+      from: 'off'
+      to: 'on'
+    action:
+      - service: fritzbox_guestwifi.turn_on
+  - alias: "Guest Wifi: Turn off"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.guestwifi
+      from: 'on'
+      to: 'off'
+    action:
+      - service: fritzbox_guestwifi.turn_off

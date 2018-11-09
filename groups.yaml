@@ -44,7 +44,7 @@ living:
   control: hidden
   entities:
     - sensor.living_temperature
-    - sensor.hallway_temperature
+    - sensor.zway_device_7_temperature
     - sensor.zway_device_7_illumination
     - binary_sensor.zway_device_7
     - switch.zway_device_4
@@ -92,7 +92,7 @@ temperature_ground:
   name: "Ground floor (°C)"
   entities:
     - sensor.living_temperature
-    - sensor.hallway_temperature
+    - sensor.zway_device_7_temperature
     - input_number.zway_device_12
     - input_number.zway_device_6
 

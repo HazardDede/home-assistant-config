@@ -13,6 +13,9 @@ binary_sensor.zway_device_7:
 sensor.zway_device_7_illumination:
   friendly_name: Hallway
 
+sensor.zway_device_7_temperature:
+  friendly_name: Hallway
+
 sensor.zway_device_8_battery:
   friendly_name: "Heater: Nursery"
 

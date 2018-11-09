@@ -24,7 +24,7 @@ views:
         title: "Living room"
         entities:
           - sensor.living_temperature
-          - sensor.hallway_temperature
+          - sensor.zway_device_7_temperature
           - sensor.zway_device_7_illumination
           - binary_sensor.zway_device_7
           - switch.zway_device_4
@@ -96,7 +96,7 @@ views:
             refresh_interval: 10
             entities:
               - sensor.living_temperature
-              - sensor.hallway_temperature
+              - sensor.zway_device_7_temperature
               - sensor.bath_downstairs_setpoint
               - sensor.living_setpoint
           - id: climate_ground_setpoints

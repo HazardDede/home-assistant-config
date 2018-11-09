@@ -5,7 +5,3 @@ sensor.living_temperature:
 sensor.living_humidity:
   friendly_name: Humidity (Indoor)
   icon: mdi:water-percent
-
-sensor.hallway_temperature:
-  friendly_name: Hallway
-  icon: mdi:thermometer

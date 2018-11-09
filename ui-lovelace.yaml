@@ -129,23 +129,47 @@ views:
     icon: mdi:flash-circle
     cards:
       - id: power_consumption
-        type: custom:monster-card
-        show_empty: False
-        card:
-          type: entities
-          title: "Consumption"
-        filter:
-          include:
-            - entity_id: "sensor.*_consumption"
+        type: vertical-stack
+        cards:
+          - type: custom:monster-card
+            id: power_consumption_entities
+            show_empty: False
+            card:
+              type: entities
+              title: "Consumption"
+            filter:
+              include:
+                - entity_id: "sensor.*_consumption"
+          - id: power_consumption_graph
+            type: custom:monster-card
+            show_empty: False
+            card:
+              type: history-graph
+              refresh_interval: 10
+            filter:
+              include:
+                - entity_id: "sensor.*_consumption"
       - id: power_power
-        type: custom:monster-card
-        show_empty: False
-        card:
-          type: entities
-          title: "Power"
-        filter:
-          include:
-            - entity_id: "sensor.*_power"
+        type: vertical-stack
+        cards:
+          - type: custom:monster-card
+            id: power_power_entities
+            show_empty: False
+            card:
+              type: entities
+              title: "Power"
+            filter:
+              include:
+                - entity_id: "sensor.*_power"
+          - id: power_power_graph
+            type: custom:monster-card
+            show_empty: False
+            card:
+              type: history-graph
+              refresh_interval: 10
+            filter:
+              include:
+                - entity_id: "sensor.*_power"
   - title: Weather
     id: weather
     icon: mdi:weather-partlycloudy

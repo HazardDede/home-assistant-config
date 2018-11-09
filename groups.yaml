@@ -57,7 +57,7 @@ krymmel:
   name: "Krymmel's End"
   control: hidden
   entities:
-    - sensor.gallery_temperature
+    - sensor.zway_device_24_temperature
     - sensor.zway_device_24_illumination
     - binary_sensor.zway_device_24
     - switch.zway_device_13
@@ -99,7 +99,7 @@ temperature_ground:
 temperature_first:
   name: "First floor (°C)"
   entities:
-    - sensor.gallery_temperature
+    - sensor.zway_device_24_temperature
     - sensor.nursery_temperature
     - sensor.bedroom_temperature
     - input_number.zway_device_9

@@ -57,3 +57,6 @@ binary_sensor.zway_device_24:
 
 sensor.zway_device_24_illumination:
   friendly_name: Gallery
+
+sensor.zway_device_24_temperature:
+  friendly_name: Gallery

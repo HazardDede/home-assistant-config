@@ -36,7 +36,7 @@ views:
         type: entities
         title: "Krymmel's End"
         entities:
-          - sensor.gallery_temperature
+          - sensor.zway_device_24_temperature
           - sensor.zway_device_24_illumination
           - binary_sensor.zway_device_24
           - switch.zway_device_13
@@ -112,7 +112,7 @@ views:
             title: "First floor (°C)"
             refresh_interval: 10
             entities:
-              - sensor.gallery_temperature
+              - sensor.zway_device_24_temperature
               - sensor.nursery_temperature
               - sensor.bedroom_temperature
               - sensor.living_setpoint

@@ -10,10 +10,6 @@ sensor.hallway_temperature:
   friendly_name: Hallway
   icon: mdi:thermometer
 
-sensor.gallery_temperature:
-  friendly_name: Gallery
-  icon: mdi:thermometer
-
 sensor.nursery_temperature:
   friendly_name: Peanut
   icon: mdi:thermometer

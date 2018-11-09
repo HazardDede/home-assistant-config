@@ -77,7 +77,7 @@ peanut:
   control: hidden
   entities:
     - sensor.nursery_temperature
-    - sensor.nursery_luminescence
+    - sensor.zway_device_19_illumination
     - binary_sensor.zway_device_19
     - switch.r433_moon
     - switch.r433_miffy

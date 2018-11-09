@@ -71,7 +71,7 @@ views:
                 height: 50
               - id: home_peanut_info_lumen
                 type: sensor
-                entity: sensor.nursery_luminescence
+                entity: sensor.zway_device_19_illumination
                 name: Luminescence
                 height: 50
   - title: Climate

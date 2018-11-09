@@ -5,7 +5,7 @@
     to: 'on'
   condition:
     condition: numeric_state
-    entity_id: sensor.nursery_luminescence
+    entity_id: sensor.zway_device_19_illumination
     below: 5
   action:
     - service: homeassistant.turn_on

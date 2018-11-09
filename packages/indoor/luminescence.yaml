@@ -4,14 +4,6 @@ sensor:
     username: !secret influx_user
     password: !secret influx_pwd
     queries:
-      - name: nursery_luminescence
-        unit_of_measurement: lux
-        value_template: '{{ value | round(0) }}'
-        group_function: last
-        where: '"room" = ''nursery'''
-        measurement: '"environment"'
-        field: luminescence
-        database: home
       - name: bedroom_luminescence
         unit_of_measurement: lux
         value_template: '{{ value | round(0) }}'

@@ -31,6 +31,9 @@ switch.zway_device_17:
 binary_sensor.zway_device_19:
   friendly_name: "Motion (nursery)"
 
+sensor.zway_device_19_illumination:
+  friendly_name: Nursery
+
 switch.zway_device_20:
   friendly_name: "Coffee"
 

@@ -117,6 +117,7 @@ views:
               - sensor.zway_device_23_temperature
               - sensor.living_setpoint
               - sensor.nursery_setpoint
+              - sensor.bath_upstairs_setpoint
           - id: climate_first_setpoints
             type: entities
             entities:

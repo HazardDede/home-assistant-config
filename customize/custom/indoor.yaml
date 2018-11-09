@@ -9,7 +9,3 @@ sensor.living_humidity:
 sensor.hallway_temperature:
   friendly_name: Hallway
   icon: mdi:thermometer
-
-sensor.bedroom_temperature:
-  friendly_name: Bedroom
-  icon: mdi:thermometer

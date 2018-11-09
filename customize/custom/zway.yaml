@@ -55,6 +55,9 @@ binary_sensor.zway_device_23:
 sensor.zway_device_23_illumination:
   friendly_name: Bedroom
 
+sensor.zway_device_23_temperature:
+  friendly_name: Bedroom
+
 binary_sensor.zway_device_24:
   friendly_name: "Motion (gallery)"
 

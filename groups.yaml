@@ -66,7 +66,7 @@ bedroom:
   name: "Bedroom"
   control: hidden
   entities:
-    - sensor.bedroom_temperature
+    - sensor.zway_device_23_temperature
     - sensor.zway_device_23_illumination
     - binary_sensor.zway_device_23
     - switch.zway_device_21
@@ -101,7 +101,7 @@ temperature_first:
   entities:
     - sensor.zway_device_24_temperature
     - sensor.zway_device_19_temperature
-    - sensor.bedroom_temperature
+    - sensor.zway_device_23_temperature
     - input_number.zway_device_9
     - input_number.zway_device_8
     - input_number.zway_device_11

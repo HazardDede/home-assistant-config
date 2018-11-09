@@ -44,7 +44,7 @@ views:
         type: entities
         title: "Bedroom"
         entities:
-          - sensor.bedroom_temperature
+          - sensor.zway_device_23_temperature
           - sensor.zway_device_23_illumination
           - binary_sensor.zway_device_23
           - switch.zway_device_21
@@ -114,7 +114,7 @@ views:
             entities:
               - sensor.zway_device_24_temperature
               - sensor.zway_device_19_temperature
-              - sensor.bedroom_temperature
+              - sensor.zway_device_23_temperature
               - sensor.living_setpoint
               - sensor.nursery_setpoint
           - id: climate_first_setpoints

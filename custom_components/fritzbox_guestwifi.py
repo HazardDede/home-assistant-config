@@ -9,7 +9,7 @@ def setup(hass, config):
     _LOGGER.debug('Setting up FRITZ!Box Guest Wifi Component')
     host = config[DOMAIN].get('host', '169.254.1.1')
     port = config[DOMAIN].get('port', 49000)
-    username = config[DOMAIN].get('username', '')
+    username = config[DOMAIN].get('username', 'dslf-config')
     password = config[DOMAIN].get('password', None)
 
     if not password:

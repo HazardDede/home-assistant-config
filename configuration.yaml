@@ -26,6 +26,7 @@ logger:
   default: warning
   logs:
     homeassistant.components.http: info
+    custom_components.fritzbox_guestwifi: info
 
 # Enables the frontend
 frontend:

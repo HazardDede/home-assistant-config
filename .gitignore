@@ -25,3 +25,5 @@ emulated_hue_ids.json
 .ios.conf
 
 *.pyc
+
+.AppleDouble

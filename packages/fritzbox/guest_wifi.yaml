@@ -1,5 +1,6 @@
 fritzbox_guestwifi:
   host: 192.168.178.1
+  username: admin
   password: !secret fritzbox_pwd
 
 input_boolean:

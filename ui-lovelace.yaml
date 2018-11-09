@@ -201,8 +201,9 @@ views:
             type: markdown
             title: Guest Wifi
             content: >
-              "SSID: **Humletorp Gastzugang**
-              Key: **welcome1!**"
+              SSID: **Humletorp Gastzugang**
+              
+              Key: **welcome1!**
           - id: settings_guest_wifi_button
             type: entities
             entities:

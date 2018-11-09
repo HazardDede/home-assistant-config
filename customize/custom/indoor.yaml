@@ -21,6 +21,3 @@ sensor.nursery_temperature:
 sensor.bedroom_temperature:
   friendly_name: Bedroom
   icon: mdi:thermometer
-
-sensor.hallway_luminescence:
-  friendly_name: Hallway

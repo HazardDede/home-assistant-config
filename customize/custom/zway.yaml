@@ -10,6 +10,9 @@ sensor.zway_device_6_battery:
 binary_sensor.zway_device_7:
   friendly_name: "Motion (hallway)"
 
+sensor.zway_device_7_illumination:
+  friendly_name: Hallway
+
 sensor.zway_device_8_battery:
   friendly_name: "Heater: Nursery"
 

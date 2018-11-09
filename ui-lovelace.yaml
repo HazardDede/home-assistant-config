@@ -25,7 +25,7 @@ views:
         entities:
           - sensor.living_temperature
           - sensor.hallway_temperature
-          - sensor.hallway_luminescence
+          - sensor.zway_device_7_illumination
           - binary_sensor.zway_device_7
           - switch.zway_device_4
           - switch.zway_device_5

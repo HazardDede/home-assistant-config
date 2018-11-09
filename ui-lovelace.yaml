@@ -124,6 +124,28 @@ views:
               - input_number.zway_device_9
               - input_number.zway_device_8
               - input_number.zway_device_11
+  - title: Power
+    id: power
+    icon: mdi:flash-circle
+    cards:
+      - id: power_consumption
+        type: custom:monster-card
+        show_empty: False
+        card:
+          type: entities
+          title: "Consumption"
+        filter:
+          include:
+            - entity_id: "sensor.*_consumption"
+      - id: power_power
+        type: custom:monster-card
+        show_empty: False
+        card:
+          type: entities
+          title: "Power"
+        filter:
+          include:
+            - entity_id: "sensor.*_power"
   - title: Weather
     id: weather
     icon: mdi:weather-partlycloudy

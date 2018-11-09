@@ -76,7 +76,7 @@ peanut:
   name: "Peanut"
   control: hidden
   entities:
-    - sensor.nursery_temperature
+    - sensor.zway_device_19_temperature
     - sensor.zway_device_19_illumination
     - binary_sensor.zway_device_19
     - switch.r433_moon
@@ -100,7 +100,7 @@ temperature_first:
   name: "First floor (°C)"
   entities:
     - sensor.zway_device_24_temperature
-    - sensor.nursery_temperature
+    - sensor.zway_device_19_temperature
     - sensor.bedroom_temperature
     - input_number.zway_device_9
     - input_number.zway_device_8

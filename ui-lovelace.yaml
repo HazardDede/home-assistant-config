@@ -66,7 +66,7 @@ views:
             cards:
               - id: home_peanut_info_temp
                 type: sensor
-                entity: sensor.nursery_temperature
+                entity: sensor.zway_device_19_temperature
                 name: Temperature
                 height: 50
               - id: home_peanut_info_lumen
@@ -113,7 +113,7 @@ views:
             refresh_interval: 10
             entities:
               - sensor.zway_device_24_temperature
-              - sensor.nursery_temperature
+              - sensor.zway_device_19_temperature
               - sensor.bedroom_temperature
               - sensor.living_setpoint
               - sensor.nursery_setpoint

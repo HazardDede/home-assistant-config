@@ -45,7 +45,7 @@ views:
         title: "Bedroom"
         entities:
           - sensor.bedroom_temperature
-          - sensor.bedroom_luminescence
+          - sensor.zway_device_23_illumination
           - binary_sensor.zway_device_23
           - switch.zway_device_21
           - switch.r433_bedlamp

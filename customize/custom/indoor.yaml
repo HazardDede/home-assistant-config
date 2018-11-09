@@ -22,8 +22,5 @@ sensor.bedroom_temperature:
   friendly_name: Bedroom
   icon: mdi:thermometer
 
-sensor.bedroom_luminescence:
-  friendly_name: Bedroom
-
 sensor.hallway_luminescence:
   friendly_name: Hallway

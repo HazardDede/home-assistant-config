@@ -1,7 +1,19 @@
 switch.zway_device_4:
   friendly_name: "TV (living)"
 
+sensor.zway_device_4_power:
+  friendly_name: "TV (living)"
+
+sensor.zway_device_4_consumption:
+  friendly_name: "TV (living)"
+
 switch.zway_device_5:
+  friendly_name: "The Man with hat"
+
+sensor.zway_device_5_power:
+  friendly_name: "The Man with hat"
+
+sensor.zway_device_5_consumption:
   friendly_name: "The Man with hat"
 
 sensor.zway_device_6_battery:
@@ -31,7 +43,19 @@ sensor.zway_device_12_battery:
 switch.zway_device_13:
   friendly_name: "Vintage lamp"
 
+sensor.zway_device_13_power:
+  friendly_name: "Vintage lamp"
+
+sensor.zway_device_13_consumption:
+  friendly_name: "Vintage lamp"
+
 switch.zway_device_17:
+  friendly_name: "Fruitbox lamp"
+
+sensor.zway_device_17_power:
+  friendly_name: "Fruitbox lamp"
+
+sensor.zway_device_17_consumption:
   friendly_name: "Fruitbox lamp"
 
 binary_sensor.zway_device_19:
@@ -44,9 +68,21 @@ sensor.zway_device_19_temperature:
   friendly_name: Nursery
 
 switch.zway_device_20:
-  friendly_name: "Coffee"
+  friendly_name: "Coffee (BZ10)"
+
+sensor.zway_device_20_power:
+  friendly_name: "Coffee (BZ10)"
+
+sensor.zway_device_20_consumption:
+  friendly_name: "Coffee (BZ10)"
 
 switch.zway_device_21:
+  friendly_name: "TV (bedroom)"
+
+sensor.zway_device_21_power:
+  friendly_name: "TV (bedroom)"
+
+sensor.zway_device_21_consumption:
   friendly_name: "TV (bedroom)"
 
 light.zway_device_22:

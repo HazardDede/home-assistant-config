@@ -9,8 +9,8 @@ input_number:
 
 sensor:
   - platform: mqtt
-    name: zway_device_6_battery
-    state_topic: "zway/device_6/battery"
+    name: zway_device_8_battery
+    state_topic: "zway/device_8/battery"
     device_class: battery
 
 automation:

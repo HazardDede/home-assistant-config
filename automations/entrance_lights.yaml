@@ -5,7 +5,7 @@
     to: 'on'
   condition:
     - condition: numeric_state
-      entity_id: sensor.gallery_luminescence
+      entity_id: sensor.zway_device_24_illumination
       below: 10
     - condition: template
       value_template: "{{ not is_state('sensor.dennis_status', 'Home') }}"

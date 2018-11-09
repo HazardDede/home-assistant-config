@@ -37,7 +37,7 @@ views:
         title: "Krymmel's End"
         entities:
           - sensor.gallery_temperature
-          - sensor.gallery_luminescence
+          - sensor.zway_device_24_illumination
           - binary_sensor.zway_device_24
           - switch.zway_device_13
       - id: home_bedroom

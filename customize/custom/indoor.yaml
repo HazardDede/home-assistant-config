@@ -22,9 +22,6 @@ sensor.bedroom_temperature:
   friendly_name: Bedroom
   icon: mdi:thermometer
 
-sensor.gallery_luminescence:
-  friendly_name: Gallery
-
 sensor.nursery_luminescence:
   friendly_name: Peanut
 

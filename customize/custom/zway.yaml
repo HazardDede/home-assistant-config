@@ -45,3 +45,6 @@ binary_sensor.zway_device_23:
 
 binary_sensor.zway_device_24:
   friendly_name: "Motion (gallery)"
+
+sensor.zway_device_24_illumination:
+  friendly_name: Gallery

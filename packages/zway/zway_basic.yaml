@@ -23,7 +23,7 @@ rest_command:
     password: !secret zway_pwd
   # Required parameter.
   # - device_id
-  # - level (0 - 100 _not_ 0 - 255)
+  # - level (0 - 99 _not_ 0 - 255)
   zway_light:
     url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[38].Set({{level}})'
     method: get

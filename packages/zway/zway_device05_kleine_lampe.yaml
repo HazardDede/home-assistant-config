@@ -6,6 +6,18 @@ binary_sensor:
     payload_off: "off"
     device_class: light
 
+sensor:
+  - platform: mqtt
+    name: zway_device_5_power
+    state_topic: "zway/device_5/power"
+    unit_of_measurement: "W"
+    icon: mdi:flash
+  - platform: mqtt
+    name: zway_device_5_consumption
+    state_topic: "zway/device_5/consumption"
+    unit_of_measurement: "kWh"
+    icon: mdi:power-plug
+
 switch:
   - platform: template
     switches:

@@ -7,6 +7,12 @@ input_number:
     unit_of_measurement: "°C"
     icon: mdi:thermostat
 
+sensor:
+  - platform: mqtt
+    name: zway_device_12_battery
+    state_topic: "zway/device_12/battery"
+    device_class: battery
+
 automation:
   - alias: "Hallway heater - Adjust setpoint"
     initial_state: True

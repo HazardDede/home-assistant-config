@@ -7,6 +7,12 @@ input_number:
     unit_of_measurement: "°C"
     icon: mdi:thermostat
 
+sensor:
+  - platform: mqtt
+    name: zway_device_9_battery
+    state_topic: "zway/device_9/battery"
+    device_class: battery
+
 automation:
   - alias: "Gallery heater - Adjust setpoint"
     initial_state: True

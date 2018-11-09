@@ -3,6 +3,8 @@ title: Smarthome
 resources:
   - url: /local/lovelace/group-card.js?v=1
     type: js
+  - url: /local/lovelace/monster-card.js?v=1
+    type: js
 
 views:
   - title: Home
@@ -148,6 +150,16 @@ views:
       - sensor.speedtest_upload
       - sensor.speedtest_ping
     cards:
+      - id: mon_battery
+        type: custom:monster-card
+        show_empty: False
+        card:
+          type: glance
+          title: "Batteries"
+        filter:
+          include:
+            - entity_id: "sensor.*_battery"
+              
       - id: mon_system
         type: entities
         title: System

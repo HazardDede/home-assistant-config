@@ -5,6 +5,7 @@ domains:
   - updater
   - group
 entities:
+  - binary_sensor.r433_bedlamp_state
   - binary_sensor.r433_miffy_state
   - binary_sensor.r433_moon_state
   - binary_sensor.zway_device_13

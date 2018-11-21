@@ -1,0 +1,21 @@
+influxdb:
+  host: !secret influx_host
+  username: !secret influx_user
+  password: !secret influx_pwd
+  database: ha
+  default_measurement: state
+  max_retries: 3
+  exclude:
+    !include ../../exclude_entities.yaml
+  tags_attributes:
+    - friendly_name
+    - hidden
+    - icon
+    - device_class
+    - unit_of_measurement
+  component_config_domain:
+    switch:
+      override_measurement: switch
+  component_config_glob:
+    "binary_sensor.*_ping":
+      override_measurement: ping

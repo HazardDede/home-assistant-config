@@ -12,6 +12,7 @@ sensor:
     name: zway_device_12_battery
     state_topic: "zway/device_12/battery"
     device_class: battery
+    unit_of_measurement: "%"
 
 automation:
   - alias: "Hallway heater - Adjust setpoint"

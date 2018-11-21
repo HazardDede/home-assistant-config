@@ -12,6 +12,7 @@ sensor:
     name: zway_device_6_battery
     state_topic: "zway/device_6/battery"
     device_class: battery
+    unit_of_measurement: "%"
 
 automation:
   - alias: "Bathroom heater - Adjust setpoint"

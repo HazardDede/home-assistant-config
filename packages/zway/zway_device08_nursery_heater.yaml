@@ -12,6 +12,7 @@ sensor:
     name: zway_device_8_battery
     state_topic: "zway/device_8/battery"
     device_class: battery
+    unit_of_measurement: "%"
 
 automation:
   - alias: "Nursery heater - Adjust setpoint"

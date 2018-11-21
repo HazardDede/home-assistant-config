@@ -6,11 +6,11 @@ binary_sensor:
   - platform: ping
     name: fritz_ping
     host: 192.168.178.1
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: mediaserver_ping
-    host: 192.168.178.52
-    scan_interval: 30
+    host: 192.168.178.10
+    scan_interval: 60
 
 homeassistant:
   customize:

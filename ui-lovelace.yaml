@@ -32,6 +32,7 @@ views:
           - switch.zway_device_17
           - light.zway_device_22
           - switch.zway_device_20
+          - vacuum.pumbaa
       - id: home_krymmel
         type: entities
         title: "Krymmel's End"

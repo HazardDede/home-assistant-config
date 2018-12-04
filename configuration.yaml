@@ -55,6 +55,7 @@ http:
 conversation:
 
 recorder:
+  purge_keep_days: 21
   exclude:
     !include exclude_entities.yaml
 

@@ -1,6 +1,0 @@
-vacuum:
-  - platform: roomba
-    host: 192.168.178.60
-    username: !secret pumba_blid
-    password: !secret pumba_password
-    name: Pumbaa

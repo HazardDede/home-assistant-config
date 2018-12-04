@@ -22,3 +22,4 @@ entities:
   - sensor.net_external_ip
   - sensor.since_last_boot
   - sensor.weather_symbol
+  - sensor.pumbaa_running_time

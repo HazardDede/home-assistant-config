@@ -1,0 +1,109 @@
+vacuum:
+  - platform: roomba
+    host: 192.168.178.60
+    username: !secret pumba_blid
+    password: !secret pumba_password
+    name: Pumbaa
+
+###########################################################
+# Bin status / notifications
+###########################################################
+
+binary_sensor:
+  - platform: template
+    sensors:
+      # The vacuum cleaner has multiple states that indicate that the device is running...
+      # Unfortunately not all of them mark them as 'on', so we need to create our own 'on' state.
+      # Optional: Do not show this helping sensor in your frotend
+      pumbaa_running:
+        value_template: >-
+          {{ states.vacuum.pumbaa.attributes.status|lower in ['running', 'user docking', 'docking'] }}
+      # Logic that marks the bin as full
+      pumbaa_bin_full:
+        # Cleaning time is greater equal to x hours
+        value_template: >-
+          {{states.sensor.pumbaa_running_time.state|float >= 12.0}}
+
+input_datetime:
+  pumbaa_last_bin_cleaning:
+    name: Last bin cleaning
+    has_date: true
+    has_time: true
+
+script:
+  # Shortcut to set the last cleaning time to now()
+  pumbaa_set_bin_clean:
+    sequence:
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.pumbaa_last_bin_cleaning
+          date: "{{now().strftime('%Y-%m-%d')}}"
+          time: '{{now().strftime("%H:%M:00")}}'
+
+sensor:
+  # Sum up all the time the device has cleaned so far.
+  # Make sure your recorder component is configured accordingly.
+  # Optional: Exclude from your recorder component
+  - platform: history_stats
+    name: pumbaa_running_time
+    entity_id: binary_sensor.pumbaa_running
+    state: 'on'
+    type: time
+    start: '{{states.input_datetime.pumbaa_last_bin_cleaning.state}}'
+    end: '{{ now() }}'
+
+alert:
+  # Does the actual alerting when the device's bin is full based
+  # on the rule of binary_sensor.pumbaa_bin_full
+  pumbaa_bin_full:
+    name: 'Pumbaa''s stomach is full'
+    done_message: 'Pumbaa is hungry again...'
+    entity_id: binary_sensor.pumbaa_bin_full
+    state: 'on'
+    repeat: 240  # Renotify every 4h
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - notify
+
+###########################################################
+# Automatic startup in the night
+###########################################################
+
+input_boolean:
+  pumbaa_nightly_run:
+    name: Nightly run
+    icon: mdi:weather-night
+
+automation:
+  - alias: "Pumbaa: Reset Nightly Run"
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: time
+      at: '04:15:00'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.pumbaa_nightly_run
+  - alias: "Pumbaa: Run nightly"
+    trigger:
+      # Run two times to make sure everything is cleaned up well
+      - platform: time
+        at: '01:30:00'
+      - platform: time
+        at: '04:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.pumbaa_nightly_run
+        state: 'on'
+      # Not already running
+      - condition: state
+        entity_id: binary_sensor.pumbaa_running
+        state: 'off'
+      # Make sure battery is in good shape
+      - condition: template
+        value_template: '{{states.vacuum.pumbaa.attributes.battery_level|float >= 80.0}}'
+    action:
+      - service: vacuum.start
+        data:
+          entity_id: vacuum.pumbaa

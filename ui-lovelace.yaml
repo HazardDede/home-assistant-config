@@ -103,7 +103,7 @@ views:
             - entity_id: "sensor.*_battery"
       - id: health_plant_monstera
         type: entities
-        title: Monstera deliciosa (MF01)
+        title: Monstera deliciosa
         entities:
           - entity: sensor.miflora_01_conductivity
             name: Conductivity

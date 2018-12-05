@@ -60,7 +60,7 @@ alert:
     done_message: 'Pumbaa is hungry again...'
     entity_id: binary_sensor.pumbaa_bin_full
     state: 'on'
-    repeat: 240  # Renotify every 4h
+    repeat: 720  # Renotify every 12h
     can_acknowledge: False
     skip_first: False
     notifiers:
@@ -104,6 +104,5 @@ automation:
       - condition: template
         value_template: '{{states.vacuum.pumbaa.attributes.battery_level|float >= 80.0}}'
     action:
-      - service: vacuum.start
-        data:
-          entity_id: vacuum.pumbaa
+      - service: homeassistant.turn_on
+        entity_id: vacuum.pumbaa

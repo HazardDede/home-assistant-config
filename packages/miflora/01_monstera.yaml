@@ -1,7 +1,7 @@
 sensor:
   - platform: miflora
     mac: 'C4:7C:8D:67:50:AB'
-    name: "Monstera deliciosa"
+    name: miflora_01_monstera_deliciosa
     force_update: false
     monitored_conditions:
       - moisture

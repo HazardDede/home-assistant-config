@@ -107,7 +107,7 @@ views:
         entities:
           - entity: sensor.miflora_01_conductivity
             name: Conductivity
-          - entity: sensor.miflora_01_light
+          - entity: sensor.miflora_01_light_intensity
             name: Light
           - entity: sensor.miflora_01_moisture
             name: Moisture

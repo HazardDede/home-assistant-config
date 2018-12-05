@@ -14,7 +14,7 @@ homeassistant:
   customize:
     sensor.miflora_01_conductivity:
       icon: mdi:flash
-    sensor.miflora_01_light:
+    sensor.miflora_01_light_intensity:
       icon: mdi:white-balance-sunny
     sensor.miflora_01_moisture:
       icon: mdi:water-percent

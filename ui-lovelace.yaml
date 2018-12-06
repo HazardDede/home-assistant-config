@@ -66,18 +66,14 @@ views:
             image: /local/rooms/peanut.jpg
             aspect_ratio: "16:9"
           - id: home_peanut_info
-            type: horizontal-stack
-            cards:
-              - id: home_peanut_info_temp
-                type: sensor
-                entity: sensor.zway_device_19_temperature
+            type: entities
+            entities:
+              - entity: binary_sensor.zway_device_19
+                name: Motion
+              - entity: sensor.zway_device_19_temperature
                 name: Temperature
-                height: 50
-              - id: home_peanut_info_lumen
-                type: sensor
-                entity: sensor.zway_device_19_illumination
+              - entity: sensor.zway_device_19_illumination
                 name: Luminescence
-                height: 50
   - title: Home Health
     id: health
     icon: mdi:heart-pulse

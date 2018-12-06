@@ -8,7 +8,14 @@ sensor:
       - cloudiness
 
 # OpenweatherMap
+# weather:
+#   - platform: openweathermap
+#     api_key: !secret openweathermap_api_key
+#     mode: daily
+
+# Dark Sky
 weather:
-  - platform: openweathermap
-    api_key: !secret openweathermap_api_key
+  - platform: darksky
+    name: Dark Sky
+    api_key: !secret darksky_api_key
     mode: daily

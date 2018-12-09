@@ -51,6 +51,13 @@ sensor:
     type: time
     start: '{{states.input_datetime.pumbaa_last_bin_cleaning.state}}'
     end: '{{ now() }}'
+  - platform: template
+    sensors:
+      pumbaa_battery:
+        value_template: >-
+          {{states.vacuum.pumbaa.attributes.battery_level|float}}
+        device_class: battery
+        unit_of_measurement: "%"
 
 alert:
   # Does the actual alerting when the device's bin is full based
@@ -89,9 +96,11 @@ automation:
     trigger:
       # Run two times to make sure everything is cleaned up well
       - platform: time
-        at: '01:30:00'
+        at: '03:30:00'
+      # sometimes pumbaa only cleans a short period of time (< 30 mins)
+      # Just re-run in such a case
       - platform: time
-        at: '04:00:00'
+        at: '04:30:00'
     condition:
       - condition: state
         entity_id: input_boolean.pumbaa_nightly_run

@@ -14,7 +14,7 @@ automation:
       service: input_boolean.turn_off
       entity_id: input_boolean.splash_time
   # Better: Timeframe + on + Temperature reached
-  - alias: "Notify: Splash time"
+  - alias: "Notify: Splash time now"
     trigger:
       platform: time
       at: '19:00:00'
@@ -26,3 +26,15 @@ automation:
       - service: notify.notify
         data:
           message: "It's splash time, now!"
+  - alias: "Notify: Splash time starting"
+    trigger:
+      platform: time
+      at: '17:00:00'
+    condition:
+      - condition: state
+        entity_id: 'input_boolean.splash_time'
+        state: 'on'
+    action:
+      - service: notify.notify
+        data:
+          message: "Today: Splash time. Remember to close the doors!"

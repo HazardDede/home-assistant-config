@@ -28,9 +28,10 @@ views:
           - sensor.zway_device_7_temperature
           - sensor.zway_device_7_illumination
           - vacuum.pumbaa
-          - binary_sensor.zway_device_7
+          - entity: binary_sensor.zway_device_7
+            name: "Hallway: Motion"
           - entity: binary_sensor.device_raspitouch_motion
-            name: Raspitouch (Motion)
+            name: "Raspitouch: Motion"
           - switch.zway_device_4
           - switch.zway_device_5
           - switch.zway_device_17

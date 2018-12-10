@@ -1,0 +1,8 @@
+binary_sensor:
+  - platform: mqtt
+    state_topic: "devices/raspitouch/motion"
+    name: device_raspitouch_motion
+    payload_on: "on"
+    payload_off: "off"
+    device_class: motion
+

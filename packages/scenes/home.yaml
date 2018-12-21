@@ -1,0 +1,9 @@
+scene:
+  - name: lights_off
+    entities:
+      switch.zway_device_5: off  # Wohnzimmer: Man with hat
+      switch.zway_device_17: off  # Wohnzimmer: Fruitbox lamp
+      light.zway_device_22: off # Wohnzimmer: Couch lamp
+      switch.r433_bedlamp: off  # Schlafzimmer: Bettlampe
+      switch.r433_miffy: off  # Kinderzimmer: Miffy
+      switch.r433_moon: off  # Kinderzimmer: Mond

@@ -1,0 +1,8 @@
+- alias: "Lights: Turn off when away"
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: 'not_home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.lights_off

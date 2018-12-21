@@ -27,6 +27,8 @@ views:
           - sensor.living_temperature
           - sensor.zway_device_7_temperature
           - sensor.zway_device_7_illumination
+          - entity: scene.living_cinematic
+            name: Cinematic
           - vacuum.pumbaa
           - entity: binary_sensor.zway_device_7
             name: "Hallway: Motion"
@@ -100,18 +102,10 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_battery"
-      - id: health_plant_monstera
-        type: entities
-        title: Monstera deliciosa
-        entities:
-          - entity: sensor.miflora_01_conductivity
-            name: Conductivity
-          - entity: sensor.miflora_01_light_intensity
-            name: Light
-          - entity: sensor.miflora_01_moisture
-            name: Moisture
-          - entity: sensor.miflora_01_temperature
-            name: Temperature
+      - id: health_plant_01
+        type: plant-status
+        name: Pfeilblatt
+        entity: plant.miflora_01
       - id: health_pumbaa
         type: entities
         title: "Pumbaa"

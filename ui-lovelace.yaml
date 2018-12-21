@@ -104,8 +104,9 @@ views:
             - entity_id: "sensor.*_battery"
       - id: health_plant_01
         type: plant-status
-        name: Pfeilblatt
-        entity: plant.miflora_01
+        entity: 
+          entity: plant.miflora_01
+          name: Pfeilblatt
       - id: health_pumbaa
         type: entities
         title: "Pumbaa"

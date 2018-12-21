@@ -15,3 +15,8 @@ plant:
     max_temperature: 32
     min_brightness: 1500
     max_brightness: 6000
+
+homeassistant:
+  customize:
+    plant.miflora_01:
+      friendly_name: Pfeilblatt

@@ -1,7 +1,7 @@
 sensor:
   - platform: miflora
-    mac: 'C4:7C:8D:67:50:AB'
-    name: miflora_01
+    mac: 'C4:7C:8D:67:4F:3D'
+    name: miflora_02
     force_update: True
     monitored_conditions:
       - moisture
@@ -13,12 +13,12 @@ sensor:
 
 homeassistant:
   customize:
-    sensor.miflora_01_conductivity:
+    sensor.miflora_02_conductivity:
       icon: mdi:flash
-    sensor.miflora_01_light_intensity:
+    sensor.miflora_02_light_intensity:
       icon: mdi:white-balance-sunny
-    sensor.miflora_01_moisture:
+    sensor.miflora_02_moisture:
       icon: mdi:water-percent
-    sensor.miflora_01_battery:
+    sensor.miflora_02_battery:
       device_class: battery
       unit_of_measurement: "%"

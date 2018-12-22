@@ -8,15 +8,33 @@ plant:
       brightness: sensor.miflora_01_light_intensity
     min_moisture: 15
     max_moisture: 60
-    min_battery: 20
+    min_battery: 10
     min_conductivity: 350
     max_conductivity: 2000
     min_temperature: 15
     max_temperature: 32
     min_brightness: 1500
     max_brightness: 6000
+  miflora_02:
+    sensors:
+      moisture: sensor.miflora_02_moisture
+      battery: sensor.miflora_02_battery
+      temperature: sensor.miflora_02_temperature
+      conductivity: sensor.miflora_02_conductivity
+      brightness: sensor.miflora_02_light_intensity
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 32
+    min_brightness: 800
+    max_brightness: 20000
 
 homeassistant:
   customize:
     plant.miflora_01:
       friendly_name: Pfeilblatt
+    plant.miflora_02:
+      friendly_name: Calathea sanderiana

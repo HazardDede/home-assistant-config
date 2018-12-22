@@ -105,6 +105,9 @@ views:
       - id: health_plant_01
         type: plant-status
         entity: plant.miflora_01
+      - id: health_plant_02
+        type: plant-status
+        entity: plant.miflora_02
       - id: health_pumbaa
         type: entities
         title: "Pumbaa"

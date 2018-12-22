@@ -87,6 +87,8 @@ views:
         type: entity-filter
         entities:
           - alert.pumbaa_bin_full
+          - alert.miflora_01
+          - alert.miflora_02
         state_filter: 
           - 'on'
         show_empty: False

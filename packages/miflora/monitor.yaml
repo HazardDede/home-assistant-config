@@ -39,24 +39,24 @@ homeassistant:
     plant.miflora_02:
       friendly_name: Calathea sanderiana (MF02)
 
-alert:
-  miflora_01:
-    name: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: {{ state_attr('plant.miflora_01', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_01
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora_02:
-    name: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: {{ state_attr('plant.miflora_02', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_02
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
+# alert:
+#   miflora_01:
+#     name: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: {{ state_attr('plant.miflora_01', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora_01
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora_02:
+#     name: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: {{ state_attr('plant.miflora_02', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora_02
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify

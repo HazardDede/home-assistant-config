@@ -260,7 +260,7 @@ views:
           - sensor.load_1m
           - sensor.load_5m
           - sensor.load_15m
-          - sensor.since_last_boot
+          - sensor.last_boot
       # - id: mon_net
       #   type: entities
       #   title: Network

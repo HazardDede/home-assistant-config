@@ -31,6 +31,10 @@ logger:
 # Enables the frontend
 frontend:
 
+# Enables lovelace in yaml mode by default
+lovelace:
+  mode: yaml
+
 # Enables the iOS companion app
 ios:
 

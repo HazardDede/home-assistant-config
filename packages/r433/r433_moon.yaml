@@ -21,11 +21,11 @@ switch:
       r433_moon:
         value_template: "{{ is_state('binary_sensor.r433_moon_state', 'on') }}"
         turn_on:
-          service: script.r433_switch_on
+          service: rest_command.r433_switch_on
           data:
             device_name: moon
         turn_off:
-          service: script.r433_switch_off
+          service: rest_command.r433_switch_off
           data:
             device_name: moon
         icon_template: mdi:weather-night

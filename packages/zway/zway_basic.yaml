@@ -2,14 +2,14 @@ rest_command:
   # Required parameter:
   # - device_id
   zway_switch_on:
-    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(255)'
+    url: 'http://192.168.178.73:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(255)'
     method: get
     username: !secret zway_user
     password: !secret zway_pwd
   # Required parameter:
   # - device_id
   zway_switch_off:
-    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(0)'
+    url: 'http://192.168.178.73:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[0x25].Set(0)'
     method: get
     username: !secret zway_user
     password: !secret zway_pwd
@@ -17,7 +17,7 @@ rest_command:
   # - device_id
   # - setpoint
   zway_heater_setpoint:
-    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[67].Set(1,{{setpoint}})'
+    url: 'http://192.168.178.73:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[67].Set(1,{{setpoint}})'
     method: get
     username: !secret zway_user
     password: !secret zway_pwd
@@ -25,7 +25,7 @@ rest_command:
   # - device_id
   # - level (0 - 99 _not_ 0 - 255)
   zway_light:
-    url: 'http://192.168.178.44:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[38].Set({{level}})'
+    url: 'http://192.168.178.73:8083/ZWaveAPI/Run/devices[{{device_id}}].instances[0].commandClasses[38].Set({{level}})'
     method: get
     username: !secret zway_user
     password: !secret zway_pwd

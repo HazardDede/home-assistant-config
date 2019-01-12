@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: ping
     name: zway_ping
-    host: 192.168.178.44
+    host: 192.168.178.73
     scan_interval: 30
   - platform: ping
     name: fritz_ping

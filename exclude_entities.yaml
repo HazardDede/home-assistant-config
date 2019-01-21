@@ -4,6 +4,7 @@ domains:
   - weblink
   - updater
   - group
+  - alert
 entities:
   - binary_sensor.r433_bedlamp_state
   - binary_sensor.r433_miffy_state
@@ -19,7 +20,6 @@ entities:
   - input_select.jennifer_state
   - sensor.date__time
   - sensor.moon
-  - sensor.net_external_ip
   - sensor.last_boot
   - sensor.weather_symbol
   - sensor.pumbaa_running_time

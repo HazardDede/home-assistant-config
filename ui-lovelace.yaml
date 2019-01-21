@@ -142,6 +142,7 @@ views:
       - id: climate_exterior
         type: entities
         title: Elmshorn
+        show_header_toggle: False
         entities:
           - sensor.date__time
           - sun.sun
@@ -207,6 +208,7 @@ views:
             card:
               type: entities
               title: "Consumption"
+              show_header_toggle: False
             filter:
               include:
                 - entity_id: "sensor.*_consumption"
@@ -228,6 +230,7 @@ views:
             card:
               type: entities
               title: "Power"
+              show_header_toggle: False
             filter:
               include:
                 - entity_id: "sensor.*_power"
@@ -251,6 +254,7 @@ views:
       - id: mon_system
         type: entities
         title: System
+        show_header_toggle: False
         entities:
           - sensor.processor_use
           - sensor.cpu_temp
@@ -274,6 +278,7 @@ views:
       - id: mon_server
         type: entities
         title: Server
+        show_header_toggle: False
         entities:
           - binary_sensor.fritz_ping
           - binary_sensor.mediaserver_ping
@@ -301,4 +306,5 @@ views:
         card:
           type: entities
           title: Automations
+          show_header_toggle: False
         group: group.all_automations

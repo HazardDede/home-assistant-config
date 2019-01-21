@@ -80,6 +80,8 @@ sun:
 # External MQTT host
 mqtt:
   broker: !secret mqtt_host
+  discovery: True
+  discovery_prefix: homeassistant
 
 # Setting up notifications
 notify: !include_dir_list notifications

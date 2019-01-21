@@ -6,7 +6,7 @@ vacuum:
     name: Pumbaa
 
 ###########################################################
-# Bin status / notifications
+# Bin status
 ###########################################################
 
 binary_sensor:
@@ -22,7 +22,11 @@ binary_sensor:
       pumbaa_bin_full:
         # Cleaning time is greater equal to x hours
         value_template: >-
-          {{states.sensor.pumbaa_running_time.state|float >= 12.0}}
+          {{ states.sensor.pumbaa_running_time.state|float >= 14.0 }}
+      # Switches to 'on' if the attribute 'error' appears on the entity
+      pumbaa_error_alert:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'error') is not none }}
 
 input_datetime:
   pumbaa_last_bin_cleaning:
@@ -59,6 +63,10 @@ sensor:
         device_class: battery
         unit_of_measurement: "%"
 
+###########################################################
+# Notifications
+###########################################################
+
 alert:
   # Does the actual alerting when the device's bin is full based
   # on the rule of binary_sensor.pumbaa_bin_full
@@ -72,6 +80,16 @@ alert:
     skip_first: False
     notifiers:
       - notify
+  pumbaa_error:
+    name: 'Pumbaa is stuck and needs your help!'
+    entity_id: binary_sensor.pumbaa_error_alert
+    state: 'on'
+    repeat: 30  # Renotify every 30 minutes
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - notify
+  
 
 ###########################################################
 # Automatic startup in the night

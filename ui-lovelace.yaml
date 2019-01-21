@@ -282,6 +282,7 @@ views:
         entities:
           - binary_sensor.fritz_ping
           - binary_sensor.mediaserver_ping
+          - binary_sensor.hp_printer_ping
           - binary_sensor.zway_ping
   - title: Settings
     id: settings

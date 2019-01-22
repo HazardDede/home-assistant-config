@@ -24,7 +24,7 @@ views:
         title: "Living room"
         show_header_toggle: False
         entities:
-          - sensor.living_temperature
+          - sensor.device_dht01_temperature
           - sensor.zway_device_7_temperature
           - sensor.zway_device_7_illumination
           - entity: scene.living_cinematic
@@ -137,14 +137,14 @@ views:
     icon: mdi:thermometer-lines
     badges:
       - sensor.weather_symbol
-      - sensor.living_humidity
+      - entity: sensor.device_dht01_humidity
+        name: "Indoor Humidity"
     cards:
       - id: climate_exterior
         type: entities
         title: Elmshorn
         show_header_toggle: False
         entities:
-          - sensor.date__time
           - sun.sun
           - sensor.moon
           - sensor.weather_cloudiness
@@ -166,7 +166,7 @@ views:
             title: "Ground floor (°C)"
             refresh_interval: 10
             entities:
-              - sensor.living_temperature
+              - sensor.device_dht01_temperature
               - sensor.zway_device_7_temperature
               - sensor.bath_downstairs_setpoint
               - sensor.living_setpoint

@@ -1,0 +1,27 @@
+sensor:
+  - platform: mqtt
+    name: device_dht01_temperature_raw
+    state_topic: "devices/dht01/temperature"
+    unit_of_measurement: °C
+    value_template: '{{ value|float | round(1) }}'
+    icon: mdi:thermometer
+  - platform: mqtt
+    name: device_dht01_humidity_raw
+    state_topic: "devices/dht01/humidity"
+    unit_of_measurement: "%"
+    value_template: '{{ value|float | round(1) }}'
+    icon: mdi:water-percent
+  - platform: filter
+    name: device_dht01_temperature
+    entity_id: sensor.device_dht01_temperature_raw
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+  - platform: filter
+    name: device_dht01_humidity
+    entity_id: sensor.device_dht01_humidity_raw
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 4.0

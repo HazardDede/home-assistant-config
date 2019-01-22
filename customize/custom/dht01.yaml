@@ -1,0 +1,5 @@
+sensor.device_dht01_temperature:
+  friendly_name: "Living"
+
+sensor.device_dht01_humidity:
+  friendly_name: "Living"

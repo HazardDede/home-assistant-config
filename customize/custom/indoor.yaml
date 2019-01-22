@@ -1,7 +1,0 @@
-sensor.living_temperature:
-  friendly_name: Living
-  icon: mdi:thermometer
-
-sensor.living_humidity:
-  friendly_name: Humidity (Indoor)
-  icon: mdi:water-percent

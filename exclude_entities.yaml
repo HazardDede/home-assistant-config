@@ -18,8 +18,10 @@ entities:
   - sensor.zway_device_22
   - input_select.dennis_state
   - input_select.jennifer_state
-  - sensor.date__time
   - sensor.moon
   - sensor.last_boot
   - sensor.weather_symbol
   - sensor.pumbaa_running_time
+  # Fitbit lastsync
+  - sensor.fitbit_dennis_charge_2_lastsync
+  - sensor.fitbit_dennis_blaze_lastsync

@@ -38,11 +38,19 @@ views:
             name: "Hallway: Motion"
           - entity: binary_sensor.device_raspitouch_motion
             name: "Raspitouch: Motion"
-          - switch.zway_device_4
-          - switch.zway_device_5
-          - switch.zway_device_17
+          - entity: switch.zway_device_4
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_4_power ]]"
+          - entity: switch.zway_device_5
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_5_power ]]"
+          - entity: switch.zway_device_17
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_17_power ]]"
           - light.zway_device_22
-          - switch.zway_device_20
+          - entity: switch.zway_device_20
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_20_power ]]"
       - id: home_krymmel
         type: entities
         title: "Krymmel's End"
@@ -51,7 +59,9 @@ views:
           - sensor.zway_device_24_temperature
           - sensor.zway_device_24_illumination
           - binary_sensor.zway_device_24
-          - switch.zway_device_13
+          - entity: switch.zway_device_13
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_13_power ]]"
       - id: home_bedroom
         type: entities
         title: "Bedroom"
@@ -216,54 +226,54 @@ views:
               - input_number.zway_device_9
               - input_number.zway_device_8
               - input_number.zway_device_11
-  - title: Power
-    id: power
-    icon: mdi:flash-circle
-    cards:
-      - id: power_consumption
-        type: vertical-stack
-        cards:
-          - type: custom:monster-card
-            id: power_consumption_entities
-            show_empty: False
-            card:
-              type: entities
-              title: "Consumption"
-              show_header_toggle: False
-            filter:
-              include:
-                - entity_id: "sensor.*_consumption"
-          - id: power_consumption_graph
-            type: custom:monster-card
-            show_empty: False
-            card:
-              type: history-graph
-              refresh_interval: 10
-            filter:
-              include:
-                - entity_id: "sensor.*_consumption"
-      - id: power_power
-        type: vertical-stack
-        cards:
-          - type: custom:monster-card
-            id: power_power_entities
-            show_empty: False
-            card:
-              type: entities
-              title: "Power"
-              show_header_toggle: False
-            filter:
-              include:
-                - entity_id: "sensor.*_power"
-          - id: power_power_graph
-            type: custom:monster-card
-            show_empty: False
-            card:
-              type: history-graph
-              refresh_interval: 10
-            filter:
-              include:
-                - entity_id: "sensor.*_power"
+  # - title: Power
+  #   id: power
+  #   icon: mdi:flash-circle
+  #   cards:
+  #     - id: power_consumption
+  #       type: vertical-stack
+  #       cards:
+  #         - type: custom:monster-card
+  #           id: power_consumption_entities
+  #           show_empty: False
+  #           card:
+  #             type: entities
+  #             title: "Consumption"
+  #             show_header_toggle: False
+  #           filter:
+  #             include:
+  #               - entity_id: "sensor.*_consumption"
+  #         - id: power_consumption_graph
+  #           type: custom:monster-card
+  #           show_empty: False
+  #           card:
+  #             type: history-graph
+  #             refresh_interval: 10
+  #           filter:
+  #             include:
+  #               - entity_id: "sensor.*_consumption"
+  #     - id: power_power
+  #       type: vertical-stack
+  #       cards:
+  #         - type: custom:monster-card
+  #           id: power_power_entities
+  #           show_empty: False
+  #           card:
+  #             type: entities
+  #             title: "Power"
+  #             show_header_toggle: False
+  #           filter:
+  #             include:
+  #               - entity_id: "sensor.*_power"
+  #         - id: power_power_graph
+  #           type: custom:monster-card
+  #           show_empty: False
+  #           card:
+  #             type: history-graph
+  #             refresh_interval: 10
+  #           filter:
+  #             include:
+  #               - entity_id: "sensor.*_power"
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic

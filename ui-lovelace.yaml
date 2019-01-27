@@ -5,6 +5,10 @@ resources:
     type: js
   - url: /local/lovelace/monster-card.js?v=1
     type: js
+  - url: /local/lovelace/card-tools.js?v=1
+    type: js
+  - url: /local/lovelace/secondaryinfo-entity-row.js?v=1
+    type: module
 
 views:
   - title: Home
@@ -110,6 +114,22 @@ views:
       - id: health_plant_02
         type: plant-status
         entity: plant.miflora_02
+      - id: health_wastebin
+        title: Trash
+        type: entities
+        entities:
+          - entity: sensor.gelber_sack
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.gelber_sack.attributes.friendly_delta ]]"
+          - entity: sensor.biotonne
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.biotonne.attributes.friendly_delta ]]"
+          - entity: sensor.papiertonne
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.papiertonne.attributes.friendly_delta ]]"
+          - entity: sensor.restabfall_2wo
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.restabfall_2wo.attributes.friendly_delta ]]"
       - id: health_pumbaa
         type: entities
         title: "Pumbaa"

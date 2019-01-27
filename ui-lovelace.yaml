@@ -117,6 +117,7 @@ views:
       - id: health_wastebin
         title: Trash
         type: entities
+        show_header_toggle: False
         entities:
           - entity: sensor.gelber_sack
             type: "custom:secondaryinfo-entity-row"

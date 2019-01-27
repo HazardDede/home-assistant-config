@@ -69,7 +69,9 @@ views:
         entities:
           - sensor.zway_device_23_temperature
           - sensor.zway_device_23_illumination
-          - binary_sensor.zway_device_23
+          - entity: binary_sensor.zway_device_23
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_23_power.state ]] W"
           - switch.zway_device_21
           - switch.r433_bedlamp
       - id: home_peanut

@@ -7,7 +7,7 @@ https://home-assistant.io/components/sensor.icalendar/
 """
 import logging
 import os
-import re
+# import re
 from collections import defaultdict
 from datetime import datetime, timedelta
 
@@ -35,7 +35,7 @@ CONF_DAYS_IN_FUTURE_DEFAULT = 365
 ICON_DEFAULT = 'mdi:calendar'
 
 # Return cached results if last scan was less then this time ago.
-MIN_TIME_BETWEEN_UPDATES = timedelta(minutes=5)
+MIN_TIME_BETWEEN_UPDATES = timedelta(minutes=60)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_URL):
@@ -50,7 +50,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
         cv.positive_int
 })
 
-SCAN_INTERVAL = timedelta(seconds=1800)  # Default is one 1/2h.
+SCAN_INTERVAL = timedelta(minutes=5)
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
@@ -88,7 +88,7 @@ class ICalNextEventSensor(Entity):
         self._state = None
         # Regex to extract the human readable delta from the str representation
         # of event model
-        self.friendly_delta_regex = re.compile(r"^.*: .* \((?P<delta>.*)\)$")
+        # self.friendly_delta_regex = re.compile(r"^.*: .* \((?P<delta>.*)\)$")
 
     @property
     def name(self):
@@ -114,11 +114,39 @@ class ICalNextEventSensor(Entity):
         """Formats a date using the stored date_format."""
         return event.start.strftime(self.date_format)
 
-    def _fmt_delta(self, event):
+    def _fmt_delta(self, event, dt):
         """Formats the delta (from now to event start) in a human readable
         format."""
-        m = self.friendly_delta_regex.match(str(event))
-        return m.group('delta') if m else None
+        # TODO: Can't use the below logic cause lib icalevents
+        # has a default value bug
+        # m = self.friendly_delta_regex.match(str(event))
+        # return m.group('delta') if m else None
+        # Workaround:
+        n = dt
+        # compute time delta description
+        if not event.all_day:
+            if event.end > n > event.start:
+                # event is now
+                delta = "now"
+            elif event.start > n:
+                # event is a future event
+                if event.time_left(n).days > 0:
+                    delta = "%s days left" % event.time_left(n).days
+                else:
+                    hours = event.time_left(n).seconds / (60 * 60)
+                    delta = "%.1f hours left" % hours
+            else:
+                # event is over
+                delta = "ended"
+        else:
+            if event.end > n > event.start:
+                delta = "today"
+            elif event.start > n:
+                delta = "%s days left" % event.time_left(n).days
+            else:
+                delta = "ended"
+
+        return delta
 
     def update(self):
         """Fetch new state data for the sensor."""
@@ -129,10 +157,12 @@ class ICalNextEventSensor(Entity):
         if new_state is None:
             self._state = None
         else:
+            from dateutil.tz import UTC
+            dt = datetime.now(UTC)
             self._state = self._fmt_date(new_state)
             self._state_attrs = {
-                ATTR_DAYS_LEFT: new_state.time_left().days,
-                ATTR_FRIENDLY_DELTA: self._fmt_delta(new_state)
+                ATTR_DAYS_LEFT: new_state.time_left(dt).days,
+                ATTR_FRIENDLY_DELTA: self._fmt_delta(new_state, dt)
             }
 
 

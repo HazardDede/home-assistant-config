@@ -40,17 +40,17 @@ views:
             name: "Raspitouch: Motion"
           - entity: switch.zway_device_4
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_4_power ]]"
+            secondary_info: "[[ sensor.zway_device_4_power.state ]]"
           - entity: switch.zway_device_5
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_5_power ]]"
+            secondary_info: "[[ sensor.zway_device_5_power.state ]]"
           - entity: switch.zway_device_17
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_17_power ]]"
+            secondary_info: "[[ sensor.zway_device_17_power.state ]]"
           - light.zway_device_22
           - entity: switch.zway_device_20
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_20_power ]]"
+            secondary_info: "[[ sensor.zway_device_20_power.state ]]"
       - id: home_krymmel
         type: entities
         title: "Krymmel's End"
@@ -61,7 +61,7 @@ views:
           - binary_sensor.zway_device_24
           - entity: switch.zway_device_13
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_13_power ]]"
+            secondary_info: "[[ sensor.zway_device_13_power.state ]]"
       - id: home_bedroom
         type: entities
         title: "Bedroom"

@@ -101,7 +101,6 @@ views:
     cards:
       - id: health_alert
         type: entity-filter
-        show_header_toggle: False
         entities:
           - alert.pumbaa_bin_full
           - alert.miflora_01
@@ -115,6 +114,7 @@ views:
         card: 
           type: entities
           title: Alerts
+          show_header_toggle: False
       - id: health_battery
         type: custom:monster-card
         show_empty: False

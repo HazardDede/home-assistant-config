@@ -29,3 +29,9 @@ entities:
   - binary_sensor.fitbit_dennis_blaze_lastsync_mins_alert
   - binary_sensor.fitbit_dennis_blaze_battery_alert
   - binary_sensor.fitbit_dennis_water_alert
+  - sensor.fitbit_jennifer_charge_2_lastsync
+  - sensor.fitbit_jennifer_versa_lastsync
+  - sensor.fitbit_jennifer_versa_lastsync_mins
+  - binary_sensor.fitbit_jennifer_versa_lastsync_mins_alert
+  - binary_sensor.fitbit_jennifer_versa_battery_alert
+  - binary_sensor.fitbit_jennifer_water_alert

@@ -70,7 +70,7 @@ alert:
       - ios_dennis
 
 automation:
-  - alias: 'Fitbit: Update entities every minute'
+  - alias: 'Fitbit: Dennis - Update entities every minute'
     initial_state: True
     hide_entity: True
     trigger:

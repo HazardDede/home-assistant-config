@@ -129,7 +129,7 @@ views:
           - sensor.fitbit_dennis_distance
           - entity: sensor.fitbit_dennis_water
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "Goal: [[ sensor.sensor.fitbit_dennis_water_goal.state ]]"
+            secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]]"
           - sensor.fitbit_dennis_blaze_battery
           - entity: sensor.fitbit_dennis_blaze_lastsync_mins
             type: "custom:secondaryinfo-entity-row"

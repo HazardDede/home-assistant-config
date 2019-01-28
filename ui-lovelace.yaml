@@ -105,6 +105,9 @@ views:
           - alert.pumbaa_bin_full
           - alert.miflora_01
           - alert.miflora_02
+          - alert.fitbit_dennis_blaze_out_of_sync
+          - alert.fitbit_dennis_blaze_battery_low
+          - alert.fitbit_dennis_water_low
         state_filter: 
           - 'on'
         show_empty: False
@@ -120,6 +123,17 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_battery"
+      - id: health_fitbit_dennis
+        type: entities
+        entities:
+          - sensor.fitbit_dennis_distance
+          - entity: sensor.sensor.fitbit_dennis_water
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "Goal: [[ sensor.sensor.fitbit_dennis_water_goal ]]"
+          - sensor.fitbit_dennis_blaze_battery
+          - entity: sensor.fitbit_dennis_blaze_lastsync_mins
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync ]]"
       - id: health_plant_01
         type: plant-status
         entity: plant.miflora_01

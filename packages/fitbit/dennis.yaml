@@ -1,0 +1,84 @@
+# All the entities below are created by mqtt discovery
+# Entities:
+# - sensor.fitbit_dennis_distance
+# - sensor.fitbit_dennis_blaze_lastsync
+# - sensor.fitbit_dennis_water
+# - sensor.fitbit_dennis_water_goal
+
+sensor:
+  - platform: template
+    sensors: 
+      # diff between now and lastsync in minutes with fraction -> Number of minutes of the last sync
+      fitbit_dennis_blaze_lastsync_mins:
+        unit_of_measurement: 'min ago'
+        value_template: "{{ ((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_dennis_blaze_lastsync.state)) / 60) | int }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.fitbit_dennis_blaze_lastsync_mins_alert', 'off') %}
+            mdi:sync
+          {% else %}
+            mdi:sync-alert
+          {% endif %}
+
+binary_sensor:
+  - platform: template
+    sensors:
+      fitbit_dennis_blaze_lastsync_mins_alert:
+        value_template: "{{ states('sensor.fitbit_dennis_blaze_lastsync_mins') != 'unknown' and states('sensor.fitbit_dennis_blaze_lastsync_mins') | int >= 60 }}"
+      fitbit_dennis_blaze_battery_alert:
+        value_template: "{{ states('sensor.fitbit_dennis_blaze_battery') != 'unknown' and states('sensor.fitbit_dennis_blaze_battery') | int <= 25 }}"
+      fitbit_dennis_water_alert:
+        # Alert when all of the below:
+        # 1. the last water update is more than 1h ago
+        # 2. Time is between 8am and 8pm
+        # 3. Your goal isn't reached by now
+        value_template: >- 
+          {{ 
+            (((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_dennis_water.last_updated)) / 60) | int > 90)
+            and (8 <= now().hour < 20)
+            and (states.sensor.fitbit_dennis_water.state | default(0) | int < states.sensor.fitbit_dennis_water_goal.state | default(2000) | int)
+          }}
+
+alert:
+  fitbit_dennis_blaze_out_of_sync:
+    name: 'Dennis: Blaze is out of sync'
+    entity_id: binary_sensor.fitbit_dennis_blaze_lastsync_mins_alert
+    state: 'on'
+    repeat: 30
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_dennis
+  fitbit_dennis_blaze_battery_low:
+    name: 'Dennis: Blaze needs power! You have to bring it!'
+    entity_id: binary_sensor.fitbit_dennis_blaze_battery_alert
+    state: 'on'
+    repeat: 30
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_dennis
+  fitbit_dennis_water_low:
+    name: 'Dennis: Drink water! Now!'
+    done_message: >-
+      Water level: {{ states.sensor.fitbit_dennis_water.state|default(0) }} / {{ states.sensor.fitbit_dennis_water_goal.state|default(1) }} ({{ (states.sensor.fitbit_dennis_water.state|default(0)|int / states.sensor.fitbit_dennis_water_goal.state|default(1)|int * 100)|round }} %)
+    entity_id: binary_sensor.fitbit_dennis_water_alert
+    state: 'on'
+    repeat: 30
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_dennis
+
+automation:
+  - alias: 'Fitbit: Update entities every minute'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: time
+        minutes: '/1'
+        seconds: 0
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.fitbit_dennis_blaze_lastsync_mins
+      - service: homeassistant.update_entity
+        entity_id: binary_sensor.fitbit_dennis_water_alert

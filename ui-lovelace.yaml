@@ -101,6 +101,7 @@ views:
     cards:
       - id: health_alert
         type: entity-filter
+        show_header_toggle: False
         entities:
           - alert.pumbaa_bin_full
           - alert.miflora_01
@@ -126,6 +127,7 @@ views:
       - id: health_fitbit_dennis
         title: "Fitbit - Dennis"
         type: entities
+        show_header_toggle: False
         entities:
           - entity: sensor.fitbit_dennis_distance
             name: Distance (today)

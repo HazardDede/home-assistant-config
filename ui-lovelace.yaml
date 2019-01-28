@@ -124,14 +124,19 @@ views:
           include:
             - entity_id: "sensor.*_battery"
       - id: health_fitbit_dennis
+        title: "Fitbit - Dennis"
         type: entities
         entities:
-          - sensor.fitbit_dennis_distance
+          - entity: sensor.fitbit_dennis_distance
+            name: Distance (today)
           - entity: sensor.fitbit_dennis_water
+            name: Hydration 
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]]"
-          - sensor.fitbit_dennis_blaze_battery
+          - entity: sensor.fitbit_dennis_blaze_battery
+            name: "Blaze: battery level"
           - entity: sensor.fitbit_dennis_blaze_lastsync_mins
+            name: "Blaze: Last sync"
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"
       - id: health_plant_01

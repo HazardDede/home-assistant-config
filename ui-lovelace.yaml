@@ -127,13 +127,13 @@ views:
         type: entities
         entities:
           - sensor.fitbit_dennis_distance
-          - entity: sensor.sensor.fitbit_dennis_water
+          - entity: sensor.fitbit_dennis_water
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "Goal: [[ sensor.sensor.fitbit_dennis_water_goal ]]"
+            secondary_info: "Goal: [[ sensor.sensor.fitbit_dennis_water_goal.state ]]"
           - sensor.fitbit_dennis_blaze_battery
           - entity: sensor.fitbit_dennis_blaze_lastsync_mins
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync ]]"
+            secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"
       - id: health_plant_01
         type: plant-status
         entity: plant.miflora_01

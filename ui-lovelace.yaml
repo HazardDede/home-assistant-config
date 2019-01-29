@@ -215,6 +215,8 @@ views:
         title: Elmshorn
         show_header_toggle: False
         entities:
+          - binary_sensor.vacation_hh
+          - binary_sensor.vacation_sh
           - sun.sun
           - sensor.moon
           - sensor.weather_cloudiness

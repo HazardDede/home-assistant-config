@@ -11,21 +11,36 @@ sensor:
       # diff between now and lastsync in minutes with fraction -> Number of minutes of the last sync
       fitbit_jennifer_versa_lastsync_mins:
         unit_of_measurement: 'min ago'
-        value_template: "{{ ((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_jennifer_versa_lastsync.state)) / 60) | int }}"
-        icon_template: >-
-          {% if is_state('binary_sensor.fitbit_jennifer_versa_lastsync_mins_alert', 'off') %}
-            mdi:sync
+        value_template: >-
+          {% if states('sensor.fitbit_jennifer_versa_lastsync') == 'unknown' %}
+            unknown
           {% else %}
+            {{ ((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_jennifer_versa_lastsync.state)) / 60) | int }}
+          {% endif %}
+        icon_template: >-
+          {% if is_state('binary_sensor.fitbit_jennifer_versa_lastsync_mins_alert', 'on') %}
             mdi:sync-alert
+          {% else %}
+            mdi:sync
           {% endif %}
 
 binary_sensor:
   - platform: template
     sensors:
       fitbit_jennifer_versa_lastsync_mins_alert:
-        value_template: "{{ states('sensor.fitbit_jennifer_versa_lastsync_mins') != 'unknown' and states('sensor.fitbit_jennifer_versa_lastsync_mins') | int >= 60 }}"
+        value_template: >-
+          {% if states('sensor.fitbit_jennifer_versa_lastsync_mins') == 'unknown' %}
+            {{ False }}
+          {% else %}
+            {{ states('sensor.fitbit_jennifer_versa_lastsync_mins')|int >= 60 }}
+          {% endif %}
       fitbit_jennifer_versa_battery_alert:
-        value_template: "{{ states('sensor.fitbit_jennifer_versa_battery') != 'unknown' and states('sensor.fitbit_jennifer_versa_battery') | int <= 25 }}"
+        value_template: >-
+          {% if states('sensor.fitbit_jennifer_versa_battery') == 'unknown' %}
+            {{ False }}
+          {% else %}
+            {{ states('sensor.fitbit_jennifer_versa_battery')|int <= 25 }}
+          {% endif %}
       fitbit_jennifer_water_alert:
         # Alert when all of the below:
         # 1. the last water update is more than 1h ago
@@ -33,7 +48,7 @@ binary_sensor:
         # 3. Your goal isn't reached by now
         value_template: >- 
           {{ 
-            (((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_jennifer_water.last_updated)) / 60) | int > 90)
+            (((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_jennifer_water.last_updated|default(now()))) / 60) | int > 90)
             and (8 <= now().hour < 20)
             and (states.sensor.fitbit_jennifer_water.state | default(0) | int < states.sensor.fitbit_jennifer_water_goal.state | default(2000) | int)
           }}

@@ -208,8 +208,7 @@ views:
     icon: mdi:thermometer-lines
     badges:
       - sensor.weather_symbol
-      - entity: sensor.device_dht01_humidity
-        name: "Indoor Humidity"
+      - device_dht01_humidity
     cards:
       - id: climate_exterior
         type: entities

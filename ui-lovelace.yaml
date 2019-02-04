@@ -100,17 +100,13 @@ views:
     icon: mdi:heart-pulse
     cards:
       - id: health_alert
-        type: entity-filter
-        entities:
-          - alert.pumbaa_bin_full
-          - alert.miflora_01
-          - alert.miflora_02
-          - alert.fitbit_dennis_blaze_out_of_sync
-          - alert.fitbit_dennis_blaze_battery_low
-          - alert.fitbit_dennis_water_low
-        state_filter: 
-          - 'on'
+        type: custom:monster-card
         show_empty: False
+        filter:
+          include:
+            - domain: alert
+          exclude:
+            - state: "idle"
         card: 
           type: entities
           title: Alerts

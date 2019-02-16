@@ -27,7 +27,7 @@ logger:
   logs:
     # homeassistant.components.http: info
     custom_components.fritzbox_guestwifi: info
-    homeassistant.helpers.entity: error
+    # homeassistant.helpers.entity: error
 
 # Enables the frontend
 frontend:

@@ -39,14 +39,14 @@ plant:
       conductivity: sensor.miflora_03_conductivity
       brightness: sensor.miflora_03_light_intensity
     min_moisture: 15
-    max_moisture: 65
+    max_moisture: 60
     min_battery: 10
     min_conductivity: 350
-    max_conductivity: 1000
-    min_temperature: 12
-    max_temperature: 32
-    min_brightness: 800
-    max_brightness: 20000
+    max_conductivity: 2000
+    min_temperature: 10
+    max_temperature: 35
+    min_brightness: 1000
+    max_brightness: 30000
   miflora_04:
     sensors:
       moisture: sensor.miflora_04_moisture
@@ -55,14 +55,14 @@ plant:
       conductivity: sensor.miflora_04_conductivity
       brightness: sensor.miflora_04_light_intensity
     min_moisture: 15
-    max_moisture: 65
+    max_moisture: 60
     min_battery: 10
     min_conductivity: 350
-    max_conductivity: 1000
+    max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
     min_brightness: 800
-    max_brightness: 20000
+    max_brightness: 15000
   miflora_05:
     sensors:
       moisture: sensor.miflora_05_moisture
@@ -71,14 +71,14 @@ plant:
       conductivity: sensor.miflora_05_conductivity
       brightness: sensor.miflora_05_light_intensity
     min_moisture: 15
-    max_moisture: 65
+    max_moisture: 60
     min_battery: 10
     min_conductivity: 350
-    max_conductivity: 1000
+    max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
-    min_brightness: 800
-    max_brightness: 20000
+    min_brightness: 1500
+    max_brightness: 45000
 
 homeassistant:
   customize:
@@ -87,11 +87,11 @@ homeassistant:
     plant.miflora_02:
       friendly_name: Calathea sanderiana (MF02)
     plant.miflora_03:
-      friendly_name: (MF03)
+      friendly_name: Ficus elastica (MF03)
     plant.miflora_04:
-      friendly_name: (MF04)
+      friendly_name: Monstera deliciosa (MF04)
     plant.miflora_05:
-      friendly_name: (MF05)
+      friendly_name: Ficus lyrata (MF05)
 
 alert:
   miflora_01:

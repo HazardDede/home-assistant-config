@@ -31,6 +31,54 @@ plant:
     max_temperature: 32
     min_brightness: 800
     max_brightness: 20000
+  miflora_03:
+    sensors:
+      moisture: sensor.miflora_03_moisture
+      battery: sensor.miflora_03_battery
+      temperature: sensor.miflora_03_temperature
+      conductivity: sensor.miflora_03_conductivity
+      brightness: sensor.miflora_03_light_intensity
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 32
+    min_brightness: 800
+    max_brightness: 20000
+  miflora_04:
+    sensors:
+      moisture: sensor.miflora_04_moisture
+      battery: sensor.miflora_04_battery
+      temperature: sensor.miflora_04_temperature
+      conductivity: sensor.miflora_04_conductivity
+      brightness: sensor.miflora_04_light_intensity
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 32
+    min_brightness: 800
+    max_brightness: 20000
+  miflora_05:
+    sensors:
+      moisture: sensor.miflora_05_moisture
+      battery: sensor.miflora_05_battery
+      temperature: sensor.miflora_05_temperature
+      conductivity: sensor.miflora_05_conductivity
+      brightness: sensor.miflora_05_light_intensity
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 32
+    min_brightness: 800
+    max_brightness: 20000
 
 homeassistant:
   customize:
@@ -38,6 +86,12 @@ homeassistant:
       friendly_name: Pfeilblatt (MF01)
     plant.miflora_02:
       friendly_name: Calathea sanderiana (MF02)
+    plant.miflora_03:
+      friendly_name: (MF03)
+    plant.miflora_04:
+      friendly_name: (MF04)
+    plant.miflora_05:
+      friendly_name: (MF05)
 
 alert:
   miflora_01:
@@ -56,6 +110,39 @@ alert:
     message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: {{ state_attr('plant.miflora_02', 'problem') }}"
     done_message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: Healthy"
     entity_id: plant.miflora_02
+    state: 'problem'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - notify
+  miflora_03:
+    name: "Miflora 03: Problem"
+    message: "{{ state_attr('plant.miflora_03', 'friendly_name') }}: {{ state_attr('plant.miflora_03', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora_03', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora_03
+    state: 'problem'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - notify
+  miflora_04:
+    name: "Miflora 04: Problem"
+    message: "{{ state_attr('plant.miflora_04', 'friendly_name') }}: {{ state_attr('plant.miflora_04', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora_04', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora_04
+    state: 'problem'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - notify
+  miflora_05:
+    name: "Miflora 05: Problem"
+    message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: {{ state_attr('plant.miflora_05', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora_05
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True

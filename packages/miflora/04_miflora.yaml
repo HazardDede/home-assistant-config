@@ -1,0 +1,24 @@
+sensor:
+  - platform: miflora
+    mac: 'C4:7C:8D:6A:5A:14'
+    name: miflora_04
+    force_update: True
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
+    scan_interval: 3600
+
+homeassistant:
+  customize:
+    sensor.miflora_04_conductivity:
+      icon: mdi:flash
+    sensor.miflora_04_light_intensity:
+      icon: mdi:white-balance-sunny
+    sensor.miflora_04_moisture:
+      icon: mdi:water-percent
+    sensor.miflora_04_battery:
+      device_class: battery
+      unit_of_measurement: "%"

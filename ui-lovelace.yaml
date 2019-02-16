@@ -160,6 +160,15 @@ views:
       - id: health_plant_02
         type: plant-status
         entity: plant.miflora_02
+      - id: health_plant_03
+        type: plant-status
+        entity: plant.miflora_03
+      - id: health_plant_04
+        type: plant-status
+        entity: plant.miflora_04
+      - id: health_plant_05
+        type: plant-status
+        entity: plant.miflora_05
       - id: health_wastebin
         title: Trash
         type: entities

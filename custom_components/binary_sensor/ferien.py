@@ -62,7 +62,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         raise PlatformNotReady()
 
     data_object = VacationData(init_data, state_code)
-    add_devices([VacationSensor(name, data_object)], False)
+    add_devices([VacationSensor(name, data_object)], True)
 
 
 class VacationSensor(BinarySensorDevice):
@@ -97,7 +97,7 @@ class VacationSensor(BinarySensorDevice):
     @staticmethod
     def _get_current_vacation(vacs, dt=None):
         """Returns the current vacation based on the given dt.
-        Returns None if no vacation sourrounds (start, end) the
+        Returns None if no vacation surrounds (start, end) the
         given dt."""
         dt = dt or datetime.now()
         res = [i for i in vacs if i.start <= dt <= i.end][-1:]
@@ -169,7 +169,10 @@ class VacationData:
         def _single(i):
             return cls.Item(
                 start=datetime.strptime(i.get('start'), '%Y-%m-%dT%H:%M'),
-                end=datetime.strptime(i.get('end'), '%Y-%m-%dT%H:%M'),
+                # Adjust end date to previous day 23:59:59
+                # end=datetime.strptime(i.get('end'), '%Y-%m-%dT%H:%M'),
+                end=(datetime.strptime(i.get('end'), '%Y-%m-%dT%H:%M')
+                     - timedelta(seconds=1)),
                 name=i.get('name'),
                 state=i.get('stateCode')
             )

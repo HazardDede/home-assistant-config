@@ -41,8 +41,10 @@ script:
       - service: input_datetime.set_datetime
         data_template:
           entity_id: input_datetime.pumbaa_last_bin_cleaning
-          date: "{{now().strftime('%Y-%m-%d')}}"
-          time: '{{now().strftime("%H:%M:00")}}'
+          date: >
+            "{{ now().strftime('%Y-%m-%d') }}"
+          time: >
+            '{{ now().strftime("%H:%M:00") }}'
 
 sensor:
   # Sum up all the time the device has cleaned so far.
@@ -53,8 +55,10 @@ sensor:
     entity_id: binary_sensor.pumbaa_running
     state: 'on'
     type: time
-    start: '{{states.input_datetime.pumbaa_last_bin_cleaning.state}}'
-    end: '{{ now() }}'
+    start: >
+      '{{ as_timestamp(states.input_datetime.pumbaa_last_bin_cleaning.state) }}'
+    end: >
+      '{{ as_timestamp(now()) }}'
   - platform: template
     sensors:
       pumbaa_battery:

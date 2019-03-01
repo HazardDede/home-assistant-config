@@ -59,6 +59,8 @@ http:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
+system_health:
+
 recorder:
   purge_keep_days: 21
   exclude:

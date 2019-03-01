@@ -23,10 +23,11 @@ sensor:
       - filter: time_simple_moving_average
         window_size: 00:03
         precision: 2
-  - platform: speedtest
-    minute: 30
-    hour:
-      - 4
+  - platform: speedtestdotnet
+    scan_interval:
+      minutes: 30
+      hours: 4
+    manual: True  # Don't schedule
     monitored_conditions:
       - ping
       - download

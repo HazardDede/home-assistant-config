@@ -120,6 +120,7 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_battery"
+              state: "< 25"
       - id: health_jennifer
         title: "Jennifer"
         type: entities

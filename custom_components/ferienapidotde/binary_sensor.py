@@ -3,24 +3,22 @@ Utilizes the api `ferien-api.de` to provide a binary sensor to indicate if
 today is a german vacational day or not - based on your configured state.
 
 For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/binary_sensor.ferien/
+https://home-assistant.io/components/binary_sensor.ferienapidotde/
 """
 
-from collections import namedtuple
-from datetime import datetime, timedelta
 import logging
-import requests
+from datetime import timedelta
 
 import voluptuous as vol
 
+import homeassistant.helpers.config_validation as cv
 from homeassistant.components.binary_sensor import BinarySensorDevice
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import CONF_NAME
 from homeassistant.exceptions import PlatformNotReady
-import homeassistant.helpers.config_validation as cv
 from homeassistant.util import Throttle
 
-REQUIREMENTS = ['requests==2.20.1']
+REQUIREMENTS = ['ferien-api==0.3.0']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -53,15 +51,18 @@ SCAN_INTERVAL = timedelta(minutes=1)
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
+    """Setups the ferienapidotde platform."""
     state_code = config.get(CONF_STATE)
     name = config.get(CONF_NAME)
 
     try:
-        init_data = VacationData.make_request(state_code)
+        data_object = VacationData(state_code)
+        data_object.update()
     except Exception:
+        import traceback
+        _LOGGER.warning(traceback.format_exc())
         raise PlatformNotReady()
 
-    data_object = VacationData(init_data, state_code)
     add_devices([VacationSensor(name, data_object)], True)
 
 
@@ -94,46 +95,30 @@ class VacationSensor(BinarySensorDevice):
         """Returns the state attributes of this device."""
         return self._state_attrs
 
-    @staticmethod
-    def _get_current_vacation(vacs, dt=None):
-        """Returns the current vacation based on the given dt.
-        Returns None if no vacation surrounds (start, end) the
-        given dt."""
-        dt = dt or datetime.now()
-        res = [i for i in vacs if i.start <= dt <= i.end][-1:]
-        if len(res) <= 0:
-            return None
-        return res[0]
-
-    @staticmethod
-    def _get_next_vacation(vacs, dt=None):
-        dt = dt or datetime.now()
-        res = sorted([i for i in vacs if i.start >= dt], key=lambda i: i.start)
-        if len(res) <= 0:
-            return None
-        return res[0]
-
     def update(self):
         """Updates the state and state attributes."""
+        import ferien
         self.data_object.update()
         vacs = self.data_object.data
-        cur = self._get_current_vacation(vacs)
+        cur = ferien.current_vacation(vacs=vacs)
         if cur is None:
             self._state = False
-            nextvac = self._get_next_vacation(vacs)
+            nextvac = ferien.next_vacation(vacs=vacs)
             if nextvac is None:
                 self._state_attrs = {}
             else:
+                aligned_end = nextvac.end - timedelta(seconds=1)
                 self._state_attrs = {
                     ATTR_NEXT_START: nextvac.start.strftime('%Y-%m-%d'),
-                    ATTR_NEXT_END: nextvac.end.strftime('%Y-%m-%d'),
+                    ATTR_NEXT_END: aligned_end.strftime('%Y-%m-%d'),
                     ATTR_VACATION_NAME: nextvac.name
                 }
         else:
             self._state = True
+            aligned_end = cur.end - timedelta(seconds=1)
             self._state_attrs = {
                 ATTR_START: cur.start.strftime('%Y-%m-%d'),
-                ATTR_END: cur.end.strftime('%Y-%m-%d'),
+                ATTR_END: aligned_end.strftime('%Y-%m-%d'),
                 ATTR_VACATION_NAME: cur.name
             }
 
@@ -141,48 +126,17 @@ class VacationSensor(BinarySensorDevice):
 class VacationData:
     """Class for handling data retrieval."""
 
-    API_URL = 'https://ferien-api.de/api/v1/holidays/{state_code}'
-
-    """Internal representation of a vacation."""
-    Item = namedtuple("Item", ["start", "end", "name", "state"])
-
-    def __init__(self, initial_vacs, state_code):
+    def __init__(self, state_code):
         """Initializer."""
         self.state_code = str(state_code)
-        self.data = self.convert(initial_vacs)
-
-    @classmethod
-    def make_request(cls, state_code):
-        """Makes a request to the ferien-api.de using the given
-        state_code."""
-        resp = requests.get(cls.API_URL.format(state_code=state_code))
-        if resp.status_code != 200:
-            _LOGGER.error("ferien-api.de failed with http code = %s\n"
-                          "Error: %s", resp.status_code, resp.text)
-            raise RuntimeError("ferien-api.de failed")
-        js = resp.json()
-        return js
-
-    @classmethod
-    def convert(cls, raw):
-        """Converts the ferien-api json to an internal model."""
-        def _single(i):
-            return cls.Item(
-                start=datetime.strptime(i.get('start'), '%Y-%m-%dT%H:%M'),
-                # Adjust end date to previous day 23:59:59
-                # end=datetime.strptime(i.get('end'), '%Y-%m-%dT%H:%M'),
-                end=(datetime.strptime(i.get('end'), '%Y-%m-%dT%H:%M')
-                     - timedelta(seconds=1)),
-                name=i.get('name'),
-                state=i.get('stateCode')
-            )
-        return [_single(i) for i in raw]
+        self.data = None
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
         """Updates the publically available data container."""
         try:
-            self.data = self.convert(self.make_request(self.state_code))
+            import ferien
+            self.data = ferien.state_vacations(self.state_code)
         except Exception:
             if self.data is None:
                 raise

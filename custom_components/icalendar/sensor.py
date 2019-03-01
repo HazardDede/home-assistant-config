@@ -7,7 +7,7 @@ https://home-assistant.io/components/sensor.icalendar/
 """
 import logging
 import os
-# import re
+import re
 from collections import defaultdict
 from datetime import datetime, timedelta
 
@@ -20,7 +20,7 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.util import Throttle
 
-REQUIREMENTS = ['icalevents==0.1.16']
+REQUIREMENTS = ['icalevents==0.1.19']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -65,6 +65,8 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         data_object.update()
         evts = data_object.data
     except Exception:
+        import traceback
+        _LOGGER.warning(traceback.format_exc())
         raise PlatformNotReady()
 
     devices = [ICalNextEventSensor(evt_name, date_format, data_object)
@@ -88,7 +90,7 @@ class ICalNextEventSensor(Entity):
         self._state = None
         # Regex to extract the human readable delta from the str representation
         # of event model
-        # self.friendly_delta_regex = re.compile(r"^.*: .* \((?P<delta>.*)\)$")
+        self.friendly_delta_regex = re.compile(r"^.*: .* \((?P<delta>.*)\)$")
 
     @property
     def name(self):
@@ -117,36 +119,8 @@ class ICalNextEventSensor(Entity):
     def _fmt_delta(self, event, dt):
         """Formats the delta (from now to event start) in a human readable
         format."""
-        # TODO: Can't use the below logic cause lib icalevents
-        # has a default value bug
-        # m = self.friendly_delta_regex.match(str(event))
-        # return m.group('delta') if m else None
-        # Workaround:
-        n = dt
-        # compute time delta description
-        if not event.all_day:
-            if event.end > n > event.start:
-                # event is now
-                delta = "now"
-            elif event.start > n:
-                # event is a future event
-                if event.time_left(n).days > 0:
-                    delta = "%s days left" % event.time_left(n).days
-                else:
-                    hours = event.time_left(n).seconds / (60 * 60)
-                    delta = "%.1f hours left" % hours
-            else:
-                # event is over
-                delta = "ended"
-        else:
-            if event.end > n > event.start:
-                delta = "today"
-            elif event.start > n:
-                delta = "%s days left" % event.time_left(n).days
-            else:
-                delta = "ended"
-
-        return delta
+        m = self.friendly_delta_regex.match(str(event))
+        return m.group('delta') if m else None
 
     def update(self):
         """Fetch new state data for the sensor."""

@@ -324,10 +324,10 @@ views:
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic
-    badges:
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - sensor.speedtest_ping
+    # badges:
+    #   - sensor.speedtest_download
+    #   - sensor.speedtest_upload
+    #   - sensor.speedtest_ping
     cards:              
       - id: mon_system
         type: entities

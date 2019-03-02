@@ -33,7 +33,6 @@ views:
           - sensor.zway_device_7_illumination
           - entity: scene.living_cinematic
             name: Cinematic
-          - vacuum.pumbaa
           - entity: binary_sensor.zway_device_7
             name: "Hallway: Motion"
           - entity: binary_sensor.device_raspitouch_motion
@@ -155,21 +154,6 @@ views:
             name: "Blaze: Last sync"
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"
-      - id: health_plant_01
-        type: plant-status
-        entity: plant.miflora_01
-      - id: health_plant_02
-        type: plant-status
-        entity: plant.miflora_02
-      - id: health_plant_03
-        type: plant-status
-        entity: plant.miflora_03
-      - id: health_plant_04
-        type: plant-status
-        entity: plant.miflora_04
-      - id: health_plant_05
-        type: plant-status
-        entity: plant.miflora_05
       - id: health_wastebin
         title: Trash
         type: entities
@@ -273,6 +257,26 @@ views:
               - input_number.zway_device_9
               - input_number.zway_device_8
               - input_number.zway_device_11
+  - title: flower
+    id: flower
+    icon: mid:flower-outline
+    cards:
+      - id: health_plant_01
+        type: plant-status
+        entity: plant.miflora_01
+      - id: health_plant_02
+        type: plant-status
+        entity: plant.miflora_02
+      - id: health_plant_03
+        type: plant-status
+        entity: plant.miflora_03
+      - id: health_plant_04
+        type: plant-status
+        entity: plant.miflora_04
+      - id: health_plant_05
+        type: plant-status
+        entity: plant.miflora_05
+
   # - title: Power
   #   id: power
   #   icon: mdi:flash-circle

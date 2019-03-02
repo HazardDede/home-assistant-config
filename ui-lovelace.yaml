@@ -567,7 +567,7 @@ views:
             entity: sensor.miflora_04_battery
             style:
               top: 90%
-              left: 93%
+              left: 92%
               color: black
               font-size: 0.7em
               font-weight: bold

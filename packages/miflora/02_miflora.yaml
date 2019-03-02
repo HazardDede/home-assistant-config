@@ -9,7 +9,7 @@ sensor:
       - temperature
       - conductivity
       - battery
-    scan_interval: 3600
+    scan_interval: 1500  # 25 mins
 
 homeassistant:
   customize:

@@ -259,7 +259,7 @@ views:
               - input_number.zway_device_11
   - title: flower
     id: flower
-    icon: mid:flower-outline
+    icon: mdi:flower-outline
     cards:
       - id: health_plant_01
         type: plant-status

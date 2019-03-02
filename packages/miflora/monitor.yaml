@@ -104,7 +104,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - notify
+      - ios_jennifer
   miflora_02:
     name: "Miflora 02: Problem"
     message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: {{ state_attr('plant.miflora_02', 'problem') }}"
@@ -115,7 +115,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - notify
+      - ios_jennifer
   miflora_03:
     name: "Miflora 03: Problem"
     message: "{{ state_attr('plant.miflora_03', 'friendly_name') }}: {{ state_attr('plant.miflora_03', 'problem') }}"
@@ -126,7 +126,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - notify
+      - ios_jennifer
   miflora_04:
     name: "Miflora 04: Problem"
     message: "{{ state_attr('plant.miflora_04', 'friendly_name') }}: {{ state_attr('plant.miflora_04', 'problem') }}"
@@ -137,7 +137,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - notify
+      - ios_jennifer
   miflora_05:
     name: "Miflora 05: Problem"
     message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: {{ state_attr('plant.miflora_05', 'problem') }}"
@@ -148,4 +148,4 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - notify
+      - ios_jennifer

@@ -10,6 +10,21 @@ sensor:
       - conductivity
       - battery
     scan_interval: 1800  # 30 mins
+  - platform: template
+    sensors:
+      miflora_03_battery_status:
+        value_template: >-
+          {% if states('sensor.miflora_03_battery') == 'unknown' %}
+            unknown
+          {% else %}
+            {% if states('sensor.miflora_03_battery')|int <= 10 %}
+              low
+            {% elif states('sensor.miflora_03_battery')|int <= 40 %}
+              medium
+            {% else %}
+              high
+            {% endif %}
+          {% endif %}
 
 homeassistant:
   customize:

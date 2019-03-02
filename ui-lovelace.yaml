@@ -9,6 +9,8 @@ resources:
     type: js
   - url: /local/lovelace/secondaryinfo-entity-row.js?v=2
     type: module
+  - url: /local/lovelace/plant-sensor-card.js?v=1
+    type: module
 
 views:
   - title: Home
@@ -261,21 +263,361 @@ views:
     id: flower
     icon: mdi:flower-outline
     cards:
-      - id: health_plant_01
-        type: plant-status
-        entity: plant.miflora_01
-      - id: health_plant_02
-        type: plant-status
-        entity: plant.miflora_02
-      - id: health_plant_03
-        type: plant-status
-        entity: plant.miflora_03
-      - id: health_plant_04
-        type: plant-status
-        entity: plant.miflora_04
-      - id: health_plant_05
-        type: plant-status
-        entity: plant.miflora_05
+      - type: picture-elements
+        image: /local/plants/pfeilblatt.jpg?v=1
+        elements:
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_01_moisture
+            max: 60
+            min: 15
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 10%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_01_conductivity
+            max: 2000
+            min: 350
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 25%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_01_light_intensity
+            max: 6000
+            min: 1500
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 40%
+              width: 3em
+              height: 3em
+          - type: image
+            entity: plant.miflora_01
+            image: "/local/icons/check.png?v=1"
+            state_image:
+              "ok": /local/icons/check.png?v=1
+              "problem": /local/icons/problem.png?v=1
+            style:
+              top: 90%
+              left: 5%
+              width: 2em
+          - type: image
+            entity: sensor.miflora_01_battery_status
+            image: "/local/icons/battery_high.png?v=1"
+            state_image:
+              "high": /local/icons/battery_high.png?v=1
+              "medium": /local/icons/battery_medium.png?v=1
+              "low": /local/icons/battery_low.png?v=1
+            style:
+              top: 90%
+              left: 93%
+              width: 3em
+          - type: state-label
+            entity: sensor.miflora_01_temperature
+            style:
+              top: 10%
+              left: 93%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold 
+      - type: picture-elements
+        image: /local/plants/calathea.jpg?v=1
+        elements:
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_02_moisture
+            max: 65
+            min: 15
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 10%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_02_conductivity
+            max: 1000
+            min: 350
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 25%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_02_light_intensity
+            max: 20000
+            min: 800
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 40%
+              width: 3em
+              height: 3em
+          - type: image
+            entity: plant.miflora_02
+            image: "/local/icons/check.png?v=1"
+            state_image:
+              "ok": /local/icons/check.png?v=1
+              "problem": /local/icons/problem.png?v=1
+            style:
+              top: 90%
+              left: 5%
+              width: 2em
+          - type: image
+            entity: sensor.miflora_02_battery_status
+            image: "/local/icons/battery_high.png?v=1"
+            state_image:
+              "high": /local/icons/battery_high.png?v=1
+              "medium": /local/icons/battery_medium.png?v=1
+              "low": /local/icons/battery_low.png?v=1
+            style:
+              top: 90%
+              left: 93%
+              width: 3em
+          - type: state-label
+            entity: sensor.miflora_02_temperature
+            style:
+              top: 10%
+              left: 93%
+              color: white
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
+      - type: picture-elements
+        image: /local/plants/ficus_elastica.jpg?v=1
+        elements:
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_03_moisture
+            max: 60
+            min: 15
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 10%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_03_conductivity
+            max: 2000
+            min: 350
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 25%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_03_light_intensity
+            max: 30000
+            min: 1000
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 40%
+              width: 3em
+              height: 3em
+          - type: image
+            entity: plant.miflora_03
+            image: "/local/icons/check.png?v=1"
+            state_image:
+              "ok": /local/icons/check.png?v=1
+              "problem": /local/icons/problem.png?v=1
+            style:
+              top: 90%
+              left: 5%
+              width: 2em
+          - type: image
+            entity: sensor.miflora_03_battery_status
+            image: "/local/icons/battery_high.png?v=1"
+            state_image:
+              "high": /local/icons/battery_high.png?v=1
+              "medium": /local/icons/battery_medium.png?v=1
+              "low": /local/icons/battery_low.png?v=1
+            style:
+              top: 90%
+              left: 93%
+              width: 3em
+          - type: state-label
+            entity: sensor.miflora_03_temperature
+            style:
+              top: 10%
+              left: 93%
+              color: white
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
+      - type: picture-elements
+        image: /local/plants/monstera.jpg?v=1
+        elements:
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_04_moisture
+            max: 60
+            min: 15
+            stroke_width: 15
+            fill: '#444547'
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 35%
+              left: 92%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_04_conductivity
+            max: 2000
+            min: 350
+            stroke_width: 15
+            fill: '#444547'
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 50%
+              left: 77%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_04_light_intensity
+            max: 15000
+            min: 800
+            stroke_width: 15
+            fill: '#444547'
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 65%
+              left: 92%
+              width: 3em
+              height: 3em
+          - type: image
+            entity: plant.miflora_04
+            image: "/local/icons/check.png?v=1"
+            state_image:
+              "ok": /local/icons/check.png?v=1
+              "problem": /local/icons/problem.png?v=1
+            style:
+              top: 90%
+              left: 5%
+              width: 2em
+          - type: image
+            entity: sensor.miflora_04_battery_status
+            image: "/local/icons/battery_high.png?v=1"
+            state_image:
+              "high": /local/icons/battery_high.png?v=1
+              "medium": /local/icons/battery_medium.png?v=1
+              "low": /local/icons/battery_low.png?v=1
+            style:
+              top: 90%
+              left: 92%
+              width: 3em
+          - type: state-label
+            entity: sensor.miflora_04_temperature
+            style:
+              top: 10%
+              left: 93%
+              color: white
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
+      - type: picture-elements
+        image: /local/plants/ficus_lyrata.jpg?v=1
+        elements:
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_05_moisture
+            max: 60
+            min: 15
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 10%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_05_conductivity
+            max: 2000
+            min: 350
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 25%
+              width: 3em
+              height: 3em
+          - type: custom:plant-sensor-card
+            entity: sensor.miflora_05_light_intensity
+            max: 45000
+            min: 1500
+            stroke_width: 15
+            fill: black
+            font_style:
+              color: '#f2efef'
+            style:
+              top: 20%
+              left: 40%
+              width: 3em
+              height: 3em
+          - type: image
+            entity: plant.miflora_05
+            image: "/local/icons/check.png?v=1"
+            state_image:
+              "ok": /local/icons/check.png?v=1
+              "problem": /local/icons/problem.png?v=1
+            style:
+              top: 90%
+              left: 5%
+              width: 2em
+          - type: image
+            entity: sensor.miflora_05_battery_status
+            image: "/local/icons/battery_high.png?v=1"
+            state_image:
+              "high": /local/icons/battery_high.png?v=1
+              "medium": /local/icons/battery_medium.png?v=1
+              "low": /local/icons/battery_low.png?v=1
+            style:
+              top: 90%
+              left: 93%
+              width: 3em
+          - type: state-label
+            entity: sensor.miflora_05_temperature
+            style:
+              top: 10%
+              left: 93%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
 
   # - title: Power
   #   id: power

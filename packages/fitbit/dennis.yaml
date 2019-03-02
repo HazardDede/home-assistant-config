@@ -58,7 +58,7 @@ alert:
     name: 'Dennis: Blaze is out of sync'
     entity_id: binary_sensor.fitbit_dennis_blaze_lastsync_mins_alert
     state: 'on'
-    repeat: 30
+    repeat: 120
     can_acknowledge: True
     skip_first: False
     notifiers:
@@ -67,18 +67,18 @@ alert:
     name: 'Dennis: Blaze needs power! You have to bring it!'
     entity_id: binary_sensor.fitbit_dennis_blaze_battery_alert
     state: 'on'
-    repeat: 30
+    repeat: 120
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_dennis
   fitbit_dennis_water_low:
     name: 'Dennis: Drink water! Now!'
-    done_message: >-
-      Water level: {{ states.sensor.fitbit_dennis_water.state|default(0) }} / {{ states.sensor.fitbit_dennis_water_goal.state|default(1) }} ({{ (states.sensor.fitbit_dennis_water.state|default(0)|int / states.sensor.fitbit_dennis_water_goal.state|default(1)|int * 100)|round }} %)
+    # done_message: >-
+    #   Water level: {{ states.sensor.fitbit_dennis_water.state|default(0) }} / {{ states.sensor.fitbit_dennis_water_goal.state|default(1) }} ({{ (states.sensor.fitbit_dennis_water.state|default(0)|int / states.sensor.fitbit_dennis_water_goal.state|default(1)|int * 100)|round }} %)
     entity_id: binary_sensor.fitbit_dennis_water_alert
     state: 'on'
-    repeat: 30
+    repeat: 60
     can_acknowledge: True
     skip_first: False
     notifiers:

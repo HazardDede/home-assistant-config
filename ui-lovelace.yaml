@@ -327,6 +327,14 @@ views:
               left: 93%
               width: 3em
           - type: state-label
+            entity: sensor.miflora_01_battery
+            style:
+              top: 90%
+              left: 93%
+              color: black
+              font-size: 0.7em
+              font-weight: bold
+          - type: state-label
             entity: sensor.miflora_01_temperature
             style:
               top: 10%
@@ -397,6 +405,14 @@ views:
               top: 90%
               left: 93%
               width: 3em
+          - type: state-label
+            entity: sensor.miflora_02_battery
+            style:
+              top: 90%
+              left: 93%
+              color: black
+              font-size: 0.7em
+              font-weight: bold
           - type: state-label
             entity: sensor.miflora_02_temperature
             style:
@@ -469,6 +485,14 @@ views:
               left: 93%
               width: 3em
           - type: state-label
+            entity: sensor.miflora_03_battery
+            style:
+              top: 90%
+              left: 93%
+              color: black
+              font-size: 0.7em
+              font-weight: bold
+          - type: state-label
             entity: sensor.miflora_03_temperature
             style:
               top: 10%
@@ -540,6 +564,14 @@ views:
               left: 92%
               width: 3em
           - type: state-label
+            entity: sensor.miflora_04_battery
+            style:
+              top: 90%
+              left: 93%
+              color: black
+              font-size: 0.7em
+              font-weight: bold
+          - type: state-label
             entity: sensor.miflora_04_temperature
             style:
               top: 10%
@@ -610,6 +642,14 @@ views:
               top: 90%
               left: 93%
               width: 3em
+          - type: state-label
+            entity: sensor.miflora_05_battery
+            style:
+              top: 90%
+              left: 93%
+              color: black
+              font-size: 0.7em
+              font-weight: bold
           - type: state-label
             entity: sensor.miflora_05_temperature
             style:

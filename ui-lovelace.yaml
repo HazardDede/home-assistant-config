@@ -353,15 +353,15 @@ views:
       #     - sensor.net_rate_up
       #     - sensor.net_rate_down_max
       #     - sensor.net_rate_up_max
-      - id: mon_server
-        type: entities
-        title: Server
-        show_header_toggle: False
-        entities:
-          - binary_sensor.fritz_ping
-          - binary_sensor.mediaserver_ping
-          - binary_sensor.hp_printer_ping
-          - binary_sensor.zway_ping
+      # - id: mon_server
+      #   type: entities
+      #   title: Server
+      #   show_header_toggle: False
+      #   entities:
+      #     - binary_sensor.fritz_ping
+      #     - binary_sensor.mediaserver_ping
+      #     - binary_sensor.hp_printer_ping
+      #     - binary_sensor.zway_ping
   - title: Settings
     id: settings
     icon: mdi:settings-outline

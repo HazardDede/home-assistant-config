@@ -264,6 +264,7 @@ views:
     icon: mdi:flower-outline
     cards:
       - type: picture-elements
+        id: flower_miflora_01
         image: /local/plants/pfeilblatt.jpg?v=1
         elements:
           - type: custom:plant-sensor-card
@@ -341,8 +342,17 @@ views:
               left: 93%
               color: grey
               --ha-label-badge-font-size: 1em
-              font-weight: bold 
+              font-weight: bold
+          - type: state-label
+            entity: sensor.miflora_01_last_updated
+            style:
+              top: 19%
+              left: 89%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
       - type: picture-elements
+        id: flower_miflora_02
         image: /local/plants/calathea.jpg?v=1
         elements:
           - type: custom:plant-sensor-card
@@ -421,7 +431,16 @@ views:
               color: white
               --ha-label-badge-font-size: 1em
               font-weight: bold
+          - type: state-label
+            entity: sensor.miflora_02_last_updated
+            style:
+              top: 19%
+              left: 89%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
       - type: picture-elements
+        id: flower_miflora_03
         image: /local/plants/ficus_elastica.jpg?v=1
         elements:
           - type: custom:plant-sensor-card
@@ -500,7 +519,16 @@ views:
               color: white
               --ha-label-badge-font-size: 1em
               font-weight: bold
+          - type: state-label
+            entity: sensor.miflora_03_last_updated
+            style:
+              top: 19%
+              left: 89%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
       - type: picture-elements
+        id: flower_miflora_04
         image: /local/plants/monstera.jpg?v=1
         elements:
           - type: custom:plant-sensor-card
@@ -579,7 +607,16 @@ views:
               color: white
               --ha-label-badge-font-size: 1em
               font-weight: bold
+          - type: state-label
+            entity: sensor.miflora_04_last_updated
+            style:
+              top: 19%
+              left: 89%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
       - type: picture-elements
+        id: flower_miflora_05
         image: /local/plants/ficus_lyrata.jpg?v=1
         elements:
           - type: custom:plant-sensor-card
@@ -655,6 +692,14 @@ views:
             style:
               top: 10%
               left: 93%
+              color: grey
+              --ha-label-badge-font-size: 1em
+              font-weight: bold
+          - type: state-label
+            entity: sensor.miflora_05_last_updated
+            style:
+              top: 19%
+              left: 89%
               color: grey
               --ha-label-badge-font-size: 1em
               font-weight: bold

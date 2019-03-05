@@ -41,3 +41,9 @@ entities:
   - binary_sensor.fitbit_jennifer_versa_lastsync_mins_alert
   - binary_sensor.fitbit_jennifer_versa_battery_alert
   - binary_sensor.fitbit_jennifer_water_alert
+  # Miflora
+  - sensor.miflora_01_last_updated
+  - sensor.miflora_02_last_updated
+  - sensor.miflora_03_last_updated
+  - sensor.miflora_04_last_updated
+  - sensor.miflora_05_last_updated

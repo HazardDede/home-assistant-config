@@ -25,6 +25,13 @@ sensor:
               high
             {% endif %}
           {% endif %}
+      miflora_05_last_updated:
+        friendly_name: "Last updated"
+        unit_of_measurement: mins ago
+        value_template: >-
+          {{ (as_timestamp(now()) - as_timestamp(states.sensor.miflora_05_light_intensity.last_updated)) | int // 60 }}
+        entity_id:
+          - sensor.time
 
 homeassistant:
   customize:

@@ -31,6 +31,8 @@ automation:
         event: sunset
       - platform: sun
         event: sunrise
+      - platform: homeassistant
+        event: start
     condition:
       - condition: state
         entity_id: input_boolean.frontend_theme_day_night_switch

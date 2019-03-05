@@ -1,0 +1,4 @@
+camera:
+  - platform: generic
+    name: motion01
+    still_image_url: !secret motion01_still_image_url

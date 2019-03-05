@@ -1,0 +1,46 @@
+input_select:
+  frontend_theme:
+    name: Choose Theme
+    options:
+      - default
+      - clear
+      - dark
+    icon: mdi:wall
+
+input_boolean:
+  frontend_theme_day_night_switch:
+    name: Automatic activation of day/night theme
+    icon: mdi:theme-light-dark
+
+automation:
+  - alias: "Theme: Switch frontend theme on select"
+    id: switch_frontend_theme
+    trigger:
+      - platform: state
+        entity_id: input_select.frontend_theme
+      - platform: homeassistant
+        event: start
+    action:
+      - service: frontend.set_theme
+        data_template:
+          name: "{{ states.input_select.frontend_theme.state }}"
+  - alias: "Theme: Switch frontend theme on day/night cycle"
+    id: day_night_theme_switch
+    trigger:
+      - platform: sun
+        event: sunset
+      - platform: sun
+        event: sunrise
+    condition:
+      - condition: state
+        entity_id: input_boolean.frontend_theme_day_night_switch
+        state: 'on'
+    action:
+      - service: input_select.select_option
+        data_template:
+          option: >-
+            {% if states.sun.sun.state == "above_horizon" %}
+              clear
+            {% else %}
+              dark
+            {% endif %}

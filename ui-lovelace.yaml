@@ -11,15 +11,26 @@ resources:
     type: module
   - url: /local/lovelace/plant-sensor-card.js?v=1
     type: module
+  - url: /local/lovelace/compact-custom-header.js?v=0.0.1
+    type: module
 
 views:
   - title: Home
     icon: mdi:home
     id: home
+    background: var(--background-image)
     badges:
       - device_tracker.dennis
       - device_tracker.jennifer
     cards:
+      - type: custom:compact-custom-header
+        main_config: True
+        background_image: True
+        notifications: show
+        voice: overflow
+        options: clock
+        clock_format: 24
+        clock_am_pm: False
       - id: home_tracker
         type: entities
         entities:
@@ -99,7 +110,9 @@ views:
   - title: Home Health
     id: health
     icon: mdi:heart-pulse
+    background: var(--background-image)
     cards:
+      - type: custom:compact-custom-header
       - id: health_alert
         type: custom:monster-card
         show_empty: False
@@ -198,10 +211,12 @@ views:
   - title: Climate
     id: climate
     icon: mdi:thermometer-lines
+    background: var(--background-image)
     badges:
       - sensor.weather_symbol
       - sensor.device_dht01_humidity
     cards:
+      - type: custom:compact-custom-header
       - id: climate_exterior
         type: entities
         title: Elmshorn
@@ -262,7 +277,9 @@ views:
   - title: flower
     id: flower
     icon: mdi:flower-outline
+    background: var(--background-image)
     cards:
+      - type: custom:compact-custom-header
       - type: picture-elements
         id: flower_miflora_01
         image: /local/plants/pfeilblatt.jpg?v=1
@@ -755,11 +772,13 @@ views:
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic
+    background: var(--background-image)
     # badges:
     #   - sensor.speedtest_download
     #   - sensor.speedtest_upload
     #   - sensor.speedtest_ping
-    cards:              
+    cards:
+      - type: custom:compact-custom-header
       - id: mon_system
         type: entities
         title: System
@@ -796,7 +815,9 @@ views:
   - title: CCTV
     id: cctv
     icon: mdi:cctv
+    background: var(--background-image)
     cards:
+      - type: custom:compact-custom-header
       - type: picture-entity
         id: cctv_motion01
         entity: camera.motion01
@@ -805,7 +826,15 @@ views:
   - title: Settings
     id: settings
     icon: mdi:settings-outline
+    background: var(--background-image)
     cards:
+      - type: custom:compact-custom-header
+      - type: entities
+        id: settings_theme
+        title: Themes
+        entities:
+          - input_select.frontend_theme
+          - input_boolean.frontend_theme_day_night_switch
       - id: settings_guest_wifi
         type: vertical-stack
         cards:

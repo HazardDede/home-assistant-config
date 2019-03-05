@@ -31,6 +31,9 @@ logger:
 
 # Enables the frontend
 frontend:
+  themes: !include themes.yaml
+  javascript_version: latest
+
 
 # Enables lovelace in yaml mode by default
 lovelace:

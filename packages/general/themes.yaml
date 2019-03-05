@@ -35,7 +35,7 @@ automation:
         event: start
       - platform: state
         entity_id: input_boolean.frontend_theme_day_night_switch
-        state: 'on'
+        to: 'on'
     condition:
       - condition: state
         entity_id: input_boolean.frontend_theme_day_night_switch

@@ -267,7 +267,7 @@ views:
           entity: input_boolean.splash_time
           name: Splash time
           icon: attribute
-          size: 40%
+          size: 20%
           color: var(--accent-color)
       - id: climate_ground
         type: vertical-stack
@@ -813,7 +813,7 @@ views:
         - type: iframe
           id: cctv_motion01_camera
           url: http://motion01:8081
-          aspect_ratio: 53%
+          aspect_ratio: 64%
         - type: entities
           id: cctv_motion01_info
           show_header_toggle: False

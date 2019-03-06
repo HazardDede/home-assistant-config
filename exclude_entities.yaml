@@ -52,3 +52,7 @@ entities:
   - switch.heating_mode_energy_saving
   - switch.heating_mode_frost_protection
   - switch.heating_mode_off
+  # Theme switch helper
+  - switch.frontend_theme_default
+  - switch.frontend_theme_clear
+  - switch.frontend_theme_dark

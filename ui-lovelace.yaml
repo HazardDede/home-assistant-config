@@ -911,7 +911,7 @@ views:
             - type: "custom:button-card"
               color_type: blank-card
       - id: settings_guest_wifi
-        type: vertical-stack
+        type: horizontal-stack
         cards:
           - id: settings_guest_wifi_info
             type: markdown
@@ -921,9 +921,11 @@ views:
               
               Key: **welcome1!**
           - id: settings_guest_wifi_button
-            type: entities
-            entities:
-              - input_boolean.guestwifi
+            type: custom:button-card
+            entity: input_boolean.guestwifi
+            icon: attribute
+            size: 40%
+            color: var(--accent-color)
       - type: custom:group-card
         id: settings_all_automations
         card:

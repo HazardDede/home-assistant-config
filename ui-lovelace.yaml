@@ -928,7 +928,7 @@ views:
                 type: custom:button-card
                 entity: input_boolean.guestwifi
                 icon: attribute
-                size: 20%
+                size: 40%
                 color: var(--accent-color)
               - type: "custom:button-card"
                 color_type: blank-card

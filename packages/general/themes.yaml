@@ -42,6 +42,7 @@ automation:
         state: 'on'
     action:
       - service: input_select.select_option
+        entity_id: input_select.frontend_theme
         data_template:
           option: >-
             {% if states.sun.sun.state == "above_horizon" %}

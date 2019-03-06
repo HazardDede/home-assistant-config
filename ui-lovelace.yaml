@@ -832,6 +832,7 @@ views:
       - type: entities
         id: settings_theme
         title: Themes
+        show_header_toggle: False
         entities:
           - input_select.frontend_theme
           - input_boolean.frontend_theme_day_night_switch

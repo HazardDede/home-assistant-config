@@ -869,13 +869,35 @@ views:
     background: var(--background-image)
     cards:
       - type: custom:compact-custom-header
-      - type: entities
+      - type: vertical-stack
         id: settings_theme
-        title: Themes
-        show_header_toggle: False
-        entities:
-          - input_select.frontend_theme
-          - input_boolean.frontend_theme_day_night_switch
+        cards:
+          - type: horizontal-stack
+            cards:
+            - type: custom:button-card
+              entity: switch.frontend_theme_default
+              name: Default
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+            - type: custom:button-card
+              entity: switch.frontend_theme_clear
+              name: Day
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+            - type: custom:button-card
+              entity: switch.frontend_theme_dark
+              name: Night
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+          - type: custom:button-card
+            entity: input_boolean.frontend_theme_day_night_switch
+            name: Enable Day/Night Switch
+            icon: attribute
+            size: 40%
+            color: var(--accent-color)
       - id: settings_guest_wifi
         type: vertical-stack
         cards:

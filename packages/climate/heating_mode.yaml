@@ -8,3 +8,59 @@ input_select:
       - "Off"
     icon:
       mdi:radiator
+
+switch:
+  - platform: template
+    switches:
+      heating_mode_comfort:
+        value_template: "{{ is_state('input_select.heating_mode', 'Comfort') }}"
+        icon_template: mdi:radiator
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Comfort"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Comfort"
+      heating_mode_energy_saving:
+        value_template: "{{ is_state('input_select.heating_mode', 'Energy saving') }}"
+        icon_template: mdi:radiator-disabled
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Energy saving"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Energy saving"
+      heating_mode_frost_protection:
+        value_template: "{{ is_state('input_select.heating_mode', 'Frost protection') }}"
+        icon_template: mdi:snowflake
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Frost protection"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Frost protection"
+      heating_mode_off:
+        value_template: "{{ is_state('input_select.heating_mode', 'Off') }}"
+        icon_template: mdi:radiator-off
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Off"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.heating_mode
+            option: "Off"

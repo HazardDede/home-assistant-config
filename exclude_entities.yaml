@@ -47,3 +47,8 @@ entities:
   - sensor.miflora_03_last_updated
   - sensor.miflora_04_last_updated
   - sensor.miflora_05_last_updated
+  # Heating mode helper
+  - switch.heating_mode_comfort
+  - switch.heating_mode_energy_saving
+  - switch.heating_mode_frost_protection
+  - switch.heating_mode_off

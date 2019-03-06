@@ -920,18 +920,18 @@ views:
               SSID: **Humletorp Gastzugang**
               
               Key: **welcome1!**
-          type: horizontal-stack
-          cards:
-            - type: "custom:button-card"
-              color_type: blank-card
-            - id: settings_guest_wifi_button
-              type: custom:button-card
-              entity: input_boolean.guestwifi
-              icon: attribute
-              size: 20%
-              color: var(--accent-color)
-            - type: "custom:button-card"
-              color_type: blank-card
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                color_type: blank-card
+              - id: settings_guest_wifi_button
+                type: custom:button-card
+                entity: input_boolean.guestwifi
+                icon: attribute
+                size: 20%
+                color: var(--accent-color)
+              - type: "custom:button-card"
+                color_type: blank-card
       - type: custom:group-card
         id: settings_all_automations
         card:

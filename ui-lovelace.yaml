@@ -1,19 +1,21 @@
 title: Smarthome
 
 resources:
-  - url: /local/lovelace/group-card.js?v=1
-    type: js
-  - url: /local/lovelace/monster-card.js?v=1
-    type: js
-  - url: /local/lovelace/card-tools.js?v=2
-    type: js
-  - url: /local/lovelace/secondaryinfo-entity-row.js?v=2
+  - url: /local/lovelace/button-card.js?v=0.0.6
     type: module
+  - url: /local/lovelace/card-tools.js?v=0.4.0
+    type: js
+  - url: /local/lovelace/compact-custom-header.js?v=0.0.1b3
+    type: module
+  - url: /local/lovelace/group-card.js?v=0.0.2
+    type: js
+  - url: /local/lovelace/layout-card.js?v=70a198
+    type: js
+  - url: /local/lovelace/monster-card.js?v=0.2.3
+    type: js
   - url: /local/lovelace/plant-sensor-card.js?v=1
     type: module
-  - url: /local/lovelace/compact-custom-header.js?v=0.0.1
-    type: module
-  - url: /local/lovelace/button-card.js
+  - url: /local/lovelace/secondaryinfo-entity-row.js?v=0.3.0
     type: module
 
 views:
@@ -30,7 +32,7 @@ views:
         background_image: True
         notifications: overflow
         voice: overflow
-        options: overflow
+        options: show
         clock_format: 24
         clock_am_pm: False
       - id: home_tracker
@@ -222,6 +224,13 @@ views:
       - type: vertical-stack
         id: climate_control
         cards:
+        - type: "custom:button-card"
+          color_type: label-card
+          color: var(--background-card-color)
+          name: Climate Controller
+          style:
+            - color: var(--primary-text-color)
+            - white-space: nowrap
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -236,32 +245,28 @@ views:
               icon: attribute
               size: 40%
               color: var(--accent-color)
-        - type: horizontal-stack
-          cards:
             - type: custom:button-card
               entity: switch.heating_mode_frost_protection
               name: Frost
               icon: attribute
               size: 40%
               color: var(--accent-color)
+        - type: horizontal-stack
+          cards:
             - type: custom:button-card
               entity: switch.heating_mode_off
               name: "Off"
               icon: attribute
               size: 40%
               color: var(--accent-color)
-        - type: horizontal-stack
-          cards:
             - type: "custom:button-card"
               color_type: blank-card
             - type: custom:button-card
               entity: input_boolean.splash_time
-              name: Splash time
+              name: Splash
               icon: attribute
               size: 40%
               color: var(--accent-color)
-            - type: "custom:button-card"
-              color_type: blank-card
       - id: climate_exterior
         type: entities
         title: Elmshorn
@@ -878,6 +883,12 @@ views:
       - type: vertical-stack
         id: settings_theme
         cards:
+          - type: "custom:button-card"
+            color_type: label-card
+            color: var(--background-card-color)
+            name: Themes
+            style:
+              - color: var(--primary-text-color)
           - type: horizontal-stack
             cards:
             - type: custom:button-card
@@ -904,7 +915,7 @@ views:
               color_type: blank-card
             - type: custom:button-card
               entity: input_boolean.frontend_theme_day_night_switch
-              name: Enable Day/Night Switch
+              name: "Auto switch"
               icon: attribute
               size: 40%
               color: var(--accent-color)
@@ -913,25 +924,34 @@ views:
       - id: settings_guest_wifi
         type: vertical-stack
         cards:
-          - id: settings_guest_wifi_info
-            type: markdown
-            title: Guest Wifi
-            content: >
-              SSID: **Humletorp Gastzugang**
-              
-              Key: **welcome1!**
-          - type: horizontal-stack
+        - type: vertical-stack
+          cards:
+          - type: "custom:button-card"
+            color_type: label-card
+            color: var(--background-card-color)
+            name: Guest Wifi
+            style:
+              - color: var(--primary-text-color)
+              - white-space: nowrap
+          - type: custom:layout-card
+            layout: horizontal
+            column_num: 2
+            max_columns: 2
+            column_width: [80%, 20%]
             cards:
-              - type: "custom:button-card"
-                color_type: blank-card
-              - id: settings_guest_wifi_button
-                type: custom:button-card
-                entity: input_boolean.guestwifi
-                icon: attribute
-                size: 40%
-                color: var(--accent-color)
-              - type: "custom:button-card"
-                color_type: blank-card
+            - id: settings_guest_wifi_info
+              type: markdown
+              content: >
+                SSID: **Humletorp Gastzugang**
+                
+                Key: **welcome1!**
+            - id: settings_guest_wifi_button
+              type: custom:button-card
+              entity: input_boolean.guestwifi
+              icon: attribute
+              show_state: True
+              size: 42px
+              color: var(--accent-color)
       - type: custom:group-card
         id: settings_all_automations
         card:

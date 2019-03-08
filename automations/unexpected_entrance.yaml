@@ -2,16 +2,16 @@
   trigger:
     platform: state
     entity_id: binary_sensor.zway_device_7
-    from: "off"
-    to: "on"
+    from: 'off'
+    to: 'on'
   condition:
     - condition: state
-      entity_id: group.all_devices
-      state: not_home
+      entity_id: binary_sensor.somebody_home
+      state: 'off'
   action:
     - service: notify.notify
       data:
         message: "Unexpected Entrance"
-    - service: notify.pushbullet
-      data:
-        message: "Unexpected Entrance"
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Unexpected Entrance"

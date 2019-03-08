@@ -24,8 +24,9 @@ views:
     id: home
     background: var(--background-image)
     badges:
-      - device_tracker.dennis
       - device_tracker.jennifer
+      - sensor.jonathan_status
+      - device_tracker.dennis
     cards:
       - type: custom:compact-custom-header
         main_config: True
@@ -39,7 +40,10 @@ views:
         type: entities
         entities:
           - sensor.jennifer_status
+          - sensor.jonathan_status
           - sensor.dennis_status
+          - binary_sensor.binary_sensor
+          - input_boolean.notify_nobody_at_home
       - id: home_living
         type: entities
         title: "Living room"
@@ -57,9 +61,6 @@ views:
           - entity: switch.zway_device_4
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_4_power.state ]] W"
-          - entity: switch.zway_device_5
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_5_power.state ]] W"
           - entity: switch.zway_device_17
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_17_power.state ]] W"
@@ -74,6 +75,9 @@ views:
         entities:
           - sensor.zway_device_24_temperature
           - sensor.zway_device_24_illumination
+          - entity: switch.zway_device_5
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.zway_device_5_power.state ]] W"
           - binary_sensor.zway_device_24
           - entity: switch.zway_device_13
             type: "custom:secondaryinfo-entity-row"
@@ -865,15 +869,17 @@ views:
       #     - sensor.net_rate_up
       #     - sensor.net_rate_down_max
       #     - sensor.net_rate_up_max
-      # - id: mon_server
-      #   type: entities
-      #   title: Server
-      #   show_header_toggle: False
-      #   entities:
-      #     - binary_sensor.fritz_ping
-      #     - binary_sensor.mediaserver_ping
-      #     - binary_sensor.hp_printer_ping
-      #     - binary_sensor.zway_ping
+      - id: mon_server
+        type: entities
+        title: Server
+        show_header_toggle: False
+        entities:
+          - device_tracker.hp_printer
+          - device_tracker.mediaserver
+          - device_tracker.motion01
+          - device_tracker.ps4_01
+          - device_tracker.ps4_02
+          - device_tracker.zway
   - title: Settings
     id: settings
     icon: mdi:settings-outline

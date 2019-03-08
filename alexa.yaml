@@ -29,6 +29,3 @@ entities:
   switch.zway_device_4:
     name: "Fernseher Wohnzimmer"
     hidden: false
-  switch.zway_device_5:
-    name: "Mann mit Hut"
-    hidden: false

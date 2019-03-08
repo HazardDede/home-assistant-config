@@ -11,8 +11,8 @@
           - sat
           - sun
       - condition: state
-        entity_id: group.all_devices
-        state: home
+        entity_id: binary_sensor.somebody_home
+        state: 'on'
   action:
     service: homeassistant.turn_on
     entity_id: switch.zway_device_20
@@ -30,8 +30,8 @@
           - thu
           - fri
       - condition: state
-        entity_id: group.all_devices
-        state: home
+        entity_id: binary_sensor.somebody_home
+        state: 'on'
   action:
     service: homeassistant.turn_on
     entity_id: switch.zway_device_20

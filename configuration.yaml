@@ -96,6 +96,18 @@ notify: !include_dir_list notifications
 tts:
   - platform: google
 
+person:
+  - name: Jennifer
+    id: jennifer
+    # user_id: # TODO: User id from configuation
+    device_trackers:
+      - device_tracker.jennifer
+  - name: Dennis
+    id: dennis
+    # user_id: # TODO: User id from configuation
+    device_trackers:
+      - device_tracker.dennis
+
 # Cloud
 cloud:
 
@@ -106,18 +118,18 @@ emulated_hue: !include alexa.yaml
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 
-panel_iframe:
-  router:
-    title: 'Router'
-    url: 'http://192.168.178.1'
-    icon: mdi:router-wireless
-  rpimonitor:
-    title: 'RPi Monitor'
-    url: 'http://services:8888'
-    icon: mdi:raspberrypi
-  grafana:
-    title: 'Grafana'
-    url: 'http://services:3000'
-    icon: mdi:chart-line   
+# panel_iframe:
+#   router:
+#     title: 'Router'
+#     url: 'http://192.168.178.1'
+#     icon: mdi:router-wireless
+#   rpimonitor:
+#     title: 'RPi Monitor'
+#     url: 'http://services:8888'
+#     icon: mdi:raspberrypi
+#   grafana:
+#     title: 'Grafana'
+#     url: 'http://services:3000'
+#     icon: mdi:chart-line   
 
 zone: !include_dir_list zones

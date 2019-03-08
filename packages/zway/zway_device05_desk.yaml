@@ -35,7 +35,7 @@ switch:
             device_id: 5
         icon_template: >-
           {% if is_state('binary_sensor.zway_device_5', 'on') %}
-            mdi:lightbulb-on-outline
+            mdi:desktop-mac-dashboard
           {% else %}
-            mdi:lightbulb-outline
+            mdi:desktop-mac
           {% endif %}

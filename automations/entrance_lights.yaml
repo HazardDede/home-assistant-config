@@ -7,9 +7,10 @@
     - condition: numeric_state
       entity_id: sensor.zway_device_24_illumination
       below: 10
+    # State can be: Home, Just Arrived, Just Left, Away, Extended Away
     - condition: template
       value_template: "{{ not is_state('sensor.dennis_status', 'Home') }}"
-      # State can be: Home, Just Arrived, Just Left, Away, Extended Away
+    # State can be: Home, Just Arrived, Just Left, Away, Extended Away
     - condition: template
       value_template: "{{ not is_state('sensor.jennifer_status', 'Home') }}"
   action:

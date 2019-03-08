@@ -879,7 +879,7 @@ views:
           - device_tracker.motion01
           - device_tracker.ps4_01
           - device_tracker.ps4_02
-          - device_tracker.smarthome_2
+          - device_tracker.zway_server
   - title: Settings
     id: settings
     icon: mdi:settings-outline

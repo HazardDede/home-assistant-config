@@ -99,12 +99,12 @@ tts:
 person:
   - name: Jennifer
     id: jennifer
-    # user_id: # TODO: User id from configuation
+    user_id: 0d5a676cd0ce4c8bad23121b38ecf9c8
     device_trackers:
       - device_tracker.jennifer
   - name: Dennis
     id: dennis
-    # user_id: # TODO: User id from configuation
+    user_id: 54e0dcc98328421ba486825f55855776
     device_trackers:
       - device_tracker.dennis
 

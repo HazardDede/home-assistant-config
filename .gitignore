@@ -27,3 +27,7 @@ emulated_hue_ids.json
 *.pyc
 
 .AppleDouble
+
+.DS_Store
+
+www/family

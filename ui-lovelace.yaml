@@ -42,7 +42,7 @@ views:
           - sensor.jennifer_status
           - sensor.jonathan_status
           - sensor.dennis_status
-          - binary_sensor.binary_sensor
+          - binary_sensor.somebody_home
           - input_boolean.notify_nobody_at_home
       - id: home_living
         type: entities

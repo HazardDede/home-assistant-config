@@ -834,7 +834,7 @@ views:
           show_header_toggle: False
           entities:
             - entity: binary_sensor.motion01_motion
-              name: Motion01 - Hallway
+              name: Hallway (motion01)
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic

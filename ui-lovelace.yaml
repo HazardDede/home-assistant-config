@@ -825,10 +825,10 @@ views:
       - type: vertical-stack
         id: cctv_motion01
         cards:
-        - type: iframe
-          id: cctv_motion01_camera
-          url: http://motion01:8081
-          aspect_ratio: 64%
+        # - type: iframe
+        #   id: cctv_motion01_camera
+        #   url: http://motion01:8081
+        #   aspect_ratio: 64%
         - type: entities
           id: cctv_motion01_info
           show_header_toggle: False

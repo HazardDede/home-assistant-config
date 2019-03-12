@@ -79,6 +79,38 @@ plant:
     max_temperature: 32
     # min_brightness: 1500
     # max_brightness: 45000
+  miflora_06:
+    sensors:
+      moisture: sensor.miflora_06_moisture
+      battery: sensor.miflora_06_battery
+      temperature: sensor.miflora_06_temperature
+      conductivity: sensor.miflora_06_conductivity
+      # brightness: sensor.miflora_06_light_intensity
+    min_moisture: 15
+    max_moisture: 60
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 2000
+    min_temperature: 12
+    max_temperature: 32
+    # min_brightness: 1500
+    # max_brightness: 45000
+  miflora_07:
+    sensors:
+      moisture: sensor.miflora_07_moisture
+      battery: sensor.miflora_07_battery
+      temperature: sensor.miflora_07_temperature
+      conductivity: sensor.miflora_07_conductivity
+      # brightness: sensor.miflora_07_light_intensity
+    min_moisture: 15
+    max_moisture: 60
+    min_battery: 10
+    min_conductivity: 350
+    max_conductivity: 2000
+    min_temperature: 12
+    max_temperature: 32
+    # min_brightness: 1500
+    # max_brightness: 45000
 
 homeassistant:
   customize:
@@ -92,6 +124,10 @@ homeassistant:
       friendly_name: Monstera deliciosa (MF04)
     plant.miflora_05:
       friendly_name: Ficus lyrata (MF05)
+    plant.miflora_06:
+      friendly_name: Unknown (MF06)
+    plant.miflora_07:
+      friendly_name: Unknown (MF07)
 
 alert:
   miflora_01:
@@ -143,6 +179,28 @@ alert:
     message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: {{ state_attr('plant.miflora_05', 'problem') }}"
     done_message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: Healthy"
     entity_id: plant.miflora_05
+    state: 'problem'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_jennifer
+  miflora_06:
+    name: "Miflora 06: Problem"
+    message: "{{ state_attr('plant.miflora_06', 'friendly_name') }}: {{ state_attr('plant.miflora_06', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora_06', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora_06
+    state: 'problem'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - ios_jennifer
+  miflora_07:
+    name: "Miflora 07: Problem"
+    message: "{{ state_attr('plant.miflora_07', 'friendly_name') }}: {{ state_attr('plant.miflora_07', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora_07', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora_07
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True

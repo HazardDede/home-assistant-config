@@ -1,0 +1,46 @@
+sensor:
+  - platform: miflora
+    mac: 'C4:7C:8D:6A:5E:5F'
+    name: miflora_06
+    force_update: True
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
+    scan_interval: 1080  # 18 mins
+  - platform: template
+    sensors:
+      miflora_06_battery_status:
+        value_template: >-
+          {% if states('sensor.miflora_06_battery') == 'unknown' %}
+            unknown
+          {% else %}
+            {% if states('sensor.miflora_06_battery')|int <= 10 %}
+              low
+            {% elif states('sensor.miflora_06_battery')|int <= 40 %}
+              medium
+            {% else %}
+              high
+            {% endif %}
+          {% endif %}
+      miflora_06_last_updated:
+        friendly_name: "Last updated"
+        unit_of_measurement: mins ago
+        value_template: >-
+          {{ (as_timestamp(now()) - as_timestamp(states.sensor.miflora_06_light_intensity.last_updated)) | int // 60 }}
+        entity_id:
+          - sensor.time
+
+homeassistant:
+  customize:
+    sensor.miflora_06_conductivity:
+      icon: mdi:flash
+    sensor.miflora_06_light_intensity:
+      icon: mdi:white-balance-sunny
+    sensor.miflora_06_moisture:
+      icon: mdi:water-percent
+    sensor.miflora_06_battery:
+      device_class: battery
+      unit_of_measurement: "%"

@@ -204,6 +204,9 @@ views:
           - entity: vacuum.pumbaa
             name: "Controls"
             icon: mdi:pig
+          - entity: binary_sensor.pumbaa_running
+            name: "Running"
+            icon: mdi:robot-vacuum
           - entity: sensor.pumbaa_battery
             name: "Battery"
           - entity: sensor.pumbaa_running_time

@@ -65,7 +65,7 @@ conversation:
 system_health:
 
 recorder:
-  purge_keep_days: 21
+  purge_keep_days: 2
   exclude:
     !include exclude_entities.yaml
 

@@ -22,11 +22,16 @@ binary_sensor:
       pumbaa_bin_full:
         # Cleaning time is greater equal to x hours
         value_template: >-
-          {{ states('sensor.pumbaa_running_time')|float >= 14.0 }}
+          {{ states('counter.pumbaa_running_time')|int >= (14 * 60) }}
       # Switches to 'on' if the attribute 'error' appears on the entity
       pumbaa_error_alert:
         value_template: >-
           {{ state_attr('vacuum.pumbaa', 'error') is not none }}
+
+counter:
+  pumbaa_running_time:
+    initial: 0
+    step: 1
 
 input_datetime:
   pumbaa_last_bin_cleaning:
@@ -38,6 +43,8 @@ script:
   # Shortcut to set the last cleaning time to now()
   pumbaa_set_bin_clean:
     sequence:
+      - service: counter.reset
+        entity_id: counter.pumbaa_running_time
       - service: input_datetime.set_datetime
         data_template:
           entity_id: input_datetime.pumbaa_last_bin_cleaning
@@ -45,16 +52,12 @@ script:
           time: '{{ now().strftime("%H:%M:00") }}'
 
 sensor:
-  # Sum up all the time the device has cleaned so far.
-  # Make sure your recorder component is configured accordingly.
-  # Optional: Exclude from your recorder component
-  - platform: history_stats
-    name: pumbaa_running_time
-    entity_id: binary_sensor.pumbaa_running
-    state: 'on'
-    type: time
-    start: '{{ as_timestamp(states.input_datetime.pumbaa_last_bin_cleaning.state) }}'
-    end: '{{ as_timestamp(now()) }}'
+  - platform: template
+    sensors:
+      pumbaa_running_time:
+        value_template: >
+            {% set ct = states('counter.pumbaa_running_time') | int %}
+            {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }} hours{% else %}{{ct}} minutes{% endif %}
   - platform: template
     sensors:
       pumbaa_battery:
@@ -62,6 +65,19 @@ sensor:
           {{ state_attr('vacuum.pumbaa', 'battery_level')|default(100, True)|int }}
         device_class: battery
         unit_of_measurement: "%"
+      pumbaa_battery_status:
+        value_template: >-
+          {% if states('sensor.pumbaa_battery') == 'unknown' %}
+            unknown
+          {% else %}
+            {% if states('sensor.pumbaa_battery')|int <= 30 %}
+              low
+            {% elif states('sensor.pumbaa_battery')|int <= 55 %}
+              medium
+            {% else %}
+              high
+            {% endif %}
+          {% endif %}
 
 ###########################################################
 # Notifications
@@ -84,7 +100,7 @@ alert:
     name: 'Pumbaa is stuck and needs your help!'
     entity_id: binary_sensor.pumbaa_error_alert
     state: 'on'
-    repeat: 30  # Renotify every 30 minutes
+    repeat: 120  # Renotify every 2h
     can_acknowledge: False
     skip_first: False
     notifiers:
@@ -133,3 +149,17 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: vacuum.pumbaa
+  - alias: 'Pumbaa: Increment counter when running'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+        seconds: 0
+    condition:
+      condition: state
+      entity_id: binary_sensor.pumbaa_running
+      state: 'on'
+    action:
+      - service: counter.increment
+        entity_id: counter.pumbaa_running_time

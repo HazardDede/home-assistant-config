@@ -9,7 +9,7 @@ sensor:
       - temperature
       - conductivity
       - battery
-    scan_interval: 1320  # 22 mins
+    scan_interval: 4740  # 79 mins
   - platform: template
     sensors:
       miflora_07_battery_status:

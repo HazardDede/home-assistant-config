@@ -61,7 +61,8 @@ views:
           - entity: switch.zway_device_4
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_4_power.state ]] W"
-          - entity: switch.zway_device_17
+          - entity: sensor.zway_device_17_consumption
+            icon: mdi:fridge-outline
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_17_power.state ]] W"
           - light.zway_device_22
@@ -75,7 +76,8 @@ views:
         entities:
           - sensor.zway_device_24_temperature
           - sensor.zway_device_24_illumination
-          - entity: switch.zway_device_5
+          - entity: sensor.zway_device_5_consumption
+            icon: mdi:desktop-mac-dashboard
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_5_power.state ]] W"
           - binary_sensor.zway_device_24

@@ -1,11 +1,11 @@
 plant:
-  miflora_01:
+  miflora01:
     sensors:
-      moisture: sensor.miflora_01_moisture
-      battery: sensor.miflora_01_battery
-      temperature: sensor.miflora_01_temperature
-      conductivity: sensor.miflora_01_conductivity
-      # brightness: sensor.miflora_01_light_intensity
+      moisture: sensor.miflora01_moisture
+      battery: sensor.miflora01_battery
+      temperature: sensor.miflora01_temperature
+      conductivity: sensor.miflora01_conductivity
+      # brightness: sensor.miflora01_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -15,13 +15,13 @@ plant:
     max_temperature: 32
     # min_brightness: 1500
     # max_brightness: 6000
-  miflora_02:
+  miflora02:
     sensors:
-      moisture: sensor.miflora_02_moisture
-      battery: sensor.miflora_02_battery
-      temperature: sensor.miflora_02_temperature
-      conductivity: sensor.miflora_02_conductivity
-      # brightness: sensor.miflora_02_light_intensity
+      moisture: sensor.miflora02_moisture
+      battery: sensor.miflora02_battery
+      temperature: sensor.miflora02_temperature
+      conductivity: sensor.miflora02_conductivity
+      # brightness: sensor.miflora02_light_intensity
     min_moisture: 15
     max_moisture: 65
     min_battery: 10
@@ -31,13 +31,13 @@ plant:
     max_temperature: 32
     # min_brightness: 800
     # max_brightness: 20000
-  miflora_03:
+  miflora03:
     sensors:
-      moisture: sensor.miflora_03_moisture
-      battery: sensor.miflora_03_battery
-      temperature: sensor.miflora_03_temperature
-      conductivity: sensor.miflora_03_conductivity
-      # brightness: sensor.miflora_03_light_intensity
+      moisture: sensor.miflora03_moisture
+      battery: sensor.miflora03_battery
+      temperature: sensor.miflora03_temperature
+      conductivity: sensor.miflora03_conductivity
+      # brightness: sensor.miflora03_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -47,13 +47,13 @@ plant:
     max_temperature: 35
     # min_brightness: 1000
     # max_brightness: 30000
-  miflora_04:
+  miflora04:
     sensors:
-      moisture: sensor.miflora_04_moisture
-      battery: sensor.miflora_04_battery
-      temperature: sensor.miflora_04_temperature
-      conductivity: sensor.miflora_04_conductivity
-      # brightness: sensor.miflora_04_light_intensity
+      moisture: sensor.miflora04_moisture
+      battery: sensor.miflora04_battery
+      temperature: sensor.miflora04_temperature
+      conductivity: sensor.miflora04_conductivity
+      # brightness: sensor.miflora04_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -63,13 +63,13 @@ plant:
     max_temperature: 32
     # min_brightness: 800
     # max_brightness: 15000
-  miflora_05:
+  miflora05:
     sensors:
-      moisture: sensor.miflora_05_moisture
-      battery: sensor.miflora_05_battery
-      temperature: sensor.miflora_05_temperature
-      conductivity: sensor.miflora_05_conductivity
-      # brightness: sensor.miflora_05_light_intensity
+      moisture: sensor.miflora05_moisture
+      battery: sensor.miflora05_battery
+      temperature: sensor.miflora05_temperature
+      conductivity: sensor.miflora05_conductivity
+      # brightness: sensor.miflora05_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -79,13 +79,13 @@ plant:
     max_temperature: 32
     # min_brightness: 1500
     # max_brightness: 45000
-  miflora_06:
+  miflora06:
     sensors:
-      moisture: sensor.miflora_06_moisture
-      battery: sensor.miflora_06_battery
-      temperature: sensor.miflora_06_temperature
-      conductivity: sensor.miflora_06_conductivity
-      # brightness: sensor.miflora_06_light_intensity
+      moisture: sensor.miflora06_moisture
+      battery: sensor.miflora06_battery
+      temperature: sensor.miflora06_temperature
+      conductivity: sensor.miflora06_conductivity
+      # brightness: sensor.miflora06_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -95,13 +95,13 @@ plant:
     max_temperature: 32
     # min_brightness: 1500
     # max_brightness: 45000
-  miflora_07:
+  miflora07:
     sensors:
-      moisture: sensor.miflora_07_moisture
-      battery: sensor.miflora_07_battery
-      temperature: sensor.miflora_07_temperature
-      conductivity: sensor.miflora_07_conductivity
-      # brightness: sensor.miflora_07_light_intensity
+      moisture: sensor.miflora07_moisture
+      battery: sensor.miflora07_battery
+      temperature: sensor.miflora07_temperature
+      conductivity: sensor.miflora07_conductivity
+      # brightness: sensor.miflora07_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
@@ -114,93 +114,93 @@ plant:
 
 homeassistant:
   customize:
-    plant.miflora_01:
+    plant.miflora01:
       friendly_name: Pfeilblatt (MF01)
-    plant.miflora_02:
+    plant.miflora02:
       friendly_name: Calathea sanderiana (MF02)
-    plant.miflora_03:
+    plant.miflora03:
       friendly_name: Ficus elastica (MF03)
-    plant.miflora_04:
+    plant.miflora04:
       friendly_name: Monstera deliciosa (MF04)
-    plant.miflora_05:
+    plant.miflora05:
       friendly_name: Ficus lyrata (MF05)
-    plant.miflora_06:
-      friendly_name: Unknown (MF06)
-    plant.miflora_07:
-      friendly_name: Unknown (MF07)
+    plant.miflora06:
+      friendly_name: Ufo (MF06)
+    plant.miflora07:
+      friendly_name: Glücksfeder (MF07)
 
 alert:
-  miflora_01:
+  miflora01:
     name: "Miflora 01: Problem"
-    message: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: {{ state_attr('plant.miflora_01', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_01', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_01
+    message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: {{ state_attr('plant.miflora01', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora01
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_02:
+  miflora02:
     name: "Miflora 02: Problem"
-    message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: {{ state_attr('plant.miflora_02', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_02', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_02
+    message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: {{ state_attr('plant.miflora02', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora02
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_03:
+  miflora03:
     name: "Miflora 03: Problem"
-    message: "{{ state_attr('plant.miflora_03', 'friendly_name') }}: {{ state_attr('plant.miflora_03', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_03', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_03
+    message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: {{ state_attr('plant.miflora03', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora03
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_04:
+  miflora04:
     name: "Miflora 04: Problem"
-    message: "{{ state_attr('plant.miflora_04', 'friendly_name') }}: {{ state_attr('plant.miflora_04', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_04', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_04
+    message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: {{ state_attr('plant.miflora04', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora04
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_05:
+  miflora05:
     name: "Miflora 05: Problem"
-    message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: {{ state_attr('plant.miflora_05', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_05', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_05
+    message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: {{ state_attr('plant.miflora05', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora05
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_06:
+  miflora06:
     name: "Miflora 06: Problem"
-    message: "{{ state_attr('plant.miflora_06', 'friendly_name') }}: {{ state_attr('plant.miflora_06', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_06', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_06
+    message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: {{ state_attr('plant.miflora06', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora06
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True
     skip_first: False
     notifiers:
       - ios_jennifer
-  miflora_07:
+  miflora07:
     name: "Miflora 07: Problem"
-    message: "{{ state_attr('plant.miflora_07', 'friendly_name') }}: {{ state_attr('plant.miflora_07', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora_07', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora_07
+    message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: {{ state_attr('plant.miflora07', 'problem') }}"
+    done_message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: Healthy"
+    entity_id: plant.miflora07
     state: 'problem'
     repeat: 720  # Renotify every 12h
     can_acknowledge: True

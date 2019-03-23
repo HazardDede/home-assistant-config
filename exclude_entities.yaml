@@ -42,13 +42,13 @@ entities:
   - binary_sensor.fitbit_jennifer_versa_battery_alert
   - binary_sensor.fitbit_jennifer_water_alert
   # Miflora
-  - sensor.miflora_01_last_updated
-  - sensor.miflora_02_last_updated
-  - sensor.miflora_03_last_updated
-  - sensor.miflora_04_last_updated
-  - sensor.miflora_05_last_updated
-  - sensor.miflora_06_last_updated
-  - sensor.miflora_07_last_updated
+  - sensor.miflora01_last_updated
+  - sensor.miflora02_last_updated
+  - sensor.miflora03_last_updated
+  - sensor.miflora04_last_updated
+  - sensor.miflora05_last_updated
+  - sensor.miflora06_last_updated
+  - sensor.miflora07_last_updated
   # Heating mode helper
   - switch.heating_mode_comfort
   - switch.heating_mode_energy_saving

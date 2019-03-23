@@ -50,20 +50,21 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 SCAN_INTERVAL = timedelta(minutes=1)
 
 
-def setup_platform(hass, config, add_devices, discovery_info=None):
+async def async_setup_platform(hass, config, async_add_entities,
+                               discovery_info=None):
     """Setups the ferienapidotde platform."""
     state_code = config.get(CONF_STATE)
     name = config.get(CONF_NAME)
 
     try:
         data_object = VacationData(state_code)
-        data_object.update()
+        await data_object.async_update()
     except Exception:
         import traceback
         _LOGGER.warning(traceback.format_exc())
         raise PlatformNotReady()
 
-    add_devices([VacationSensor(name, data_object)], True)
+    async_add_entities([VacationSensor(name, data_object)], True)
 
 
 class VacationSensor(BinarySensorDevice):
@@ -95,10 +96,10 @@ class VacationSensor(BinarySensorDevice):
         """Returns the state attributes of this device."""
         return self._state_attrs
 
-    def update(self):
+    async def async_update(self):
         """Updates the state and state attributes."""
         import ferien
-        self.data_object.update()
+        await self.data_object.async_update()
         vacs = self.data_object.data
         cur = ferien.current_vacation(vacs=vacs)
         if cur is None:
@@ -132,11 +133,11 @@ class VacationData:
         self.data = None
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
-    def update(self):
-        """Updates the publically available data container."""
+    async def async_update(self):
+        """Updates the publicly available data container."""
         try:
             import ferien
-            self.data = ferien.state_vacations(self.state_code)
+            self.data = await ferien.state_vacations_async(self.state_code)
         except Exception:
             if self.data is None:
                 raise

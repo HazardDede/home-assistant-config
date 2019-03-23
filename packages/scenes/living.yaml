@@ -2,17 +2,14 @@ scene:
   - name: living_cinematic
     entities:
       switch.zway_device_4: on  # TV
-      switch.zway_device_17: off  # Fruitbox lamp
       light.zway_device_22:  # Couch lamp
         state: on
         brightness: 30
   - name: living_lights_off
     entities:
-      switch.zway_device_17: off  # Fruitbox lamp
       light.zway_device_22: off # Couch lamp
   - name: living_lights_on
     entities:
-      switch.zway_device_17: on  # Fruitbox lamp
       light.zway_device_22: # Couch lamp
         state: on
         brightness: 100

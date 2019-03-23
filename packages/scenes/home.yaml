@@ -1,7 +1,6 @@
 scene:
   - name: lights_off
     entities:
-      switch.zway_device_17: off  # Wohnzimmer: Fruitbox lamp
       light.zway_device_22: off # Wohnzimmer: Couch lamp
       switch.433rc_generic04: off  # Schlafzimmer: Bettlampe
       switch.433rc_generic01: off  # Kinderzimmer: Miffy

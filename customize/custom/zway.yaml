@@ -50,13 +50,13 @@ sensor.zway_device_13_consumption:
   friendly_name: "Vintage lamp"
 
 switch.zway_device_17:
-  friendly_name: "Fruitbox lamp"
+  friendly_name: "Refrigerator"
 
 sensor.zway_device_17_power:
-  friendly_name: "Fruitbox lamp"
+  friendly_name: "Refrigerator"
 
 sensor.zway_device_17_consumption:
-  friendly_name: "Fruitbox lamp"
+  friendly_name: "Refrigerator"
 
 binary_sensor.zway_device_19:
   friendly_name: "Motion (nursery)"

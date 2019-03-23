@@ -17,9 +17,6 @@ entities:
   switch.zway_device_13:
     name: "Galerielampe"
     hidden: false
-  switch.zway_device_17:
-    name: "Schlittenlampe"
-    hidden: false
   switch.zway_device_20:
     name: "Kaffeemaschine"
     hidden: false

@@ -61,11 +61,16 @@ views:
           - entity: switch.zway_device_4
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_4_power.state ]] W"
+          - light.zway_device_22
+      - id: home_kitchen
+        type: entities
+        title: Kitchen
+        show_header_toggle: False
+        entities:
           - entity: sensor.zway_device_17_consumption
             icon: mdi:fridge-outline
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_17_power.state ]] W"
-          - light.zway_device_22
           - entity: switch.zway_device_20
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_20_power.state ]] W"

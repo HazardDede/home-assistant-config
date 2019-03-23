@@ -5,13 +5,13 @@ entities:
   light.zway_device_22:
     name: "Stehlampe"
     hidden: false
-  switch.r433_miffy:
+  switch.433rc_generic01:
     name: "Miffy Lampe"
     hidden: false
-  switch.r433_moon:
+  switch.433rc_generic02:
     name: "Mondlampe"
     hidden: false
-  switch.r433_bedlamp:
+  switch.433rc_generic04:
     name: "Bettlampe"
     hidden: false
   switch.zway_device_13:

@@ -12,10 +12,7 @@ entities:
   - sensor.moon
   - sensor.last_boot
   - sensor.weather_symbol
-  # Zway/r433 redundant
-  - binary_sensor.r433_bedlamp_state
-  - binary_sensor.r433_miffy_state
-  - binary_sensor.r433_moon_state
+  # Zway redundant
   - binary_sensor.zway_device_13
   - binary_sensor.zway_device_17
   - binary_sensor.zway_device_20

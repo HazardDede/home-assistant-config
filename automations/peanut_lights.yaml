@@ -9,9 +9,9 @@
     below: 5
   action:
     - service: homeassistant.turn_on
-      entity_id: switch.r433_moon
+      entity_id: switch.433rc_generic02
     - service: homeassistant.turn_on
-      entity_id: switch.r433_miffy
+      entity_id: switch.433rc_generic01
 - alias: Nursery light off some minutes after last movement
   trigger:
     platform: state
@@ -21,6 +21,6 @@
       minutes: 2
   action:
     - service: homeassistant.turn_off
-      entity_id: switch.r433_moon
+      entity_id: switch.433rc_generic02
     - service: homeassistant.turn_off
-      entity_id: switch.r433_miffy
+      entity_id: switch.433rc_generic01

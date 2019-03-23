@@ -1,8 +1,11 @@
-switch.r433_moon:
-  friendly_name: "Moon"
-
-switch.r433_miffy:
+switch.433rc_generic01:
   friendly_name: "Miffy"
+  icon: mdi:rabbit
 
-switch.r433_bedlamp:
-  friendly_name: "Bedlamp"
+switch.433rc_generic02:
+  friendly_name: "Moon"
+  icon: mdi:weather-night
+
+switch.433rc_generic04:
+  friendly_name: "Bedsite lamp"
+  icon: mdi:track-light

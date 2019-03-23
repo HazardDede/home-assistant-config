@@ -3,6 +3,6 @@ scene:
     entities:
       switch.zway_device_17: off  # Wohnzimmer: Fruitbox lamp
       light.zway_device_22: off # Wohnzimmer: Couch lamp
-      switch.r433_bedlamp: off  # Schlafzimmer: Bettlampe
-      switch.r433_miffy: off  # Kinderzimmer: Miffy
-      switch.r433_moon: off  # Kinderzimmer: Mond
+      switch.433rc_generic04: off  # Schlafzimmer: Bettlampe
+      switch.433rc_generic01: off  # Kinderzimmer: Miffy
+      switch.433rc_generic02: off  # Kinderzimmer: Mond

@@ -93,7 +93,7 @@ views:
           - entity: switch.zway_device_21
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_21_power.state ]] W"
-          - switch.r433_bedlamp
+          - switch.433rc_generic04
       - id: home_peanut
         type: vertical-stack
         cards:
@@ -102,8 +102,8 @@ views:
             title: "Peanut's Playground"
             entities:
               - binary_sensor.zway_device_19
-              - switch.r433_moon
-              - switch.r433_miffy
+              - switch.433rc_generic02
+              - switch.433rc_generic01
             image: /local/rooms/peanut.jpg
             aspect_ratio: "16:9"
           - id: home_peanut_info

@@ -129,81 +129,81 @@ homeassistant:
     plant.miflora07:
       friendly_name: Glücksfeder (MF07)
 
-alert:
-  miflora01:
-    name: "Miflora 01: Problem"
-    message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: {{ state_attr('plant.miflora01', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora01
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora02:
-    name: "Miflora 02: Problem"
-    message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: {{ state_attr('plant.miflora02', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora02
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora03:
-    name: "Miflora 03: Problem"
-    message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: {{ state_attr('plant.miflora03', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora03
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora04:
-    name: "Miflora 04: Problem"
-    message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: {{ state_attr('plant.miflora04', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora04
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora05:
-    name: "Miflora 05: Problem"
-    message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: {{ state_attr('plant.miflora05', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora05
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora06:
-    name: "Miflora 06: Problem"
-    message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: {{ state_attr('plant.miflora06', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora06
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
-  miflora07:
-    name: "Miflora 07: Problem"
-    message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: {{ state_attr('plant.miflora07', 'problem') }}"
-    done_message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: Healthy"
-    entity_id: plant.miflora07
-    state: 'problem'
-    repeat: 720  # Renotify every 12h
-    can_acknowledge: True
-    skip_first: False
-    notifiers:
-      - notify
+# alert:
+#   miflora01:
+#     name: "Miflora 01: Problem"
+#     message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: {{ state_attr('plant.miflora01', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora01', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora01
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora02:
+#     name: "Miflora 02: Problem"
+#     message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: {{ state_attr('plant.miflora02', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora02', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora02
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora03:
+#     name: "Miflora 03: Problem"
+#     message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: {{ state_attr('plant.miflora03', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora03', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora03
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora04:
+#     name: "Miflora 04: Problem"
+#     message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: {{ state_attr('plant.miflora04', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora04', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora04
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora05:
+#     name: "Miflora 05: Problem"
+#     message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: {{ state_attr('plant.miflora05', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora05', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora05
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora06:
+#     name: "Miflora 06: Problem"
+#     message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: {{ state_attr('plant.miflora06', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora06', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora06
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify
+#   miflora07:
+#     name: "Miflora 07: Problem"
+#     message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: {{ state_attr('plant.miflora07', 'problem') }}"
+#     done_message: "{{ state_attr('plant.miflora07', 'friendly_name') }}: Healthy"
+#     entity_id: plant.miflora07
+#     state: 'problem'
+#     repeat: 720  # Renotify every 12h
+#     can_acknowledge: True
+#     skip_first: False
+#     notifiers:
+#       - notify

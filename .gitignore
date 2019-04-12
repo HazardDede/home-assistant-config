@@ -4,6 +4,8 @@ venv/
 
 deps/
 
+core
+
 .HA_VERSION
 
 .uuid
@@ -25,6 +27,8 @@ emulated_hue_ids.json
 .ios.conf
 
 *.pyc
+
+*.bak
 
 .AppleDouble
 

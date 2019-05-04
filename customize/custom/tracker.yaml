@@ -1,0 +1,4 @@
+device_tracker.dennis_iphone_work:
+  # icon: mdi:flask
+  friendly_name: "Dennis"
+  entity_picture: /local/family/dennis.png

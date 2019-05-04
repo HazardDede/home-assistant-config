@@ -26,8 +26,7 @@ views:
     badges:
       - device_tracker.jennifer
       - sensor.jonathan_status
-      - entity: device_tracker.dennis_iphone_work
-        picture: /local/family/dennis.png
+      - device_tracker.dennis_iphone_work
     cards:
       - type: custom:compact-custom-header
         main_config: True

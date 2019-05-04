@@ -24,9 +24,9 @@ views:
     id: home
     background: var(--background-image)
     badges:
-      - device_tracker.jennifer
+      - person.jennifer
       - sensor.jonathan_status
-      - device_tracker.dennis
+      - person.dennis
     cards:
       - type: custom:compact-custom-header
         main_config: True

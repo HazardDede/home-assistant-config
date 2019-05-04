@@ -5,8 +5,6 @@ resources:
     type: module
   - url: /local/lovelace/card-tools.js?v=0.4.0
     type: js
-  - url: /local/lovelace/compact-custom-header.js?v=0.0.1b3
-    type: module
   - url: /local/lovelace/group-card.js?v=0.0.2
     type: js
   - url: /local/lovelace/layout-card.js?v=70a198
@@ -28,14 +26,6 @@ views:
       - sensor.jonathan_status
       - device_tracker.dennis_iphone_work
     cards:
-      - type: custom:compact-custom-header
-        main_config: True
-        background_image: True
-        notifications: overflow
-        voice: overflow
-        options: show
-        clock_format: 24
-        clock_am_pm: False
       - id: home_tracker
         type: entities
         entities:
@@ -127,7 +117,6 @@ views:
     icon: mdi:heart-pulse
     background: var(--background-image)
     cards:
-      - type: custom:compact-custom-header
       - id: health_alert
         type: custom:monster-card
         show_empty: False
@@ -234,7 +223,6 @@ views:
       - sensor.weather_symbol
       - sensor.device_dht01_humidity
     cards:
-      - type: custom:compact-custom-header
       - type: vertical-stack
         id: climate_control
         cards:
@@ -336,7 +324,6 @@ views:
     icon: mdi:flower-outline
     background: var(--background-image)
     cards:
-      - type: custom:compact-custom-header
       - type: picture-elements
         id: flower_miflora01
         image: /local/plants/pfeilblatt.jpg?v=1
@@ -958,7 +945,6 @@ views:
     icon: mdi:cctv
     background: var(--background-image)
     cards:
-      - type: custom:compact-custom-header
       - type: vertical-stack
         id: cctv_motion01
         cards:
@@ -981,7 +967,6 @@ views:
     #   - sensor.speedtest_upload
     #   - sensor.speedtest_ping
     cards:
-      - type: custom:compact-custom-header
       - id: mon_system
         type: entities
         title: System
@@ -1012,7 +997,6 @@ views:
     icon: mdi:settings-outline
     background: var(--background-image)
     cards:
-      - type: custom:compact-custom-header
       - type: vertical-stack
         id: settings_theme
         cards:

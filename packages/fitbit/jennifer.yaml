@@ -62,7 +62,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - ios_jennifer
+      - jennifer
   fitbit_jennifer_versa_battery_low:
     name: 'Jennifer: Versa needs power! You have to bring it!'
     entity_id: binary_sensor.fitbit_jennifer_versa_battery_alert
@@ -71,7 +71,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - ios_jennifer
+      - jennifer
   fitbit_jennifer_water_low:
     name: 'Jennifer: Drink water! Now!'
     # done_message: >-
@@ -82,7 +82,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - ios_jennifer
+      - jennifer
 
 automation:
   - alias: 'Fitbit: Jennifer - Update entities every minute'

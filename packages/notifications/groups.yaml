@@ -14,3 +14,8 @@ notify:
     services:
       - service: dennis
       - service: jennifer
+  - name : all
+    platform: group
+    services:
+      - service: all_devices
+      - service: slack

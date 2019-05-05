@@ -29,6 +29,6 @@ automation:
         entity_id: input_boolean.notify_nobody_at_home
         state: 'on'
     action:
-      - service: notify.notify
+      - service: notify.all_devices
         data:
           message: "Nobody is @home"

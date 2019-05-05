@@ -89,9 +89,6 @@ mqtt:
   discovery: True
   discovery_prefix: homeassistant
 
-# Setting up notifications
-notify: !include_dir_list notifications
-
 # Text to speech
 tts:
   - platform: google

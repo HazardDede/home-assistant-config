@@ -1,0 +1,16 @@
+notify:
+  - name: dennis
+    platform: group
+    services:
+      - service: ios_dennis
+      - service: ios_dennis_iphone_xs
+      - service: ios_dennis_ipad
+  - name: jennifer
+    platform: group
+    services:
+      - service: ios_jennifer
+  - name: all_devices
+    platform: group
+    services:
+      - service: dennis
+      - service: jennifer

@@ -9,7 +9,7 @@
       entity_id: binary_sensor.somebody_home
       state: 'off'
   action:
-    - service: notify.notify
+    - service: notify.all_devices
       data:
         message: "Unexpected Entrance"
     # - service: notify.pushbullet

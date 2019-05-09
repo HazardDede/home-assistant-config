@@ -29,6 +29,20 @@ automation:
         entity_id: input_boolean.notify_nobody_at_home
         state: 'on'
     action:
-      - service: notify.all_devices
+      - service: notify.slack
         data:
           message: "Nobody is @home"
+  - alias: 'Notify: Somebody @ home'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.somebody_home
+      from: 'off'
+      to: 'on'
+    condition:
+      - condition: state
+        entity_id: input_boolean.notify_nobody_at_home
+        state: 'on'
+    action:
+      - service: notify.slack
+        data:
+          message: "Somebody is @home"

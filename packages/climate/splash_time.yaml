@@ -23,7 +23,7 @@ automation:
         entity_id: 'input_boolean.splash_time'
         state: 'on'
     action:
-      - service: notify.all_devices
+      - service: notify.all
         data:
           message: "It's splash time, now!"
   - alias: "Notify: Splash time starting"
@@ -35,6 +35,6 @@ automation:
         entity_id: 'input_boolean.splash_time'
         state: 'on'
     action:
-      - service: notify.all_devices
+      - service: notify.all
         data:
           message: "Today: Splash time. Remember to close the doors!"

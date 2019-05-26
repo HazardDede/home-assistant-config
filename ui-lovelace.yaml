@@ -13,7 +13,7 @@ resources:
     type: js
   - url: /local/lovelace/plant-sensor-card.js?v=1
     type: module
-  - url: /local/lovelace/secondaryinfo-entity-row.js?v=0.3.0
+  - url: /local/lovelace/secondaryinfo-entity-row.js?v=0.3.1
     type: module
 
 views:

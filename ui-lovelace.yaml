@@ -7,7 +7,7 @@ resources:
     type: js
   - url: /local/lovelace/group-card.js?v=0680a5d
     type: js
-  - url: /local/lovelace/layout-card.js?v=70a198
+  - url: /local/lovelace/layout-card.js?v=83e2b16
     type: js
   - url: /local/lovelace/monster-card.js?v=0.2.3
     type: js

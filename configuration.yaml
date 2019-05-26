@@ -87,10 +87,6 @@ mqtt:
   discovery: True
   discovery_prefix: homeassistant
 
-# Text to speech
-tts:
-  - platform: google
-
 person:
   - name: Jennifer
     id: jennifer

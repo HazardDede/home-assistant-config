@@ -5,7 +5,7 @@ resources:
     type: module
   - url: /local/lovelace/card-tools.js?v=0.4.0-dae8874
     type: js
-  - url: /local/lovelace/group-card.js?v=0.0.2
+  - url: /local/lovelace/group-card.js?v=0680a5d
     type: js
   - url: /local/lovelace/layout-card.js?v=70a198
     type: js

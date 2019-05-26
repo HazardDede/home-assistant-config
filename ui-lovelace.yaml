@@ -1,7 +1,7 @@
 title: Humletorp
 
 resources:
-  - url: /local/lovelace/button-card.js?v=0.0.6
+  - url: /local/lovelace/button-card.js?v=1.10.2
     type: module
   - url: /local/lovelace/card-tools.js?v=0.4.0
     type: js

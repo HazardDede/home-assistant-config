@@ -15,9 +15,14 @@ homeassistant:
   customize_glob: !include customize/_global.yaml
   customize_domain: !include customize/_domain.yaml
   auth_providers:
-   - type: trusted_networks
-   - type: homeassistant
-   - type: legacy_api_password
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - ::1
+        - 192.168.178.0/24
+        - fd00::/8
+    - type: homeassistant
+    - type: legacy_api_password
 
   packages: !include_dir_named packages
 
@@ -50,11 +55,6 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.178.0/24
-    - fd00::/8
 
 # Discover some devices automatically
 # discovery:

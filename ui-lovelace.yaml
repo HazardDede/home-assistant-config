@@ -9,7 +9,7 @@ resources:
     type: js
   - url: /local/lovelace/layout-card.js?v=83e2b16
     type: js
-  - url: /local/lovelace/monster-card.js?v=0.2.3
+  - url: /local/lovelace/monster-card.js?v=74fb4dc
     type: js
   - url: /local/lovelace/plant-sensor-card.js?v=1
     type: module

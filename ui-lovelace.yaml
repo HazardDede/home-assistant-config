@@ -1054,7 +1054,7 @@ views:
             layout: horizontal
             column_num: 2
             max_columns: 2
-            max width: [80%, 20%]
+            max_width: [80%, 20%]
             cards:
             - id: settings_guest_wifi_info
               type: markdown
@@ -1067,7 +1067,7 @@ views:
               entity: input_boolean.guestwifi
               # icon: attribute
               show_state: True
-              size: 42px
+              size: 41px
               color: var(--accent-color)
       - type: custom:group-card
         id: settings_all_automations

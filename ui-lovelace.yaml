@@ -1017,7 +1017,7 @@ views:
             - type: custom:button-card
               entity: switch.frontend_theme_clear
               name: Day
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: custom:button-card
@@ -1054,7 +1054,7 @@ views:
             layout: horizontal
             column_num: 2
             max_columns: 2
-            column_width: [80%, 20%]
+            max width: [80%, 20%]
             cards:
             - id: settings_guest_wifi_info
               type: markdown

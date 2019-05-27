@@ -1065,10 +1065,11 @@ views:
             - id: settings_guest_wifi_button
               type: custom:button-card
               entity: input_boolean.guestwifi
-              # icon: attribute
-              show_state: True
+              show_name: false
+              show_state: true
               size: 41px
               color: var(--accent-color)
+              lock: true
       - type: custom:group-card
         id: settings_all_automations
         card:

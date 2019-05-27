@@ -238,19 +238,19 @@ views:
             - type: custom:button-card
               entity: switch.heating_mode_comfort
               name: Comfort
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: custom:button-card
               entity: switch.heating_mode_energy_saving
               name: Energy
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: custom:button-card
               entity: switch.heating_mode_frost_protection
               name: Frost
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
         - type: horizontal-stack
@@ -258,7 +258,7 @@ views:
             - type: custom:button-card
               entity: switch.heating_mode_off
               name: "Off"
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: "custom:button-card"
@@ -266,7 +266,7 @@ views:
             - type: custom:button-card
               entity: input_boolean.splash_time
               name: Splash
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
       - id: climate_exterior
@@ -1011,7 +1011,7 @@ views:
             - type: custom:button-card
               entity: switch.frontend_theme_default
               name: Default
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: custom:button-card
@@ -1023,7 +1023,7 @@ views:
             - type: custom:button-card
               entity: switch.frontend_theme_dark
               name: Night
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
           - type: horizontal-stack
@@ -1033,7 +1033,7 @@ views:
             - type: custom:button-card
               entity: input_boolean.frontend_theme_day_night_switch
               name: "Auto switch"
-              icon: attribute
+              # icon: attribute
               size: 40%
               color: var(--accent-color)
             - type: "custom:button-card"
@@ -1065,7 +1065,7 @@ views:
             - id: settings_guest_wifi_button
               type: custom:button-card
               entity: input_boolean.guestwifi
-              icon: attribute
+              # icon: attribute
               show_state: True
               size: 42px
               color: var(--accent-color)

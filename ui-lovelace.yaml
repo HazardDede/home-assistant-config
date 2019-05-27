@@ -241,18 +241,21 @@ views:
               # icon: attribute
               size: 40%
               color: var(--accent-color)
+              lock: true
             - type: custom:button-card
               entity: switch.heating_mode_energy_saving
               name: Energy
               # icon: attribute
               size: 40%
               color: var(--accent-color)
+              lock: true
             - type: custom:button-card
               entity: switch.heating_mode_frost_protection
               name: Frost
               # icon: attribute
               size: 40%
               color: var(--accent-color)
+              lock: true
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -261,6 +264,7 @@ views:
               # icon: attribute
               size: 40%
               color: var(--accent-color)
+              lock: true
             - type: "custom:button-card"
               color_type: blank-card
             - type: custom:button-card
@@ -269,6 +273,7 @@ views:
               # icon: attribute
               size: 40%
               color: var(--accent-color)
+              lock: true
       - id: climate_exterior
         type: entities
         title: Elmshorn

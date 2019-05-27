@@ -230,7 +230,7 @@ views:
           color_type: label-card
           color: var(--background-card-color)
           name: Climate Controller
-          style:
+          styles:
             - color: var(--primary-text-color)
             - white-space: nowrap
         - type: horizontal-stack
@@ -1009,7 +1009,7 @@ views:
             color_type: label-card
             color: var(--background-card-color)
             name: Themes
-            style:
+            styles:
               - color: var(--primary-text-color)
           - type: horizontal-stack
             cards:
@@ -1052,7 +1052,7 @@ views:
             color_type: label-card
             color: var(--background-card-color)
             name: Guest Wifi
-            style:
+            styles:
               - color: var(--primary-text-color)
               - white-space: nowrap
           - type: custom:layout-card

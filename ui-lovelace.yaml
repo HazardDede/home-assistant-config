@@ -150,7 +150,7 @@ views:
             name: Hydration (today)
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "Goal: [[ sensor.fitbit_jennifer_water_goal.state ]] ml"
-          - entitiy: input_boolean.fitbit_jennifer_water_reminder
+          - entity: input_boolean.fitbit_jennifer_water_reminder
           - entity: sensor.fitbit_jennifer_versa_battery
             name: "Versa: battery level"
           - entity: sensor.fitbit_jennifer_versa_lastsync_mins
@@ -168,7 +168,7 @@ views:
             name: Hydration (today)
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]] ml"
-          - entitiy: input_boolean.fitbit_dennis_water_reminder
+          - entity: input_boolean.fitbit_dennis_water_reminder
           - entity: sensor.fitbit_dennis_blaze_battery
             name: "Blaze: battery level"
           - entity: sensor.fitbit_dennis_blaze_lastsync_mins

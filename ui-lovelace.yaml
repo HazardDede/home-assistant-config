@@ -195,6 +195,7 @@ views:
       - id: health_bezzera
         type: entities
         title: Bezzera
+        show_header_toggle: false
         entities:
           - input_datetime.bezzera_last_cleaning
           - entity: script.bezzera_set_last_cleaning

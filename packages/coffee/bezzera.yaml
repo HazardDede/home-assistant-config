@@ -1,0 +1,51 @@
+input_datetime:
+  bezzera_last_cleaning:
+    name: "Last cleaning"
+    has_date: true
+    has_time: false
+  bezzera_last_filter_replacement:
+    name: "Filter replacement"
+    has_date: true
+    has_time: false
+
+script:
+  # Shortcut to set the last cleaning date to now()
+  bezzera_set_last_cleaning:
+    sequence:
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.bezzera_last_cleaning
+          date: "{{ now().strftime('%Y-%m-%d') }}"
+  # Shortcut to set the last filter replacement date to now()
+  bezzera_set_last_filter_replacement:
+    sequence:
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.bezzera_last_filter_replacement
+          date: "{{ now().strftime('%Y-%m-%d') }}"
+
+automation:
+  # Fire @ 09:30 when the last cleaning is already 7 days ago
+  - alias: "Bezzera: Remember cleaning"
+    trigger:
+      platform: time
+      at: '09:30:00'
+    condition:
+      - condition: template
+        value_template: '{{ (as_timestamp(states.input_datetime.bezzera_last_cleaning.state) + 7 * 24 * 60 * 60) < as_timestamp(now()) }}'
+    action:
+      - service: notify.slack
+        data:
+          message: "Bezzera: Please clean me. Seven hard days of work leave their marks on me"
+  # Fire @ 09:30 when the last filter replacement is already 30 days ago
+  - alias: "Bezzera: Remember filter replacement"
+    trigger:
+      platform: time
+      at: '09:30:00'
+    condition:
+      - condition: template
+        value_template: '{{ (as_timestamp(states.input_datetime.bezzera_last_filter_replacement.state) + 30 * 24 * 60 * 60) < as_timestamp(now()) }}'
+    action:
+      - service: notify.slack
+        data:
+          message: "Bezzera: Please replace my filter. The lime is comin'"

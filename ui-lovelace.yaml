@@ -192,6 +192,18 @@ views:
           - entity: sensor.restabfall_2wo
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.restabfall_2wo.attributes.friendly_delta ]]"
+      - id: health_bezzera
+        type: entities
+        title: Bezzera
+        entities:
+          - input_datetime.bezzera_last_cleaning
+          - entity: script.bezzera_set_last_cleaning
+            name: "Cleaned"
+            icon: mdi:spray-bottle
+          - input_datetime.bezzera_last_filter_replacement
+          - entity: script.bezzera_set_last_filter_replacement
+            name: "Filter replaced"
+            icon: mdi:water
       - id: health_pumbaa
         type: entities
         title: "Pumbaa"

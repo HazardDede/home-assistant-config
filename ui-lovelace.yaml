@@ -52,18 +52,42 @@ views:
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_4_power.state ]] W"
           - light.zway_device_22
-      - id: home_kitchen
-        type: entities
-        title: Kitchen
-        show_header_toggle: False
-        entities:
-          - entity: sensor.zway_device_17_consumption
-            icon: mdi:fridge-outline
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_17_power.state ]] W"
-          - entity: switch.zway_device_20
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_20_power.state ]] W"
+      - type: picture-elements
+        id: home_kitchen
+        image: /local/rooms/kitchen_banner.png
+        elements:
+          - type: state-label
+            entity: sensor.zway_device_7_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-label
+            entity: sensor.zway_device_17_power
+            style:
+              color: white
+              right: 2%
+              top: 55%
+              font-weight: bold
+              font-size: small
+          - type: state-label
+            entity: sensor.zway_device_20_power
+            style:
+              color: white
+              left: 13%
+              top: 77%
+              font-weight: bold
+              font-size: small
+          - type: state-icon
+            entity: switch.zway_device_20
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: '-2%'
+              top: 91%
       - id: home_krymmel
         type: entities
         title: "Krymmel's End"

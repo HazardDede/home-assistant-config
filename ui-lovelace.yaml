@@ -96,40 +96,44 @@ views:
         image: /local/rooms/peanut_banner.jpg
         title: Peanut's Playground
         elements:
-          - entity: sensor.zway_device_19_temperature
+          - type: state-label
+            entity: sensor.zway_device_19_temperature
             style:
               left: 13%
               top: 91%
-            type: state-label
-          - entity: sensor.zway_device_19_illumination
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: sensor.zway_device_19_illumination
             style:
               left: 22%
               top: 91%
-            type: state-icon
-          - entity: sensor.zway_device_19_illumination
+          - type: state-label
+            entity: sensor.zway_device_19_illumination
             style:
               left: 30%
               top: 91%
-            type: state-label
-          - entity: binary_sensor.zway_device_19
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: binary_sensor.zway_device_19
             style:
               left: 43%
               top: 91%
-            type: state-icon
-          - entity: light.433rc_generic01
+          - type: state-icon
+            entity: switch.433rc_generic01
             tap_action:
               action: toggle
             style:
               right: '-2%'
               top: 91%
-            type: state-icon
-          - entity: light.433rc_generic02
+          - type: state-icon
+            entity: switch.433rc_generic02
             tap_action:
               action: toggle
             style:
               right: 8%
               top: 91%
-            type: state-icon
   - title: Family
     id: family
     icon: mdi:account-supervisor-circle

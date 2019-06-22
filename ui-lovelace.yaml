@@ -26,24 +26,70 @@ views:
       - sensor.jonathan_status
       - device_tracker.dennis_iphone_work
     cards:
-      - id: home_living
-        type: entities
-        title: "Living room"
-        show_header_toggle: False
-        entities:
-          - sensor.device_dht01_temperature
-          - sensor.zway_device_7_temperature
-          - sensor.zway_device_7_illumination
-          - entity: scene.living_cinematic
-            name: Cinematic
-          - entity: binary_sensor.zway_device_7
-            name: "Hallway: Motion"
-          - entity: binary_sensor.device_raspitouch_motion
-            name: "Raspitouch: Motion"
-          - entity: switch.zway_device_4
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_4_power.state ]] W"
-          - light.zway_device_22
+      - type: picture-elements
+        id: home_living
+        image: /local/rooms/living_banner.png
+        elements:
+          - type: state-label
+            entity: sensor.device_dht01_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: sensor.zway_device_7_illumination
+            style:
+              left: 27%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_7_illumination
+            style:
+              left: 37%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: binary_sensor.device_raspitouch_motion
+            style:
+              left: 52%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_4_power
+            style:
+              color: white
+              left: 18%
+              top: 41%
+              font-weight: bold
+              font-size: small
+          - type: state-icon
+            entity: switch.zway_device_4
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: '-2%'
+              top: 91%
+          - type: state-icon
+            entity: light.zway_device_22
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: 8%
+              top: 91%
+          - type: state-icon
+            entity: scene.living_cinematic
+            icon: mdi:theater
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: 18%
+              top: 91%
       - type: picture-elements
         id: home_kitchen
         image: /local/rooms/kitchen_banner.png

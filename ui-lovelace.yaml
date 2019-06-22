@@ -127,6 +127,47 @@ views:
               right: '-2%'
               top: 91%
       - type: picture-elements
+        id: home_hallway
+        image: /local/rooms/hallway_banner.png
+        elements:
+          - type: state-label
+            entity: sensor.zway_device_7_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: sensor.zway_device_7_illumination
+            style:
+              left: 27%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_7_illumination
+            style:
+              left: 37%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: binary_sensor.zway_device_7
+            style:
+              left: 52%
+              top: 91%
+          - type: state-label
+            entity: input_number.zway_device_12
+            style:
+              color: white
+              left: 57%
+              top: 75%
+              font-weight: bold
+              font-size: small
+          - type: state-icon
+            entity: camera.motion01
+            style:
+              right: '-2%'
+              top: 91%
+      - type: picture-elements
         id: home_krymmel
         image: /local/rooms/gallery_banner.png
         elements:

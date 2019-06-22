@@ -123,6 +123,8 @@ views:
             entity: switch.433rc_generic01
             tap_action:
               action: toggle
+            hold_action:
+              action: more-info
             style:
               right: '-2%'
               top: 91%
@@ -130,6 +132,8 @@ views:
             entity: switch.433rc_generic02
             tap_action:
               action: toggle
+            hold_action:
+              action: more-info
             style:
               right: 8%
               top: 91%

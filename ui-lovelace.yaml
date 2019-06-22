@@ -94,7 +94,6 @@ views:
       - type: picture-elements
         id: home_peanut
         image: /local/rooms/peanut_banner.jpg
-        title: Peanut's Playground
         elements:
           - type: state-label
             entity: sensor.zway_device_19_temperature
@@ -118,7 +117,7 @@ views:
           - type: state-icon
             entity: binary_sensor.zway_device_19
             style:
-              left: 47%
+              left: 52%
               top: 91%
           - type: state-icon
             entity: switch.433rc_generic01

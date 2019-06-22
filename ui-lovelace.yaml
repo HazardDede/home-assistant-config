@@ -88,21 +88,51 @@ views:
             style:
               right: '-2%'
               top: 91%
-      - id: home_krymmel
-        type: entities
-        title: "Krymmel's End"
-        show_header_toggle: False
-        entities:
-          - sensor.zway_device_24_temperature
-          - sensor.zway_device_24_illumination
-          - entity: sensor.zway_device_5_consumption
-            icon: mdi:desktop-mac-dashboard
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_5_power.state ]] W"
-          - binary_sensor.zway_device_24
-          - entity: switch.zway_device_13
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_13_power.state ]] W"
+      - type: picture-elements
+        id: home_krymmel
+        image: /local/rooms/gallery_banner.png
+        elements:
+          - type: state-label
+            entity: sensor.zway_device_24_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: sensor.zway_device_24_illumination
+            style:
+              left: 27%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_24_illumination
+            style:
+              left: 37%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: binary_sensor.zway_device_24
+            style:
+              left: 52%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_5_power
+            style:
+              color: white
+              right: 15%
+              top: 52%
+              font-weight: bold
+              font-size: small
+          - type: state-icon
+            entity: switch.zway_device_13
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: '-2%'
+              top: 91%
       - id: home_bedroom
         type: entities
         title: "Bedroom"

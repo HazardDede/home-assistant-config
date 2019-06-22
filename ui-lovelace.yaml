@@ -91,27 +91,45 @@ views:
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "[[ sensor.zway_device_21_power.state ]] W"
           - switch.433rc_generic04
-      - id: home_peanut
-        type: vertical-stack
-        cards:
-          - id: home_peanut_glance
-            type: picture-glance
-            title: "Peanut's Playground"
-            entities:
-              - binary_sensor.zway_device_19
-              - switch.433rc_generic02
-              - switch.433rc_generic01
-            image: /local/rooms/peanut.jpg
-            aspect_ratio: "16:9"
-          - id: home_peanut_info
-            type: entities
-            entities:
-              - entity: binary_sensor.zway_device_19
-                name: Motion
-              - entity: sensor.zway_device_19_temperature
-                name: Temperature
-              - entity: sensor.zway_device_19_illumination
-                name: Luminescence
+      - type: picture-elements
+        id: home_peanut
+        image: /local/rooms/peanut_banner.jpg
+        title: Peanut's Playground
+        elements:
+          - entity: sensor.zway_device_19_temperature
+            style:
+              left: 13%
+              top: 91%
+            type: state-label
+          - entity: sensor.zway_device_19_illumination
+            style:
+              left: 22%
+              top: 91%
+            type: state-icon
+          - entity: sensor.zway_device_19_illumination
+            style:
+              left: 30%
+              top: 91%
+            type: state-label
+          - entity: binary_sensor.zway_device_19
+            style:
+              left: 43%
+              top: 91%
+            type: state-icon
+          - entity: light.433rc_generic01
+            tap_action:
+              action: toggle
+            style:
+              right: '-2%'
+              top: 91%
+            type: state-icon
+          - entity: light.433rc_generic02
+            tap_action:
+              action: toggle
+            style:
+              right: 8%
+              top: 91%
+            type: state-icon
   - title: Family
     id: family
     icon: mdi:account-supervisor-circle

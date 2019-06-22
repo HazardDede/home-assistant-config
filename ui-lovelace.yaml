@@ -214,7 +214,7 @@ views:
               top: 91%
       - type: picture-elements
         id: home_bedroom
-        image: /local/rooms/bedroom_banner.jpg
+        image: /local/rooms/bedroom_banner.png
         elements:
           - type: state-label
             entity: sensor.zway_device_23_temperature

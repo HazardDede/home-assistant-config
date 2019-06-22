@@ -212,18 +212,52 @@ views:
             style:
               right: '-2%'
               top: 91%
-      - id: home_bedroom
-        type: entities
-        title: "Bedroom"
-        show_header_toggle: False
-        entities:
-          - sensor.zway_device_23_temperature
-          - sensor.zway_device_23_illumination
-          - binary_sensor.zway_device_23
-          - entity: switch.zway_device_21
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.zway_device_21_power.state ]] W"
-          - switch.433rc_generic04
+      - type: picture-elements
+        id: home_bedroom
+        image: /local/rooms/bedroom_banner.jpg
+        elements:
+          - type: state-label
+            entity: sensor.zway_device_23_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: sensor.zway_device_23_illumination
+            style:
+              left: 27%
+              top: 91%
+          - type: state-label
+            entity: sensor.zway_device_23_illumination
+            style:
+              left: 37%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          - type: state-icon
+            entity: binary_sensor.zway_device_23
+            style:
+              left: 52%
+              top: 91%
+          - type: state-icon
+            entity: switch.zway_device_21
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: '-2%'
+              top: 91%
+          - type: state-icon
+            entity: switch.433rc_generic04
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: 8%
+              top: 91%
       - type: picture-elements
         id: home_peanut
         image: /local/rooms/peanut_banner.jpg

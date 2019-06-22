@@ -112,7 +112,48 @@ views:
                 name: Temperature
               - entity: sensor.zway_device_19_illumination
                 name: Luminescence
-  - title: Home Health
+  - title: Family
+    id: family
+    icon: mdi:account-supervisor-circle
+    background: var(--background-image)
+    cards:
+      - id: family_jennifer
+        title: "Jennifer"
+        type: entities
+        show_header_toggle: False
+        entities:
+          - entity: sensor.fitbit_jennifer_distance
+            name: Distance (today)
+          - entity: sensor.fitbit_jennifer_water
+            name: Hydration (today)
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "Goal: [[ sensor.fitbit_jennifer_water_goal.state ]] ml"
+          - entity: input_boolean.fitbit_jennifer_water_reminder
+          - entity: sensor.fitbit_jennifer_versa_battery
+            name: "Versa: battery level"
+          - entity: sensor.fitbit_jennifer_versa_lastsync_mins
+            name: "Versa: Last sync"
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.fitbit_jennifer_versa_lastsync.state ]]"
+      - id: family_dennis
+        title: "Dennis"
+        type: entities
+        show_header_toggle: False
+        entities:
+          - entity: sensor.fitbit_dennis_distance
+            name: Distance (today)
+          - entity: sensor.fitbit_dennis_water
+            name: Hydration (today)
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]] ml"
+          - entity: input_boolean.fitbit_dennis_water_reminder
+          - entity: sensor.fitbit_dennis_blaze_battery
+            name: "Blaze: battery level"
+          - entity: sensor.fitbit_dennis_blaze_lastsync_mins
+            name: "Blaze: Last sync"
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"
+  - title: Health
     id: health
     icon: mdi:heart-pulse
     background: var(--background-image)
@@ -139,42 +180,6 @@ views:
           include:
             - entity_id: "sensor.*_battery"
               state: "< 25"
-      - id: health_jennifer
-        title: "Jennifer"
-        type: entities
-        show_header_toggle: False
-        entities:
-          - entity: sensor.fitbit_jennifer_distance
-            name: Distance (today)
-          - entity: sensor.fitbit_jennifer_water
-            name: Hydration (today)
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "Goal: [[ sensor.fitbit_jennifer_water_goal.state ]] ml"
-          - entity: input_boolean.fitbit_jennifer_water_reminder
-          - entity: sensor.fitbit_jennifer_versa_battery
-            name: "Versa: battery level"
-          - entity: sensor.fitbit_jennifer_versa_lastsync_mins
-            name: "Versa: Last sync"
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.fitbit_jennifer_versa_lastsync.state ]]"
-      - id: health_dennis
-        title: "Dennis"
-        type: entities
-        show_header_toggle: False
-        entities:
-          - entity: sensor.fitbit_dennis_distance
-            name: Distance (today)
-          - entity: sensor.fitbit_dennis_water
-            name: Hydration (today)
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]] ml"
-          - entity: input_boolean.fitbit_dennis_water_reminder
-          - entity: sensor.fitbit_dennis_blaze_battery
-            name: "Blaze: battery level"
-          - entity: sensor.fitbit_dennis_blaze_lastsync_mins
-            name: "Blaze: Last sync"
-            type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"
       - id: health_wastebin
         title: Trash
         type: entities

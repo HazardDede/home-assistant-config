@@ -8,7 +8,7 @@ entities:
   switch.433rc_generic01:
     name: "Miffy Lampe"
     hidden: false
-  switch.433rc_generic02:
+  light.433rc_generic02:
     name: "Mondlampe"
     hidden: false
   switch.433rc_generic04:
@@ -28,3 +28,4 @@ entities:
     hidden: false
   input_boolean.pumbaa_nightly_run:
     name: "Nächtliches Staubsaugen"
+    hidden: false

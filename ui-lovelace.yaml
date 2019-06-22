@@ -26,14 +26,6 @@ views:
       - sensor.jonathan_status
       - device_tracker.dennis_iphone_work
     cards:
-      - id: home_tracker
-        type: entities
-        entities:
-          - sensor.jennifer_status
-          - sensor.jonathan_status
-          - sensor.dennis_status
-          - binary_sensor.somebody_home
-          - input_boolean.notify_nobody_at_home
       - id: home_living
         type: entities
         title: "Living room"
@@ -196,6 +188,14 @@ views:
     icon: mdi:account-supervisor-circle
     background: var(--background-image)
     cards:
+      - id: family_tracker
+        type: entities
+        entities:
+          - sensor.jennifer_status
+          - sensor.jonathan_status
+          - sensor.dennis_status
+          - binary_sensor.somebody_home
+          - input_boolean.notify_nobody_at_home
       - id: family_jennifer
         title: "Jennifer"
         type: entities

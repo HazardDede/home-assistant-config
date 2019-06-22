@@ -32,7 +32,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: '{{ (as_timestamp(states.input_datetime.bezzera_last_cleaning.state) + 7 * 24 * 60 * 60) < as_timestamp(now()) }}'
+        value_template: '{{ (as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + " 00:00:00", "YYYY-MM-DD")) + 7 * 24 * 60 * 60) < as_timestamp(now()) }}'
     action:
       - service: notify.slack
         data:
@@ -44,7 +44,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: '{{ (as_timestamp(states.input_datetime.bezzera_last_filter_replacement.state) + 30 * 24 * 60 * 60) < as_timestamp(now()) }}'
+        value_template: '{{ (as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + " 00:00:00", "YYYY-MM-DD")) + 30 * 24 * 60 * 60) < as_timestamp(now()) }}'
     action:
       - service: notify.slack
         data:

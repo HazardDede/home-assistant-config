@@ -158,7 +158,7 @@ views:
             entity: binary_sensor.motion01_motion
             icon: mdi:cctv
             style:
-              left: 64%
+              left: 62%
               top: 91%
           - type: state-label
             entity: input_number.zway_device_12

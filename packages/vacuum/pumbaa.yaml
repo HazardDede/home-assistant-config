@@ -22,7 +22,7 @@ binary_sensor:
       pumbaa_bin_full:
         # Cleaning time is greater equal to x hours
         value_template: >-
-          {{ states('counter.pumbaa_running_time')|int >= (14 * 60) }}
+          {{ states('counter.pumbaa_running_time')|int >= (12 * 60) }}
       # Switches to 'on' if the attribute 'error' appears on the entity
       pumbaa_error_alert:
         value_template: >-
@@ -62,7 +62,7 @@ sensor:
     sensors:
       pumbaa_battery:
         value_template: >-
-          {{ state_attr('vacuum.pumbaa', 'battery_level')|default(100, True)|int }}
+          {{ state_attr('vacuum.pumbaa', 'battery_level')|default(0, True)|int }}
         device_class: battery
         unit_of_measurement: "%"
       pumbaa_battery_status:

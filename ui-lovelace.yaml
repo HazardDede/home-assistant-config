@@ -154,6 +154,12 @@ views:
             style:
               left: 52%
               top: 91%
+          - type: state-icon
+            entity: binary_sensor.motion01_motion
+            icon: mdi:cctv
+            style:
+              left: 64%
+              top: 91%
           - type: state-label
             entity: input_number.zway_device_12
             style:
@@ -1165,24 +1171,6 @@ views:
               color: lightgrey
               --ha-label-badge-font-size: 1em
               font-weight: bold
-  - title: CCTV
-    id: cctv
-    icon: mdi:cctv
-    background: var(--background-image)
-    cards:
-      - type: vertical-stack
-        id: cctv_motion01
-        cards:
-        - type: picture-entity
-          entity: camera.motion01
-          show_name: False
-          show_state: False
-        - type: entities
-          id: cctv_motion01_info
-          show_header_toggle: False
-          entities:
-            - entity: binary_sensor.motion01_motion
-              name: Hallway (motion01)
   - title: Monitoring
     id: monitoring
     icon: mdi:desktop-classic

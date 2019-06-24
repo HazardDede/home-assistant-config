@@ -3,7 +3,7 @@ light:
     lights:
       433rc_generic02:
         level_template: "{{ 255 if is_state('switch.433rc_generic02', 'on') else 0 }}"
-        value_template: "{{ states('switch.433rc_generic02') }}"
+        value_template: "{{ is_state('switch.433rc_generic02', 'on') }}"
         turn_on:
           service: switch.turn_on
           data_template:
@@ -12,3 +12,8 @@ light:
           service: switch.turn_off
           data_template:
             entity_id: switch.433rc_generic02
+        set_level:
+          service: logbook.log
+          data_template:
+            name: "light.433rc_generic02"
+            message: "Alexa requests brightness to {{ brightness }}"

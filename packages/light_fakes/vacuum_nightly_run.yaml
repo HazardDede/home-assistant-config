@@ -1,0 +1,19 @@
+light:
+  - platform: template
+    lights:
+      pumbaa_nightly_run:
+        level_template: "{{ 255 if is_state('input_boolean.pumbaa_nightly_run', 'on') else 0 }}"
+        value_template: "{{ is_state('input_boolean.pumbaa_nightly_run', 'on') }}"
+        turn_on:
+          service: homeassistant.turn_on
+          data_template:
+            entity_id: input_boolean.pumbaa_nightly_run
+        turn_off:
+          service: homeassistant.turn_off
+          data_template:
+            entity_id: input_boolean.pumbaa_nightly_run
+        set_level:
+          service: logbook.log
+          data_template:
+            name: "light.pumbaa_nightly_run"
+            message: "Alexa requests brightness to {{ brightness }}"

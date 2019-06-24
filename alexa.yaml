@@ -26,6 +26,6 @@ entities:
   switch.zway_device_4:
     name: "Fernseher Wohnzimmer"
     hidden: false
-  input_boolean.pumbaa_nightly_run:
+  light.pumbaa_nightly_run:
     name: "Nächtliches Staubsaugen"
     hidden: false

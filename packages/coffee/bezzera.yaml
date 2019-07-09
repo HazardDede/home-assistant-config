@@ -8,6 +8,45 @@ input_datetime:
     has_date: true
     has_time: false
 
+sensor:
+  - platform: template
+    sensors:
+      bezzera_next_cleaning:
+        friendly_name: Next Cleaning
+        device_class: timestamp
+        value_template: >-
+          "{% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
+          {{ target_ts | timestamp_local}}"
+      bezzera_next_cleaning_days:
+        friendly_name: Next Cleaning (days)
+        unit_of_measurement: days
+        value_template: >-
+          "{% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
+          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
+          {{ days_left | int }}"
+      bezzera_next_filter_replacement:
+        friendly_name: Next Filter Replacement
+        device_class: timestamp
+        value_template: >-
+          "{% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
+          {{ target_ts | timestamp_local}}"
+      bezzera_next_filter_replacement_days:
+        friendly_name: Next Filter Replacement (days)
+        unit_of_measurement: days
+        value_template: >-
+          "{% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
+          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
+          {{ days_left | int }}"
+
+
 script:
   # Shortcut to set the last cleaning date to now()
   bezzera_set_last_cleaning:
@@ -32,7 +71,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: '{{ (as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + " 00:00:00", "YYYY-MM-DD")) + 7 * 24 * 60 * 60) < as_timestamp(now()) }}'
+        value_template: "{{ states.sensor.bezzera_next_cleaning_days.state >= 0 }}"
     action:
       - service: notify.slack
         data:
@@ -44,7 +83,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: '{{ (as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + " 00:00:00", "YYYY-MM-DD")) + 30 * 24 * 60 * 60) < as_timestamp(now()) }}'
+        value_template: '{{ states.sensor.bezzera_next_filter_replacement_days.state >= 0 }}'
     action:
       - service: notify.slack
         data:

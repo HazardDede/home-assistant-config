@@ -62,6 +62,14 @@ views:
               top: 41%
               font-weight: bold
               font-size: small
+          - type: state-label
+            entity: sensor.pumbaa_battery
+            style:
+              color: white
+              left: 78%
+              top: 60%
+              font-size: small
+              font-weight: bold
           - type: state-icon
             entity: switch.zway_device_4
             tap_action:
@@ -89,6 +97,14 @@ views:
               action: more-info
             style:
               right: 18%
+              top: 91%
+          - type: state-icon
+            entity: vacuum.pumbaa
+            icon: mdi:pig
+            tap_action:
+              action: more-info
+            style:
+              right: 28%
               top: 91%
       - type: picture-elements
         id: home_kitchen
@@ -177,6 +193,14 @@ views:
         id: home_krymmel
         image: /local/rooms/gallery_banner.png
         elements:
+          - type: state-label
+            entity: input_number.zway_device_9
+            style:
+              color: white
+              left: 55%
+              top: 54%
+              font-weight: bold
+              font-size: small
           - type: state-label
             entity: sensor.zway_device_24_temperature
             style:
@@ -268,6 +292,14 @@ views:
         id: home_peanut
         image: /local/rooms/peanut_banner.jpg
         elements:
+          - type: state-label
+            entity: input_number.zway_device_8
+            style:
+              color: white
+              left: 63%
+              top: 56%
+              font-weight: bold
+              font-size: small
           - type: state-label
             entity: sensor.zway_device_19_temperature
             style:
@@ -408,11 +440,15 @@ views:
         title: Bezzera
         show_header_toggle: false
         entities:
-          - input_datetime.bezzera_last_cleaning
+          - entity: input_datetime.bezzera_last_cleaning
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.bezzera_next_cleaning.state ]] ([[ sensor.bezzera_next_cleaning_days.state ]] days)"
           - entity: script.bezzera_set_last_cleaning
             name: "Cleaned"
             icon: mdi:spray-bottle
-          - input_datetime.bezzera_last_filter_replacement
+          - entity: input_datetime.bezzera_last_filter_replacement
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.bezzera_next_filter_replacement.state ]] ([[ sensor.bezzera_next_filter_replacement_days.state ]] days)"
           - entity: script.bezzera_set_last_filter_replacement
             name: "Filter replaced"
             icon: mdi:water

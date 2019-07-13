@@ -27,7 +27,7 @@ sensor:
           {% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
-          {% set days_left = (today_ts - target_ts) / 24 / 60 / 60 -%}
+          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
           {{ days_left | int }}
       bezzera_next_filter_replacement:
         friendly_name: Next Filter Replacement
@@ -45,7 +45,7 @@ sensor:
           {% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
-          {% set days_left = (today_ts - target_ts) / 24 / 60 / 60 -%}
+          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
           {{ days_left | int }}
 
 
@@ -73,7 +73,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: "{{ states.sensor.bezzera_next_cleaning_days.state | int >= 0 }}"
+        value_template: "{{ states.sensor.bezzera_next_cleaning_days.state | int <= 0 }}"
     action:
       - service: notify.slack
         data:
@@ -85,7 +85,7 @@ automation:
       at: '09:30:00'
     condition:
       - condition: template
-        value_template: '{{ states.sensor.bezzera_next_filter_replacement_days.state | int >= 0 }}'
+        value_template: '{{ states.sensor.bezzera_next_filter_replacement_days.state | int <= 0 }}'
     action:
       - service: notify.slack
         data:

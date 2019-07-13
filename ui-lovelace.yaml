@@ -64,6 +64,8 @@ views:
               font-size: small
           - type: state-icon
             entity: input_boolean.pumbaa_nightly_run
+            tap_action:
+              action: toggle
             style:
               left: 78%
               top: 50%

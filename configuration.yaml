@@ -35,6 +35,10 @@ logger:
     custom_components.fritzbox_guestwifi: info
     # homeassistant.helpers.entity: error
 
+system_log:
+  max_entries: 50
+  fire_event: true
+
 # Enables the frontend
 frontend:
   themes: !include themes.yaml

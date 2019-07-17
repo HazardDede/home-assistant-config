@@ -1,8 +1,10 @@
 input_datetime:
+  # Store the actual date of the last cleaning
   bezzera_last_cleaning:
     name: "Last cleaning"
     has_date: true
     has_time: false
+  # Store the actual date of the last filter replacement
   bezzera_last_filter_replacement:
     name: "Filter replacement"
     has_date: true
@@ -11,12 +13,14 @@ input_datetime:
 sensor:
   - platform: template
     sensors:
+      # When is the next cleaning (YYYY-MM-DD)
       bezzera_next_cleaning:
         friendly_name: Next Cleaning
         value_template: >-
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
           {{ target_ts | timestamp_custom('%Y-%m-%d') }}
+      # How many days to the next cleaning?
       bezzera_next_cleaning_days:
         friendly_name: Next Cleaning (days)
         unit_of_measurement: days
@@ -27,14 +31,16 @@ sensor:
           {% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
-          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
+          {% set days_left = (today_ts - target_ts) / 24 / 60 / 60 -%}
           {{ days_left | int }}
+      # When is the next filter replacement (YYYY-MM-DD)
       bezzera_next_filter_replacement:
         friendly_name: Next Filter Replacement
         value_template: >-
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
           {{ target_ts | timestamp_custom('%Y-%m-%d') }}
+      # How many days to the next filter replacement?
       bezzera_next_filter_replacement_days:
         friendly_name: Next Filter Replacement (days)
         unit_of_measurement: days
@@ -45,9 +51,8 @@ sensor:
           {% set today_ts = as_timestamp(now().replace(hour=0, minute=0, second=0, microsecond=0)) -%}
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
-          {% set days_left = (target_ts - today_ts) / 24 / 60 / 60 -%}
+          {% set days_left = (today_ts - target_ts) / 24 / 60 / 60 -%}
           {{ days_left | int }}
-
 
 script:
   # Shortcut to set the last cleaning date to now()
@@ -65,28 +70,52 @@ script:
           entity_id: input_datetime.bezzera_last_filter_replacement
           date: "{{ now().strftime('%Y-%m-%d') }}"
 
-automation:
-  # Fire @ 09:30 when the last cleaning is already 7 days ago
-  - alias: "Bezzera: Remember cleaning"
-    trigger:
-      platform: time
-      at: '09:30:00'
-    condition:
-      - condition: template
-        value_template: "{{ states.sensor.bezzera_next_cleaning_days.state | int <= 0 }}"
-    action:
-      - service: notify.slack
-        data:
-          message: "Bezzera: Please clean me. Seven hard days of work leave their marks on me"
-  # Fire @ 09:30 when the last filter replacement is already 30 days ago
-  - alias: "Bezzera: Remember filter replacement"
-    trigger:
-      platform: time
-      at: '09:30:00'
-    condition:
-      - condition: template
-        value_template: '{{ states.sensor.bezzera_next_filter_replacement_days.state | int <= 0 }}'
-    action:
-      - service: notify.slack
-        data:
-          message: "Bezzera: Please replace my filter. The lime is comin'"
+binary_sensor:
+  # Flag if an alert should raise due to last cleaning overdue
+  - platform: template
+    sensors:
+      bezzera_next_cleaning_alert:
+        entity_id:
+          - sensor.time
+          - sensor.bezzera_next_cleaning
+        # Make sure that the alert doesn't fire in the night. 09:30 sounds reasonable
+        value_template: >-
+          {% if states('sensor.bezzera_next_cleaning') != 'unknown' %}
+              {{ as_timestamp(states('sensor.bezzera_next_cleaning') + " 09:30:00") <= as_timestamp(now()) }}
+          {% else %}
+              False
+          {% endif %}
+  # Flag if an alert should raise due to last filter replacement overdue
+  - platform: template
+    sensors:
+      bezzera_next_filter_replacement_alert:
+        entity_id:
+          - sensor.time
+          - sensor.bezzera_next_filter_replacement
+        # Make sure that the alert doesn't fire in the night. 09:30 sounds reasonable
+        value_template: >-
+          {% if states('sensor.bezzera_next_filter_replacement') != 'unknown' %}
+              {{ as_timestamp(states('sensor.bezzera_next_filter_replacement') + " 09:30:00") <= as_timestamp(now()) }}
+          {% else %}
+              False
+          {% endif %}
+
+alert:
+  bezzera_next_cleaning:
+    name: 'Bezzera: Please clean me'
+    entity_id: binary_sensor.bezzera_next_cleaning_alert
+    state: 'on'
+    repeat: 1440  # 24h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - slack
+  bezzera_next_filter_replacement:
+    name: 'Bezzera: Please replace my filter'
+    entity_id: binary_sensor.bezzera_next_filter_replacement_alert
+    state: 'on'
+    repeat: 1440  # 24h
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - slack

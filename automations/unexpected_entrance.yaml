@@ -12,6 +12,3 @@
     - service: notify.all
       data:
         message: "Unexpected Entrance"
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Unexpected Entrance"

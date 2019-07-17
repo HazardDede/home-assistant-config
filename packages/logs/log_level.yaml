@@ -1,0 +1,24 @@
+# Select the log level at runtime
+input_select:
+  log_level:
+    name: Log Level
+    options:
+      - critical
+      - fatal
+      - error
+      - warning
+      - info
+      - debug
+      - notset
+    initial: warning
+
+# Script the set the selected log level
+automation:
+  - alias: Log Level
+    trigger:
+      platform: state
+      entity_id: input_select.log_level
+    action:
+      service: logger.set_default_level
+      data_template:
+        level: "{{ trigger.to_state.state }}"

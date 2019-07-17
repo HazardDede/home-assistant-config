@@ -122,6 +122,7 @@ switch:
     switches:
       pumbaa_nightly_run:
         value_template: "{{ is_state('input_boolean.pumbaa_nightly_run', 'on') }}"
+        icon_template: mdi:weather-night
         turn_on:
           service: homeassistant.turn_on
           data:

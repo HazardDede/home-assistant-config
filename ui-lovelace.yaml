@@ -63,7 +63,7 @@ views:
               font-weight: bold
               font-size: small
           - type: state-icon
-            entity: input_boolean.pumbaa_nightly_run
+            entity: switch.pumbaa_nightly_run
             tap_action:
               action: toggle
             style:
@@ -464,7 +464,7 @@ views:
         title: "Pumbaa"
         show_header_toggle: False
         entities:
-          - entity: input_boolean.pumbaa_nightly_run
+          - entity: switch.pumbaa_nightly_run
             name: "Nightly Run"
           - entity: vacuum.pumbaa
             name: "Controls"
@@ -1223,6 +1223,11 @@ views:
     #   - sensor.speedtest_upload
     #   - sensor.speedtest_ping
     cards:
+      - id: mon_log_level
+        type: entities
+        entities:
+          - entity: input_select.log_level
+        show_header_toggle: false
       - id: mon_system
         type: entities
         title: System

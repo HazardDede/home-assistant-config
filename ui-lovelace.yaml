@@ -349,6 +349,42 @@ views:
             style:
               right: 8%
               top: 91%
+      #
+      # Elmshorn
+      #
+      - type: picture-elements
+        id: home_elmshorn
+        image: /local/rooms/elmshorn_banner.jpg
+        elements:
+          # Temperature text
+          - type: state-label
+            entity: sensor.weather_temperature
+            style:
+              left: 15%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          # Humidity Icon
+          - type: state-icon
+            entity: sensor.weather_humidity
+            style:
+              left: 27%
+              top: 91%
+          # Humidity text
+          - type: state-label
+            entity: sensor.weather_humidity
+            style:
+              left: 37%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
+          # Weather symbol
+          - type: state-icon
+            entity: sensor.weather_symbol
+            style:
+              right: '-2%'
+              top: 91%
+
   - title: Family
     id: family
     icon: mdi:account-supervisor-circle

@@ -474,13 +474,12 @@ views:
             icon: mdi:robot-vacuum
           - entity: sensor.pumbaa_battery
             name: "Battery"
-          - entity: sensor.pumbaa_running_time
-            name: Running time since last cleanup
-            icon: mdi:timer-sand
           - entity: binary_sensor.pumbaa_bin_full
             name: Check the bin
             icon: mdi:delete-circle
-          - input_datetime.pumbaa_last_bin_cleaning
+          - entity: input_datetime.pumbaa_last_bin_cleaning
+            type: "custom:secondaryinfo-entity-row"
+            secondary_info: "[[ sensor.pumbaa_running_time.state ]] h"
           - entity: script.pumbaa_set_bin_clean
             name: "Cleaned the bin"
             icon: mdi:delete-outline

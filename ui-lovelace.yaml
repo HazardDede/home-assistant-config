@@ -118,7 +118,7 @@ views:
         image: /local/rooms/kitchen_banner.png
         elements:
           - type: state-label
-            entity: sensor.zway_device_7_temperature
+            entity: sensor.device_dht01_temperature
             style:
               left: 15%
               top: 91%

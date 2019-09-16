@@ -38,13 +38,13 @@ views:
               color: white
               font-size: small
           - type: state-icon
-            entity: sensor.zway_device_7_illumination
+            entity: sensor.device_dht01_humidity
             style:
               left: 27%
               top: 91%
               '--paper-item-icon-color': white
           - type: state-label
-            entity: sensor.zway_device_7_illumination
+            entity: sensor.device_dht01_humidity
             style:
               left: 37%
               top: 91%
@@ -530,9 +530,6 @@ views:
     id: climate
     icon: mdi:thermometer-lines
     background: var(--background-image)
-    badges:
-      - sensor.weather_symbol
-      - sensor.device_dht01_humidity
     cards:
       - type: vertical-stack
         id: climate_control

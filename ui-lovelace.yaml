@@ -378,6 +378,19 @@ views:
               top: 91%
               color: var(--text-primary-color)
               font-size: small
+          # Cloudiness
+          - type: state-icon
+            entity: sensor.weather_cloudiness
+            style:
+              left: 49%
+              top: 91%
+          - type: state-label
+            entity: sensor.weather_cloudiness
+            style:
+              left: 59%
+              top: 91%
+              color: var(--text-primary-color)
+              font-size: small
           # Weather symbol
           - type: state-icon
             entity: sensor.weather_symbol
@@ -398,6 +411,8 @@ views:
           - sensor.dennis_status
           - binary_sensor.somebody_home
           - input_boolean.notify_nobody_at_home
+          - binary_sensor.vacation_hh
+          - binary_sensor.vacation_sh
       - id: family_jennifer
         title: "Jennifer"
         type: entities
@@ -575,16 +590,6 @@ views:
               size: 40%
               color: var(--accent-color)
               lock: true
-      - id: climate_exterior
-        type: entities
-        title: Elmshorn
-        show_header_toggle: False
-        entities:
-          - binary_sensor.vacation_hh
-          - binary_sensor.vacation_sh
-          - sun.sun
-          - sensor.moon
-          - sensor.weather_cloudiness
       - id: climate_exterior_forecast
         type: weather-forecast
         entity: weather.dark_sky

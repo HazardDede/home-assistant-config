@@ -8,7 +8,7 @@ entities:
   switch.433rc_generic01:
     name: "Miffy Lampe"
     hidden: false
-  light.433rc_generic02:
+  switch.433rc_generic02:
     name: "Mondlampe"
     hidden: false
   switch.433rc_generic04:

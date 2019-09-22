@@ -105,7 +105,15 @@ alert:
     skip_first: False
     notifiers:
       - all
-  
+  pumbaa_battery_low:
+    name: 'Pumbaa''s battery is low'
+    entity_id: input_boolean.pumbaa_battery_alert
+    state: 'on'
+    repeat: 60  # Renotify every hour
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - all
 
 ###########################################################
 # Automatic startup in the night
@@ -115,6 +123,7 @@ input_boolean:
   pumbaa_nightly_run:
     name: Nightly run
     icon: mdi:weather-night
+  pumbaa_battery_alert:
 
 # We need this to be a switch to "behave" this correctly in the ui
 switch:
@@ -138,7 +147,7 @@ automation:
     hide_entity: True
     trigger:
       platform: time
-      at: '07:00:00'
+      at: '04:00:00'
     action:
       service: input_boolean.turn_off
       entity_id: input_boolean.pumbaa_nightly_run
@@ -146,11 +155,11 @@ automation:
     trigger:
       # Run two times to make sure everything is cleaned up well
       - platform: time
-        at: '03:30:00'
+        at: '01:30:00'
       # sometimes pumbaa only cleans a short period of time (< 30 mins)
       # Just re-run in such a case
       - platform: time
-        at: '04:30:00'
+        at: '02:30:00'
     condition:
       - condition: state
         entity_id: input_boolean.pumbaa_nightly_run
@@ -179,3 +188,25 @@ automation:
     action:
       - service: counter.increment
         entity_id: counter.pumbaa_running_time
+  - alias: 'Pumbaa: Set low battery alert flag'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.pumbaa_battery
+      below: 90
+      for:
+        hours: 3
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.pumbaa_battery_alert
+  - alias: 'Pumbaa: Unset low battery alert flag'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.pumbaa_battery
+      above: 90
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.pumbaa_battery_alert

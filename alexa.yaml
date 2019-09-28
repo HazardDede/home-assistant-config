@@ -14,6 +14,9 @@ entities:
   switch.433rc_generic04:
     name: "Bettlampe"
     hidden: false
+  switch.433rc_brennenstuhl_a:
+    name: "Wohnwand"
+    hidden: false
   switch.zway_device_13:
     name: "Galerielampe"
     hidden: false

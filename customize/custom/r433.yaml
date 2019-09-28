@@ -9,3 +9,7 @@ switch.433rc_generic02:
 switch.433rc_generic04:
   friendly_name: "Bedsite lamp"
   icon: mdi:track-light
+
+switch.433rc_brennenstuhl_a:
+  friendly_name: "Wall"
+  icon: mdi:wall

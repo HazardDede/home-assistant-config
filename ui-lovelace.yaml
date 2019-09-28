@@ -177,7 +177,7 @@ views:
               left: 52%
               top: 91%
           - type: state-icon
-            entity: binary_sensor.motion01_motion
+            entity: binary_sensor.motion02_motion
             icon: mdi:cctv
             style:
               left: 62%
@@ -191,7 +191,7 @@ views:
               font-weight: bold
               font-size: small
           - type: state-icon
-            entity: camera.motion01
+            entity: camera.motion02
             style:
               right: '-2%'
               top: 91%

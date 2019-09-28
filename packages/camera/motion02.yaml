@@ -1,0 +1,6 @@
+camera:
+  - platform: push
+    name: motion02
+    buffer: 200  # 1 img ~ 40K = 200 * 40K ~ 8MB RAM needed
+    timeout: 60
+    webhook_id: motion02

@@ -1364,7 +1364,7 @@ views:
               entity: input_boolean.guestwifi
               show_name: false
               show_state: false
-              size: 49px
+              size: 51px
               color: var(--accent-color)
               lock: true
       - type: custom:group-card

@@ -424,12 +424,12 @@ views:
             type: "custom:secondaryinfo-entity-row"
             secondary_info: "Goal: [[ sensor.fitbit_jennifer_water_goal.state ]] ml"
           - entity: input_boolean.fitbit_jennifer_water_reminder
-          - entity: sensor.fitbit_jennifer_versa_battery
-            name: "Versa: battery level"
-          - entity: sensor.fitbit_jennifer_versa_lastsync_mins
-            name: "Versa: Last sync"
+          - entity: sensor.fitbit_jennifer_versa_2_battery
+            name: "Versa 2: battery level"
+          - entity: sensor.fitbit_jennifer_versa_2_lastsync_mins
+            name: "Versa 2: Last sync"
             type: "custom:secondaryinfo-entity-row"
-            secondary_info: "[[ sensor.fitbit_jennifer_versa_lastsync.state ]]"
+            secondary_info: "[[ sensor.fitbit_jennifer_versa_2_lastsync.state ]]"
       - id: family_dennis
         title: "Dennis"
         type: entities

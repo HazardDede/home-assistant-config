@@ -96,8 +96,7 @@ views:
               right: 8%
               top: 91%
           - type: state-icon
-            entity: scene.living_cinematic
-            icon: mdi:theater
+            entity: switch.433rc_brennenstuhl_a
             tap_action:
               action: toggle
             hold_action:
@@ -1364,7 +1363,7 @@ views:
               type: custom:button-card
               entity: input_boolean.guestwifi
               show_name: false
-              show_state: true
+              show_state: false
               size: 46px
               color: var(--accent-color)
               lock: true

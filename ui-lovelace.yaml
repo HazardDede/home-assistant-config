@@ -1294,11 +1294,11 @@ views:
         title: Services
         show_header_toggle: False
         entities:
-          - entity_id: binary_sensor.service_grafana
+          - entity: binary_sensor.service_grafana
             name: Grafana
-          - entity_id: binary_sensor.service_influx
+          - entity: binary_sensor.service_influx
             name: Influx
-          - entity_id: binary_sensor.service_zway
+          - entity: binary_sensor.service_zway
             name: Z-Way
   - title: Settings
     id: settings

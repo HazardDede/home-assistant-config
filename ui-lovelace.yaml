@@ -1289,6 +1289,17 @@ views:
           - device_tracker.ps4_01
           - device_tracker.ps4_02
           - device_tracker.zway_server
+      - id: mon_services
+        type: entities
+        title: Services
+        show_header_toggle: False
+        entities:
+          - entity_id: binary_sensor.service_grafana
+            name: Grafana
+          - entity_id: binary_sensor.service_influx
+            name: Influx
+          - entity_id: binary_sensor.service_zway
+            name: Z-Way
   - title: Settings
     id: settings
     icon: mdi:settings-outline

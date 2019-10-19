@@ -182,6 +182,11 @@ views:
             style:
               left: 62%
               top: 91%
+          - type: state-icon
+            entity: binary_sensor.doorbell
+            style:
+              left: 72%
+              top: 91%
           - type: state-label
             entity: input_number.zway_device_12
             style:

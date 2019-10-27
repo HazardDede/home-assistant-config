@@ -1,0 +1,13 @@
+# MQTT Discovery: binary_sensor.doorbell
+
+automation:
+  - alias: 'Notify: Doorbell'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.doorbell
+      from: 'off'
+      to: 'on'
+    action:
+      - service: notify.all
+        data:
+          message: "Ding Dong!"

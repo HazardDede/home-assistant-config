@@ -2,8 +2,8 @@ notify:
   - name: dennis
     platform: group
     services:
-      - service: ios_dennis
-      - service: ios_dennis_iphone_xs
+      - service: ios_dennis  # Old mobile
+      - service: ios_dennis_iphone_xs  # Work mobile
       - service: ios_dennis_ipad
   - name: jennifer
     platform: group
@@ -19,3 +19,11 @@ notify:
     services:
       - service: all_devices
       - service: slack
+  - name : logs
+    platform: group
+    services:
+      - service: slack
+  - name : alerts
+    platform: group
+    services:
+      - service: slack_alert

@@ -29,7 +29,7 @@ automation:
         entity_id: input_boolean.notify_nobody_at_home
         state: 'on'
     action:
-      - service: notify.slack
+      - service: notify.logs
         data:
           message: "Nobody is @home"
   - alias: 'Notify: Somebody @ home'
@@ -43,6 +43,6 @@ automation:
         entity_id: input_boolean.notify_nobody_at_home
         state: 'on'
     action:
-      - service: notify.slack
+      - service: notify.logs
         data:
           message: "Somebody is @home"

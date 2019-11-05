@@ -5,4 +5,4 @@
       to: 'off'
   action:
     - service: scene.turn_on
-      entity_id: scene.lights_off
+      entity_id: scene.lights_all_off

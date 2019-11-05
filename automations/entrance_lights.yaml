@@ -14,5 +14,5 @@
     - condition: template
       value_template: "{{ not is_state('sensor.jennifer_status', 'Home') }}"
   action:
-    - service: scene.turn_on
-      entity_id: scene.living_lights_on
+    - service: homeassistant.turn_on
+      entity_id: group.lights_living

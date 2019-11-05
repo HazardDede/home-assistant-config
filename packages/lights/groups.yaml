@@ -1,0 +1,19 @@
+group:
+  lights_living:
+    name: "Living Room lights"
+    entities:
+      - light.zway_device_22  # Couch lamp
+      - switch.433rc_brennenstuhl_a  # Wohnzimmer: Wohnwand
+  lights_gallery:
+    name: "Gallery lights"
+    entities:
+      - switch.zway_device_13  # Vintage lamp
+  lights_nursery:
+    name: Nursery lights
+    entities:
+      - switch.433rc_generic01  # Kinderzimmer: Miffy
+      - switch.433rc_generic02  # Kinderzimmer: Mond
+  lights_bedroom:
+    name: Bedroom lights
+    entities:
+      - switch.433rc_generic04  # Schlafzimmer: Bettlampe

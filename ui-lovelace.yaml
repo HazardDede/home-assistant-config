@@ -31,26 +31,26 @@ views:
         image: /local/rooms/living_banner.png
         elements:
           - type: state-label
-            entity: sensor.device_dht01_temperature
+            entity: sensor.dht01_temperature_filtered
             style:
               left: 15%
               top: 91%
               color: var(--text-primary-color)
               font-size: small
           - type: state-icon
-            entity: sensor.device_dht01_humidity
+            entity: sensor.dht01_humidity_filtered
             style:
               left: 27%
               top: 91%
           - type: state-label
-            entity: sensor.device_dht01_humidity
+            entity: sensor.dht01_humidity_filtered
             style:
               left: 37%
               top: 91%
               color: var(--text-primary-color)
               font-size: small
           - type: state-icon
-            entity: binary_sensor.device_raspitouch_motion
+            entity: binary_sensor.raspitouch_motion
             style:
               left: 52%
               top: 91%
@@ -117,7 +117,7 @@ views:
         image: /local/rooms/kitchen_banner.png
         elements:
           - type: state-label
-            entity: sensor.device_dht01_temperature
+            entity: sensor.dht01_temperature_filtered
             style:
               left: 15%
               top: 91%
@@ -605,7 +605,7 @@ views:
             title: "Ground floor (°C)"
             refresh_interval: 10
             entities:
-              - sensor.device_dht01_temperature
+              - sensor.dht01_temperature_filtered
               - sensor.zway_device_7_temperature
               - sensor.bath_downstairs_setpoint
               - sensor.living_setpoint

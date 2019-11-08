@@ -102,6 +102,9 @@ person:
     device_trackers:
       - device_tracker.dennis_iphone_work
 
+# Groups
+group: !include groups.yaml
+
 # Cloud
 cloud:
 

@@ -417,6 +417,15 @@ views:
           - input_boolean.notify_nobody_at_home
           - binary_sensor.vacation_hh
           - binary_sensor.vacation_sh
+      - id: family_traffic
+        type: entities
+        entities:
+          - entity: script.notify_traffic_hbf_elmshorn
+            name: "HBf -> Elmshorn"
+            icon: mdi:train
+          - entity: script.notify_traffic_elmshorn_hbf
+            name: "Elmshorn -> HBf"
+            icon: mdi:train
       - id: family_jennifer
         title: "Jennifer"
         type: entities

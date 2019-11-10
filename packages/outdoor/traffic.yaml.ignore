@@ -1,7 +1,0 @@
-# Think about: Back and forth - two trigger
-# What if Jennifer wants that too? -> But: same route
-# Maybe one for elm-hh and one for hh-elm?
-
-rest_command:
-  notify_traffic:
-    url: 'http://stack01:9095/trigger'

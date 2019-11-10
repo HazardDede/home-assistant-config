@@ -1,0 +1,13 @@
+rest_command:
+  notify_traffic_hbf_elmshorn:
+    url: 'http://stack01:9990/hbf_elmshorn'
+  notify_traffic_elmshorn_hbf:
+    url: 'http://stack01:9991/elmshorn_hbf'
+
+script:
+  notify_traffic_hbf_elmshorn:
+    sequence:
+      - service: rest_command.notify_traffic_hbf_elmshorn
+  notify_traffic_elmshorn_hbf:
+    sequence:
+      - service: rest_command.notify_traffic_elmshorn_hbf

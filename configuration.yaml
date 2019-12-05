@@ -57,6 +57,9 @@ config:
 # Enables web frontend
 http:
 
+# Enables iOS/Android app integration
+mobile_app:
+
 # Discover some devices automatically
 # discovery:
 

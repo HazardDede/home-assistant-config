@@ -1,0 +1,7 @@
+# switch.050407552462ab348b49 -> Gosund_02
+# Renamed to switch.gosund_02
+homeassistant:
+  customize:
+    switch.gosund_02:
+      friendly_name: "Disc-Rack"
+      icon: mdi:bookshelf

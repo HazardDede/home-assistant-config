@@ -105,9 +105,10 @@ views:
               right: 18%
               top: 91%
           - type: state-icon
-            entity: vacuum.pumbaa
-            icon: mdi:pig
+            entity: switch.gosund_02
             tap_action:
+              action: toggle
+            hold_action:
               action: more-info
             style:
               right: 28%
@@ -252,6 +253,15 @@ views:
               action: more-info
             style:
               right: '-2%'
+              top: 91%
+          - type: state-icon
+            entity: switch.gosund_01
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: 8%
               top: 91%
       - type: picture-elements
         id: home_bedroom

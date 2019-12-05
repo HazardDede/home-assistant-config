@@ -1,0 +1,7 @@
+# switch.05040755c44f33b8ee8c -> Gosund_01
+# Renamed to switch.gosund_01
+homeassistant:
+  customize:
+    switch.gosund_01:
+      friendly_name: "Stairway"
+      icon: mdi:string-lights

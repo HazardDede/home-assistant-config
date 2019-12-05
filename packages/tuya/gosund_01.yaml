@@ -4,4 +4,4 @@ homeassistant:
   customize:
     switch.gosund_01:
       friendly_name: "Stairway"
-      icon: mdi:string-lights
+      icon: mdi:stairs

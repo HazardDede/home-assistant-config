@@ -4,9 +4,11 @@
 sensor:
   - platform: statistics
     entity_id: sensor.dht01_humidity_filtered
+    name: dht01_humidity_stats
     max_age:
       minutes: 5
   - platform: statistics
+    name: dht01_temperature_stats
     entity_id: sensor.dht01_temperature_filtered
     max_age:
       minutes: 5

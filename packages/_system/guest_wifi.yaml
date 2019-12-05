@@ -28,3 +28,14 @@ automation:
       to: 'off'
     action:
       - service: fritzbox_guestwifi.turn_off
+
+alert:
+  guestwifi_on:
+    name: 'Guest Wifi is still on'
+    entity_id: input_boolean.guestwifi
+    state: 'on'
+    repeat: 240
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - logs

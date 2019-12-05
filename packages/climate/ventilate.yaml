@@ -1,0 +1,12 @@
+# Humidity: dht01_humidity_filtered
+# Temperature: dht01_temperature_filtered
+
+sensor:
+  - platform: statistics
+    entity_id: sensor.dht01_humidity_filtered
+    max_age:
+      minutes: 5
+  - platform: statistics
+    entity_id: sensor.dht01_temperature_filtered
+    max_age:
+      minutes: 5

@@ -32,3 +32,9 @@ entities:
   light.pumbaa_nightly_run:
     name: "Nächtliches Staubsaugen"
     hidden: false
+  switch.gosund_01:
+    name: "Treppe"
+    hidden: false
+  light.gosund_02:
+    name: "Filmregal"
+    hidden: false

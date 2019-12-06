@@ -5,10 +5,16 @@ sensor:
   - platform: statistics
     entity_id: sensor.dht01_humidity_filtered
     name: dht01_humidity_stats
-    max_age:
-      minutes: 5
+    sampling_size: 4  # 4 minutes in case of the origin sensor
   - platform: statistics
     name: dht01_temperature_stats
     entity_id: sensor.dht01_temperature_filtered
-    max_age:
-      minutes: 5
+    sampling_size: 4  # 4 minutes in case of the origin sensor
+  - platform: template
+    sensors:
+      dht01_temperature_change:
+        unit_of_measurement: '°C'
+        value_template: "{{ state_attr('sensor.dht01_temperature_stats', 'change') }}"
+      dht01_humidity_change:
+        unit_of_measurement: '%'
+        value_template: "{{ state_attr('sensor.dht01_humidity_stats', 'change') }}"

@@ -5,11 +5,11 @@ sensor:
   - platform: statistics
     entity_id: sensor.dht01_humidity_filtered
     name: dht01_humidity_stats
-    sampling_size: 4  # 4 minutes in case of the origin sensor
+    sampling_size: 2  # 2 minutes / 2 measurements in case of the origin sensor
   - platform: statistics
     name: dht01_temperature_stats
     entity_id: sensor.dht01_temperature_filtered
-    sampling_size: 4  # 4 minutes in case of the origin sensor
+    sampling_size: 2  # 2 minutes / 2 measurements in case of the origin sensor
   - platform: template
     sensors:
       dht01_temperature_change:

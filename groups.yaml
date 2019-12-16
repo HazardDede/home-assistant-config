@@ -3,6 +3,8 @@ lights_living:
   entities:
     - light.zway_device_22  # Couch lamp
     - switch.433rc_brennenstuhl_a  # Wohnzimmer: Wohnwand
+    - switch.gosund_01  # Treppenlicht
+    - switch.gosund_02  # Filmregal
 lights_gallery:
   name: "Gallery lights"
   entities:

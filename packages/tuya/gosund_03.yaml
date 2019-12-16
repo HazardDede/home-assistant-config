@@ -1,0 +1,7 @@
+# switch.05040755c44f33b8ee8c -> gosund_03
+# Renamed to switch.gosund_03
+homeassistant:
+  customize:
+    switch.gosund_03:
+      friendly_name: "Christmas Tree"
+      icon: mdi:pine-tree

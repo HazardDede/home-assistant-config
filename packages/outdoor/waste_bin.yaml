@@ -1,7 +1,7 @@
 sensor:
   - platform: icalendar
     # Where to get it -> http://abfallkalender.regioit.de/kalender-pi/downloadfile.jsp?format=ics&jahr=2019&ort=Elmshorn&strasse=3352862&fraktion=0&fraktion=3&fraktion=4&fraktion=5&fraktion=6&fraktion=8&fraktion=9
-    url: '/config/assets/2019_elmshorn_wastebin.ics'
+    url: '/config/assets/2020_elmshorn_wastebin.ics'
     date_format: "%a, %Y-%m-%d"
     exclude: 
       - "Schadstoffsammlung in der Nähe"

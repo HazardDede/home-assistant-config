@@ -149,6 +149,15 @@ views:
             style:
               right: '-2%'
               top: 91%
+          - type: state-icon
+            entity: switch.gosund_03
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              right: '8%'
+              top: 91%
       - type: picture-elements
         id: home_hallway
         image: /local/rooms/hallway_banner.png
@@ -246,7 +255,7 @@ views:
               font-weight: bold
               font-size: small
           - type: state-icon
-            entity: switch.gosund_03
+            entity: switch.zway_device_13
             tap_action:
               action: toggle
             hold_action:

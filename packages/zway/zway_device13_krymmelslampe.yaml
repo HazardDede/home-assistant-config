@@ -35,7 +35,7 @@ switch:
             device_id: 13
         icon_template: >-
           {% if is_state('binary_sensor.zway_device_13', 'on') %}
-            mdi:washing-machine
+            mdi:lightbulb-on-outline
           {% else %}
-            mdi:washing-machine-off
+            mdi:lightbulb-outline
           {% endif %}

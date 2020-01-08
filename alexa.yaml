@@ -17,7 +17,7 @@ entities:
   switch.433rc_brennenstuhl_a:
     name: "Wohnwand"
     hidden: false
-  switch.zway_device_13:
+  switch.gosund_03:
     name: "Galerielampe"
     hidden: false
   switch.zway_device_20:

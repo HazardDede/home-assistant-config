@@ -552,7 +552,7 @@ views:
           - entity: vacuum.pumbaa
             name: "Controls"
             icon: mdi:pig
-          - entity: binary_sensor.pumbaa_state
+          - entity: sensor.pumbaa_state
             name: "State"
             icon: mdi:robot-vacuum
           - entity: sensor.pumbaa_battery

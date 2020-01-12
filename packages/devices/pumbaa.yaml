@@ -12,6 +12,9 @@ vacuum:
 binary_sensor:
   - platform: template
     sensors:
+      pumbaa_state:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'status') }}
       # The vacuum cleaner has multiple states that indicate that the device is running...
       # Unfortunately not all of them mark them as 'on', so we need to create our own 'on' state.
       # Optional: Do not show this helping sensor in your frotend

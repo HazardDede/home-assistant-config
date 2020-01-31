@@ -6,3 +6,21 @@ sensor:
     exclude: 
       - "Schadstoffsammlung in der Nähe"
       - "Restabfall 4wö Grün"
+
+homeassistant:
+  customize:
+    sensor.gelber_sack:
+      # icon: mdi:flask
+      entity_picture: /local/waste_bin/yellow.png
+    
+    sensor.biotonne:
+      # icon: mdi:biohazard
+      entity_picture: /local/waste_bin/bio.png
+    
+    sensor.papiertonne:
+      # icon: mdi:newspaper
+      entity_picture: /local/waste_bin/blue.jpg
+    
+    sensor.restabfall_2wo:
+      # icon: mdi:delete
+      entity_picture: /local/waste_bin/black.png

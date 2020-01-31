@@ -32,3 +32,23 @@
 #         unit_of_measurement: "MBit/s"
 #         icon_template: mdi:download
 #         value_template: "{% if states.sensor.net_rate_down_raw.state|int < 0 %}0.00{% else %}{{states.sensor.net_rate_down_raw.state|float|round(2)}}{% endif %}"
+
+# homeassistant:
+#     customize:
+#         sensor.fritzbox_netmonitor:
+#             friendly_name: Fritzbox Status
+        
+#         sensor.net_external_ip:
+#             friendly_name: External IP
+        
+#         sensor.net_rate_up:
+#             friendly_name: Current upstream
+        
+#         sensor.net_rate_down:
+#             friendly_name: Current downstream
+        
+#         sensor.net_rate_up_max:
+#             friendly_name: Max upstream
+        
+#         sensor.net_rate_down_max:
+#             friendly_name: Max downstream

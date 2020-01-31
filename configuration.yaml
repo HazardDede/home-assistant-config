@@ -126,5 +126,9 @@ panel_iframe:
     title: CCTV
     url: http://motion02
     icon: mdi:cctv
+  zwave:
+    title: 'Z-Wave'
+    url: http://192.168.178.73:8083/smarthome/
+    icon: mdi:z-wave
 
 zone: !include_dir_list zones

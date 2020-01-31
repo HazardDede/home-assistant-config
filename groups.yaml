@@ -5,6 +5,11 @@ lights_living:
     - switch.433rc_brennenstuhl_a  # Wohnzimmer: Wohnwand
     - switch.gosund_01  # Treppenlicht
     - switch.gosund_02  # Filmregal
+entrance_lights:
+  name: "Entrance lights"
+  entities:
+    - switch.gosund_01  # Treppenlicht
+    - switch.gosund_02  # Filmregal
 lights_gallery:
   name: "Gallery lights"
   entities:

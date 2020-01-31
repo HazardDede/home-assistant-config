@@ -1,5 +1,5 @@
-sensor.device_dht01_temperature:
+sensor.dht01_temperature:
   friendly_name: "Living"
 
-sensor.device_dht01_humidity:
+sensor.dht01_humidity:
   friendly_name: "Living"

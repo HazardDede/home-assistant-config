@@ -1322,6 +1322,8 @@ views:
             name: Grafana
           - entity: binary_sensor.service_influx
             name: Influx
+          - entity: binary_sensor.service_reverse_proxy
+            name: Reverse Proxy
           - entity: binary_sensor.service_zway
             name: Z-Way
   - title: Settings

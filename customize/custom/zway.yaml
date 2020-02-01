@@ -41,7 +41,7 @@ sensor.zway_device_12_battery:
   friendly_name: "Heater: Hallway"
 
 switch.zway_device_13:
-  friendly_name: "Washing machine"
+  friendly_name: "Washing machine (Power plug)"
 
 sensor.zway_device_13_power:
   friendly_name: "Washing machine"

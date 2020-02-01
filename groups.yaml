@@ -13,7 +13,7 @@ entrance_lights:
 lights_gallery:
   name: "Gallery lights"
   entities:
-    - switch.zway_device_13  # Vintage lamp
+    - switch.gosund_03  # Vintage lamp
 lights_nursery:
   name: Nursery lights
   entities:

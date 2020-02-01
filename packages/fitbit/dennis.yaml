@@ -72,6 +72,7 @@ alert:
   fitbit_dennis_blaze_battery_low:
     name: 'Dennis: Blaze needs power! You have to bring it!'
     entity_id: binary_sensor.fitbit_dennis_blaze_battery_alert
+    message: "Blaze @ {{states('sensor.fitbit_dennis_blaze_battery')}}%. Charge it!"
     state: 'on'
     repeat: 120
     can_acknowledge: True

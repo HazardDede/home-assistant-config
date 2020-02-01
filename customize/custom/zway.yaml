@@ -41,13 +41,13 @@ sensor.zway_device_12_battery:
   friendly_name: "Heater: Hallway"
 
 switch.zway_device_13:
-  friendly_name: "Vintage lamp"
+  friendly_name: "Washing machine (Power plug)"
 
 sensor.zway_device_13_power:
-  friendly_name: "Vintage lamp"
+  friendly_name: "Washing machine"
 
 sensor.zway_device_13_consumption:
-  friendly_name: "Vintage lamp"
+  friendly_name: "Washing machine"
 
 switch.zway_device_17:
   friendly_name: "Refrigerator"

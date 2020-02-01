@@ -54,6 +54,11 @@ script:
 sensor:
   - platform: template
     sensors:
+      pumbaa_state:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'status') }}
+  - platform: template
+    sensors:
       pumbaa_running_time:
         value_template: >
             {% set ct = states('counter.pumbaa_running_time') | int %}

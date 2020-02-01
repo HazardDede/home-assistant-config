@@ -1,5 +1,11 @@
-sensor.device_dht01_temperature:
-  friendly_name: "Living"
+sensor.dht01_temperature:
+  friendly_name: "Living (raw)"
 
-sensor.device_dht01_humidity:
-  friendly_name: "Living"
+sensor.dht01_humidity:
+  friendly_name: "Living (raw)"
+
+sensor.dht01_temperature_filtered:
+  friendly_name: Living
+
+sensor.dht01_humidity_filtered:
+  friendly_name: Living

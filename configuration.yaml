@@ -101,7 +101,7 @@ mqtt:
 person:
   - name: Jennifer
     id: jennifer
-    user_id: 0d5a676cd0ce4c8bad23121b38ecf9c8
+    user_id: e31c23599aa5492383e74b530933b1ef
     device_trackers:
       - device_tracker.jennifer
   - name: Dennis

@@ -17,7 +17,7 @@ binary_sensor:
       # Optional: Do not show this helping sensor in your frotend
       pumbaa_running:
         value_template: >-
-          {{ state_attr('vacuum.pumbaa', 'status')|default('charging', True)|lower in ['running', 'user docking', 'docking'] }}
+          {{ state_attr('vacuum.pumbaa', 'status')|default('charging', True)|lower in ['running', 'user docking', 'docking', 'end mission'] }}
       # Logic that marks the bin as full
       pumbaa_bin_full:
         # Cleaning time is greater equal to x hours
@@ -193,6 +193,17 @@ automation:
     action:
       - service: counter.increment
         entity_id: counter.pumbaa_running_time
+  - alias: 'Pumbaa: Call home after work'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: binary_sensor.pumbaa_running
+      from: "off"
+      to: "on"
+      for: "01:00:00"
+    action:
+      - service: vacuum.return_to_base
+        entity_id: vacuum.pumbaa
   - alias: 'Pumbaa: Set low battery alert flag'
     initial_state: True
     hide_entity: True

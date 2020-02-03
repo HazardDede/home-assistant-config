@@ -202,6 +202,9 @@ automation:
       to: "on"
       for: "01:00:00"
     action:
+      - service: vacuum.stop
+        entity_id: vacuum.pumbaa
+      - delay: '00:00:10'
       - service: vacuum.return_to_base
         entity_id: vacuum.pumbaa
   - alias: 'Pumbaa: Set low battery alert flag'

@@ -1,0 +1,43 @@
+# MQTT Discovered sensors:
+# binary_sensor.service_grafana
+# binary_sensor.service_influx
+# binary_sensor.service_reverse_proxy
+# binary_sensor.service_zway
+
+binary_sensor:
+  - platform: template
+    sensors:
+      services_down_alert:
+        value_template: >-
+          {% set service_states = namespace(value=[]) -%}
+          {% for entity in states.binary_sensor -%}
+            {% if entity.name.startswith('service_') -%}
+              {% set service_states.value = service_states.value + [entity.state == 'on'] %}
+            {% endif -%}
+          {%- endfor -%}
+          {{ 'on' if service_states.value|select|first else 'off'}}
+
+sensor:
+  - platform: template
+    sensors:
+      services_down:
+        value_template: >-
+          Services down:
+          {%- for entity in states.binary_sensor %}
+            {%- if entity.name.startswith('service_') and entity.state == 'on' %}
+          - {{ entity.attributes.friendly_name }}
+            {%- endif -%}
+          {%- endfor %}
+
+alert:
+  service_down:
+    name: "Services down"
+    message: "{{ states('sensor.services_down') }}"
+    done_message: "Services: All recovered and healthy"
+    entity_id: binary_sensor.services_down_alert
+    state: 'on'
+    repeat: 60  # Renotify every hour
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alerts

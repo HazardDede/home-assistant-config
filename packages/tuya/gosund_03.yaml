@@ -4,4 +4,4 @@ homeassistant:
   customize:
     switch.gosund_03:
       friendly_name: "Vintage lamp"
-      icon: mdi:lightbulb-outline
+      icon: mdi:lightbulb-on-outline

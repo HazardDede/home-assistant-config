@@ -1,0 +1,50 @@
+sensor:
+  - platform: template
+    sensors:
+      zway_last_sensor_update:
+        unit_of_measurement: minutes
+        value_template: >-
+          {% set updates = namespace(value=[]) %}
+          {%- for entity in states.binary_sensor %}
+            {%- if entity.entity_id.startswith('binary_sensor.zway_') and entity.attributes.device_class == 'motion' %}
+              {% set updates.value = updates.value + [entity.last_updated] %}
+            {%- endif -%}
+          {%- endfor %}
+          {%- for entity in states.sensor %}
+            {%- if entity.entity_id.startswith('sensor.zway_') and entity.attributes.device_class in ['illuminance', 'temperature'] %}
+              {% set updates.value = updates.value + [entity.last_updated] %}
+            {%- endif -%}
+          {%- endfor %}
+          {{ ((as_timestamp(now()) - as_timestamp((updates.value | max))) / 60) | round(0) }}
+
+binary_sensor:
+  - platform: template
+    sensors:
+      zway_no_sensor_update_alert:
+        value_template: >-
+          {% set threshold = 120 %}
+          {{ states.sensor.zway_last_sensor_update.state | default(0) > threshold }}
+
+automation:
+  - alias: 'Z-Way: Update last updated sensor every minute'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+        seconds: 0
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.zway_last_sensor_update
+
+alert:
+  zway_down:
+    name: "Z-Way: Service might be down (no sensor update)"
+    done_message: "Z-Way: Recovered and healthy"
+    entity_id: binary_sensor.zway_no_sensor_update_alert
+    state: 'on'
+    repeat: 60  # Renotify every hour
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alerts

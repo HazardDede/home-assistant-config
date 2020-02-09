@@ -29,3 +29,4 @@ rest_command:
     method: get
     username: !secret zway_user
     password: !secret zway_pwd
+  

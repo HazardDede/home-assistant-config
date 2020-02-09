@@ -11,7 +11,7 @@ binary_sensor:
         value_template: >-
           {% set service_states = namespace(value=[]) -%}
           {% for entity in states.binary_sensor -%}
-            {% if entity.name.startswith('service_') -%}
+            {% if entity.entity_id.startswith('binary_sensor.service_') -%}
               {% set service_states.value = service_states.value + [entity.state == 'on'] %}
             {% endif -%}
           {%- endfor -%}
@@ -24,7 +24,7 @@ sensor:
         value_template: >-
           Services down:
           {%- for entity in states.binary_sensor %}
-            {%- if entity.name.startswith('service_') and entity.state == 'on' %}
+            {%- if entity.entity_id.startswith('binary_sensor.service_') and entity.state == 'on' %}
           - {{ entity.attributes.friendly_name }}
             {%- endif -%}
           {%- endfor %}

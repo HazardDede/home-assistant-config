@@ -1326,6 +1326,8 @@ views:
             name: Reverse Proxy
           - entity: binary_sensor.service_zway
             name: Z-Way
+          - entity: sensor.zway_last_sensor_update
+            name: "Z-Way: Sensor Update" 
   - title: Settings
     id: settings
     icon: mdi:settings-outline

@@ -3,6 +3,7 @@ sensor:
     sensors:
       zway_last_sensor_update:
         unit_of_measurement: minutes
+        icon_template: mdi:alarm-snooze
         value_template: >-
           {% set updates = namespace(value=[]) %}
           {%- for entity in states.binary_sensor %}
@@ -23,7 +24,7 @@ binary_sensor:
       zway_no_sensor_update_alert:
         value_template: >-
           {% set threshold = 120 %}
-          {{ states.sensor.zway_last_sensor_update.state | default(0) > threshold }}
+          {{ states.sensor.zway_last_sensor_update.state | default(0) | int > threshold }}
 
 automation:
   - alias: 'Z-Way: Update last updated sensor every minute'

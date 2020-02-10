@@ -15,7 +15,7 @@ binary_sensor:
               {% set service_states.value = service_states.value + [entity.state == 'on'] %}
             {% endif -%}
           {%- endfor -%}
-          {{ 'on' if service_states.value|select|first else 'off'}}
+          {{ True if service_states.value|select|first else False }}
 
 sensor:
   - platform: template

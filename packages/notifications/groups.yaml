@@ -7,7 +7,7 @@ notify:
   - name: jennifer
     platform: group
     services:
-      - service: ios_jennifer
+      - service: mobile_app_iphone_von_jennifer
   - name: all_devices
     platform: group
     services:

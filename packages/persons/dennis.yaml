@@ -1,0 +1,6 @@
+person:
+  - name: Dennis
+    id: dennis
+    user_id: 54e0dcc98328421ba486825f55855776
+    device_trackers:
+      - device_tracker.dennis_iphone_work

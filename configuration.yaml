@@ -98,18 +98,6 @@ mqtt:
   discovery: True
   discovery_prefix: homeassistant
 
-person:
-  - name: Jennifer
-    id: jennifer
-    user_id: e31c23599aa5492383e74b530933b1ef
-    device_trackers:
-      - device_tracker.jennifer
-  - name: Dennis
-    id: dennis
-    user_id: 54e0dcc98328421ba486825f55855776
-    device_trackers:
-      - device_tracker.dennis_iphone_work
-
 # Groups
 group: !include groups.yaml
 

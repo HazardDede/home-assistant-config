@@ -1,6 +1,6 @@
 clear:
   # Background image
-  background-image: 'center / cover no-repeat url("/local/backgrounds/day.jpg") fixed'
+  lovelace-background: 'center / cover no-repeat url("/local/backgrounds/day.jpg") fixed'
 
   # Colors
   text-color: '#636B75'                                                           # Grey text
@@ -10,7 +10,7 @@ clear:
   background-color: '#F7F8F9'                                                     # Light grey background
   background-color-2: '#F4F5F6'                                                   # Light grey background
   background-card-color: 'rgba(255,255,255,1.0)'                                  # White background
-  border-color: '#EAEAEA'                                                         # Light grey border
+  border-color: '#E8E8E8'                                                         # Light grey border
 
   # Header
   primary-color: 'var(--text-color)'                                              # Background
@@ -18,10 +18,11 @@ clear:
   
   # Left Menu
   paper-listbox-background-color: 'var(--background-color)'                       # Background
+  # TODO: Text and Icons
 
   # UI
   paper-card-header-color: 'var(--text-color)'                                    # Title in settings
-  primary-background-color: 'var(--background-color)'                             # Background (also title background in left menu)
+  primary-background-color: 'var(--background-color)'                             # Background color (also title background in left menu)
   
   # Card
   paper-card-background-color: 'var(--background-card-color)'                     # Background
@@ -39,24 +40,23 @@ clear:
   paper-item-icon-active-color: 'var(--accent-color)'                             # On
   
   # Switches
-  paper-toggle-button-checked-button-color: '#FFF'                                # Knob On
-  paper-toggle-button-checked-bar-color: '#0077FF'                                # Background On
-  paper-toggle-button-unchecked-button-color: '#FFF'                              # Knob Off
-  paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'           # Background Off
-  
+  switch-checked-button-color: '#FFF'                                             # Knob On
+  switch-unchecked-button-color: '#FFF'                                           # Knob Off
+  switch-checked-track-color: '#0077FF'                                           # Background On
+  switch-unchecked-track-color: 'var(--disabled-text-color)'                      # Background Off
+
+  # Slider
+  paper-slider-active-color: 'var(--accent-color)'                                # Line On
+  paper-slider-container-color: '#e5e7ea'                                         # Line Off
+  paper-slider-knob-color: 'var(--text-light-color)'                              # Knob On
+  paper-slider-knob-start-color: 'var(--text-light-color)'                        # Knob Off
+
   # Shadows
-  shadow-elevation-2dp_-_box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
-  shadow-elevation-4dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-6dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-8dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-10dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-12dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-14dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-16dp_-_box-shadow: '0px 0px 0px 3px var(--light-color)'
+  ha-card-box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
 
 dark:
   # Background image
-  background-image: 'center / cover no-repeat url("/local/backgrounds/night.jpg") fixed'
+  lovelace-background: 'center / cover no-repeat url("/local/backgrounds/night.jpg") fixed'
 
   # Colors
   text-color: '#DADADB'                                                           # Grey text
@@ -71,7 +71,7 @@ dark:
   border-color: '#383C46'                                                         # Grey border
 
   # Header
-  primary-color: '#363941'                                                        # Background
+  primary-color: '#363941'                                                        # Background color
   text-primary-color: 'var(--text-color)'                                         # Text
   
   # Left Menu
@@ -84,6 +84,7 @@ dark:
   paper-card-header-color: 'var(--text-color)'                                    # Title in settings
   primary-background-color: 'var(--background-color)'                             # Background (also title background in left menu)
   mdc-theme-primary: 'var(--accent-medium-color)'                                 # Action Buttons (save, restart etc.)
+  card-background-color: 'var(--background-card-color)'                           # Entity Registry Background
   
   # Card
   paper-card-background-color: 'var(--background-card-color)'                     # Background
@@ -101,17 +102,16 @@ dark:
   paper-item-icon-active-color: 'var(--accent-color)'                             # On
   
   # Switches
-  paper-toggle-button-checked-button-color: 'var(--text-medium-light-color)'      # Knob On
-  paper-toggle-button-checked-bar-color: '#009FFF'                                # Background On
-  paper-toggle-button-unchecked-button-color: 'var(--text-medium-light-color)'    # Knob Off
-  paper-toggle-button-unchecked-bar-color: '#767682'                              # Background Off
+  switch-checked-button-color: 'var(--text-medium-light-color)'                   # Knob On
+  switch-unchecked-button-color: 'var(--text-medium-light-color)'                 # Knob Off
+  switch-checked-track-color: '#009FFF'                                           # Background On
+  switch-unchecked-track-color: '#767682'                                         # Background Off
+
+  # Slider
+  paper-slider-active-color: 'var(--accent-color)'                                # Line On
+  paper-slider-container-color: 'var(--text-dark-color)'                          # Line Off
+  paper-slider-knob-color: 'var(--text-medium-light-color)'                       # Knob On
+  paper-slider-knob-start-color: 'var(--text-medium-light-color)'                 # Knob Off
   
   # Shadows
-  shadow-elevation-2dp_-_box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
-  shadow-elevation-4dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-6dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-8dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-10dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-12dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-14dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-16dp_-_box-shadow: '0px 0px 0px 3px var(--text-dark-color)'
+  ha-card-box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'

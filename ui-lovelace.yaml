@@ -24,7 +24,7 @@ views:
     badges:
       - person.jennifer
       - sensor.jonathan_status
-      - person.dennis_iphone_work
+      - person.dennis
     cards:
       - type: picture-elements
         id: home_living

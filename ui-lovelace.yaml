@@ -567,6 +567,7 @@ views:
         cards:
         - type: "custom:button-card"
           color_type: label-card
+          color: var(--background-card-color)
           name: Climate Controller
           styles:
             - white-space: nowrap
@@ -1342,6 +1343,7 @@ views:
         cards:
           - type: "custom:button-card"
             color_type: label-card
+            color: var(--background-card-color)
             name: Themes
           - type: horizontal-stack
             cards:
@@ -1382,6 +1384,7 @@ views:
           cards:
           - type: "custom:button-card"
             color_type: label-card
+            color: var(--background-card-color)
             name: Guest Wifi
             styles:
               - white-space: nowrap

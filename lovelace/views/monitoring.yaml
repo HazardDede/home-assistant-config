@@ -1,0 +1,61 @@
+# lovelace_gen
+title: Monitoring
+id: monitoring
+icon: mdi:desktop-classic
+background: var(--background-image)
+# badges:
+#   - sensor.speedtest_download
+#   - sensor.speedtest_upload
+#   - sensor.speedtest_ping
+cards:
+  - id: mon_log_level
+    type: entities
+    entities:
+      - entity: input_select.log_level
+    show_header_toggle: false
+  - id: mon_system
+    type: entities
+    title: System
+    show_header_toggle: False
+    entities:
+      - sensor.processor_use
+      - sensor.cpu_temp
+      - sensor.memory_use_percent
+      - sensor.disk_use_percent
+      - sensor.swap_use_percent
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
+      - sensor.last_boot
+  - id: mon_server
+    type: entities
+    title: Server
+    show_header_toggle: False
+    entities:
+      - device_tracker.hp_printer
+      - device_tracker.mediaserver
+      - device_tracker.motion01
+      - device_tracker.ps4_01
+      - device_tracker.ps4_02
+      - device_tracker.zway_server
+  - id: mon_services
+    type: entities
+    title: Services
+    show_header_toggle: False
+    entities:
+      - entity: binary_sensor.service_grafana
+        name: Grafana
+      - entity: binary_sensor.service_influx
+        name: Influx
+      - entity: binary_sensor.service_mqtt
+        name: MQTT
+      - entity: binary_sensor.service_plex
+        name: Plex Mediaserver
+      - entity: binary_sensor.service_rc433
+        name: RC433
+      - entity: binary_sensor.service_reverse_proxy
+        name: Reverse Proxy
+      - entity: binary_sensor.service_zway
+        name: Z-Way
+      - entity: sensor.zway_last_sensor_update
+        name: "Z-Way: Sensor Update" 

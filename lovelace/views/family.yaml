@@ -1,0 +1,61 @@
+# lovelace_gen
+title: Family
+id: family
+icon: mdi:account-supervisor-circle
+background: var(--background-image)
+cards:
+  - id: family_tracker
+    type: entities
+    entities:
+      - sensor.jennifer_status
+      - sensor.jonathan_status
+      - sensor.dennis_status
+      - binary_sensor.somebody_home
+      - input_boolean.notify_nobody_at_home
+      - binary_sensor.vacation_hh
+      - binary_sensor.vacation_sh
+  - id: family_traffic
+    type: entities
+    entities:
+      - entity: script.notify_traffic_hbf_elmshorn
+        name: "HBf -> Elmshorn"
+        icon: mdi:train
+      - entity: script.notify_traffic_elmshorn_hbf
+        name: "Elmshorn -> HBf"
+        icon: mdi:train
+  - id: family_jennifer
+    title: "Jennifer"
+    type: entities
+    show_header_toggle: False
+    entities:
+      - entity: sensor.fitbit_jennifer_distance
+        name: Distance (today)
+      - entity: sensor.fitbit_jennifer_water
+        name: Hydration (today)
+        type: "custom:secondaryinfo-entity-row"
+        secondary_info: "Goal: [[ sensor.fitbit_jennifer_water_goal.state ]] ml"
+      - entity: input_boolean.fitbit_jennifer_water_reminder
+      - entity: sensor.fitbit_jennifer_versa_2_battery
+        name: "Versa 2: battery level"
+      - entity: sensor.fitbit_jennifer_versa_2_lastsync_mins
+        name: "Versa 2: Last sync"
+        type: "custom:secondaryinfo-entity-row"
+        secondary_info: "[[ sensor.fitbit_jennifer_versa_2_lastsync.state ]]"
+  - id: family_dennis
+    title: "Dennis"
+    type: entities
+    show_header_toggle: False
+    entities:
+      - entity: sensor.fitbit_dennis_distance
+        name: Distance (today)
+      - entity: sensor.fitbit_dennis_water
+        name: Hydration (today)
+        type: "custom:secondaryinfo-entity-row"
+        secondary_info: "Goal: [[ sensor.fitbit_dennis_water_goal.state ]] ml"
+      - entity: input_boolean.fitbit_dennis_water_reminder
+      - entity: sensor.fitbit_dennis_blaze_battery
+        name: "Blaze: battery level"
+      - entity: sensor.fitbit_dennis_blaze_lastsync_mins
+        name: "Blaze: Last sync"
+        type: "custom:secondaryinfo-entity-row"
+        secondary_info: "[[ sensor.fitbit_dennis_blaze_lastsync.state ]]"

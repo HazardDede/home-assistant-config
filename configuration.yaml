@@ -41,6 +41,8 @@ system_log:
 frontend:
   themes: !include themes.yaml
 
+# Enables lovelace generator
+lovelace_gen:
 
 # Enables lovelace in yaml mode by default
 lovelace:
@@ -71,8 +73,10 @@ mobile_app:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
+# Provides system health information
 system_health:
 
+# Recorder settings
 recorder:
   purge_keep_days: 2
   exclude:
@@ -123,6 +127,7 @@ emulated_hue: !include alexa.yaml
 # Groups and automation
 automation: !include_dir_merge_list automations
 
+# Additional side panel stuff
 panel_iframe:
   grafana:
     title: 'Grafana'
@@ -137,4 +142,5 @@ panel_iframe:
     url: http://192.168.178.73:8083/smarthome/
     icon: mdi:z-wave
 
+# Include custom zones
 zone: !include_dir_list zones

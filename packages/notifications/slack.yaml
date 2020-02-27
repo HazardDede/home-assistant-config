@@ -3,11 +3,11 @@ notify:
     platform: slack
     api_key: !secret slack_api_key
     username: home-assistant
-    default_channel: '#home-assistant'
+    default_channel: !secret slack_default_channel
     icon: ":house:"
   - name: slack_alert
     platform: slack
     api_key: !secret slack_api_key
     username: home-assistant
-    default_channel: '#home-assistant-alerts'
+    default_channel: !secret slack_alert_channel
     icon: ":house:"

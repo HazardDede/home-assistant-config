@@ -102,12 +102,12 @@ mqtt:
 person:
   - name: Dennis
     id: dennis
-    user_id: 54e0dcc98328421ba486825f55855776
+    user_id: !secret user_id_dennis
     device_trackers:
       - device_tracker.dennis_iphone_work
   - name: Jennifer
     id: jennifer
-    user_id: e31c23599aa5492383e74b530933b1ef
+    user_id: !secret user_id_jennifer
     device_trackers:
       - device_tracker.jennifer
 

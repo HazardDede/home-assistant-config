@@ -18,8 +18,6 @@ from homeassistant.const import CONF_NAME
 from homeassistant.exceptions import PlatformNotReady
 from homeassistant.util import Throttle
 
-REQUIREMENTS = ['ferien-api==0.3.0']
-
 _LOGGER = logging.getLogger(__name__)
 
 ALL_STATE_CODES = [

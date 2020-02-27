@@ -20,8 +20,6 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.util import Throttle
 
-REQUIREMENTS = ['icalevents==0.1.19']
-
 _LOGGER = logging.getLogger(__name__)
 
 ATTR_DAYS_LEFT = 'days_left'

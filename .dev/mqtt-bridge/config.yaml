@@ -1,0 +1,37 @@
+engine: !engine
+  type: pnp.engines.AsyncEngine
+  retry_handler: !retry
+    type: pnp.engines.SimpleRetryHandler
+tasks:
+  - name: hass
+    pull:
+      plugin: pnp.plugins.pull.mqtt.Subscribe
+      args:
+        host: services
+        port: 1883
+        topic: homeassistant/#
+    push:
+      - plugin: pnp.plugins.push.mqtt.Publish
+        selector:
+          data: "lambda d: d.payload"
+          topic: "lambda d: d.topic"
+        args:
+          host: mqtt
+          port: 1883
+          retain: true
+  - name: zway
+    pull:
+      plugin: pnp.plugins.pull.mqtt.Subscribe
+      args:
+        host: services
+        port: 1883
+        topic: zway/#
+    push:
+      - plugin: pnp.plugins.push.mqtt.Publish
+        selector:
+          data: "lambda d: d.payload"
+          topic: "lambda d: d.topic"
+        args:
+          host: mqtt
+          port: 1883
+          retain: true

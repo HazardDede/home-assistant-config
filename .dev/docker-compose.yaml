@@ -5,10 +5,11 @@ services:
     links:
       - influxdb
       - mqtt
+      - mqtt-bridge
     ports:
       - "8123:8123"
     volumes:
-      - .:/config
+      - ..:/config
     environment:
       - TZ=Europe/Berlin
     container_name: "hass-dev"
@@ -18,7 +19,7 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - "./.dev.storage/influxdb:/var/lib/influxdb"
+      - "./storage/influxdb:/var/lib/influxdb"
     environment:
       - INFLUXDB_DB=hass
       - INFLUXDB_ADMIN_USER=root
@@ -31,9 +32,9 @@ services:
       - "1883:1883"
       - "9001:9001"
     volumes:
-      - "./.dev/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
-      - "./.dev.storage/mqtt/data:/mosquitto/data"
-      - "./.dev.storage/mqtt/logs:/mosquitto/log"
+      - "./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
+      - "./storage/mqtt/data:/mosquitto/data"
+      - "./storage/mqtt/logs:/mosquitto/log"
     container_name: mqtt
 
   mqtt-bridge:
@@ -41,5 +42,5 @@ services:
     links:
       - mqtt
     volumes:
-      - "./.dev/mqtt-bridge:/config:ro"   
+      - "./mqtt-bridge:/config:ro"   
     container_name: mqtt-bridge

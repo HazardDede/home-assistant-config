@@ -104,12 +104,12 @@ person:
     id: dennis
     user_id: !secret user_id_dennis
     device_trackers:
-      - device_tracker.dennis_iphone_work
+      - device_tracker.dennis_phone
   - name: Jennifer
     id: jennifer
     user_id: !secret user_id_jennifer
     device_trackers:
-      - device_tracker.jennifer
+      - device_tracker.jennifer_phone
 
 # Groups
 group: !include groups.yaml

@@ -4,13 +4,13 @@ binary_sensor:
       somebody_home:
         friendly_name: "Somebody @ home"
         icon_template: >-
-          {% if is_state('device_tracker.dennis_iphone_work', 'home') or is_state('device_tracker.jennifer', 'home') %}
+          {% if is_state('person.dennis', 'home') or is_state('person.jennifer', 'home') %}
             mdi:home-account
           {% else %}
             mdi:home-outline
           {% endif %}
         value_template: >-
-          {{ is_state('device_tracker.dennis_iphone_work', 'home') or is_state('device_tracker.jennifer', 'home') }}
+          {{ is_state('person.dennis', 'home') or is_state('person.jennifer', 'home') }}
 
 input_boolean:
   notify_nobody_at_home:

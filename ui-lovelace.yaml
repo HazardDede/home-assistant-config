@@ -1293,7 +1293,6 @@ views:
         show_header_toggle: False
         entities:
           - sensor.processor_use
-          - sensor.cpu_temp
           - sensor.memory_use_percent
           - sensor.disk_use_percent
           - sensor.swap_use_percent

@@ -1,0 +1,8 @@
+turn_on:
+  description: Turn on the guest wifi
+
+turn_off:
+  description: Turn off the guest wifi
+
+reconnect:
+  description: "Reconnects this service to the Fritz!Box"

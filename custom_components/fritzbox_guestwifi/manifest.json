@@ -1,0 +1,8 @@
+{
+  "domain": "fritzbox_guestwifi",
+  "name": "Fritz!Box Guest Wifi",
+  "documentation": "",
+  "requirements": ["fritzconnection>=0.8.4"],
+  "dependencies": [],
+  "codeowners": []
+}

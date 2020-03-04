@@ -1,0 +1,146 @@
+# lovelace_gen
+title: Home
+icon: mdi:home
+id: home
+background: var(--background-image)
+badges:
+  - person.jennifer
+  - sensor.jonathan_status
+  - person.dennis
+cards:
+  #
+  # Living room
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_living
+      image: /local/rooms/living_banner.png
+      temperature: sensor.dht01_temperature_filtered
+      labeled_states: 
+        - sensor.dht01_humidity_filtered
+      states: 
+        - binary_sensor.raspitouch_motion
+      switches: 
+        - switch.zway_device_4
+        - light.zway_device_22
+        - switch.433rc_brennenstuhl_a
+        - switch.gosund_02
+      labels:
+        - entity: sensor.zway_device_4_power
+          top: 41%
+          left: 18%
+        - entity: sensor.pumbaa_battery
+          top: 60%
+          left: 78%
+      toggles:
+        - entity: switch.pumbaa_nightly_run
+          top: 50%
+          left: 78%
+  # 
+  # Kitchen
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_kitchen
+      image: /local/rooms/kitchen_banner.png
+      temperature: sensor.dht01_temperature_filtered
+      switches:
+        - switch.zway_device_20
+        - switch.gosund_01
+      labels:
+        - entity: sensor.zway_device_17_power
+          top: 55%
+          left: 85%
+        - entity: sensor.zway_device_20_power
+          top: 77%
+          left: 13%
+  #
+  # Hallway
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_hallway
+      image: /local/rooms/hallway_banner.png
+      temperature: sensor.zway_device_7_temperature
+      labeled_states: 
+        - sensor.zway_device_7_illumination
+      states: 
+        - binary_sensor.zway_device_7
+        - binary_sensor.motion02_motion
+        - binary_sensor.doorbell
+        - camera.motion02
+      labels:
+        - entity: input_number.zway_device_12
+          top: 75%
+          left: 57%
+          color: white
+  #
+  # Krymmels palace
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_krymmel
+      image: /local/rooms/gallery_banner.png
+      temperature: sensor.zway_device_24_temperature
+      labeled_states: 
+        - sensor.zway_device_24_illumination
+      states: 
+        - binary_sensor.zway_device_24
+      switches:
+        - switch.gosund_03
+        - switch.gosund_01
+      labels:
+        - entity: input_number.zway_device_9
+          top: 54%
+          left: 55%
+          color: white
+        - entity: sensor.zway_device_5_power
+          top: 52%
+          left: 70%
+  #
+  # Bedroom
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_bedroom
+      image: /local/rooms/bedroom_banner.png
+      temperature: sensor.zway_device_23_temperature
+      labeled_states: 
+        - sensor.zway_device_23_illumination
+      states: 
+        - binary_sensor.zway_device_23
+      switches:
+        - switch.zway_device_21
+        - switch.433rc_generic04
+  #
+  # Nursery
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_peanut
+      image: /local/rooms/peanut_banner.jpg
+      temperature: sensor.zway_device_19_temperature
+      labeled_states: 
+        - sensor.zway_device_19_illumination
+      states: 
+        - binary_sensor.zway_device_19
+      switches:
+        - switch.433rc_generic01
+        - switch.433rc_generic02
+      labels:
+        - entity: input_number.zway_device_8
+          top: 56%
+          left: 63%
+  #
+  # Outdoor
+  #
+  - !include
+    - ../components/room.yaml
+    - id: home_elmshorn
+      image: /local/rooms/elmshorn_banner.jpg
+      temperature: sensor.weather_temperature
+      labeled_states: 
+        - sensor.weather_humidity
+        - sensor.weather_cloudiness
+      switches: 
+        - sensor.weather_symbol

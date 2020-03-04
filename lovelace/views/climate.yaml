@@ -1,0 +1,96 @@
+# lovelace_gen
+title: Climate
+id: climate
+icon: mdi:thermometer-lines
+background: var(--background-image)
+cards:
+  - type: vertical-stack
+    id: climate_control
+    cards:
+    - type: "custom:button-card"
+      color_type: label-card
+      color: var(--background-card-color)
+      name: Climate Controller
+      styles:
+        - white-space: nowrap
+    - type: horizontal-stack
+      cards:
+        - type: custom:button-card
+          entity: switch.heating_mode_comfort
+          name: Comfort
+          # icon: attribute
+          size: 40%
+          color: var(--accent-color)
+          lock: true
+        - type: custom:button-card
+          entity: switch.heating_mode_energy_saving
+          name: Energy
+          # icon: attribute
+          size: 40%
+          color: var(--accent-color)
+          lock: true
+        - type: custom:button-card
+          entity: switch.heating_mode_frost_protection
+          name: Frost
+          # icon: attribute
+          size: 40%
+          color: var(--accent-color)
+          lock: true
+    - type: horizontal-stack
+      cards:
+        - type: custom:button-card
+          entity: switch.heating_mode_off
+          name: "Off"
+          # icon: attribute
+          size: 40%
+          color: var(--accent-color)
+          lock: true
+        - type: "custom:button-card"
+          color_type: blank-card
+        - type: custom:button-card
+          entity: input_boolean.splash_time
+          name: Splash
+          # icon: attribute
+          size: 40%
+          color: var(--accent-color)
+          lock: true
+  - id: climate_exterior_forecast
+    type: weather-forecast
+    entity: weather.dark_sky
+  - id: climate_ground
+    type: vertical-stack
+    cards:
+      - id: climate_ground_temp
+        type: history-graph
+        title: "Ground floor (°C)"
+        refresh_interval: 10
+        entities:
+          - sensor.dht01_temperature_filtered
+          - sensor.zway_device_7_temperature
+          - sensor.bath_downstairs_setpoint
+          - sensor.living_setpoint
+      - id: climate_ground_setpoints
+        type: entities
+        entities:
+          - input_number.zway_device_12
+          - input_number.zway_device_6
+  - id: climate_first
+    type: vertical-stack
+    cards:
+      - id: climate_first_temp
+        type: history-graph
+        title: "First floor (°C)"
+        refresh_interval: 10
+        entities:
+          - sensor.zway_device_24_temperature
+          - sensor.zway_device_19_temperature
+          - sensor.zway_device_23_temperature
+          - sensor.living_setpoint
+          - sensor.nursery_setpoint
+          - sensor.bath_upstairs_setpoint
+      - id: climate_first_setpoints
+        type: entities
+        entities:
+          - input_number.zway_device_9
+          - input_number.zway_device_8
+          - input_number.zway_device_11

@@ -1,0 +1,75 @@
+# lovelace_gen
+{% set offset = 10 %}
+type: picture-elements
+id: {{ id }}
+image: {{ image }}
+elements:
+  - type: state-label
+    entity: {{ temperature }}
+    style:
+      left: 15%
+      top: 91%
+      color: var(--text-primary-color)
+      font-size: small
+{% set pos_left = namespace(value=27) %}
+{% for entity in labeled_states %}
+  - type: state-icon
+    entity: {{ entity }}
+    style:
+      left: "{{ pos_left.value }}%"
+      top: 91%
+  {% set pos_left.value = pos_left.value + offset %}
+  - type: state-label
+    entity: {{ entity }}
+    style:
+      left: "{{ pos_left.value }}%"
+      top: 91%
+      color: var(--text-primary-color)
+      font-size: small
+  {% set pos_left.value = pos_left.value + offset %}
+{% endfor %}
+
+{% set pos_left = namespace(value=52) %}
+{% for entity in states %}
+  - type: state-icon
+    entity: {{ entity }}
+    style:
+      left: "{{ pos_left.value }}%"
+      top: 91%
+  {% set pos_left.value = pos_left.value + offset %}
+{% endfor %}
+
+{% set pos_right = namespace(value=-2) %}
+{% for entity in switches %}
+  - type: state-icon
+    entity: {{ entity }}
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    style:
+      right: "{{ pos_right.value }}%"
+      top: 91%
+  {% set pos_right.value = pos_right.value + offset %}
+{% endfor %}
+
+{% for lbl in labels %}
+  - type: state-label
+    entity: {{ lbl.entity }}
+    style:
+      left: {{ lbl.left }}
+      top: {{ lbl.top }}
+      color: {{ lbl.color | default ('white') }}
+      font-weight: bold
+      font-size: small
+{% endfor %}
+
+{% for tgl in toggles %}
+  - type: state-icon
+    entity: {{ tgl.entity }}
+    tap_action:
+      action: toggle
+    style:
+      left: {{ tgl.left }}
+      top: {{ tgl.top }}
+{% endfor %}

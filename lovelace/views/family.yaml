@@ -1,0 +1,35 @@
+# lovelace_gen
+title: Family
+id: family
+icon: mdi:account-supervisor-circle
+background: var(--background-image)
+cards:
+  - id: family_tracker
+    type: entities
+    entities:
+      - sensor.jennifer_status
+      - sensor.jonathan_status
+      - sensor.dennis_status
+      - binary_sensor.somebody_home
+      - input_boolean.notify_nobody_at_home
+      - binary_sensor.vacation_hh
+      - binary_sensor.vacation_sh
+  - id: family_traffic
+    type: entities
+    entities:
+      - entity: script.notify_traffic_hbf_elmshorn
+        name: "HBf -> Elmshorn"
+        icon: mdi:train
+      - entity: script.notify_traffic_elmshorn_hbf
+        name: "Elmshorn -> HBf"
+        icon: mdi:train
+  - !include
+    - ../components/fitbit.yaml
+    - id: family_jennifer
+      name: jennifer
+      device: versa_2
+  - !include
+    - ../components/fitbit.yaml
+    - id: family_dennis
+      name: dennis
+      device: blaze

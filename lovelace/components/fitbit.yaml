@@ -1,0 +1,19 @@
+# lovelace_gen
+id: {{ id }}
+title: {{ name | capitalize }}
+type: entities
+show_header_toggle: False
+entities:
+  - entity: sensor.fitbit_{{ name }}_distance
+    name: Distance (today)
+  - entity: sensor.fitbit_{{ name }}_water
+    name: Hydration (today)
+    type: "custom:secondaryinfo-entity-row"
+    secondary_info: "Goal: [[ sensor.fitbit_{{ name }}_water_goal.state ]] ml"
+  - entity: input_boolean.fitbit_{{ name }}_water_reminder
+  - entity: sensor.fitbit_{{ name }}_{{ device }}_battery
+    name: "{{ device | capitalize | replace ('_', ' ') }}: battery level"
+  - entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync_mins
+    name: "{{ device | capitalize | replace ('_', ' ') }}: Last sync"
+    type: "custom:secondaryinfo-entity-row"
+    secondary_info: "[[ sensor.fitbit_{{ name }}_{{ device }}_lastsync.state ]]"

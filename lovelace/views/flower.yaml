@@ -1,0 +1,80 @@
+# lovelace_gen
+title: Flowers
+id: flower
+icon: mdi:flower-outline
+background: var(--background-image)
+cards:
+  #
+  # MF01
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/pfeilblatt.jpg?v=1
+      plant_name: miflora01
+      max_light: 6000
+      min_light: 1500
+  #
+  # MF02
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/calathea.jpg?v=1
+      plant_name: miflora02
+      max_light: 20000
+      min_light: 800
+      font_color: white
+
+  #
+  # MF03
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/ficus_elastica.jpg?v=1
+      plant_name: miflora03
+      max_light: 30000
+      min_light: 1000
+      font_color: white
+
+  #
+  # MF04
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/monstera.jpg?v=1
+      plant_name: miflora04
+      max_light: 15000
+      min_light: 800
+      font_color: white
+
+  #
+  # MF05
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/ficus_lyrata.jpg?v=1
+      plant_name: miflora05
+      max_light: 45000
+      min_light: 1500
+      font_color: black
+
+  #
+  # MF06
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/plants.jpg?v=1
+      plant_name: miflora06
+      max_light: 6000
+      min_light: 1500
+      font_color: white
+
+  #
+  # MF07
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/plants.jpg?v=1
+      plant_name: miflora07
+      max_light: 6000
+      min_light: 1500
+      font_color: white

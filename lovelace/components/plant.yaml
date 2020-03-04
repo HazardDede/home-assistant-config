@@ -1,0 +1,89 @@
+# lovelace_gen
+type: picture-elements
+id: flower_{{ plant_name }}
+image: {{ image }}
+elements:
+  - type: custom:plant-sensor-card
+    entity: sensor.{{ plant_name }}_moisture
+    max: {{ max_moisture | default(60) }}
+    min: {{ min_moisture | default (15) }}
+    stroke_width: 15
+    fill: black
+    font_style:
+      color: '#f2efef'
+    style:
+      top: 20%
+      left: 10%
+      width: 3em
+      height: 3em
+  - type: custom:plant-sensor-card
+    entity: sensor.{{ plant_name }}_conductivity
+    max: {{ max_conductivity | default (2000) }}
+    min: {{ min_conductivity | default (350) }}
+    stroke_width: 15
+    fill: black
+    font_style:
+      color: '#f2efef'
+    style:
+      top: 20%
+      left: 25%
+      width: 3em
+      height: 3em
+  - type: custom:plant-sensor-card
+    entity: sensor.{{ plant_name }}_light_intensity
+    max: {{ max_light }}
+    min: {{ min_light }}
+    stroke_width: 15
+    fill: black
+    font_style:
+      color: '#f2efef'
+    style:
+      top: 20%
+      left: 40%
+      width: 3em
+      height: 3em
+  - type: image
+    entity: plant.{{ plant_name }}
+    image: "/local/icons/check.png?v=1"
+    state_image:
+      "ok": /local/icons/check.png?v=1
+      "problem": /local/icons/problem.png?v=1
+    style:
+      top: 90%
+      left: 5%
+      width: 2em
+  - type: image
+    entity: sensor.{{ plant_name }}_battery_status
+    image: "/local/icons/battery_high.png?v=1"
+    state_image:
+      "high": /local/icons/battery_high.png?v=1
+      "medium": /local/icons/battery_medium.png?v=1
+      "low": /local/icons/battery_low.png?v=1
+    style:
+      top: 90%
+      left: 93%
+      width: 3em
+  - type: state-label
+    entity: sensor.{{ plant_name }}_battery
+    style:
+      top: 90%
+      left: 93%
+      color: black
+      font-size: 0.7em
+      font-weight: bold
+  - type: state-label
+    entity: sensor.{{ plant_name }}_temperature
+    style:
+      top: 10%
+      left: 93%
+      color: {{ font_color | default('grey') }}
+      --ha-label-badge-font-size: 1em
+      font-weight: bold
+  - type: state-label
+    entity: sensor.{{ plant_name }}_last_updated
+    style:
+      top: 19%
+      left: 89%
+      color: {{ font_color | default('grey') }}
+      --ha-label-badge-font-size: 1em
+      font-weight: bold

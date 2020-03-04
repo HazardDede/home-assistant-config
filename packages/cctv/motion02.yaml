@@ -4,3 +4,8 @@ camera:
     buffer: 200  # 1 img ~ 40K = 200 * 40K ~ 8MB RAM needed
     timeout: 60
     webhook_id: motion02
+
+homeassistant:
+  customize:
+    binary_sensor.motion02_motion:
+      icon: mdi:cctv

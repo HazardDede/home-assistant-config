@@ -1,0 +1,8 @@
+{
+  "domain": "icalendar",
+  "name": "icalendar",
+  "documentation": "",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["icalevents==0.1.19"]
+}

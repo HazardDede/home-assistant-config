@@ -2,7 +2,7 @@ influxdb:
   host: !secret influx_host
   username: !secret influx_user
   password: !secret influx_pwd
-  database: ha
+  database: !secret influx_db
   default_measurement: state
   max_retries: 3
   exclude:

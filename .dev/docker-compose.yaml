@@ -1,0 +1,46 @@
+version: '3'
+services:
+  hass:
+    image: homeassistant/home-assistant:0.102.3
+    links:
+      - influxdb
+      - mqtt
+      - mqtt-bridge
+    ports:
+      - "8123:8123"
+    volumes:
+      - ..:/config
+    environment:
+      - TZ=Europe/Berlin
+    container_name: "hass-dev"
+
+  influxdb:
+    image: influxdb:1.7.10
+    ports:
+      - "8086:8086"
+    volumes:
+      - "./storage/influxdb:/var/lib/influxdb"
+    environment:
+      - INFLUXDB_DB=hass
+      - INFLUXDB_ADMIN_USER=root
+      - INFLUXDB_ADMIN_PASSWORD=dev
+    container_name: influxdb
+
+  mqtt:
+    image: eclipse-mosquitto:1.6.8
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - "./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
+      - "./storage/mqtt/data:/mosquitto/data"
+      - "./storage/mqtt/logs:/mosquitto/log"
+    container_name: mqtt
+
+  mqtt-bridge:
+    image: hazard/pnp:0.21.1
+    links:
+      - mqtt
+    volumes:
+      - "./mqtt-bridge:/config:ro"   
+    container_name: mqtt-bridge

@@ -1,7 +1,6 @@
 import logging
 
 DOMAIN = 'fritzbox_guestwifi'
-REQUIREMENTS = ['fritzconnection==0.8.4']
 _LOGGER = logging.getLogger(__name__)
 
 

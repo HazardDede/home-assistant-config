@@ -1,8 +1,0 @@
-device_tracker:
-  - platform: fritz
-    host: 192.168.178.1
-    consider_home: 300  # Seconds to wait before marking someone as away
-    scan_interval: 60
-    interval_seconds: 60
-    new_device_defaults:
-      track_new_devices: False

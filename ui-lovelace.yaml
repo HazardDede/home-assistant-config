@@ -15,12 +15,15 @@ resources:
     type: module
   - url: /local/lovelace/secondaryinfo-entity-row.js?v=0.3.1
     type: module
+  - url: /local/lovelace/sun-card.js?v=4.1.0
+    type: module
 
 views:
   - !include lovelace/views/home.yaml
   - !include lovelace/views/family.yaml
   - !include lovelace/views/health.yaml
   - !include lovelace/views/climate.yaml
+  - !include lovelace/views/outdoor.yaml
   - !include lovelace/views/flower.yaml
   - !include lovelace/views/monitoring.yaml
   - !include lovelace/views/settings.yaml

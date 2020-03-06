@@ -54,9 +54,6 @@ cards:
           size: 40%
           color: var(--accent-color)
           lock: true
-  - id: climate_exterior_forecast
-    type: weather-forecast
-    entity: weather.dark_sky
   - id: climate_ground
     type: vertical-stack
     cards:

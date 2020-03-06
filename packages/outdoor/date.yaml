@@ -1,5 +1,6 @@
 sensor:
   - platform: time_date
     display_options:
-      - 'time'
-      - 'date'
+      - time
+      - date
+      - time_utc

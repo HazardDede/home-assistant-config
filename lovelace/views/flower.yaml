@@ -23,7 +23,6 @@ cards:
       max_light: 20000
       min_light: 800
       font_color: white
-
   #
   # MF03
   #
@@ -34,7 +33,6 @@ cards:
       max_light: 30000
       min_light: 1000
       font_color: white
-
   #
   # MF04
   #
@@ -45,7 +43,6 @@ cards:
       max_light: 15000
       min_light: 800
       font_color: white
-
   #
   # MF05
   #
@@ -56,7 +53,6 @@ cards:
       max_light: 45000
       min_light: 1500
       font_color: black
-
   #
   # MF06
   #
@@ -67,7 +63,6 @@ cards:
       max_light: 6000
       min_light: 1500
       font_color: white
-
   #
   # MF07
   #

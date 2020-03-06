@@ -17,9 +17,6 @@ entities:
   switch.433rc_brennenstuhl_a:
     name: "Wohnwand"
     hidden: false
-  switch.gosund_03:
-    name: "Galerielampe"
-    hidden: false
   switch.zway_device_20:
     name: "Kaffeemaschine"
     hidden: false
@@ -37,4 +34,10 @@ entities:
     hidden: false
   switch.gosund_02:
     name: "Filmregal"
+    hidden: false
+  switch.gosund_03:
+    name: "Galerielampe"
+    hidden: false
+  switch.gosund_04:
+    name: "Mister Wattson"
     hidden: false

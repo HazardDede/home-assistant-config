@@ -3,10 +3,6 @@ title: Home
 icon: mdi:home
 id: home
 background: var(--background-image)
-badges:
-  - person.jennifer
-  - sensor.jonathan_status
-  - person.dennis
 cards:
   #
   # Living room
@@ -14,7 +10,7 @@ cards:
   - !include
     - ../components/room.yaml
     - id: home_living
-      image: /local/rooms/living_banner.png
+      image: /local/rooms/living_banner2.png
       temperature: sensor.dht01_temperature_filtered
       labeled_states: 
         - sensor.dht01_humidity_filtered
@@ -22,13 +18,12 @@ cards:
         - binary_sensor.raspitouch_motion
       switches: 
         - switch.zway_device_4
-        - light.zway_device_22
         - switch.433rc_brennenstuhl_a
         - switch.gosund_02
       labels:
         - entity: sensor.zway_device_4_power
-          top: 41%
-          left: 18%
+          top: 48%
+          left: 16%
         - entity: sensor.pumbaa_battery
           top: 60%
           left: 78%
@@ -36,6 +31,15 @@ cards:
         - entity: switch.pumbaa_nightly_run
           top: 50%
           left: 78%
+        - entity: switch.gosund_01  # Stairway
+          top: 15%
+          left: 85%
+        - entity: light.zway_device_22  # Stehlampe
+          top: 30%
+          left: 9%
+        - entity: switch.gosund_04  # Mr. Wattson
+          top: 38%
+          left: 53%
   # 
   # Kitchen
   #

@@ -1,0 +1,6 @@
+# Renamed to switch.gosund_04
+homeassistant:
+  customize:
+    switch.gosund_04:
+      friendly_name: "Mr. Wattson"
+      icon: mdi:desk-lamp

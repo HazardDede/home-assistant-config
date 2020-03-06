@@ -18,6 +18,7 @@ elements:
     style:
       left: "{{ pos_left.value }}%"
       top: 91%
+      --paper-item-icon-color: lightgrey
   {% set pos_left.value = pos_left.value + offset %}
   - type: state-label
     entity: {{ entity }}
@@ -36,6 +37,7 @@ elements:
     style:
       left: "{{ pos_left.value }}%"
       top: 91%
+      --paper-item-icon-color: lightgrey
   {% set pos_left.value = pos_left.value + offset %}
 {% endfor %}
 
@@ -50,6 +52,7 @@ elements:
     style:
       right: "{{ pos_right.value }}%"
       top: 91%
+      --paper-item-icon-color: lightgrey
   {% set pos_right.value = pos_right.value + offset %}
 {% endfor %}
 
@@ -72,4 +75,5 @@ elements:
     style:
       left: {{ tgl.left }}
       top: {{ tgl.top }}
+      --paper-item-icon-color: lightgrey
 {% endfor %}

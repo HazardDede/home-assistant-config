@@ -23,7 +23,6 @@ binary_sensor:
 automation:
   - alias: 'Services: Update binary_sensor.services_down_alert'
     initial_state: True
-    hide_entity: True
     trigger:
       - platform: time_pattern
         minutes: '/1'

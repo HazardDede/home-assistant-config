@@ -6,7 +6,6 @@ input_boolean:
 automation:
   - alias: "Reset splash time"
     initial_state: True
-    hide_entity: True
     trigger:
       platform: time
       at: '00:00:00'

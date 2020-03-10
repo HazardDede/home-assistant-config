@@ -149,7 +149,6 @@ switch:
 automation:
   - alias: "Pumbaa: Reset Nightly Run"
     initial_state: True
-    hide_entity: True
     trigger:
       platform: time
       at: '04:00:00'
@@ -181,7 +180,6 @@ automation:
         entity_id: vacuum.pumbaa
   - alias: 'Pumbaa: Increment counter when running'
     initial_state: True
-    hide_entity: True
     trigger:
       - platform: time_pattern
         minutes: '/1'
@@ -209,7 +207,6 @@ automation:
         entity_id: vacuum.pumbaa
   - alias: 'Pumbaa: Set low battery alert flag'
     initial_state: True
-    hide_entity: True
     trigger:
       platform: numeric_state
       entity_id: sensor.pumbaa_battery
@@ -221,7 +218,6 @@ automation:
         entity_id: input_boolean.pumbaa_battery_alert
   - alias: 'Pumbaa: Unset low battery alert flag'
     initial_state: True
-    hide_entity: True
     trigger:
       platform: numeric_state
       entity_id: sensor.pumbaa_battery

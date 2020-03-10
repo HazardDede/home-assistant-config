@@ -94,7 +94,6 @@ alert:
 automation:
   - alias: 'Fitbit: Dennis - Update entities every minute'
     initial_state: True
-    hide_entity: True
     trigger:
       - platform: time_pattern
         minutes: '/1'

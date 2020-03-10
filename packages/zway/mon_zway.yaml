@@ -29,7 +29,6 @@ binary_sensor:
 automation:
   - alias: 'Z-Way: Update last updated sensor every minute'
     initial_state: True
-    hide_entity: True
     trigger:
       - platform: time_pattern
         minutes: '/1'

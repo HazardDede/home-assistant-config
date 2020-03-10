@@ -17,7 +17,6 @@ sensor:
 automation:
   - alias: "Bathroom heater - Adjust setpoint"
     initial_state: True
-    hide_entity: True
     trigger:
       platform: state
       entity_id: input_number.zway_device_6
@@ -28,7 +27,6 @@ automation:
           setpoint: "{{ trigger.to_state.state | int }}"
   - alias: "Bathroom heater - Pull setpoint"
     initial_state: True
-    hide_entity: True
     trigger:
       platform: mqtt
       topic: 'zway/device_6/setpoint'

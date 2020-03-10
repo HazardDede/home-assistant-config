@@ -7,29 +7,6 @@
 # binary_sensor.service_reverse_proxy
 # binary_sensor.service_zway
 
-homeassistant:
-  customize:
-    binary_sensor.service_grafana:
-      icon: mdi:monitor-dashboard
-      friendly_name: Grafana
-    binary_sensor.service_influx:
-      icon: mdi:database-search
-      friendly_name: Influx
-    binary_sensor.service_mqtt:
-      friendly_name: MQTT
-    binary_sensor.service_plex:
-      icon: mdi:plex
-      friendly_name: Plex Mediaserver
-    binary_sensor.service_rc433:
-      icon: mdi:radio-tower
-      friendly_name: RC433
-    binary_sensor.service_reverse_proxy:
-      icon: mdi:web-box
-      friendly_name: Reverse Proxy
-    binary_sensor.service_zway:
-      icon: mdi:z-wave
-      friendly_name: Z-Way
-
 binary_sensor:
   - platform: template
     sensors:

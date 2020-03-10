@@ -2,6 +2,7 @@ sensor:
   - platform: template
     sensors:
       zway_last_sensor_update:
+        entity_id: sensor.time
         unit_of_measurement: minutes
         icon_template: mdi:alarm-snooze
         value_template: >-
@@ -25,17 +26,6 @@ binary_sensor:
         value_template: >-
           {% set threshold = 120 %}
           {{ states.sensor.zway_last_sensor_update.state | default(0) | int > threshold }}
-
-automation:
-  - alias: 'Z-Way: Update last updated sensor every minute'
-    initial_state: True
-    trigger:
-      - platform: time_pattern
-        minutes: '/1'
-        seconds: 0
-    action:
-      - service: homeassistant.update_entity
-        entity_id: sensor.zway_last_sensor_update
 
 alert:
   zway_down:

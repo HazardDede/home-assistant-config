@@ -11,6 +11,7 @@ binary_sensor:
   - platform: template
     sensors:
       services_down_alert:
+        entity_id: sensor.time
         value_template: >-
           {% set service_states = namespace(value=[]) -%}
           {% for entity in states.binary_sensor -%}
@@ -19,17 +20,6 @@ binary_sensor:
             {% endif -%}
           {%- endfor -%}
           {{ True if service_states.value|select|first else False }}
-
-automation:
-  - alias: 'Services: Update binary_sensor.services_down_alert'
-    initial_state: True
-    trigger:
-      - platform: time_pattern
-        minutes: '/1'
-        seconds: 0
-    action:
-      - service: homeassistant.update_entity
-        entity_id: binary_sensor.services_down_alert
 
 alert:
   service_down:

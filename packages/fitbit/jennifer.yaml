@@ -10,6 +10,7 @@ sensor:
     sensors: 
       # diff between now and lastsync in minutes with fraction -> Number of minutes of the last sync
       fitbit_jennifer_versa_2_lastsync_mins:
+        entity_id: sensor.time
         unit_of_measurement: 'min ago'
         value_template: >-
           {% if states('sensor.fitbit_jennifer_versa_2_lastsync') == 'unknown' %}
@@ -51,6 +52,7 @@ binary_sensor:
         # 1. the last water update is more than 1h ago
         # 2. Time is between 8am and 8pm
         # 3. Your goal isn't reached by now
+        entity_id: sensor.time
         value_template: >- 
           {{ 
             (((as_timestamp(now()) - as_timestamp(states.sensor.fitbit_jennifer_water.last_updated|default(now()))) / 60) | int > 90)
@@ -89,16 +91,3 @@ alert:
     skip_first: False
     notifiers:
       - jennifer
-
-automation:
-  - alias: 'Fitbit: Jennifer - Update entities every minute'
-    initial_state: True
-    trigger:
-      - platform: time_pattern
-        minutes: '/1'
-        seconds: 0
-    action:
-      - service: homeassistant.update_entity
-        entity_id: sensor.fitbit_jennifer_versa_2_lastsync_mins
-      - service: homeassistant.update_entity
-        entity_id: binary_sensor.fitbit_jennifer_water_alert

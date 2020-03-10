@@ -18,42 +18,37 @@ cards:
         - type: custom:button-card
           entity: switch.heating_mode_comfort
           name: Comfort
-          # icon: attribute
           size: 40%
-          color: var(--accent-color)
-          lock: true
+          lock: 
+            enabled: true
         - type: custom:button-card
           entity: switch.heating_mode_energy_saving
           name: Energy
-          # icon: attribute
           size: 40%
-          color: var(--accent-color)
-          lock: true
+          lock: 
+            enabled: true
         - type: custom:button-card
           entity: switch.heating_mode_frost_protection
           name: Frost
-          # icon: attribute
           size: 40%
-          color: var(--accent-color)
-          lock: true
+          lock: 
+            enabled: true
     - type: horizontal-stack
       cards:
         - type: custom:button-card
           entity: switch.heating_mode_off
           name: "Off"
-          # icon: attribute
           size: 40%
-          color: var(--accent-color)
-          lock: true
+          lock: 
+            enabled: true
         - type: "custom:button-card"
           color_type: blank-card
         - type: custom:button-card
           entity: input_boolean.splash_time
           name: Splash
-          # icon: attribute
           size: 40%
-          color: var(--accent-color)
-          lock: true
+          lock: 
+            enabled: true
   - id: climate_ground
     type: vertical-stack
     cards:

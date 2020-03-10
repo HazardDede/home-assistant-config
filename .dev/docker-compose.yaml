@@ -5,7 +5,6 @@ services:
     links:
       - influxdb
       - mqtt
-      - mqtt-bridge
     ports:
       - "8123:8123"
     volumes:

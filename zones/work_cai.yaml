@@ -1,0 +1,5 @@
+name: Work (cAI)
+latitude: !secret work_cai_latitude
+longitude: !secret work_cai_longitude
+radius: 75
+icon: mdi:worker

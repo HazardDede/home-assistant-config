@@ -5,19 +5,21 @@ icon: mdi:heart-pulse
 background: var(--background-image)
 cards:
   - id: health_alert
-    type: custom:monster-card
+    type: custom:auto-entities
     show_empty: False
     filter:
       include:
         - domain: alert
       exclude:
         - state: "idle"
+    sort:
+      method: last_changed
     card: 
       type: entities
       title: Alerts
       show_header_toggle: False
   - id: health_battery
-    type: custom:monster-card
+    type: custom:auto-entities
     show_empty: False
     card:
       type: glance
@@ -26,6 +28,8 @@ cards:
       include:
         - entity_id: "sensor.*_battery"
           state: "< 25"
+    sort:
+      method: state
   - id: health_wastebin
     title: Trash
     type: entities

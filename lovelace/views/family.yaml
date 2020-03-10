@@ -6,6 +6,7 @@ background: var(--background-image)
 cards:
   - id: family_tracker
     type: entities
+    state_color: true
     entities:
       - sensor.jennifer_status
       - sensor.jonathan_status

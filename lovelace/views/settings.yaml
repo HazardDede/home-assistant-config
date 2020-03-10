@@ -66,10 +66,14 @@ cards:
           size: 51px
           lock: 
             enabled: true
-  - type: custom:group-card
+  - type: custom:auto-entities
     id: settings_all_automations
     card:
       type: entities
       title: Automations
       show_header_toggle: False
-    group: group.all_automations
+    filter:
+      include:
+        - domain: automation
+    sort:
+      method: name

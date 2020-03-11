@@ -1,19 +1,17 @@
 title: Humletorp
 
 resources:
+  - url: /local/lovelace/auto-entities.js?v=e5a6b72
+    type: module
   - url: /local/lovelace/button-card.js?v=3.1.1
     type: module
-  - url: /local/lovelace/card-tools.js?v=0.4.0-dae8874
+  - url: /local/lovelace/card-tools.js?v=d00de92
     type: js
-  - url: /local/lovelace/group-card.js?v=0680a5d
+  - url: /local/lovelace/layout-card.js?v=bc1d8f3
     type: js
-  - url: /local/lovelace/layout-card.js?v=83e2b16
-    type: js
-  - url: /local/lovelace/monster-card.js?v=74fb4dc
-    type: js
-  - url: /local/lovelace/plant-sensor-card.js?v=1
+  - url: /local/lovelace/plant-sensor-card.js?v=3
     type: module
-  - url: /local/lovelace/secondaryinfo-entity-row.js?v=0.3.1
+  - url: /local/lovelace/secondaryinfo-entity-row.js?v=472eb97
     type: module
   - url: /local/lovelace/sun-card.js?v=4.1.0
     type: module

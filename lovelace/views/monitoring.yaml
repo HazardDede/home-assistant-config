@@ -3,10 +3,6 @@ title: Monitoring
 id: monitoring
 icon: mdi:desktop-classic
 background: var(--background-image)
-# badges:
-#   - sensor.speedtest_download
-#   - sensor.speedtest_upload
-#   - sensor.speedtest_ping
 cards:
   - id: mon_log_level
     type: entities
@@ -27,22 +23,28 @@ cards:
       - sensor.load_15m
       - sensor.last_boot
   - id: mon_server
-    type: custom:monster-card
+    type: custom:auto-entities
     show_empty: False
     filter:
       include:
         - entity_id: "binary_sensor.server_*"
+    sort:
+      method: name
     card: 
       type: entities
       title: Server
-      show_header_toggle: False
+      show_header_toggle: false
+      state_color: true
   - id: mon_services
-    type: custom:monster-card
+    type: custom:auto-entities
     show_empty: False
     filter:
       include:
         - entity_id: "binary_sensor.service_*"
+    sort:
+      method: name
     card: 
       type: entities
       title: Services
-      show_header_toggle: False
+      show_header_toggle: false
+      state_color: true

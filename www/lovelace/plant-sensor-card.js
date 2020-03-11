@@ -8,11 +8,12 @@ import {
         hass: Object,
         config: Object,
         state: Object,
-        dashArray: String
+        dashArray: String,
+        outsideLimits: Number
       }
     }
   
-    _render({ state, dashArray, config }) {
+    _render({ state, dashArray, outsideLimits, config }) {
       return html`
       <style>
           :host {
@@ -57,7 +58,7 @@ import {
         <svg viewbox="0 0 200 200" id="svg">
           <circle id="circle" cx="50%" cy="50%" r="45%"
             fill$="${config.fill || 'rgba(255, 255, 255, .75)'}"
-            stroke$="${config.outside_limits ? config.warn_color || '#f20707' : config.ok_color || '#0c870c'}"
+            stroke$="${outsideLimits ? config.warn_color || '#f20707' : config.ok_color || '#0c870c'}"
             stroke-dasharray$="${dashArray}"
             stroke-width$="${config.stroke_width || 6}" 
             transform="rotate(-90 100 100)"/>
@@ -66,7 +67,7 @@ import {
           <p class="text">
             ${config.attribute ? state.attributes[config.attribute] : state.state}
           </p>
-          <p class="unit" style="background-color: ${config.outside_limits ? config.warn_color || '#f20707' : config.ok_color || '#0c870c'}">
+          <p class="unit" style="background-color: ${outsideLimits ? config.warn_color || '#f20707' : config.ok_color || '#0c870c'}">
             ${config.units ? config.units : state.attributes.unit_of_measurement}
           </p>
         </span>
@@ -145,7 +146,7 @@ import {
       const total = 10 * r;
       this.dashArray = `${score} ${total}`;
       
-      this.config['outside_limits'] = !(state >= min && state <= max)
+      this.outsideLimits = !(state >= min && state <= max)
     }
   
     _click() {

@@ -1,5 +1,5 @@
 name: "Hamburg Hbf"
 latitude: 53.553141
 longitude: 10.006521
-radius: 200
+radius: 125
 icon: mdi:train

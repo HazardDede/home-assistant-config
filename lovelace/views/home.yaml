@@ -11,9 +11,9 @@ cards:
     - ../components/room.yaml
     - id: home_living
       image: /local/rooms/living_banner2.png
-      temperature: sensor.dht01_temperature_filtered
+      temperature: sensor.shellyht_01_temperature
       labeled_states: 
-        - sensor.dht01_humidity_filtered
+        - sensor.shellyht_01_humidity
       switches: 
         - switch.zway_device_4
         - switch.433rc_brennenstuhl_a

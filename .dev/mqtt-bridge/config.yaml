@@ -51,3 +51,19 @@ tasks:
           host: mqtt
           port: 1883
           retain: true
+  - name: shellies
+    pull:
+      plugin: pnp.plugins.pull.mqtt.Subscribe
+      args:
+        host: services
+        port: 1883
+        topic: shellies/#
+    push:
+      - plugin: pnp.plugins.push.mqtt.Publish
+        selector:
+          data: "lambda d: d.payload"
+          topic: "lambda d: d.topic"
+        args:
+          host: mqtt
+          port: 1883
+          retain: true

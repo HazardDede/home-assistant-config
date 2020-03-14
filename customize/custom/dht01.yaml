@@ -1,11 +1,11 @@
 sensor.dht01_temperature:
-  friendly_name: "Living (raw)"
+  friendly_name: "Kitchen (raw)"
 
 sensor.dht01_humidity:
-  friendly_name: "Living (raw)"
+  friendly_name: "Kitchen (raw)"
 
 sensor.dht01_temperature_filtered:
-  friendly_name: Living
+  friendly_name: Kitchen
 
 sensor.dht01_humidity_filtered:
-  friendly_name: Living
+  friendly_name: Kitchen

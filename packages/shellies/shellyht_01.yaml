@@ -1,0 +1,16 @@
+sensor:
+  - platform: mqtt
+    name: shellyht_01_temperature
+    state_topic: "shellies/shellyht-F38794/sensor/temperature"
+    unit_of_measurement: "°C"
+    device_class: temperature
+  - platform: mqtt
+    name: shellyht_01_humidity
+    state_topic: "shellies/shellyht-F38794/sensor/humidity"
+    unit_of_measurement: "%"
+    device_class: humidity
+  - platform: mqtt
+    name: shellyht_01_battery
+    state_topic: "shellies/shellyht-F38794/sensor/battery"
+    unit_of_measurement: "%"
+    device_class: battery

@@ -75,10 +75,13 @@ cards:
         name: "Controls"
         icon: mdi:pig
       - entity: sensor.pumbaa_state
-        name: "State"
+        type: custom:multiple-entity-row
+        name: State
+        secondary_info: last-changed
         icon: mdi:robot-vacuum
-      - entity: sensor.pumbaa_battery
-        name: "Battery"
+        entities:
+          - entity: sensor.pumbaa_battery
+            name: Battery
       - entity: binary_sensor.pumbaa_bin_full
         name: Check the bin
         icon: mdi:delete-circle

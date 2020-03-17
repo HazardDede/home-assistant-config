@@ -4,4 +4,4 @@ homeassistant:
   customize:
     switch.gosund_02:
       friendly_name: "Disc-Rack"
-      icon: mdi:book-variant
+      icon: mdi:disc

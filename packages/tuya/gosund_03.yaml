@@ -4,4 +4,4 @@ homeassistant:
   customize:
     switch.gosund_03:
       friendly_name: "Vintage lamp"
-      icon: mdi:lightbulb-on-outline
+      icon: mdi:floor-lamp-variant

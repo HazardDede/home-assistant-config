@@ -9,6 +9,8 @@ resources:
     type: js
   - url: /local/lovelace/layout-card.js?v=bc1d8f3
     type: js
+  - url: /local/lovelace/multiple-entity-row.js?v=be8b9c1
+    type: module
   - url: /local/lovelace/plant-sensor-card.js?v=3
     type: module
   - url: /local/lovelace/secondaryinfo-entity-row.js?v=472eb97

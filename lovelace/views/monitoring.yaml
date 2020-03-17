@@ -18,9 +18,15 @@ cards:
       - sensor.memory_use_percent
       - sensor.disk_use_percent
       - sensor.swap_use_percent
-      - sensor.load_1m
-      - sensor.load_5m
-      - sensor.load_15m
+      - entity: sensor.load_15m
+        type: custom:multiple-entity-row
+        name: Load
+        state_header: 15m
+        entities:
+          - entity: sensor.load_1m
+            name: 1m
+          - entity: sensor.load_5m
+            name: 5m
       - sensor.last_boot
   - id: mon_server
     type: custom:auto-entities

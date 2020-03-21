@@ -16,6 +16,7 @@ cards:
   - id: family_jennifer
     type: entities
     title: "Jennifer: Devices"
+    show_header_toggle: false
     entities:
       - entity: sensor.jennifer_iphone_battery_state
         type: custom:multiple-entity-row
@@ -27,6 +28,7 @@ cards:
   - id: family_dennis
     type: entities
     title: "Dennis: Devices"
+    show_header_toggle: false
     entities:
       - entity: sensor.dennis_iphone_battery_state
         type: custom:multiple-entity-row

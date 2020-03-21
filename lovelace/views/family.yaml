@@ -8,18 +8,47 @@ cards:
     type: entities
     state_color: true
     entities:
-      - sensor.jennifer_status
+      - person.jennifer
       - sensor.jonathan_status
-      - sensor.dennis_status
+      - person.dennis
       - binary_sensor.somebody_home
       - input_boolean.notify_nobody_at_home
+  - id: family_jennifer
+    type: entities
+    title: "Jennifer: Devices"
+    entities:
+      - entity: sensor.jennifer_iphone_battery_state
+        type: custom:multiple-entity-row
+        name: iPhone
+        secondary_info: last-changed
+        entities:
+          - entity: sensor.jennifer_iphone_battery_level
+            name: Battery
+  - id: family_dennis
+    type: entities
+    title: "Dennis: Devices"
+    entities:
+      - entity: sensor.dennis_iphone_battery_state
+        type: custom:multiple-entity-row
+        name: iPhone
+        secondary_info: last-changed
+        entities:
+          - entity: sensor.dennis_iphone_battery_level
+            name: Battery
+      - entity: sensor.dennis_ipad_battery_state
+        type: custom:multiple-entity-row
+        name: iPad
+        secondary_info: last-changed
+        entities:
+          - entity: sensor.dennis_ipad_battery_level
+            name: Battery
   - !include
     - ../components/fitbit.yaml
-    - id: family_jennifer
+    - id: family_jennifer_fitbit
       name: jennifer
       device: versa_2
   - !include
     - ../components/fitbit.yaml
-    - id: family_dennis
+    - id: family_dennis_fitbit
       name: dennis
       device: blaze

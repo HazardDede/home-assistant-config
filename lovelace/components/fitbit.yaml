@@ -1,6 +1,6 @@
 # lovelace_gen
 id: {{ id }}
-title: {{ name | capitalize }}
+title: "{{ name | capitalize }}: Activity Tracker"
 type: entities
 show_header_toggle: False
 entities:

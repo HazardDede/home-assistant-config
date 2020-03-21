@@ -109,12 +109,14 @@ person:
     id: dennis
     user_id: !secret user_id_dennis
     device_trackers:
-      - device_tracker.dennis_phone
+      - device_tracker.dennis_phone  # Router
+      - device_tracker.dennis_iphone_app  # iOS App
   - name: Jennifer
     id: jennifer
     user_id: !secret user_id_jennifer
     device_trackers:
-      - device_tracker.jennifer_phone
+      - device_tracker.jennifer_phone  # Router
+      - device_tracker.jennifer_iphone_app  # iOS App
 
 # Groups
 group: !include groups.yaml

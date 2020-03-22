@@ -7,10 +7,8 @@ cards:
   - type: vertical-stack
     id: settings_theme
     cards:
-      - type: "custom:button-card"
-        color_type: label-card
-        color: var(--background-card-color)
-        name: Themes
+      - type: markdown
+        content: "### Themes"
       - type: horizontal-stack
         cards:
         - type: custom:button-card
@@ -40,12 +38,8 @@ cards:
     cards:
     - type: vertical-stack
       cards:
-      - type: "custom:button-card"
-        color_type: label-card
-        color: var(--background-card-color)
-        name: Guest Wifi
-        styles:
-          - white-space: nowrap
+      - type: markdown
+        content: "### Guest Wifi"
       - type: custom:layout-card
         layout: horizontal
         column_num: 2

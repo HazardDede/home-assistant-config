@@ -18,27 +18,27 @@ cards:
     title: "Devices"
     show_header_toggle: false
     entities:
-      - entity: sensor.jennifer_iphone_battery_state
+      - entity: sensor.jennifer_iphone_battery_level
         type: custom:multiple-entity-row
         name: "Jennifer: iPhone"
         secondary_info: last-changed
         entities:
-          - entity: sensor.jennifer_iphone_battery_level
-            name: Battery
-      - entity: sensor.dennis_iphone_battery_state
+          - entity: sensor.jennifer_iphone_battery_state
+            name: State
+      - entity: sensor.dennis_iphone_battery_level
         type: custom:multiple-entity-row
         name: "Dennis: iPhone"
         secondary_info: last-changed
         entities:
-          - entity: sensor.dennis_iphone_battery_level
-            name: Battery
-      - entity: sensor.dennis_ipad_battery_state
+          - entity: sensor.dennis_iphone_battery_state
+            name: State
+      - entity: sensor.dennis_ipad_battery_level
         type: custom:multiple-entity-row
         name: "Dennis: iPad"
         secondary_info: last-changed
         entities:
-          - entity: sensor.dennis_ipad_battery_level
-            name: Battery
+          - entity: sensor.dennis_ipad_battery_state
+            name: State
   - !include
     - ../components/fitbit.yaml
     - id: family_jennifer_fitbit

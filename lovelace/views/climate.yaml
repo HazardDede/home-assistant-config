@@ -53,6 +53,7 @@ cards:
         title: "Ground floor (°C)"
         refresh_interval: 10
         entities:
+          - sensor.shellyht_01_temperature
           - sensor.dht01_temperature_filtered
           - sensor.zway_device_7_temperature
           - sensor.bath_downstairs_setpoint

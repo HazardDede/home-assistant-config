@@ -35,9 +35,9 @@ cards:
     type: entities
     show_header_toggle: False
     entities:
-      - entity: sensor.gelber_sack
+      - entity: sensor.gelbe_tonne
         type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.gelber_sack.attributes.friendly_delta ]]"
+        secondary_info: "[[ sensor.gelbe_tonne.attributes.friendly_delta ]]"
       - entity: sensor.biotonne
         type: "custom:secondaryinfo-entity-row"
         secondary_info: "[[ sensor.biotonne.attributes.friendly_delta ]]"

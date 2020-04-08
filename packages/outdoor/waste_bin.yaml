@@ -9,7 +9,7 @@ sensor:
 
 homeassistant:
   customize:
-    sensor.gelber_sack:
+    sensor.gelbe_tonne:
       # icon: mdi:flask
       entity_picture: /local/waste_bin/yellow.png
     

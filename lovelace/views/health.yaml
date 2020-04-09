@@ -91,3 +91,7 @@ cards:
       - entity: script.pumbaa_set_bin_clean
         name: "Cleaned the bin"
         icon: mdi:delete-outline
+  - id: health_rocky
+    type: custom:xiaomi-vacuum-card
+    entity: vacuum.rocky
+    image: /local/other/rocky.png

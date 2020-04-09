@@ -28,12 +28,6 @@ cards:
           - entity: sensor.load_5m
             name: 5m
       - sensor.last_boot
-  - id: mon_webserver
-    type: entities
-    title: Webserver
-    show_header_toggle: false
-    entities:
-      - sensor.ssl_certificate_expiry
   - id: mon_server
     type: custom:auto-entities
     show_empty: False
@@ -48,15 +42,23 @@ cards:
       show_header_toggle: false
       state_color: true
   - id: mon_services
-    type: custom:auto-entities
-    show_empty: False
-    filter:
-      include:
-        - entity_id: "binary_sensor.service_*"
-    sort:
-      method: name
-    card: 
-      type: entities
-      title: Services
-      show_header_toggle: false
-      state_color: true
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:auto-entities
+        show_empty: False
+        filter:
+          include:
+            - entity_id: "binary_sensor.service_*"
+        sort:
+          method: name
+        card: 
+          type: entities
+          title: Services
+          show_header_toggle: false
+          state_color: true
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.zway_last_sensor_update
+            name: "Z-Way: Last sensor update"
+          - sensor.ssl_certificate_expiry

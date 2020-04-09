@@ -65,7 +65,7 @@ cards:
         name: "Filter replaced"
         icon: mdi:water
   - id: health_pumbaa
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.pumbaa

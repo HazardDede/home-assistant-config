@@ -19,6 +19,8 @@ resources:
     type: module
   - url: /local/lovelace/sun-card.js?v=4.1.0
     type: module
+  - url: /local/lovelace/vertical-stack-in-card.js?v=0.3.2
+    type: js
   - url: /local/lovelace/xiaomi-vacuum-card.js?v=3.0.1
     type: module
 

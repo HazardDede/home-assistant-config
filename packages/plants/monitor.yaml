@@ -4,13 +4,13 @@ plant:
       moisture: sensor.miflora01_moisture
       battery: sensor.miflora01_battery
       temperature: sensor.miflora01_temperature
-      conductivity: sensor.miflora01_conductivity
+      # conductivity: sensor.miflora01_conductivity
       # brightness: sensor.miflora01_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 15
     max_temperature: 32
     # min_brightness: 1500
@@ -20,13 +20,13 @@ plant:
       moisture: sensor.miflora02_moisture
       battery: sensor.miflora02_battery
       temperature: sensor.miflora02_temperature
-      conductivity: sensor.miflora02_conductivity
+      # conductivity: sensor.miflora02_conductivity
       # brightness: sensor.miflora02_light_intensity
     min_moisture: 15
     max_moisture: 65
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 1000
+    # min_conductivity: 350
+    # max_conductivity: 1000
     min_temperature: 12
     max_temperature: 32
     # min_brightness: 800
@@ -36,13 +36,13 @@ plant:
       moisture: sensor.miflora03_moisture
       battery: sensor.miflora03_battery
       temperature: sensor.miflora03_temperature
-      conductivity: sensor.miflora03_conductivity
+      # conductivity: sensor.miflora03_conductivity
       # brightness: sensor.miflora03_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 10
     max_temperature: 35
     # min_brightness: 1000
@@ -52,13 +52,13 @@ plant:
       moisture: sensor.miflora04_moisture
       battery: sensor.miflora04_battery
       temperature: sensor.miflora04_temperature
-      conductivity: sensor.miflora04_conductivity
+      # conductivity: sensor.miflora04_conductivity
       # brightness: sensor.miflora04_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
     # min_brightness: 800
@@ -68,13 +68,13 @@ plant:
       moisture: sensor.miflora05_moisture
       battery: sensor.miflora05_battery
       temperature: sensor.miflora05_temperature
-      conductivity: sensor.miflora05_conductivity
+      # conductivity: sensor.miflora05_conductivity
       # brightness: sensor.miflora05_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
     # min_brightness: 1500
@@ -84,13 +84,13 @@ plant:
       moisture: sensor.miflora06_moisture
       battery: sensor.miflora06_battery
       temperature: sensor.miflora06_temperature
-      conductivity: sensor.miflora06_conductivity
+      # conductivity: sensor.miflora06_conductivity
       # brightness: sensor.miflora06_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
     # min_brightness: 1500
@@ -100,13 +100,13 @@ plant:
       moisture: sensor.miflora07_moisture
       battery: sensor.miflora07_battery
       temperature: sensor.miflora07_temperature
-      conductivity: sensor.miflora07_conductivity
+      # conductivity: sensor.miflora07_conductivity
       # brightness: sensor.miflora07_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 10
-    min_conductivity: 350
-    max_conductivity: 2000
+    # min_conductivity: 350
+    # max_conductivity: 2000
     min_temperature: 12
     max_temperature: 32
     # min_brightness: 1500

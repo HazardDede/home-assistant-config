@@ -69,7 +69,7 @@ cards:
     cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.pumbaa
-        image: /local/other/pumbaa.png
+        image: /local/vacuum/pumbaa.png
         vendor: roomba
       - type: entities
         show_header_toggle: false
@@ -86,4 +86,4 @@ cards:
   - id: health_rocky
     type: custom:xiaomi-vacuum-card
     entity: vacuum.rocky
-    image: /local/other/rocky.png
+    image: /local/vacuum/rocky.png

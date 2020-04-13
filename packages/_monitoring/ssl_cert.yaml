@@ -1,24 +1,20 @@
-sensor:
-  - platform: cert_expiry
-    host: humletorp.duckdns.org
-
 binary_sensor:
   - platform: template
     sensors:
       ssl_expiry_alert:
         value_template: >-
-          {% if states('sensor.ssl_certificate_expiry') == 'unknown' %}
+          {% if states('sensor.ssl_cert_humletorp') == 'unknown' %}
             {{ False }}
           {% else %}
-            {{ states('sensor.ssl_certificate_expiry')|int <= 14 }}
+            {{ states('sensor.ssl_cert_humletorp')|int <= 14 }}
           {% endif %}
 
 alert:
   ssl_expiry:
     name: 'SSL cert expiration is imminent'
     entity_id: binary_sensor.ssl_expiry_alert
-    message: "SSL cert expiration is imminent: {{states('sensor.ssl_certificate_expiry')}} days left"
-    done_message: "SSL cert is ok: {{states('sensor.ssl_certificate_expiry')}} days left"
+    message: "SSL cert expiration is imminent: {{ states('sensor.ssl_cert_humletorp') }} days left"
+    done_message: "SSL cert is ok: {{ states('sensor.ssl_cert_humletorp') }} days left"
     state: 'on'
     repeat: 1440  # 1 day
     can_acknowledge: True

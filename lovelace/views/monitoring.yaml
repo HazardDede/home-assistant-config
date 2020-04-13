@@ -61,4 +61,10 @@ cards:
         entities:
           - entity: sensor.zway_last_sensor_update
             name: "Z-Way: Last sensor update"
-          - sensor.ssl_certificate_expiry
+          - entity: sensor.ssl_cert_humletorp
+            type: custom:multiple-entity-row
+            name: "SSL Cert: Humletorp"
+            state_header: days
+            secondary_info:
+              attribute: expires_at
+              name: Expires at

@@ -5,71 +5,100 @@ icon: mdi:flower-outline
 background: var(--background-image)
 cards:
   #
-  # MF01
+  # MF01 - Ficus Elastica
   #
   - !include 
     - ../components/plant.yaml
-    - image: /local/plants/pfeilblatt.jpg?v=1
+    - image: /local/plants/mf01.jpg?v=1
       plant_name: miflora01
-      max_light: 6000
-      min_light: 1500
-  #
-  # MF02
-  #
-  - !include 
-    - ../components/plant.yaml
-    - image: /local/plants/calathea.jpg?v=1
-      plant_name: miflora02
-      max_light: 20000
-      min_light: 800
-      font_color: white
-  #
-  # MF03
-  #
-  - !include 
-    - ../components/plant.yaml
-    - image: /local/plants/ficus_elastica.jpg?v=1
-      plant_name: miflora03
-      max_light: 30000
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 350
+      max_conductivity: 2000
       min_light: 1000
+      max_light: 30000
       font_color: white
   #
-  # MF04
+  # MF02 - Sansevieria
   #
   - !include 
     - ../components/plant.yaml
-    - image: /local/plants/monstera.jpg?v=1
-      plant_name: miflora04
-      max_light: 15000
-      min_light: 800
-      font_color: white
-  #
-  # MF05
-  #
-  - !include 
-    - ../components/plant.yaml
-    - image: /local/plants/ficus_lyrata.jpg?v=1
-      plant_name: miflora05
-      max_light: 45000
+    - image: /local/plants/mf02.jpg?v=1
+      plant_name: miflora02
+      min_moisture: 7
+      max_moisture: 50
+      min_conductivity: 300
+      max_conductivity: 1000
       min_light: 1500
+      max_light: 60000
+      font_color: white
+  #
+  # MF03 - Elefantenfuss
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/mf03.jpg?v=1
+      plant_name: miflora03
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 350
+      max_conductivity: 2000
+      min_light: 3000
+      max_light: 10000
+      font_color: white
+  #
+  # MF04 - 1. Monstera
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/mf04.jpg?v=1
+      plant_name: miflora04
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 350
+      max_conductivity: 2000
+      min_light: 800
+      max_light: 15000
+      font_color: white
+  #
+  # MF05 - Philodendron
+  #
+  - !include 
+    - ../components/plant.yaml
+    - image: /local/plants/mf05.jpg?v=1
+      plant_name: miflora05
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 200
+      max_conductivity: 1500
+      min_light: 1000
+      max_light: 25000
       font_color: black
   #
-  # MF06
+  # MF06 - Ufo / Pilea
   #
   - !include 
     - ../components/plant.yaml
-    - image: /local/plants/plants.jpg?v=1
+    - image: /local/plants/mf06.jpg?v=1
       plant_name: miflora06
-      max_light: 6000
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 350
+      max_conductivity: 2000
       min_light: 1500
-      font_color: white
+      max_light: 6000
+      font_color: black
   #
-  # MF07
+  # MF07 - 2. Monstera
   #
   - !include 
     - ../components/plant.yaml
-    - image: /local/plants/plants.jpg?v=1
+    - image: /local/plants/mf07.jpg?v=1
       plant_name: miflora07
-      max_light: 6000
-      min_light: 1500
+      min_moisture: 15
+      max_moisture: 60
+      min_conductivity: 350
+      max_conductivity: 2000
+      min_light: 800
+      max_light: 15000
       font_color: white

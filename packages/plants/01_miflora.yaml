@@ -1,3 +1,4 @@
+# Ficus elastica
 sensor:
   - platform: template
     sensors:

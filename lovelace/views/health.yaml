@@ -107,11 +107,35 @@ cards:
           - entity: sensor.pumbaa_running_time
             name: Runtime
             icon: mdi:clock-outline
-          - input_datetime.pumbaa_last_bin_cleaning
+          - entity: input_datetime.pumbaa_last_bin_cleaning
+            type: custom:multiple-entity-row
+            format: relative
+            secondary_info:
+              entity: input_datetime.pumbaa_last_bin_cleaning
+              format: datetime
           - entity: script.pumbaa_set_bin_clean
             name: "Cleaned the bin"
             icon: mdi:delete-outline
   - id: health_rocky
-    type: custom:xiaomi-vacuum-card
-    entity: vacuum.rocky
-    image: /local/vacuum/rocky.png
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.rocky
+        image: /local/vacuum/rocky.png
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.rocky_nightly_run
+            name: "Nightly Run"
+          - entity: sensor.rocky_running_time
+            name: Runtime
+            icon: mdi:clock-outline
+          - entity: input_datetime.rocky_last_bin_cleaning
+            type: custom:multiple-entity-row
+            format: relative
+            secondary_info:
+              entity: input_datetime.rocky_last_bin_cleaning
+              format: datetime
+          - entity: script.rocky_set_bin_clean
+            name: "Cleaned the bin"
+            icon: mdi:delete-outline

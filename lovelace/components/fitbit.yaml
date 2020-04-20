@@ -15,9 +15,12 @@ entities:
   - entity: input_boolean.fitbit_{{ name }}_water_reminder
   - entity: sensor.fitbit_{{ name }}_{{ device }}_battery
     name: "{{ device | capitalize | replace ('_', ' ') }}: battery level"
-  - entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync_mins
+  - entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync
     type: custom:multiple-entity-row
     name: "{{ device | capitalize | replace ('_', ' ') }}: Last sync"
+    format: relative
+    icon: mdi:sync
     secondary_info:
       entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync
       name: " "
+      format: datetime

@@ -22,13 +22,7 @@ cards:
         - entity: sensor.zway_device_4_power
           top: 48%
           left: 16%
-        - entity: sensor.pumbaa_battery
-          top: 60%
-          left: 78%
       toggles:
-        - entity: switch.pumbaa_nightly_run
-          top: 50%
-          left: 78%
         - entity: switch.gosund_01  # Stairway
           top: 15%
           left: 85%

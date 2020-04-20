@@ -15,8 +15,6 @@ resources:
     type: module
   - url: /local/lovelace/plant-sensor-card.js?v=3
     type: module
-  - url: /local/lovelace/secondaryinfo-entity-row.js?v=472eb97
-    type: module
   - url: /local/lovelace/sun-card.js?v=4.1.0
     type: module
   - url: /local/lovelace/vertical-stack-in-card.js?v=0.3.2

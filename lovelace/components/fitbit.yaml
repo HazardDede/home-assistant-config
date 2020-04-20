@@ -7,13 +7,17 @@ entities:
   - entity: sensor.fitbit_{{ name }}_distance
     name: Distance (today)
   - entity: sensor.fitbit_{{ name }}_water
+    type: custom:multiple-entity-row
     name: Hydration (today)
-    type: "custom:secondaryinfo-entity-row"
-    secondary_info: "Goal: [[ sensor.fitbit_{{ name }}_water_goal.state ]] ml"
+    secondary_info:
+      entity: sensor.fitbit_{{ name }}_water_goal
+      name: "Goal:"
   - entity: input_boolean.fitbit_{{ name }}_water_reminder
   - entity: sensor.fitbit_{{ name }}_{{ device }}_battery
     name: "{{ device | capitalize | replace ('_', ' ') }}: battery level"
   - entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync_mins
+    type: custom:multiple-entity-row
     name: "{{ device | capitalize | replace ('_', ' ') }}: Last sync"
-    type: "custom:secondaryinfo-entity-row"
-    secondary_info: "[[ sensor.fitbit_{{ name }}_{{ device }}_lastsync.state ]]"
+    secondary_info:
+      entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync
+      name: " "

@@ -36,31 +36,51 @@ cards:
     show_header_toggle: False
     entities:
       - entity: sensor.gelbe_tonne
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.gelbe_tonne.attributes.friendly_delta ]]"
+        type: custom:multiple-entity-row
+        secondary_info:
+          attribute: friendly_delta
+          name: " "
       - entity: sensor.biotonne
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.biotonne.attributes.friendly_delta ]]"
+        type: custom:multiple-entity-row
+        secondary_info:
+          attribute: friendly_delta
+          name: " "
       - entity: sensor.papiertonne
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.papiertonne.attributes.friendly_delta ]]"
+        type: custom:multiple-entity-row
+        secondary_info:
+          attribute: friendly_delta
+          name: " "
       - entity: sensor.restabfall_2wo
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.restabfall_2wo.attributes.friendly_delta ]]"
+        type: custom:multiple-entity-row
+        secondary_info:
+          attribute: friendly_delta
+          name: " "
   - id: health_bezzera
     type: entities
     title: Bezzera
     show_header_toggle: false
     entities:
       - entity: input_datetime.bezzera_last_cleaning
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.bezzera_next_cleaning.state ]] ([[ sensor.bezzera_next_cleaning_days.state ]] days)"
+        type: custom:multiple-entity-row
+        secondary_info: last-changed
+      - entity: sensor.bezzera_next_cleaning
+        type: custom:multiple-entity-row
+        icon: mdi:calendar-clock
+        secondary_info:
+          entity: sensor.bezzera_next_cleaning
+          format: relative
       - entity: script.bezzera_set_last_cleaning
         name: "Cleaned"
         icon: mdi:spray-bottle
       - entity: input_datetime.bezzera_last_filter_replacement
-        type: "custom:secondaryinfo-entity-row"
-        secondary_info: "[[ sensor.bezzera_next_filter_replacement.state ]] ([[ sensor.bezzera_next_filter_replacement_days.state ]] days)"
+        type: custom:multiple-entity-row
+        secondary_info: last-changed
+      - entity: sensor.bezzera_next_filter_replacement
+        type: custom:multiple-entity-row
+        icon: mdi:calendar-clock
+        secondary_info:
+          entity: sensor.bezzera_next_filter_replacement
+          format: relative
       - entity: script.bezzera_set_last_filter_replacement
         name: "Filter replaced"
         icon: mdi:water

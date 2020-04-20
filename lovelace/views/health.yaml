@@ -62,25 +62,33 @@ cards:
     entities:
       - entity: input_datetime.bezzera_last_cleaning
         type: custom:multiple-entity-row
-        secondary_info: last-changed
+        format: relative
+        secondary_info:
+          entity: input_datetime.bezzera_last_cleaning
+          format: datetime
       - entity: sensor.bezzera_next_cleaning
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
+        format: relative
         secondary_info:
           entity: sensor.bezzera_next_cleaning
-          format: relative
+          format: datetime
       - entity: script.bezzera_set_last_cleaning
         name: "Cleaned"
         icon: mdi:spray-bottle
       - entity: input_datetime.bezzera_last_filter_replacement
         type: custom:multiple-entity-row
-        secondary_info: last-changed
+        format: relative
+        secondary_info:
+          entity: input_datetime.bezzera_last_filter_replacement
+          format: datetime
       - entity: sensor.bezzera_next_filter_replacement
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
+        format: relative
         secondary_info:
           entity: sensor.bezzera_next_filter_replacement
-          format: relative
+          format: datetime
       - entity: script.bezzera_set_last_filter_replacement
         name: "Filter replaced"
         icon: mdi:water

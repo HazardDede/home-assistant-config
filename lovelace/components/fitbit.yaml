@@ -24,3 +24,12 @@ entities:
       entity: sensor.fitbit_{{ name }}_{{ device }}_lastsync
       name: " "
       format: datetime
+  - entity: sensor.fitbit_{{ name }}_{{ device }}_lastpull
+    type: custom:multiple-entity-row
+    name: "{{ device | capitalize | replace ('_', ' ') }}: Last pull"
+    format: relative
+    icon: mdi:sync
+    secondary_info:
+      entity: sensor.fitbit_{{ name }}_{{ device }}_lastpull
+      name: " "
+      format: datetime

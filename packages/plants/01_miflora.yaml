@@ -19,6 +19,6 @@ sensor:
         friendly_name: "Last updated"
         unit_of_measurement: mins ago
         value_template: >-
-          {{ (as_timestamp(now()) - as_timestamp(strptime(states.sensor.miflora01_lastpull.state, '%Y-%m-%dT%H:%M:%S.%f'))) | int // 60 }}
+          {{ (as_timestamp(utcnow()) - as_timestamp(strptime(states.sensor.miflora01_lastpull.state, '%Y-%m-%dT%H:%M:%S.%f'))) | int // 60 }}
         entity_id:
           - sensor.time

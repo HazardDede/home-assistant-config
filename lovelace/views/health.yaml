@@ -37,24 +37,28 @@ cards:
     entities:
       - entity: sensor.gelbe_tonne
         type: custom:multiple-entity-row
+        format: relative
         secondary_info:
-          attribute: friendly_delta
-          name: " "
+          entity: sensor.gelbe_tonne
+          format: datetime
       - entity: sensor.biotonne
         type: custom:multiple-entity-row
+        format: relative
         secondary_info:
-          attribute: friendly_delta
-          name: " "
+          entity: sensor.biotonne
+          format: datetime
       - entity: sensor.papiertonne
         type: custom:multiple-entity-row
+        format: relative
         secondary_info:
-          attribute: friendly_delta
-          name: " "
+          entity: sensor.papiertonne
+          format: datetime
       - entity: sensor.restabfall_2wo
         type: custom:multiple-entity-row
+        format: relative
         secondary_info:
-          attribute: friendly_delta
-          name: " "
+          entity: sensor.restabfall_2wo
+          format: datetime
   - id: health_bezzera
     type: entities
     title: Bezzera

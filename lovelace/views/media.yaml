@@ -1,0 +1,9 @@
+# lovelace_gen
+title: Media
+id: media
+icon: mdi:plex
+background: var(--background-image)
+cards:
+  - type: picture-entity
+    entity: sensor.tautulli
+    image: /local/media/plex-logo.jpg?v=2

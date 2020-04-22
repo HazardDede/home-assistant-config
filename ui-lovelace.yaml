@@ -22,18 +22,18 @@ resources:
   - url: /local/lovelace/xiaomi-vacuum-card.js?v=3.0.1
     type: module
 
-custom_header:
-  compact_mode: true
-  hide_help: true
-  hide_config: true
-  hide_raw: true
-  voice_hide: true
-  options_hide: false
-  exceptions:
-    - conditions:
-        media_query: "(max-width: 600px)"
-      config:
-        options_hide: true
+# custom_header:
+#   compact_mode: true
+#   hide_help: true
+#   hide_config: true
+#   hide_raw: true
+#   voice_hide: true
+#   options_hide: false
+#   exceptions:
+#     - conditions:
+#         media_query: "(max-width: 600px)"
+#       config:
+#         options_hide: true
 
 views:
   - !include lovelace/views/home.yaml

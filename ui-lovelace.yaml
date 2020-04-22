@@ -34,6 +34,7 @@ custom_header:
         media_query: "(max-width: 600px)"
       config:
         options_hide: true
+        chevrons: false
 
 views:
   - !include lovelace/views/home.yaml

@@ -57,14 +57,10 @@ sensor:
       pumbaa_state:
         value_template: >-
           {{ state_attr('vacuum.pumbaa', 'status') }}
-  - platform: template
-    sensors:
       pumbaa_running_time:
         value_template: >
             {% set ct = states('counter.pumbaa_running_time') | int %}
             {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }} hours{% else %}{{ct}} minutes{% endif %}
-  - platform: template
-    sensors:
       pumbaa_battery:
         value_template: >-
           {{ state_attr('vacuum.pumbaa', 'battery_level')|default(0, True)|int }}
@@ -83,6 +79,12 @@ sensor:
               high
             {% endif %}
           {% endif %}
+      pumbaa_last_bin_cleaning:
+        friendly_name: Last bin cleaning
+        icon_template: mdi:calendar-clock
+        value_template: >-
+          {{ states.input_datetime.pumbaa_last_bin_cleaning.state[:10] }}T{{ states.input_datetime.pumbaa_last_bin_cleaning.state[11:] }}
+
 
 ###########################################################
 # Notifications

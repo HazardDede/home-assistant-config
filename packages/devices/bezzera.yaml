@@ -3,30 +3,40 @@ input_datetime:
   bezzera_last_cleaning:
     name: "Last cleaning"
     has_date: true
-    has_time: false
+    has_time: true
   # Store the actual date of the last filter replacement
   bezzera_last_filter_replacement:
     name: "Filter replacement"
     has_date: true
-    has_time: false
+    has_time: true
 
 sensor:
   - platform: template
     sensors:
+      bezzera_last_cleaning:
+        friendly_name: Last Cleaning
+        icon_template: mdi:calendar
+        value_template: >-
+          {{ states.input_datetime.bezzera_last_cleaning.state[:10] }}T{{ states.input_datetime.bezzera_last_cleaning.state[11:] }}
       # When is the next cleaning (YYYY-MM-DD)
       bezzera_next_cleaning:
         friendly_name: Next Cleaning
         value_template: >-
-          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state[:10] + ' 09:30:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
-          {{ target_ts | timestamp_custom('%Y-%m-%d') }}
-      # When is the next filter replacement (YYYY-MM-DD)
+          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S') }}
+      bezzera_last_filter_replacement:
+        friendly_name: Last Filter Replacement
+        icon_template: mdi:calendar
+        value_template: >-
+          {{ states.input_datetime.bezzera_last_filter_replacement.state[:10] }}T{{ states.input_datetime.bezzera_last_filter_replacement.state[11:] }}
+     # When is the next filter replacement (YYYY-MM-DD)
       bezzera_next_filter_replacement:
         friendly_name: Next Filter Replacement
         value_template: >-
-          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state + ' 00:00:00', 'YYYY-MM-DD')) -%}
+          {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state[:10] + ' 09:30:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
-          {{ target_ts | timestamp_custom('%Y-%m-%d') }}
+          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S') }}
 
 script:
   # Shortcut to set the last cleaning date to now()
@@ -36,6 +46,7 @@ script:
         data_template:
           entity_id: input_datetime.bezzera_last_cleaning
           date: "{{ now().strftime('%Y-%m-%d') }}"
+          time: '{{ now().strftime("%H:%M:00") }}'
   # Shortcut to set the last filter replacement date to now()
   bezzera_set_last_filter_replacement:
     sequence:
@@ -43,6 +54,7 @@ script:
         data_template:
           entity_id: input_datetime.bezzera_last_filter_replacement
           date: "{{ now().strftime('%Y-%m-%d') }}"
+          time: '{{ now().strftime("%H:%M:00") }}'
 
 binary_sensor:
   # Flag if an alert should raise due to last cleaning overdue
@@ -52,10 +64,9 @@ binary_sensor:
         entity_id:
           - sensor.time
           - sensor.bezzera_next_cleaning
-        # Make sure that the alert doesn't fire in the night. 09:30 sounds reasonable
         value_template: >-
           {% if states('sensor.bezzera_next_cleaning') != 'unknown' %}
-              {{ as_timestamp(states('sensor.bezzera_next_cleaning') + " 09:30:00") <= as_timestamp(now()) }}
+              {{ as_timestamp(states('sensor.bezzera_next_cleaning')) <= as_timestamp(now()) }}
           {% else %}
               False
           {% endif %}
@@ -66,10 +77,9 @@ binary_sensor:
         entity_id:
           - sensor.time
           - sensor.bezzera_next_filter_replacement
-        # Make sure that the alert doesn't fire in the night. 09:30 sounds reasonable
         value_template: >-
           {% if states('sensor.bezzera_next_filter_replacement') != 'unknown' %}
-              {{ as_timestamp(states('sensor.bezzera_next_filter_replacement') + " 09:30:00") <= as_timestamp(now()) }}
+              {{ as_timestamp(states('sensor.bezzera_next_filter_replacement')) <= as_timestamp(now()) }}
           {% else %}
               False
           {% endif %}

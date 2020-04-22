@@ -53,6 +53,11 @@ sensor:
         value_template: >
             {% set ct = states('counter.rocky_running_time') | int %}
             {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }} hours{% else %}{{ct}} minutes{% endif %}
+      rocky_last_bin_cleaning:
+        friendly_name: Last bin cleaning
+        icon_template: mdi:calendar-clock
+        value_template: >-
+          {{ states.input_datetime.rocky_last_bin_cleaning.state[:10] }}T{{ states.input_datetime.rocky_last_bin_cleaning.state[11:] }}
 
 ###########################################################
 # Notifications

@@ -64,35 +64,35 @@ cards:
     title: Bezzera
     show_header_toggle: false
     entities:
-      - entity: input_datetime.bezzera_last_cleaning
+      - entity: sensor.bezzera_last_cleaning
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
-          entity: input_datetime.bezzera_last_cleaning
-          format: date
+          entity: sensor.bezzera_last_cleaning
+          format: datetime
       - entity: sensor.bezzera_next_cleaning
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
         format: relative
         secondary_info:
           entity: sensor.bezzera_next_cleaning
-          format: date
+          format: datetime
       - entity: script.bezzera_set_last_cleaning
         name: "Cleaned"
         icon: mdi:spray-bottle
-      - entity: input_datetime.bezzera_last_filter_replacement
+      - entity: sensor.bezzera_last_filter_replacement
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
-          entity: input_datetime.bezzera_last_filter_replacement
-          format: date
+          entity: sensor.bezzera_last_filter_replacement
+          format: datetime
       - entity: sensor.bezzera_next_filter_replacement
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
         format: relative
         secondary_info:
           entity: sensor.bezzera_next_filter_replacement
-          format: date
+          format: datetime
       - entity: script.bezzera_set_last_filter_replacement
         name: "Filter replaced"
         icon: mdi:water
@@ -111,11 +111,11 @@ cards:
           - entity: sensor.pumbaa_running_time
             name: Runtime
             icon: mdi:clock-outline
-          - entity: input_datetime.pumbaa_last_bin_cleaning
+          - entity: sensor.pumbaa_last_bin_cleaning
             type: custom:multiple-entity-row
             format: relative
             secondary_info:
-              entity: input_datetime.pumbaa_last_bin_cleaning
+              entity: sensor.pumbaa_last_bin_cleaning
               format: datetime
           - entity: script.pumbaa_set_bin_clean
             name: "Cleaned the bin"
@@ -134,11 +134,11 @@ cards:
           - entity: sensor.rocky_running_time
             name: Runtime
             icon: mdi:clock-outline
-          - entity: input_datetime.rocky_last_bin_cleaning
+          - entity: sensor.rocky_last_bin_cleaning
             type: custom:multiple-entity-row
             format: relative
             secondary_info:
-              entity: input_datetime.rocky_last_bin_cleaning
+              entity: sensor.rocky_last_bin_cleaning
               format: datetime
           - entity: script.rocky_set_bin_clean
             name: "Cleaned the bin"

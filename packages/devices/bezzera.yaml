@@ -16,27 +16,31 @@ sensor:
       bezzera_last_cleaning:
         friendly_name: Last Cleaning
         icon_template: mdi:calendar
+        device_class: timestamp
         value_template: >-
-          {{ states.input_datetime.bezzera_last_cleaning.state[:10] }}T{{ states.input_datetime.bezzera_last_cleaning.state[11:] }}
+          {{ states.input_datetime.bezzera_last_cleaning.state[:10] }}T{{ states.input_datetime.bezzera_last_cleaning.state[11:] }}+02:00
       # When is the next cleaning (YYYY-MM-DD)
       bezzera_next_cleaning:
         friendly_name: Next Cleaning
+        device_class: timestamp
         value_template: >-
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_cleaning.state[:10] + ' 09:30:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 7 * 24 * 60 * 60 -%}
-          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S') }}
+          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S+02:00') }}
       bezzera_last_filter_replacement:
         friendly_name: Last Filter Replacement
         icon_template: mdi:calendar
+        device_class: timestamp
         value_template: >-
-          {{ states.input_datetime.bezzera_last_filter_replacement.state[:10] }}T{{ states.input_datetime.bezzera_last_filter_replacement.state[11:] }}
+          {{ states.input_datetime.bezzera_last_filter_replacement.state[:10] }}T{{ states.input_datetime.bezzera_last_filter_replacement.state[11:] }}+02:00
      # When is the next filter replacement (YYYY-MM-DD)
       bezzera_next_filter_replacement:
         friendly_name: Next Filter Replacement
+        device_class: timestamp
         value_template: >-
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state[:10] + ' 09:30:00', 'YYYY-MM-DD')) -%}
           {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
-          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S') }}
+          {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S+02:00') }}
 
 script:
   # Shortcut to set the last cleaning date to now()

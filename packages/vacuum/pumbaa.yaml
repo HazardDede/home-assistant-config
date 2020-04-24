@@ -82,8 +82,9 @@ sensor:
       pumbaa_last_bin_cleaning:
         friendly_name: Last bin cleaning
         icon_template: mdi:calendar-clock
+        device_class: timestamp
         value_template: >-
-          {{ states.input_datetime.pumbaa_last_bin_cleaning.state[:10] }}T{{ states.input_datetime.pumbaa_last_bin_cleaning.state[11:] }}
+          {{ states.input_datetime.pumbaa_last_bin_cleaning.state[:10] }}T{{ states.input_datetime.pumbaa_last_bin_cleaning.state[11:] }}+02:00
 
 
 ###########################################################

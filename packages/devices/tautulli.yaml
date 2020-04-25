@@ -7,13 +7,13 @@ sensor:
       plex_lan_bandwidth:
         friendly_name: "LAN Bandwidth"
         unit_of_measurement: "Mb/s"
-        icon_template: mdi:speedometer
+        icon_template: mdi:lan
         value_template: >-
           {{ state_attr('sensor.tautulli', 'lan_bandwidth') | multiply(0.001) | round(2) }}
       plex_wan_bandwidth:
         friendly_name: "WAN Bandwidth"
         unit_of_measurement: "Mb/s"
-        icon_template: mdi:speedometer
+        icon_template: mdi:wan
         value_template: >-
           {{ state_attr('sensor.tautulli', 'wan_bandwidth') | multiply(0.001) | round(2) }}
       plex_total_bandwidth:

@@ -4,6 +4,25 @@ id: media
 icon: mdi:plex
 background: var(--background-image)
 cards:
-  - type: picture-entity
-    entity: sensor.tautulli
-    image: /local/media/plex-logo.jpg?v=2
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: picture-entity
+        entity: sensor.tautulli
+        show_name: false
+        image: /local/media/plex-logo.png?v=2
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.plex_lan_bandwidth
+            name: LAN
+            graph: none
+          - type: sensor
+            entity: sensor.plex_wan_bandwidth
+            name: WAN
+            graph: none
+      - type: history-graph
+        hours_to_show: 6
+        refresh_interval: 30
+        entities:
+          - sensor.plex_lan_bandwidth
+          - sensor.plex_wan_bandwidth

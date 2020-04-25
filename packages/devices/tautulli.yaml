@@ -2,3 +2,23 @@ sensor:
   - platform: tautulli
     api_key: !secret tautulli_api_key
     host: !secret tautulli_host
+  - platform: template
+    sensors:
+      plex_lan_bandwidth:
+        friendly_name: "LAN Bandwidth"
+        unit_of_measurement: "Mb/s"
+        icon_template: mdi:speedometer
+        value_template: >-
+          {{ state_attr('sensor.tautulli', 'lan_bandwidth') | multiply(0.001) | round(2) }}
+      plex_wan_bandwidth:
+        friendly_name: "WAN Bandwidth"
+        unit_of_measurement: "Mb/s"
+        icon_template: mdi:speedometer
+        value_template: >-
+          {{ state_attr('sensor.tautulli', 'wan_bandwidth') | multiply(0.001) | round(2) }}
+      plex_total_bandwidth:
+        friendly_name: "Total Bandwidth"
+        unit_of_measurement: "Mb/s"
+        icon_template: mdi:speedometer
+        value_template: >-
+          {{ state_attr('sensor.tautulli', 'total_bandwidth') | multiply(0.001) | round(2) }}

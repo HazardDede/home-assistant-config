@@ -1,0 +1,18 @@
+ios:
+  push:
+    categories:
+      - name: "Vacuum: Nightly run"
+        identifier: 'vacuum_nightly_run'
+        actions:
+          - identifier: 'VACUUM_NIGHTLY_RUN_ON'
+            title: 'Enable'
+            activationMode: 'background'
+            authenticationRequired: false
+            destructive: false
+            behavior: 'default'
+          - identifier: 'VACUUM_NIGHTLY_RUN_OFF'
+            title: 'Leave disabled'
+            activationMode: 'background'
+            authenticationRequired: false
+            destructive: false
+            behavior: 'default'

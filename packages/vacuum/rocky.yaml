@@ -175,4 +175,4 @@ automation:
     action:
       service: homeassistant.turn_on
       data_template:
-        entity_id: '{{ trigger.actionData.entity_id }}'
+        entity_id: '{{ trigger.data.action_data.entity_id }}'

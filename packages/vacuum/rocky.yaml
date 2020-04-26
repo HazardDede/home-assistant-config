@@ -157,7 +157,7 @@ automation:
         entity_id: input_boolean.rocky_nightly_run
         state: 'off'
     action:
-      service: notify.mobile_app_iphone_work
+      service: notify.dennis
       data:
         title: "Rocky: Nightly run"
         message: "No nightly run enabled. Enable it?"

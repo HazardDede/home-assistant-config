@@ -13,7 +13,7 @@ resources:
     type: module
   - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
     type: module
-  - url: /local/lovelace/multiple-entity-row.js?v=be8b9c1
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
   - url: /local/lovelace/plant-sensor-card.js?v=3
     type: module

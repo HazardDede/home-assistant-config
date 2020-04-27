@@ -9,8 +9,8 @@ resources:
     type: module
   - url: /hacsfiles/custom-header/custom-header.js
     type: module
-  - url: /local/lovelace/layout-card.js?v=bc1d8f3
-    type: js
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    type: module
   - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /local/lovelace/multiple-entity-row.js?v=be8b9c1

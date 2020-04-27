@@ -35,3 +35,6 @@ emulated_hue_ids.json
 .DS_Store
 
 www/family
+
+# HACS Plugins
+www/community

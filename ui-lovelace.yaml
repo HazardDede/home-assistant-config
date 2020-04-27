@@ -21,7 +21,7 @@ resources:
     type: module
   - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
     type: module
-  - url: /local/lovelace/xiaomi-vacuum-card.js?v=3.0.1
+  - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
     type: module
 
 custom_header:

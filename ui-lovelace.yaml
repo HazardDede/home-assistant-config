@@ -17,7 +17,7 @@ resources:
     type: module
   - url: /local/lovelace/plant-sensor-card.js?v=3
     type: module
-  - url: /local/lovelace/sun-card.js?v=4.1.0
+  - url: /hacsfiles/sun-card/sun-card.js
     type: module
   - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
     type: module

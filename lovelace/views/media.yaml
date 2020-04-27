@@ -12,18 +12,24 @@ cards:
         image: /local/media/plex-logo.png?v=2
       - type: conditional
         conditions:
-        - entity: media_player.plex_plex_web_chrome
-          state_not: "unavailable"
+          - entity: media_player.plex_plex_web_chrome
+            state_not: "unavailable"
         card:
-          type: media-control
+          type: custom:mini-media-player
           entity: media_player.plex_plex_web_chrome
+          icon: mdi:plex
+          artwork: cover
+          source: icon
       - type: conditional
         conditions:
-        - entity: media_player.plex_plex_for_alexa_alexa
-          state_not: "unavailable"
+          - entity: media_player.plex_plex_for_alexa_alexa
+            state_not: "unavailable"
         card:
-          type: media-control
+          type: custom:mini-media-player
           entity: media_player.plex_plex_for_alexa_alexa
+          icon: mdi:plex
+          artwork: cover
+          source: icon
       - type: custom:vertical-stack-in-card
         cards:
           - type: horizontal-stack

@@ -11,6 +11,8 @@ resources:
     type: module
   - url: /local/lovelace/layout-card.js?v=bc1d8f3
     type: js
+  - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+    type: module
   - url: /local/lovelace/multiple-entity-row.js?v=be8b9c1
     type: module
   - url: /local/lovelace/plant-sensor-card.js?v=3

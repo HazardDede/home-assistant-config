@@ -18,7 +18,7 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - "./storage/influxdb:/var/lib/influxdb"
+      - "../.dev-storage/influxdb:/var/lib/influxdb"
     environment:
       - INFLUXDB_DB=hass
       - INFLUXDB_ADMIN_USER=root
@@ -32,8 +32,8 @@ services:
       - "9001:9001"
     volumes:
       - "./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
-      - "./storage/mqtt/data:/mosquitto/data"
-      - "./storage/mqtt/logs:/mosquitto/log"
+      - "../.dev-storage/mqtt/data:/mosquitto/data"
+      - "../.dev-storage/mqtt/logs:/mosquitto/log"
     container_name: mqtt
 
   mqtt-bridge:

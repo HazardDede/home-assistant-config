@@ -1,4 +1,9 @@
-.git/
+.cache/
+.dev-storage/
+.vscode/
+deps/
+venv/
+
 home-assistant.log
 home-assistant_v2.db
 home-assistant_v2.db-shm

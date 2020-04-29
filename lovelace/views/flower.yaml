@@ -95,7 +95,7 @@ cards:
     - ../components/plant.yaml
     - image: /local/plants/mf07.jpg?v=1
       plant_name: miflora07
-      min_moisture: 15
+      min_moisture: 10
       max_moisture: 60
       min_conductivity: 350
       max_conductivity: 2000

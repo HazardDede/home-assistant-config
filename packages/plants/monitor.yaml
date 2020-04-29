@@ -97,12 +97,12 @@ plant:
     # max_brightness: 45000
   miflora07:
     sensors:
-      moisture: sensor.miflora04_moisture
-      battery: sensor.miflora04_battery
-      temperature: sensor.miflora04_temperature
-      # conductivity: sensor.miflora04_conductivity
-      # brightness: sensor.miflora04_light_intensity
-    min_moisture: 15
+      moisture: sensor.miflora07_moisture
+      battery: sensor.miflora07_battery
+      temperature: sensor.miflora07_temperature
+      # conductivity: sensor.miflora07_conductivity
+      # brightness: sensor.miflora07_light_intensity
+    min_moisture: 10
     max_moisture: 60
     min_battery: 10
     # min_conductivity: 350

@@ -5,39 +5,39 @@ entities:
   light.zway_device_22:
     name: "Stehlampe"
     hidden: false
-  # switch.433rc_generic01:
-  #   name: "Miffy Lampe"
-  #   hidden: false
-  # switch.433rc_generic02:
-  #   name: "Mondlampe"
-  #   hidden: false
-  # switch.433rc_generic04:
-  #   name: "Bettlampe"
-  #   hidden: false
-  # switch.433rc_brennenstuhl_a:
-  #   name: "Wohnwand"
-  #   hidden: false
-  # switch.zway_device_20:
-  #   name: "Kaffeemaschine"
-  #   hidden: false
-  # switch.zway_device_21:
-  #   name: "Fernseher Schlafzimmer"
-  #   hidden: false
-  # switch.zway_device_4:
-  #   name: "Fernseher Wohnzimmer"
-  #   hidden: false
-  # switch.pumbaa_nightly_run:
-  #   name: "Naechtliches Staubsaugen"
-  #   hidden: false
+  switch.433rc_generic01:
+    name: "Miffy Lampe"
+    hidden: false
+  switch.433rc_generic02:
+    name: "Mondlampe"
+    hidden: false
+  switch.433rc_generic04:
+    name: "Bettlampe"
+    hidden: false
+  switch.433rc_brennenstuhl_a:
+    name: "Wohnwand"
+    hidden: false
+  switch.zway_device_20:
+    name: "Kaffeemaschine"
+    hidden: false
+  switch.zway_device_21:
+    name: "Fernseher Schlafzimmer"
+    hidden: false
+  switch.zway_device_4:
+    name: "Fernseher Wohnzimmer"
+    hidden: false
+  switch.pumbaa_nightly_run:
+    name: "Naechtliches Staubsaugen"
+    hidden: false
   switch.gosund_01:
     name: "Treppe"
     hidden: false
-  # switch.gosund_02:
-  #   name: "Filmregal"
-  #   hidden: false
-  # switch.gosund_03:
-  #   name: "Galerielampe"
-  #   hidden: false
-  # switch.gosund_04:
-  #   name: "Mister Wattson"
-  #   hidden: false
+  switch.gosund_02:
+    name: "Filmregal"
+    hidden: false
+  switch.gosund_03:
+    name: "Galerielampe"
+    hidden: false
+  switch.gosund_04:
+    name: "Mister Wattson"
+    hidden: false

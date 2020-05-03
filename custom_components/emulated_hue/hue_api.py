@@ -380,6 +380,7 @@ class HueOneLightChangeView(HomeAssistantView):
             )
 
         if service is not None:
+            config.cached_states[entity_id] = parsed
             hass.async_create_task(
                 hass.services.async_call(domain, service, data, blocking=False)
             )

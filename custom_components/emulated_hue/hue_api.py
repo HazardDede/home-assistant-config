@@ -197,8 +197,8 @@ class HueOneLightStateView(HomeAssistantView):
             return self.json_message("only local IPs allowed", HTTP_BAD_REQUEST)
 
         hass = request.app["hass"]
-        entity_id = self.config.number_to_entity_id(entity_id)
-        entity = hass.states.get(entity_id)
+        resolved_entity = self.config.number_to_entity_id(entity_id)
+        entity = hass.states.get(resolved_entity or "")
 
         if entity is None:
             _LOGGER.error("Entity not found: %s", entity_id)

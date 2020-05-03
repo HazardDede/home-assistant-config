@@ -2,9 +2,9 @@ listen_port: 80
 upnp_bind_multicast: true
 expose_by_default: false
 entities:
-  # light.zway_device_22:
-  #   name: "Stehlampe"
-  #   hidden: false
+  light.zway_device_22:
+    name: "Stehlampe"
+    hidden: false
   # switch.433rc_generic01:
   #   name: "Miffy Lampe"
   #   hidden: false

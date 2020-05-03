@@ -38,3 +38,6 @@ www/family
 
 # HACS Plugins
 www/community
+
+# Testing stuff
+sandbox/

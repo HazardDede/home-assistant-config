@@ -1,8 +1,0 @@
-{
-  "domain": "ferienapidotde",
-  "name": "ferienapidotde",
-  "documentation": "",
-  "dependencies": [],
-  "codeowners": [],
-  "requirements": ["ferien-api==0.3.0"]
-}

@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+!emulated_hue/
+!fritzbox_guestwifi/
+!hacs/
+!icalendar/
+!lovelace_gen/
+!sun2/

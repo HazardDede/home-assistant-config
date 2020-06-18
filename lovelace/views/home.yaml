@@ -83,7 +83,8 @@ cards:
       image: /local/rooms/gallery_banner.png
       temperature: sensor.zway_device_24_temperature
       labeled_states: 
-        - sensor.zway_device_24_illumination
+        # - sensor.zway_device_24_illumination
+        - sensor.goker_humidity
       states: 
         - binary_sensor.zway_device_24
       switches:

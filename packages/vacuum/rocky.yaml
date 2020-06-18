@@ -21,7 +21,7 @@ binary_sensor:
       rocky_bin_full:
         # Cleaning time is greater equal to x hours
         value_template: >-
-          {{ states('counter.rocky_running_time') | int >= (8 * 60) }}
+          {{ states('counter.rocky_running_time') | int >= (7 * 60) }}
 
 counter:
   rocky_running_time:

@@ -23,6 +23,9 @@ homeassistant:
         - fd00::/8
     - type: homeassistant
 
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+
   packages: !include_dir_named packages
 
 # Sets the logging level
@@ -48,14 +51,43 @@ lovelace_gen:
 # Enables lovelace in yaml mode by default
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/lovelace-card-tools/card-tools.js
+      type: module
+    - url: /hacsfiles/custom-header/custom-header.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
+    - url: /local/lovelace/plant-sensor-card.js?v=16
+      type: module
+    - url: /hacsfiles/sun-card/sun-card.js
+      type: module
+    - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+      type: module
+    - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+      type: module
+  dashboards:
+    lovelace-generated:
+      mode: yaml
+      filename: notexist.yaml
+      title: Generated
+      icon: mdi:tools
+      show_in_sidebar: true
+      require_admin: true
 
 # Enables configuration UI
 config:
 
 # Enables web frontend
 http:
-  # Update this line to be your domain
-  base_url: https://humletorp.duckdns.org
   # Allow reverse proxy requests
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
@@ -128,19 +160,19 @@ emulated_hue: !include alexa.yaml
 automation: !include_dir_merge_list automations
 
 # Additional side panel stuff
-panel_iframe:
-  grafana:
-    title: 'Grafana'
-    url: 'http://services:3000'
-    icon: mdi:chart-line
-  cctv:
-    title: CCTV
-    url: http://motion02
-    icon: mdi:cctv
-  zwave:
-    title: 'Z-Wave'
-    url: http://192.168.178.73:8083/smarthome/
-    icon: mdi:z-wave
+# panel_iframe:
+#   grafana:
+#     title: 'Grafana'
+#     url: 'http://services:3000'
+#     icon: mdi:chart-line
+#   cctv:
+#     title: CCTV
+#     url: http://motion02
+#     icon: mdi:cctv
+#   zwave:
+#     title: 'Z-Wave'
+#     url: http://192.168.178.73:8083/smarthome/
+#     icon: mdi:z-wave
 
 # Include custom zones
 zone: !include_dir_list zones

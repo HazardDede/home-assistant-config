@@ -2,7 +2,7 @@
 title: Outdoor
 id: outdoor
 icon: mdi:weather-partly-snowy-rainy
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - id: outdoor_exterior_forecast
     type: weather-forecast

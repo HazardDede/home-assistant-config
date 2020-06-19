@@ -2,7 +2,7 @@
 title: Monitoring
 id: monitoring
 icon: mdi:desktop-classic
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - id: mon_log_level
     type: entities

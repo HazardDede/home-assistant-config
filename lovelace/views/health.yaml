@@ -2,7 +2,7 @@
 title: Health
 id: health
 icon: mdi:heart-pulse
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - id: health_alert
     type: custom:auto-entities

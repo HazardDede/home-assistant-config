@@ -2,7 +2,7 @@
 title: Settings
 id: settings
 icon: mdi:settings-outline
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - type: vertical-stack
     id: settings_theme

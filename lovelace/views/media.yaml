@@ -2,7 +2,7 @@
 title: Media
 id: media
 icon: mdi:plex
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - type: vertical-stack
     cards:

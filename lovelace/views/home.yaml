@@ -2,7 +2,7 @@
 title: Home
 icon: mdi:home
 id: home
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   #
   # Living room

@@ -2,7 +2,7 @@
 title: Climate
 id: climate
 icon: mdi:thermometer-lines
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - type: vertical-stack
     id: climate_control

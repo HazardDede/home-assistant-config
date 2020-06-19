@@ -2,7 +2,7 @@
 title: Family
 id: family
 icon: mdi:account-supervisor-circle
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   - id: family_tracker
     type: entities

@@ -2,7 +2,7 @@
 title: Flowers
 id: flower
 icon: mdi:flower-outline
-background: var(--background-image)
+# background: var(--background-image)
 cards:
   #
   # MF01 - Ficus Elastica

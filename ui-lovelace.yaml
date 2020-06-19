@@ -1,29 +1,5 @@
 title: Humletorp
 
-resources:
-  - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-    type: module
-  - url: /hacsfiles/button-card/button-card.js
-    type: module
-  - url: /hacsfiles/lovelace-card-tools/card-tools.js
-    type: module
-  - url: /hacsfiles/custom-header/custom-header.js
-    type: module
-  - url: /hacsfiles/lovelace-layout-card/layout-card.js
-    type: module
-  - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-    type: module
-  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
-    type: module
-  - url: /local/lovelace/plant-sensor-card.js?v=3
-    type: module
-  - url: /hacsfiles/sun-card/sun-card.js
-    type: module
-  - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
-    type: module
-  - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
-    type: module
-
 custom_header:
   compact_mode: true
   hide_help: true

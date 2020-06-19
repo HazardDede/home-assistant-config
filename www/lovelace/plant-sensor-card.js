@@ -14,6 +14,9 @@ import {
     }
   
     _render({ state, dashArray, outsideLimits, config }) {
+      if (state === undefined) {
+        return html`<div>Rendering</dev>`
+      }
       return html`
       <style>
           :host {
@@ -46,10 +49,11 @@ import {
           }
           
           .unit {
-            margin-top: 5%;
-            margin-bottom: 0px;
-            font-size: 75%;
-            padding: 0.05em 0.6em 0.05em 0.6em;
+            line-height: 1;
+            margin-top: 0%;
+            margin-bottom: -10px;
+            font-size: 65%;
+            padding: 0.6em 0.6em 0.4em 0.6em;
             border-radius: 100px;
           }
 
@@ -108,12 +112,14 @@ import {
   
     _updateConfig() {
       const container = this._root.querySelector('.labelContainer');
-      container.style.color = 'var(--primary-text-color)';
-  
-      if (this.config.font_style) {
-        Object.keys(this.config.font_style).forEach((prop) => {
-          container.style.setProperty(prop, this.config.font_style[prop]);
-        });
+      if (container) {
+        container.style.color = 'var(--primary-text-color)';
+    
+        if (this.config.font_style) {
+          Object.keys(this.config.font_style).forEach((prop) => {
+            container.style.setProperty(prop, this.config.font_style[prop]);
+          });
+        }
       }
     }
   

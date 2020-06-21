@@ -1,9 +1,7 @@
-vacuum:
-  - platform: roomba
-    host: 192.168.178.60
-    username: !secret pumba_blid
+roomba:
+  - host: 192.168.178.60
+    blid: !secret pumba_blid
     password: !secret pumba_password
-    name: Pumbaa
 
 ###########################################################
 # Bin status

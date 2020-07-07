@@ -23,7 +23,7 @@ cards:
     show_empty: False
     card:
       type: glance
-      title: "Batteries"
+      title: Low Batteries
     filter:
       include:
         - entity_id: "sensor.*_battery"
@@ -97,7 +97,7 @@ cards:
         name: "Filter replaced"
         icon: mdi:water
   - id: health_pumbaa
-    type: custom:vertical-stack-in-card
+    type: vertical-stack
     cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.pumbaa
@@ -121,7 +121,7 @@ cards:
             name: "Cleaned the bin"
             icon: mdi:delete-outline
   - id: health_rocky
-    type: custom:vertical-stack-in-card
+    type: vertical-stack
     cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.rocky

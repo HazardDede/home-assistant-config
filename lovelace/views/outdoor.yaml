@@ -24,9 +24,9 @@ cards:
     entities:
       - binary_sensor.vacation_hh
       - binary_sensor.vacation_sh
-      - entity: script.notify_traffic_hbf_elmshorn
-        name: "HBf -> Elmshorn"
-        icon: mdi:train
-      - entity: script.notify_traffic_elmshorn_hbf
-        name: "Elmshorn -> HBf"
-        icon: mdi:train
+      # - entity: script.notify_traffic_hbf_elmshorn
+      #   name: "HBf -> Elmshorn"
+      #   icon: mdi:train
+      # - entity: script.notify_traffic_elmshorn_hbf
+      #   name: "Elmshorn -> HBf"
+      #   icon: mdi:train

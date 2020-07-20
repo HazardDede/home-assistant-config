@@ -26,6 +26,12 @@ weather:
     mode: daily
     scan_interval: !secret darksky_interval
 
+  - platform: darksky
+    name: Dark Sky (Hourly)
+    api_key: !secret darksky_api_key
+    mode: hourly
+    scan_interval: !secret darksky_interval
+
 homeassistant:
   customize:
     sensor.weather_cloudiness:

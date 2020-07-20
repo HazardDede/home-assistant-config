@@ -1,0 +1,24 @@
+# Dyson Goker 
+sensor:
+  - platform: template
+    sensors:
+      goker_p1:
+        friendly_name: "Gallery P1"
+        unit_of_measurement: 'µg/m³'
+        value_template: "{{ state_attr('air_quality.goker', 'particulate_matter_10') | round(2) }}"
+      goker_p2:
+        friendly_name: "Gallery P2"
+        unit_of_measurement: 'µg/m³'
+        value_template: "{{ state_attr('air_quality.goker', 'particulate_matter_2_5') | round(2) }}"
+      goker_voc:
+        friendly_name: "Gallery VOC"
+        unit_of_measurement: 'µg/m³'
+        value_template: "{{ state_attr('air_quality.goker', 'volatile_organic_compounds') }}"
+      goker_no2:
+        friendly_name: "Gallery NO2"
+        unit_of_measurement: 'µg/m³'
+        value_template: "{{ state_attr('air_quality.goker', 'nitrogen_dioxide') }}"
+      goker_aqi:
+        friendly_name: "Gallery AQI"
+        value_template: "{{ state_attr('air_quality.goker', 'air_quality_index') }}"
+  

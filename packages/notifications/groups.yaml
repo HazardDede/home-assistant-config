@@ -2,8 +2,8 @@ notify:
   - name: dennis
     platform: group
     services:
-      - service: ios_dennis_iphone_xs  # Work mobile
-      - service: ios_dennis_ipad
+      - service: mobile_app_iphone_work  # Work mobile
+      - service: mobile_app_ipad_von_dennis
   - name: jennifer
     platform: group
     services:

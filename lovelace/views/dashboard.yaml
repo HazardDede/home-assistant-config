@@ -37,54 +37,58 @@ cards:
           font-size: large
   - type: weather-forecast
     entity: weather.dark_sky_hourly
-  - type: entities
-    entities:
-      - entity: sensor.weather_temperature
-        name: Outdoor
-        icon: mdi:cloud-circle
-      - entity: sensor.shellyht_01_temperature
-        type: custom:multiple-entity-row
-        name: Indoor
-        state_header: Living
-        icon: mdi:home-circle
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "### Sensors"
+      - type: entities
         entities:
-          - entity: sensor.zway_device_19_temperature
-            name: Nursery
-          - entity: sensor.zway_device_24_temperature
-            name: Gallery
-      - type: section
-        label: Humidity
-      - entity: sensor.weather_humidity
-        name: Outdoor
-        icon: mdi:cloud-circle
-      - entity: sensor.shellyht_01_humidity
-        type: custom:multiple-entity-row
-        name: Indoor
-        state_header: Living
-        icon: mdi:home-circle
-        entities:
-          - entity: sensor.dht01_humidity_filtered
-            name: Kitchen
-          - entity: sensor.goker_humidity
-            name: Gallery
-      - type: section
-        label: Air quality
-      - entity: sensor.luftdaten_10870_p1
-        type: custom:multiple-entity-row
-        name: Outdoor
-        state_header: P1
-        icon: mdi:cloud-circle
-        entities:
-          - entity: sensor.luftdaten_10870_p2
-            name: P2
-      - entity: sensor.goker_p1
-        type: custom:multiple-entity-row
-        name: Indoor
-        state_header: P1
-        icon: mdi:home-circle
-        entities:
-          - entity: sensor.goker_p2
-            name: P2
+          - entity: sensor.weather_temperature
+            name: Outdoor
+            icon: mdi:cloud-circle
+          - entity: sensor.shellyht_01_temperature
+            type: custom:multiple-entity-row
+            name: Indoor
+            state_header: Living
+            icon: mdi:home-circle
+            entities:
+              - entity: sensor.zway_device_19_temperature
+                name: Nursery
+              - entity: sensor.zway_device_24_temperature
+                name: Gallery
+          - type: section
+            label: Humidity
+          - entity: sensor.weather_humidity
+            name: Outdoor
+            icon: mdi:cloud-circle
+          - entity: sensor.shellyht_01_humidity
+            type: custom:multiple-entity-row
+            name: Indoor
+            state_header: Living
+            icon: mdi:home-circle
+            entities:
+              - entity: sensor.dht01_humidity_filtered
+                name: Kitchen
+              - entity: sensor.goker_humidity
+                name: Gallery
+          - type: section
+            label: Air quality
+          - entity: sensor.luftdaten_10870_p1
+            type: custom:multiple-entity-row
+            name: Outdoor
+            state_header: P1
+            icon: mdi:cloud-circle
+            entities:
+              - entity: sensor.luftdaten_10870_p2
+                name: P2
+          - entity: sensor.goker_p1
+            type: custom:multiple-entity-row
+            name: Indoor
+            state_header: P1
+            icon: mdi:home-circle
+            entities:
+              - entity: sensor.goker_p2
+                name: P2
   - type: glance
     title: Vacation
     show_state: false
@@ -92,4 +96,4 @@ cards:
       - entity: binary_sensor.vacation_hh
         name: Hamburg
       - entity: binary_sensor.vacation_sh
-        name: S-H
+        name: Schleswig-Holstein

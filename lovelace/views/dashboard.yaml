@@ -3,38 +3,42 @@ title: Dashboard
 id: dashboard
 icon: mdi:tablet-dashboard
 cards:
-  - type: picture-elements
-    image: https://harbour-hall.de/webcam/video.jpg
-    elements:
-      - type: state-label
-        entity: sensor.time
-        style:
-          left: 10%
-          top: 10%
-          color: var(--text-primary-color)
-          font-weight: bold
-          font-size: large
-      - type: state-icon
-        entity: sensor.weather_symbol
-        style:
-          left: 25%
-          top: 10%
-      - type: state-label
-        entity: sensor.weather_temperature
-        style:
-          left: 40%
-          top: 10%
-          color: var(--text-primary-color)
-          font-weight: bold
-          font-size: large
-      - type: state-label
-        entity: sensor.weather_humidity
-        style:
-          left: 60%
-          top: 10%
-          color: var(--text-primary-color)
-          font-weight: bold
-          font-size: large
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "### Weather"
+      - type: picture-elements
+        image: https://harbour-hall.de/webcam/video.jpg
+        elements:
+          - type: state-label
+            entity: sensor.time
+            style:
+              left: 10%
+              top: 10%
+              color: var(--text-primary-color)
+              font-weight: bold
+              font-size: large
+          - type: state-icon
+            entity: sensor.weather_symbol
+            style:
+              left: 25%
+              top: 10%
+          - type: state-label
+            entity: sensor.weather_temperature
+            style:
+              left: 40%
+              top: 10%
+              color: var(--text-primary-color)
+              font-weight: bold
+              font-size: large
+          - type: state-label
+            entity: sensor.weather_humidity
+            style:
+              left: 60%
+              top: 10%
+              color: var(--text-primary-color)
+              font-weight: bold
+              font-size: large
   - type: weather-forecast
     entity: weather.dark_sky_hourly
   - type: vertical-stack

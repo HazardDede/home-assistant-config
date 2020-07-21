@@ -39,8 +39,8 @@ cards:
               color: var(--text-primary-color)
               font-weight: bold
               font-size: large
-  - type: weather-forecast
-    entity: weather.dark_sky_hourly
+      - type: weather-forecast
+        entity: weather.dark_sky_hourly
   - type: vertical-stack
     cards:
       - type: markdown

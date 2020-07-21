@@ -89,11 +89,14 @@ cards:
             entities:
               - entity: sensor.goker_p2
                 name: P2
-  - type: glance
-    title: Vacation
-    show_state: false
-    entities:
-      - entity: binary_sensor.vacation_hh
-        name: Hamburg
-      - entity: binary_sensor.vacation_sh
-        name: Schleswig-Holstein
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "### Vacation"
+      - type: glance
+        show_state: false
+        entities:
+          - entity: binary_sensor.vacation_hh
+            name: Hamburg
+          - entity: binary_sensor.vacation_sh
+            name: Schleswig-Holstein

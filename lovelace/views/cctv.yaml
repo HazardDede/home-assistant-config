@@ -1,0 +1,17 @@
+# Germany: https://www.mygermancity.com/
+# Sweden: http://www.webbkameror.se/webbkameror/
+
+title: CCTV
+id: cctv
+icon: mdi:cctv
+cards:
+  - type: picture-entity
+    entity: camera.motion02
+    name: Hallway
+    show_state: false
+  - type: picture
+    image: https://www.dcsnilsson.de/alsterwetter/aktuell.jpg
+  - type: picture
+    image: http://www.ferienhaus-wernigerode.de/images/webcam/schloss-wernigerode.jpg
+  - type: picture
+    image: http://www.fjallbacka.com/FJB_00002.jpg

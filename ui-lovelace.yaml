@@ -21,6 +21,7 @@ views:
   - !include lovelace/views/health.yaml
   - !include lovelace/views/climate.yaml
   - !include lovelace/views/outdoor.yaml
+  - !include lovelace/views/cctv.yaml
   - !include lovelace/views/flower.yaml
   - !include lovelace/views/media.yaml
   - !include lovelace/views/monitoring.yaml

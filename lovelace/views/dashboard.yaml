@@ -1,6 +1,6 @@
 # lovelace_gen
-title: Climate
-id: climate
+title: Dashboard
+id: dashboard
 icon: mdi:tablet-dashboard
 cards:
   - type: picture-elements

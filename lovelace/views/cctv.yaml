@@ -7,8 +7,8 @@ icon: mdi:cctv
 cards:
   - type: picture-entity
     entity: camera.motion02
-    name: Hallway
     show_state: false
+    show_name: false
   - type: picture
     image: https://www.dcsnilsson.de/alsterwetter/aktuell.jpg
   - type: picture

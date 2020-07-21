@@ -15,6 +15,7 @@ custom_header:
         chevrons: false
 
 views:
+  - !include lovelace/views/dashboard.yaml
   - !include lovelace/views/home.yaml
   - !include lovelace/views/family.yaml
   - !include lovelace/views/health.yaml

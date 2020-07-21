@@ -68,8 +68,6 @@ lovelace:
       type: module
     - url: /local/lovelace/plant-sensor-card.js?v=16
       type: module
-    - url: /hacsfiles/sun-card/sun-card.js
-      type: module
     - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
       type: module
     - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js

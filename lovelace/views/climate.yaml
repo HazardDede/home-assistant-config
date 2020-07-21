@@ -52,18 +52,13 @@ cards:
         content: "### Ground floor"
       - id: climate_living_temp
         type: history-graph
-        title: "Living (°C)"
-        refresh_interval: 10
+        refresh_interval: 60
+        hours_to_show: 12
         entities:
           - sensor.shellyht_01_temperature
           - sensor.dht01_temperature_filtered
           - sensor.zway_device_7_temperature
           - sensor.living_setpoint
-      - id: climate_bath_downstairs_temp
-        type: history-graph
-        title: "Bath (°C)"
-        refresh_interval: 10
-        entities:
           - sensor.bath_downstairs_setpoint
       - id: climate_ground_floor_setpoints
         type: entities
@@ -77,23 +72,13 @@ cards:
         content: "### First floor"
       - id: climate_first_temp
         type: history-graph
-        title: "Gallery (°C)"
-        refresh_interval: 10
+        refresh_interval: 60
+        hours_to_show: 12
         entities:
           - sensor.zway_device_24_temperature
           - sensor.living_setpoint
-      - id: climate_first_temp
-        type: history-graph
-        title: "Nursery(°C)"
-        refresh_interval: 10
-        entities:
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint
-      - id: climate_first_temp
-        type: history-graph
-        title: "Bedroom(°C)"
-        refresh_interval: 10
-        entities:
           - sensor.zway_device_23_temperature
       - id: climate_first_setpoints
         type: entities

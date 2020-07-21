@@ -1,8 +1,0 @@
-sensor:
-  - platform: sun2
-    monitored_conditions:
-      - elevation
-      - sunrise
-      - sunset
-      - solar_noon
-      - max_elevation

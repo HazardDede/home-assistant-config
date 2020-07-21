@@ -4,7 +4,7 @@ input_select:
     options:
       - default
       - clear
-      - dark
+      - clear-dark
     icon: mdi:wall
 
 input_boolean:
@@ -42,18 +42,18 @@ switch:
             entity_id: input_select.frontend_theme
             option: "clear"
       frontend_theme_dark:
-        value_template: "{{ is_state('input_select.frontend_theme', 'dark') }}"
+        value_template: "{{ is_state('input_select.frontend_theme', 'clear-dark') }}"
         icon_template: mdi:weather-night
         turn_on:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "dark"
+            option: "clear-dark"
         turn_off:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "dark"
+            option: "clear-dark"
 
 automation:
   - alias: "Theme: Switch frontend theme on select"
@@ -93,5 +93,5 @@ automation:
             {% if states.sun.sun.state == "above_horizon" %}
               clear
             {% else %}
-              dark
+              clear-dark
             {% endif %}

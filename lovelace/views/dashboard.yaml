@@ -96,7 +96,31 @@ cards:
   - type: vertical-stack
     cards:
       - type: markdown
-        content: "### Vacation"
+        content: "### Traffic & Vacation"
+      - type: entities
+        entities:
+          - entity: sensor.departures_at_elmshorn
+            name: Elmshorn
+            type: custom:multiple-entity-row
+            format: relative
+            icon: mdi:train
+            entities:
+              - attribute: line
+                name: Line
+              - attribute: delay
+                name: Delay
+                unit: mins
+          - entity: sensor.departures_at_hamburg_hbf
+            name: Hamburg Hbf
+            type: custom:multiple-entity-row
+            format: relative
+            icon: mdi:train
+            entities:
+              - attribute: line
+                name: Line
+              - attribute: delay
+                name: Delay
+                unit: mins
       - type: glance
         show_state: false
         entities:

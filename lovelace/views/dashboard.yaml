@@ -104,7 +104,7 @@ cards:
             type: custom:multiple-entity-row
             format: relative
             icon: mdi:train
-            state_header: Departure
+            state_header: Dep.
             entities:
               - attribute: line
                 name: Line
@@ -116,7 +116,7 @@ cards:
             type: custom:multiple-entity-row
             format: relative
             icon: mdi:train
-            state_header: Departure
+            state_header: Dep.
             entities:
               - attribute: line
                 name: Line

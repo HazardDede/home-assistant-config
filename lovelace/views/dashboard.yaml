@@ -77,14 +77,14 @@ cards:
                 name: Gallery
           - type: section
             label: Air quality
-          - entity: sensor.luftdaten_10870_p1
-            type: custom:multiple-entity-row
-            name: Outdoor
-            state_header: P1
-            icon: mdi:cloud-circle
-            entities:
-              - entity: sensor.luftdaten_10870_p2
-                name: P2
+          # - entity: sensor.luftdaten_10870_p1
+          #   type: custom:multiple-entity-row
+          #   name: Outdoor
+          #   state_header: P1
+          #   icon: mdi:cloud-circle
+          #   entities:
+          #     - entity: sensor.luftdaten_10870_p2
+          #       name: P2
           - entity: sensor.goker_p1
             type: custom:multiple-entity-row
             name: Indoor

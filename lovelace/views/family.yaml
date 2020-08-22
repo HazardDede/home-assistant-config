@@ -18,19 +18,19 @@ cards:
     title: "Devices"
     show_header_toggle: false
     entities:
-      - entity: sensor.jennifer_iphone_battery_level
+      - entity: sensor.iphone_von_jennifer_battery_level
         type: custom:multiple-entity-row
         name: "Jennifer: iPhone"
         secondary_info: last-changed
         entities:
-          - entity: sensor.jennifer_iphone_battery_state
+          - entity: sensor.iphone_von_jennifer_battery_state
             name: State
-      - entity: sensor.dennis_iphone_battery_level
+      - entity: sensor.iphone_work_battery_level_2
         type: custom:multiple-entity-row
-        name: "Dennis: iPhone"
+        name: "Dennis: iPhone Work"
         secondary_info: last-changed
         entities:
-          - entity: sensor.dennis_iphone_battery_state
+          - entity: sensor.iphone_work_battery_state_2
             name: State
       - entity: sensor.dennis_ipad_battery_level
         type: custom:multiple-entity-row

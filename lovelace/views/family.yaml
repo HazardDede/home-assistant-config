@@ -32,12 +32,12 @@ cards:
         entities:
           - entity: sensor.iphone_work_battery_state_2
             name: State
-      - entity: sensor.dennis_ipad_battery_level
+      - entity: sensor.ipad_von_dennis_battery_level_3
         type: custom:multiple-entity-row
         name: "Dennis: iPad"
         secondary_info: last-changed
         entities:
-          - entity: sensor.dennis_ipad_battery_state
+          - entity: sensor.ipad_von_dennis_battery_state_3
             name: State
   - !include
     - ../components/fitbit.yaml

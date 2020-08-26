@@ -27,10 +27,10 @@ binary_sensor:
 homeassistant:
   customize:
     binary_sensor.server_ps4_01:
-      icon: mdi:playstation
+      icon: mdi:sony-playstation
       friendly_name: PS4 (Bedroom)
     binary_sensor.server_ps4_02:
-      icon: mdi:playstation
+      icon: mdi:sony-playstation
       friendly_name: PS4 (Living)
     binary_sensor.server_hp_printer:
       icon: mdi:printer-wireless

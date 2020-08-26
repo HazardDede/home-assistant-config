@@ -73,6 +73,12 @@ lovelace:
     - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
       type: module
   dashboards:
+    lovelace-yaml:
+      mode: yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      filename: ui-lovelace.yaml
     lovelace-generated:
       mode: yaml
       filename: notexist.yaml

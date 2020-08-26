@@ -1,7 +1,7 @@
 # lovelace_gen
 title: Settings
 id: settings
-icon: mdi:settings-outline
+icon: mdi:cog-outline
 # background: var(--background-image)
 cards:
   - type: vertical-stack

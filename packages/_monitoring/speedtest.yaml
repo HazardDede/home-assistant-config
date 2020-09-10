@@ -1,0 +1,25 @@
+# MQTT Discovery sensors
+# * sensor.speedtest_upload
+# * sensor.speedtest_ping
+# * sensor.speedtest_download
+# * sensor.speedtest_host
+
+# To show the result image
+camera:
+  - platform: generic
+    name: speedtest_result
+    still_image_url: >-
+      {{ state_attr('sensor.speedtest_host', 'result_image') }}
+
+# REST Command to trigger a speedtest now
+rest_command:
+  speedtest_now:
+    url: 'http://stack01:10010/trigger?task=speedtest'
+    method: post
+    timeout: 120
+
+# Wrapper script to run the REST command
+script:
+  speedtest_now:
+    sequence:
+      - service: rest_command.speedtest_now

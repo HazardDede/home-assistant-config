@@ -28,6 +28,29 @@ cards:
           - entity: sensor.load_5m
             name: 5m
       - sensor.last_boot
+  - id: mon_internet_connection
+    type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Internet Speed
+        entities:
+          - entity: sensor.speedtest_ping
+            type: custom:multiple-entity-row
+            name: " "
+            state_header: Ping
+            entities:
+              - entity: sensor.speedtest_upload
+                name: Upload
+              - entity: sensor.speedtest_download
+                name: Download
+          - entity: script.speedtest_now
+            name: Test Now
+            icon: mdi:speedometer
+      - type: picture-entity
+        entity: camera.speedtest_result
+        show_state: false
+        show_name: false
   - id: mon_server
     type: custom:auto-entities
     show_empty: False

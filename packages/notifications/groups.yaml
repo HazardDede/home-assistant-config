@@ -18,11 +18,15 @@ notify:
     services:
       - service: all_devices
       - service: slack
-  - name : logs
+  - name : channel  # Goes into #home channel
     platform: group
     services:
       - service: slack
-  - name : alerts
+  - name : logs  # Goes into dedicated home assistant channel
     platform: group
     services:
-      - service: slack_alert
+      - service: slack_hass
+  - name : alertmanager  # Goes into #alertmanager channel
+    platform: group
+    services:
+      - service: slack_alertmanager

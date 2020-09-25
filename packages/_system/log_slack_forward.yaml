@@ -12,6 +12,6 @@ automation:
       condition: template
       value_template: '{{ "slack.com" not in trigger.event.data.exception }}'
     action:
-      - service: notify.alerts
+      - service: notify.logs
         data_template:
           message: '[{{ trigger.event.data.level }}] @ {{ trigger.event.data.source }}: {{ trigger.event.data.message }} ```{{ trigger.event.data.exception }}```'

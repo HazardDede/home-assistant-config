@@ -3,7 +3,7 @@
     platform: time
     at: '20:00:00'
   action:
-    - service: notify.logs
+    - service: notify.alertmanager
       data:
         message: |
           Current alarms:

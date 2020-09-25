@@ -37,4 +37,4 @@ alert:
     can_acknowledge: true
     skip_first: false
     notifiers:
-      - alerts
+      - alertmanager

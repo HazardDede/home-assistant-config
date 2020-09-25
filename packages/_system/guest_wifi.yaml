@@ -38,4 +38,4 @@ alert:
     can_acknowledge: true
     skip_first: true
     notifiers:
-      - logs
+      - alertmanager

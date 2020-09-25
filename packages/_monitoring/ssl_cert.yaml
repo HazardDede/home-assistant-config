@@ -21,3 +21,4 @@ alert:
     skip_first: False
     notifiers:
       - dennis
+      - alertmanager

@@ -26,9 +26,6 @@ entities:
   switch.zway_device_4:
     name: "Fernseher Wohnzimmer"
     hidden: false
-  switch.pumbaa_nightly_run:
-    name: "Naechtliches Staubsaugen"
-    hidden: false
   switch.gosund_01:
     name: "Treppe"
     hidden: false
@@ -40,4 +37,7 @@ entities:
     hidden: false
   switch.gosund_04:
     name: "Mister Wattson"
+    hidden: false
+  switch.rocky:
+    name: "Rocky"
     hidden: false

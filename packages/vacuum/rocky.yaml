@@ -103,6 +103,18 @@ switch:
           service: homeassistant.turn_off
           data:
             entity_id: input_boolean.rocky_nightly_run
+      rocky:
+        value_template: "{{ is_state('binary_sensor.rocky_running', 'on') }}"
+        icon_template: mdi:robot-vacuum
+        turn_on:
+          service: vacuum.start
+          data:
+            entity_id: vacuum.rocky
+        turn_off:
+          service: vacuum.return_to_base
+          data:
+            entity_id: vacuum.rocky
+
 
 automation:
   - alias: "rocky: Reset Nightly Run"

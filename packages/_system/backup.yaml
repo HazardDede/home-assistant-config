@@ -1,0 +1,19 @@
+# REST Command to trigger backups
+rest_command:
+  backup_hass_now:
+    url: 'curl -X POST "http://stack02:10000/trigger?task=backup_hass"'
+    method: post
+    timeout: 5
+  backup_grafana_now:
+    url: 'curl -X POST "http://stack02:10000/trigger?task=backup_grafana"'
+    method: post
+    timeout: 5
+
+# Wrapper script to run the REST command
+script:
+  backup_hass_now:
+    sequence:
+      - service: rest_command.backup_hass_now
+  backup_grafana_now:
+    sequence:
+      - service: rest_command.backup_grafana_now

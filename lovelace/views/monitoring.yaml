@@ -28,6 +28,19 @@ cards:
           - entity: sensor.load_5m
             name: 5m
       - sensor.last_boot
+  - id: mon_backup
+    type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Backup
+        entities:
+          - entity: script.backup_hass_now
+            name: Homeassistant
+            icon: mdi:home-assistant
+          - entity: script.backup_grafana_now
+            name: Grafana
+            icon: mdi:view-dashboard-variant
   - id: mon_internet_connection
     type: vertical-stack
     cards:

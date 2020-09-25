@@ -1,11 +1,11 @@
 # REST Command to trigger backups
 rest_command:
   backup_hass_now:
-    url: 'curl -X POST "http://stack02:10000/trigger?task=backup_hass"'
+    url: 'http://stack02:10000/trigger?task=backup_hass'
     method: post
     timeout: 5
   backup_grafana_now:
-    url: 'curl -X POST "http://stack02:10000/trigger?task=backup_grafana"'
+    url: 'http://stack02:10000/trigger?task=backup_grafana'
     method: post
     timeout: 5
 

@@ -39,18 +39,11 @@ cards:
     - ../components/room.yaml
     - id: home_kitchen
       image: /local/rooms/kitchen_banner.png
-      temperature: sensor.dht01_temperature_filtered
-      labeled_states: 
-        - sensor.dht01_humidity_filtered
-      states: 
-        - binary_sensor.raspitouch_motion
+      temperature: sensor.shellyht_01_humidity
       switches:
         - switch.zway_device_20
         - switch.gosund_01
       labels:
-        - entity: sensor.zway_device_17_power
-          top: 55%
-          left: 85%
         - entity: sensor.zway_device_20_power
           top: 77%
           left: 13%

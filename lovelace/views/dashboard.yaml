@@ -71,8 +71,8 @@ cards:
             state_header: Living
             icon: mdi:home-circle
             entities:
-              - entity: sensor.dht01_humidity_filtered
-                name: Kitchen
+              - entity: sensor.zway_device_7_temperature
+                name: Hallway
               - entity: sensor.goker_humidity
                 name: Gallery
           - type: section

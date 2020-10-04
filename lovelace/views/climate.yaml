@@ -56,7 +56,6 @@ cards:
         hours_to_show: 12
         entities:
           - sensor.shellyht_01_temperature
-          - sensor.dht01_temperature_filtered
           - sensor.zway_device_7_temperature
           - sensor.living_setpoint
           - sensor.bath_downstairs_setpoint

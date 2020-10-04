@@ -6,7 +6,7 @@ binary_sensor:
           {% if states('sensor.ssl_cert_humletorp') == 'unknown' %}
             {{ False }}
           {% else %}
-            {{ states('sensor.ssl_cert_humletorp')|int <= 14 }}
+            {{ states('sensor.ssl_cert_humletorp')|int <= 30 }}
           {% endif %}
 
 alert:

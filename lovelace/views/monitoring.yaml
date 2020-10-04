@@ -41,6 +41,15 @@ cards:
           - entity: script.backup_grafana_now
             name: Grafana
             icon: mdi:view-dashboard-variant
+          - entity: script.backup_plex_now
+            name: Plex
+            icon: mdi:plex
+          - entity: script.backup_tautulli_now
+            name: Tautulli
+            icon: mdi:plex
+          - entity: script.backup_ssl_now
+            name: SSL Cert
+            icon: mdi:certificate
   - id: mon_internet_connection
     type: vertical-stack
     cards:

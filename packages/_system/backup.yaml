@@ -1,19 +1,40 @@
 # REST Command to trigger backups
 rest_command:
+  backup_grafana_now:
+    url: 'http://stack02:10000/trigger?task=backup_grafana'
+    method: post
+    timeout: 5
   backup_hass_now:
     url: 'http://stack02:10000/trigger?task=backup_hass'
     method: post
     timeout: 5
-  backup_grafana_now:
-    url: 'http://stack02:10000/trigger?task=backup_grafana'
+  backup_plex_now: 
+    url: 'http://stack01:10000/trigger?task=backup_plex'
+    method: post
+    timeout: 5
+  backup_ssl_now: 
+    url: 'http://stack01:10000/trigger?task=backup_ssl'
+    method: post
+    timeout: 5
+  backup_tautulli_now: 
+    url: 'http://stack01:10000/trigger?task=backup_tautulli'
     method: post
     timeout: 5
 
 # Wrapper script to run the REST command
 script:
-  backup_hass_now:
-    sequence:
-      - service: rest_command.backup_hass_now
   backup_grafana_now:
     sequence:
       - service: rest_command.backup_grafana_now
+  backup_hass_now:
+    sequence:
+      - service: rest_command.backup_hass_now
+  backup_plex_now:
+    sequence:
+      - service: rest_command.backup_plex_now
+  backup_ssl_now:
+    sequence:
+      - service: rest_command.backup_ssl_now
+  backup_tautulli_now:
+    sequence:
+      - service: rest_command.backup_tautulli_now

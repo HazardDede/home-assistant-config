@@ -39,7 +39,7 @@ cards:
     - ../components/room.yaml
     - id: home_kitchen
       image: /local/rooms/kitchen_banner.png
-      temperature: sensor.shellyht_01_humidity
+      temperature: sensor.shellyht_01_temperature
       switches:
         - switch.zway_device_20
         - switch.gosund_01

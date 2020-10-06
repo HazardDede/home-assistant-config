@@ -10,9 +10,28 @@ cards:
         entity: sensor.tautulli
         show_name: false
         image: /local/media/plex-logo.png?v=2
-      - type: media-control
-        entity: media_player.plex_plexamp_hifipi
-        name: hifipi (Plexamp)
+      - type: vertical-stack
+        cards:
+          - type: media-control
+            entity: media_player.plex_plexamp_hifipi
+            name: hifipi (Plexamp)
+          - type: markdown
+            content: "### Playlists"
+          - type: custom:auto-entities
+            show_empty: False
+            filter:
+              include:
+                - entity_id: "script.hifipi_play_*"
+                  options:
+                    tap_action:
+                      action: toggle
+            sort:
+              method: name
+            card:
+              type: glance
+              show_header_toggle: false
+              show_state: false
+              show_name: false
       - type: conditional
         conditions:
           - entity: media_player.plex_plex_web_chrome
@@ -36,6 +55,8 @@ cards:
 
       - type: custom:vertical-stack-in-card
         cards:
+          - type: markdown
+            content: "### Monitor"
           - type: horizontal-stack
             cards:
               - type: sensor

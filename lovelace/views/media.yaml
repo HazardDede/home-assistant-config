@@ -10,28 +10,45 @@ cards:
         entity: sensor.tautulli
         show_name: false
         image: /local/media/plex-logo.png?v=2
-      - type: vertical-stack
-        cards:
-          - type: media-control
-            entity: media_player.plex_plexamp_hifipi
-            name: hifipi (Plexamp)
-          - type: markdown
-            content: "### Playlists"
-          - type: custom:auto-entities
-            show_empty: False
-            filter:
-              include:
-                - entity_id: "script.hifipi_play_*"
-                  options:
-                    tap_action:
-                      action: toggle
-            sort:
-              method: name
-            card:
-              type: glance
-              show_header_toggle: false
-              show_state: false
-              show_name: false
+      - type: custom:mini-media-player
+        entity: media_player.plex_plexamp_hifipi
+        name: Hifi Pi
+        icon: mdi:plex
+        artwork: full-cover
+        source: icon
+        volume_stateless: true
+        scale: 1
+        hide:
+          power: true
+        shortcuts:
+          columns: 6
+          buttons:
+            - type: service
+              icon: mdi:folder-music
+              id: media_player.play_media
+              data:
+                entity_id: media_player.plex_plexamp_hifipi
+                media_content_type: PLAYLIST
+                media_content_id: '{ "playlist_name": "All Music", "shuffle": "1" }'
+            - type: service
+              icon: mdi:pine-tree
+              id: media_player.play_media
+              data:
+                entity_id: media_player.plex_plexamp_hifipi
+                media_content_type: PLAYLIST
+                media_content_id: '{ "playlist_name": "Weihnachten", "shuffle": "1" }'
+            - type: service
+              image: /local/icons/music/sabaton-logo.png
+              id: media_player.play_media
+              data:
+                entity_id: media_player.plex_plexamp_hifipi
+                media_content_type: PLAYLIST
+                media_content_id: '{ "playlist_name": "Sabaton", "shuffle": "1" }'
+        idle_view:
+          when_idle: true
+          when_standby: true
+          after: 600
+
       - type: conditional
         conditions:
           - entity: media_player.plex_plex_web_chrome

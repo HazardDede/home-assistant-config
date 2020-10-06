@@ -1,3 +1,6 @@
+# Example script:
+# How to select a playlist via script
+
 script:
   hifipi_play_all_music:
     alias: All Music
@@ -7,30 +10,3 @@ script:
           entity_id: media_player.plex_plexamp_hifipi
           media_content_type: PLAYLIST
           media_content_id: '{ "playlist_name": "All Music", "shuffle": "1" }'
-
-  hifipi_play_christmas:
-    alias: Christmas
-    sequence:
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.plex_plexamp_hifipi
-          media_content_type: PLAYLIST
-          media_content_id: '{ "playlist_name": "Weihnachten", "shuffle": "1" }'
-
-  hifipi_play_sabaton:
-    alias: Sabaton
-    sequence:
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.plex_plexamp_hifipi
-          media_content_type: PLAYLIST
-          media_content_id: '{ "playlist_name": "Sabaton", "shuffle": "1" }'
-
-homeassistant:
-  customize:
-    script.hifipi_play_all_music:
-      entity_picture: /local/icons/music/library-music-icon.png
-    script.hifipi_play_christmas:
-      entity_picture: /local/icons/music/christmas-tree-icon.png
-    script.hifipi_play_sabaton:
-      entity_picture: /local/icons/music/sabaton-icon.png

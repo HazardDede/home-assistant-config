@@ -10,6 +10,9 @@ cards:
         entity: sensor.tautulli
         show_name: false
         image: /local/media/plex-logo.png?v=2
+      - type: media-control
+        entity: media_player.plex_plexamp_hifipi
+        name: hifipi (Plexamp)
       - type: conditional
         conditions:
           - entity: media_player.plex_plex_web_chrome
@@ -27,17 +30,6 @@ cards:
         card:
           type: custom:mini-media-player
           entity: media_player.plex_plex_for_alexa_alexa
-          icon: mdi:plex
-          artwork: cover
-          source: icon
-
-      - type: conditional
-        conditions:
-          - entity: media_player.plex_plexamp_hifipi
-            state_not: "unavailable"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.plex_plexamp_hifipi
           icon: mdi:plex
           artwork: cover
           source: icon

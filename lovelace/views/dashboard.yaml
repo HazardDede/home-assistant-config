@@ -71,8 +71,8 @@ cards:
             state_header: Living
             icon: mdi:home-circle
             entities:
-              - entity: sensor.zway_device_7_temperature
-                name: Hallway
+              # - entity: sensor.zway_device_7_temperature
+              #   name: Hallway
               - entity: sensor.goker_humidity
                 name: Gallery
           - type: section
@@ -87,12 +87,22 @@ cards:
           #       name: P2
           - entity: sensor.goker_p1
             type: custom:multiple-entity-row
-            name: Indoor
+            name: Particles
             state_header: P1
-            icon: mdi:home-circle
+            icon: mdi:air-filter
             entities:
               - entity: sensor.goker_p2
                 name: P2
+          - entity: sensor.goker_aqi
+            type: custom:multiple-entity-row
+            name: Quality
+            state_header: AQI
+            icon: mdi:air-purifier
+            entities:
+              - entity: sensor.goker_no2
+                name: NO2
+              - entity: sensor.goker_voc
+                name: VOC
   - type: vertical-stack
     cards:
       - type: markdown

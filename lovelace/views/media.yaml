@@ -30,6 +30,18 @@ cards:
           icon: mdi:plex
           artwork: cover
           source: icon
+
+      - type: conditional
+        conditions:
+          - entity: media_player.plex_plexamp_hifipi
+            state_not: "unavailable"
+        card:
+          type: custom:mini-media-player
+          entity: media_player.plex_plexamp_hifipi
+          icon: mdi:plex
+          artwork: cover
+          source: icon
+
       - type: custom:vertical-stack-in-card
         cards:
           - type: horizontal-stack

@@ -44,10 +44,6 @@ cards:
                 entity_id: media_player.plex_plexamp_hifipi
                 media_content_type: PLAYLIST
                 media_content_id: '{ "playlist_name": "Sabaton", "shuffle": "1" }'
-        idle_view:
-          when_idle: true
-          when_standby: true
-          after: 600
 
       - type: conditional
         conditions:

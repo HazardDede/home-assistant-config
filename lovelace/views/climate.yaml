@@ -85,3 +85,53 @@ cards:
           - input_number.zway_device_9
           - input_number.zway_device_8
           - input_number.zway_device_11
+      - id: climate_first_purifier_goker
+        type: custom:purifier-card
+        entity: fan.goker
+        stats:
+          - entity_id: sensor.goker_aqi
+            subtitle: "AQI"
+          - attribute: dyson_speed
+            subtitle: "Speed"
+          - attribute: hepa_filter
+            unit: "%"
+            subtitle: "HEPA"
+          - attribute: carbon_filter
+            unit: "%"
+            subtitle: "Carbon"
+        actions:
+          - name: Silent
+            icon: 'mdi:weather-night'
+            service: dyson.set_speed
+            service_data:
+              dyson_speed: 1
+          - name: 25%
+            icon: 'mdi:circle-slice-2'
+            service: dyson.set_speed
+            service_data:
+              dyson_speed: 3
+          - name: 50%
+            icon: 'mdi:circle-slice-4'
+            service: dyson.set_speed
+            service_data:
+              dyson_speed: 5
+          - name: 75%
+            icon: 'mdi:circle-slice-6'
+            service: dyson.set_speed
+            service_data:
+              dyson_speed: 8
+          - name: 100%
+            icon: 'mdi:circle-slice-8'
+            service: dyson.set_speed
+            service_data:
+              dyson_speed: 10
+          - name: Auto
+            icon: 'mdi:brightness-auto'
+            service: dyson.set_auto_mode
+            service_data:
+              auto_mode: true
+        show_name: true
+        show_state: true
+        show_toolbar: true
+        compact_view: true
+

@@ -3,8 +3,8 @@ input_select:
     name: Choose Theme
     options:
       - default
-      - clear
-      - clear-dark
+      - iOS Light Mode
+      - iOS Dark Mode
     icon: mdi:wall
 
 input_boolean:
@@ -29,31 +29,31 @@ switch:
             entity_id: input_select.frontend_theme
             option: "default"
       frontend_theme_clear:
-        value_template: "{{ is_state('input_select.frontend_theme', 'clear') }}"
+        value_template: "{{ is_state('input_select.frontend_theme', 'iOS Light Mode') }}"
         icon_template: mdi:white-balance-sunny
         turn_on:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "clear"
+            option: "iOS Light Mode"
         turn_off:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "clear"
+            option: "iOS Light Mode"
       frontend_theme_dark:
-        value_template: "{{ is_state('input_select.frontend_theme', 'clear-dark') }}"
+        value_template: "{{ is_state('input_select.frontend_theme', 'iOS Dark Mode') }}"
         icon_template: mdi:weather-night
         turn_on:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "clear-dark"
+            option: "iOS Dark Mode"
         turn_off:
           service: input_select.select_option
           data:
             entity_id: input_select.frontend_theme
-            option: "clear-dark"
+            option: "iOS Dark Mode"
 
 automation:
   - alias: "Theme: Switch frontend theme on select"
@@ -91,7 +91,7 @@ automation:
         data_template:
           option: >-
             {% if states.sun.sun.state == "above_horizon" %}
-              clear
+              iOS Light Mode
             {% else %}
-              clear-dark
+              iOS Dark Mode
             {% endif %}

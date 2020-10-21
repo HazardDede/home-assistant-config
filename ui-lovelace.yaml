@@ -1,19 +1,5 @@
 title: Humletorp
 
-custom_header:
-  compact_mode: true
-  hide_help: true
-  hide_config: true
-  hide_raw: true
-  voice_hide: true
-  options_hide: false
-  exceptions:
-    - conditions:
-        media_query: "(max-width: 600px)"
-      config:
-        options_hide: true
-        chevrons: false
-
 views:
   - !include lovelace/views/dashboard.yaml
   - !include lovelace/views/home.yaml

@@ -70,7 +70,7 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
       type: module
-    - url: /hacsfiles/purifier-card/purifier-card.js
+    - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
       type: module
   dashboards:
     lovelace-yaml:

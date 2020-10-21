@@ -1,0 +1,83 @@
+# lovelace_gen
+type: entities
+entities:
+  - entity: air_quality.{{ air_quality }}
+    type: custom:multiple-entity-row
+    name: Air Quality
+    state_header: AQI
+    entities:
+      - attribute: particulate_matter_2_5
+        unit: "µg/m³"
+        name: P2
+      - attribute: particulate_matter_10
+        unit: "µg/m³"
+        name: P1
+  - entity: air_quality.{{ air_quality }}
+    type: custom:multiple-entity-row
+    name: Air Quality (cont.)
+    show_state: false
+    entities:
+      - attribute: volatile_organic_compounds
+        unit: "µg/m³"
+        name: VOC
+      - attribute: nitrogen_dioxide
+        unit: "µg/m³"
+        name: NO2
+  - entity: fan.{{ fan }}
+    type: custom:multiple-entity-row
+    icon: mdi:fan
+    name: Air Purifier
+    state_color: true
+    entities:
+      - attribute: dyson_speed
+        name: Speed
+      - attribute: hepa_filter
+        unit: "%"
+        name: HEPA
+      - attribute: carbon_filter
+        unit: "%"
+        name: Carbon
+  - type: "custom:paper-buttons-row"
+    buttons:
+      - icon: mdi:weather-night
+        tap_action:
+          action: call-service
+          service: dyson.set_speed
+          service_data:
+            dyson_speed: 1
+            entity_id: fan.{{ fan }}
+      - icon: mdi:circle-slice-2
+        tap_action:
+          action: call-service
+          service: dyson.set_speed
+          service_data:
+            dyson_speed: 3
+            entity_id: fan.{{ fan }}
+      - icon: mdi:circle-slice-4
+        tap_action:
+          action: call-service
+          service: dyson.set_speed
+          service_data:
+            dyson_speed: 5
+            entity_id: fan.{{ fan }}
+      - icon: mdi:circle-slice-6
+        tap_action:
+          action: call-service
+          service: dyson.set_speed
+          service_data:
+            dyson_speed: 8
+            entity_id: fan.{{ fan }}
+      - icon: mdi:circle-slice-8
+        tap_action:
+          action: call-service
+          service: dyson.set_speed
+          service_data:
+            dyson_speed: 10
+            entity_id: fan.{{ fan }}
+      - icon: mdi:brightness-auto
+        tap_action:
+          action: call-service
+          service: dyson.set_auto_mode
+          service_data:
+            auto_mode: true
+            entity_id: fan.{{ fan }}

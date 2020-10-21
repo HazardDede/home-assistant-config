@@ -178,6 +178,30 @@ automation:
             category: "vacuum_nightly_run"
           action_data:
             entity_id: input_boolean.rocky_nightly_run
+  - alias: "Rocky: Mission Report"
+    trigger:
+      platform: state
+      entity_id: vacuum.rocky
+      from: returning
+      to: docked
+    action:
+      - service: notify.channel
+        data:
+          message: |
+            *Rocky* just returned to the dock from his successful mission
+            He cleaned *{{ state_attr('vacuum.rocky', 'cleaned_area') }} m²* in *{{ state_attr('vacuum.rocky', 'cleaning_time') }} minutes*
+            {%- if state_attr('vacuum.rocky', 'main_brush_left') <= 10 %}
+            *Main Brush* needs to be replaced: Only *{{ state_attr('vacuum.rocky', 'main_brush_left') }}* hours left
+            {%- endif %}
+            {%- if state_attr('vacuum.rocky', 'side_brush_left') <= 10 %}
+            *Side Brush* needs to be replaced: Only *{{ state_attr('vacuum.rocky', 'side_brush_left') }}* hours left
+            {%- endif %}
+            {%- if state_attr('vacuum.rocky', 'filter_left') <= 10 %}
+            *Filter* needs to be replaced: Only *{{ state_attr('vacuum.rocky', 'filter_left') }}* hours left
+            {%- endif %}
+            {%- if state_attr('vacuum.rocky', 'sensor_dirty_left') <= 1 %}
+            *Sensor* needs to be cleaned: Only *{{ state_attr('vacuum.rocky', 'sensor_dirty_left') }}* hours left
+            {%- endif %}
   - alias: "Rocky: Handle Nightly run actionable notification"
     trigger:
       platform: event

@@ -20,31 +20,6 @@ cards:
         scale: 1
         hide:
           power: true
-        shortcuts:
-          columns: 6
-          buttons:
-            - type: service
-              icon: mdi:folder-music
-              id: media_player.play_media
-              data:
-                entity_id: media_player.plex_plexamp_hifipi
-                media_content_type: PLAYLIST
-                media_content_id: '{ "playlist_name": "All Music", "shuffle": "1" }'
-            - type: service
-              icon: mdi:pine-tree
-              id: media_player.play_media
-              data:
-                entity_id: media_player.plex_plexamp_hifipi
-                media_content_type: PLAYLIST
-                media_content_id: '{ "playlist_name": "Weihnachten", "shuffle": "1" }'
-            - type: service
-              image: /local/icons/music/sabaton-logo.png
-              id: media_player.play_media
-              data:
-                entity_id: media_player.plex_plexamp_hifipi
-                media_content_type: PLAYLIST
-                media_content_id: '{ "playlist_name": "Sabaton", "shuffle": "1" }'
-
       - type: conditional
         conditions:
           - entity: media_player.plex_plex_web_chrome

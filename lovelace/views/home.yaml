@@ -74,12 +74,11 @@ cards:
     - ../components/room.yaml
     - id: home_krymmel
       image: /local/rooms/gallery_banner.png
-      temperature: sensor.zway_device_24_temperature
+      temperature: sensor.goker_temperature
       labeled_states: 
         # - sensor.zway_device_24_illumination
         - sensor.goker_humidity
-      states: 
-        - binary_sensor.zway_device_24
+        - sensor.goker_aqi
       switches:
         - switch.gosund_03
         - switch.gosund_01

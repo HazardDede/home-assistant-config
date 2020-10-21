@@ -58,7 +58,7 @@ cards:
             entities:
               - entity: sensor.zway_device_19_temperature
                 name: Nursery
-              - entity: sensor.zway_device_24_temperature
+              - entity: sensor.goker_temperature
                 name: Gallery
           - type: section
             label: Humidity

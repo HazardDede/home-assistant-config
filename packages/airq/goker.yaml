@@ -20,5 +20,6 @@ sensor:
         value_template: "{{ state_attr('air_quality.goker', 'nitrogen_dioxide') }}"
       goker_aqi:
         friendly_name: "Gallery AQI"
+        icon_template: mdi:air-filter
         value_template: "{{ state_attr('air_quality.goker', 'air_quality_index') }}"
   

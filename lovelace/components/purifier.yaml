@@ -4,11 +4,11 @@ entities:
   - entity: air_quality.{{ air_quality }}
     type: custom:multiple-entity-row
     name: Air Quality
-    state_header: AQI
+    state_header: P2
     entities:
-      - attribute: particulate_matter_2_5
+      - attribute: air_quality_index
         unit: "µg/m³"
-        name: P2
+        name: AQI
       - attribute: particulate_matter_10
         unit: "µg/m³"
         name: P1

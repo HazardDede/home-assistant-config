@@ -1,63 +1,60 @@
 # lovelace_gen
+{% set players = [
+    'media_player.plex_plexamp_dennis_macbook_work',
+    'media_player.plex_plex_for_alexa_alexa',
+    'media_player.plex_plex_for_alexa_alexa_2',
+    'media_player.plex_plex_for_alexa_alexa_3',
+    'media_player.plex_plex_for_alexa_alexa_4',
+    'media_player.plex_plex_for_ios_iphone_work',
+    'media_player.plex_plex_web_chrome',
+    'media_player.plex_plex_web_chrome_osx',
+    'media_player.plex_plexamp_dennis_s_mbp_fritz_box',
+    'media_player.plex_plexamp_ipad_von_dennis',
+    'media_player.plex_plexamp_iphone_work'
+  ] 
+%}
+
 title: Media
 id: media
 icon: mdi:plex
 # background: var(--background-image)
 cards:
-  - type: vertical-stack
+  - type: picture-entity
+    entity: sensor.tautulli
+    show_name: false
+    image: /local/media/plex-logo.png?v=2
+  - type: custom:mini-media-player
+    entity: media_player.plex_plexamp_hifipi
+    name: Hifi Pi
+    icon: mdi:plex
+    artwork: full-cover
+    source: icon
+    volume_stateless: true
+    scale: 1
+    hide:
+      power: true
+{% for entity_id in players %}
+  - !include
+    - ../components/plex_media_player.yaml
+    - entity_id: {{ entity_id }}
+{% endfor %}
+  - type: custom:vertical-stack-in-card
     cards:
-      - type: picture-entity
-        entity: sensor.tautulli
-        show_name: false
-        image: /local/media/plex-logo.png?v=2
-      - type: custom:mini-media-player
-        entity: media_player.plex_plexamp_hifipi
-        name: Hifi Pi
-        icon: mdi:plex
-        artwork: full-cover
-        source: icon
-        volume_stateless: true
-        scale: 1
-        hide:
-          power: true
-      - type: conditional
-        conditions:
-          - entity: media_player.plex_plex_web_chrome
-            state_not: "unavailable"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.plex_plex_web_chrome
-          icon: mdi:plex
-          artwork: cover
-          source: icon
-      - type: conditional
-        conditions:
-          - entity: media_player.plex_plex_for_alexa_alexa
-            state_not: "unavailable"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.plex_plex_for_alexa_alexa
-          icon: mdi:plex
-          artwork: cover
-          source: icon
-
-      - type: custom:vertical-stack-in-card
+      - type: markdown
+        content: "### Monitor"
+      - type: horizontal-stack
         cards:
-          - type: markdown
-            content: "### Monitor"
-          - type: horizontal-stack
-            cards:
-              - type: sensor
-                entity: sensor.plex_lan_bandwidth
-                name: LAN
-                graph: none
-              - type: sensor
-                entity: sensor.plex_wan_bandwidth
-                name: WAN
-                graph: none
-          - type: history-graph
-            hours_to_show: 6
-            refresh_interval: 30
-            entities:
-              - sensor.plex_lan_bandwidth
-              - sensor.plex_wan_bandwidth
+          - type: sensor
+            entity: sensor.plex_lan_bandwidth
+            name: LAN
+            graph: none
+          - type: sensor
+            entity: sensor.plex_wan_bandwidth
+            name: WAN
+            graph: none
+      - type: history-graph
+        hours_to_show: 6
+        refresh_interval: 30
+        entities:
+          - sensor.plex_lan_bandwidth
+          - sensor.plex_wan_bandwidth

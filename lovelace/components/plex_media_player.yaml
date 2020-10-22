@@ -1,0 +1,11 @@
+# lovelace_gen
+type: conditional
+conditions:
+  - entity: {{ entity_id }}
+    state_not: "unavailable"
+card:
+  type: media-control
+  entity: {{ entity_id }}
+  # icon: mdi:plex
+  # artwork: cover
+  # source: icon

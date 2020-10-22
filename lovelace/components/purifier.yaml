@@ -7,7 +7,6 @@ entities:
     state_header: P2
     entities:
       - attribute: air_quality_index
-        unit: "µg/m³"
         name: AQI
       - attribute: particulate_matter_10
         unit: "µg/m³"

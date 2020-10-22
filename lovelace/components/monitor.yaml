@@ -1,0 +1,21 @@
+# lovelace_gen
+type: custom:vertical-stack-in-card
+cards:
+  - type: markdown
+    content: "### {{ name }}"
+  - type: horizontal-stack
+    cards:
+{% for entity in entities %}
+      - type: sensor
+        entity: {{ entity.entity_id }}
+        name: {{ entity.name }}
+        graph: none
+{% endfor %}
+  - type: history-graph
+    hours_to_show: 6
+    refresh_interval: 30
+    entities:
+{% for entity in entities %}
+      - entity: {{ entity.entity_id }}
+        name: {{ entity.name }}
+{% endfor %}

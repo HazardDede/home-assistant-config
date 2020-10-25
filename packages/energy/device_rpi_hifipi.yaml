@@ -28,5 +28,5 @@ sensor:
     source: sensor.rpi_hifipi_current_power
     name: rpi_hifipi_power_consumption
     unit_prefix: k
-    round: 2
+    round: 1
 

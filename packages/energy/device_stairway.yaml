@@ -14,9 +14,9 @@ sensor:
         unit_of_measurement: W
         value_template: |
           {% if is_state('switch.gosund_01', 'on') %}
-            2.5
+            3.5
           {% else %}
-            0
+            1
           {% endif %}
       stairway_energy_daily_costs:
         unit_of_measurement: "€"
@@ -31,4 +31,4 @@ sensor:
     source: sensor.stairway_current_power
     name: stairway_power_consumption
     unit_prefix: k
-    round: 2
+    round: 1

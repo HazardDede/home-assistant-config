@@ -15,9 +15,9 @@ sensor:
         unit_of_measurement: W
         value_template: |
           {% if is_state('switch.433rc_brennenstuhl_a', 'on') %}
-            20
+            21
           {% else %}
-            0
+            1
           {% endif %}
       wall_energy_daily_costs:
         unit_of_measurement: "€"
@@ -32,4 +32,4 @@ sensor:
     source: sensor.wall_current_power
     name: wall_power_consumption
     unit_prefix: k
-    round: 2
+    round: 1

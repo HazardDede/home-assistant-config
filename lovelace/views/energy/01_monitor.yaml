@@ -36,6 +36,7 @@ cards:
       {{ device("TV", "tv_living", "zway_device_4_power") }}
       {{ device("Stairway", "stairway", "stairway_current_power") }}
       {{ device("Wall", "wall", "wall_current_power") }}
+      {{ device("Floor lamp", "floor_lamp", "floor_lamp_current_power") }}
       {{ device("Disc Rack", "disc_rack", "disc_rack_current_power") }}
       {{ device("Mister Wattson", "mister_wattson", "mister_wattson_current_power") }}
       {{ device("RPi Hifipi", "rpi_hifipi", "rpi_hifipi_current_power") }}

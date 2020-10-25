@@ -14,9 +14,9 @@ sensor:
         unit_of_measurement: W
         value_template: |
           {% if is_state('switch.gosund_03', 'on') %}
-            6
+            7
           {% else %}
-            0
+            1
           {% endif %}
       vintage_lamp_energy_daily_costs:
         unit_of_measurement: "€"
@@ -31,4 +31,4 @@ sensor:
     source: sensor.vintage_lamp_current_power
     name: vintage_lamp_power_consumption
     unit_prefix: k
-    round: 2
+    round: 1

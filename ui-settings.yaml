@@ -1,0 +1,6 @@
+title: System
+
+views:
+  - !include lovelace/views/system/01_alerts.yaml
+  - !include lovelace/views/system/02_monitoring.yaml
+  - !include lovelace/views/system/03_settings.yaml

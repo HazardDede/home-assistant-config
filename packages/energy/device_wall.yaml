@@ -1,0 +1,18 @@
+# Estimation of power consumption of our wall lights
+
+sensor:
+  - platform: template
+    sensors:
+      wall_current_power:
+        unit_of_measurement: W
+        value_template: |
+          {% if is_state('switch.433rc_brennenstuhl_a', 'on') %}
+            20
+          {% else %}
+            0
+          {% endif %}
+  - platform: integration
+    source: sensor.wall_current_power
+    name: wall_power_consumption
+    unit_prefix: k
+    round: 2

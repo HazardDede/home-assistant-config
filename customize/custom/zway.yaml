@@ -50,13 +50,13 @@ sensor.zway_device_13_consumption:
   friendly_name: "Washing machine"
 
 switch.zway_device_17:
-  friendly_name: "Refrigerator"
+  friendly_name: "Goker"
 
 sensor.zway_device_17_power:
-  friendly_name: "Refrigerator"
+  friendly_name: "Goker"
 
 sensor.zway_device_17_consumption:
-  friendly_name: "Refrigerator"
+  friendly_name: "Goker"
 
 binary_sensor.zway_device_19:
   friendly_name: "Motion (nursery)"

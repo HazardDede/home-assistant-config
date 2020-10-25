@@ -1,0 +1,11 @@
+# Configurable energy tariff
+
+input_number:
+  energy_tariff:
+    name: Energy €ct/kWh
+    mode: box
+    min: 1
+    max: 100
+    step: 1
+    icon: mdi:currency-eur
+    unit_of_measurement: €ct

@@ -1,0 +1,121 @@
+# Applies the power tariff to the power meters to estimate the costs in €
+
+sensor:
+  - platform: template
+    sensors:
+      bezzera_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.bezzera_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      bezzera_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.bezzera_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      washing_machine_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.washing_machine_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      washing_machine_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.washing_machine_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      desk_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.desk_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      desk_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.desk_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      tv_living_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.tv_living_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      tv_living_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.tv_living_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      tv_bedroom_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.tv_bedroom_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      tv_bedroom_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.tv_bedroom_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      goker_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.goker_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      goker_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.goker_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      refrigerator_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.refrigerator_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      refrigerator_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.refrigerator_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      wall_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.wall_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      wall_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.wall_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      disc_rack_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.disc_rack_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      disc_rack_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.disc_rack_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      mister_wattson_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.mister_wattson_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      mister_wattson_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.mister_wattson_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      stairway_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.stairway_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      stairway_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.stairway_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      vintage_lamp_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.vintage_lamp_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      vintage_lamp_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.vintage_lamp_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+      fritzbox_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.fritzbox_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      fritzbox_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.fritzbox_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}

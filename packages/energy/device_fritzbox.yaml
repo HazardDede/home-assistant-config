@@ -1,0 +1,14 @@
+# Estimation of power consumption of our Fritz!Box
+
+sensor:
+  - platform: template
+    sensors:
+      fritzbox_current_power:
+        unit_of_measurement: W
+        value_template: |
+          {{ states('sensor.time') and range(6, 9) | random | float }}
+  - platform: integration
+    source: sensor.fritzbox_current_power
+    name: fritzbox_power_consumption
+    unit_prefix: k
+    round: 2

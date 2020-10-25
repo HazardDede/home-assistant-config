@@ -1,0 +1,5 @@
+title: Energy
+
+views:
+  - !include lovelace/views/energy/01_monitor.yaml
+  - !include lovelace/views/energy/02_settings.yaml

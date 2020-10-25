@@ -1,0 +1,14 @@
+# Estimation of power consumption of our refrigerator
+
+sensor:
+  - platform: template
+    sensors:
+      refrigerator_current_power:
+        unit_of_measurement: W
+        value_template: |
+          {{ states('sensor.time') and range(35, 45) | random | float }}
+  - platform: integration
+    source: sensor.refrigerator_current_power
+    name: refrigerator_power_consumption
+    unit_prefix: k
+    round: 2

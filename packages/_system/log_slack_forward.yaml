@@ -4,6 +4,8 @@
 
 automation:
   - alias: "System Log: Forward to slack"
+    mode: parallel
+    max: 25
     trigger:
       platform: event
       event_type: system_log_event

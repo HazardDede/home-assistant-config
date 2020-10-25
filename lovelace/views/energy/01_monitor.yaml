@@ -1,0 +1,56 @@
+# lovelace_gen
+
+{% macro device(label, meter_prefix, sensor_power) -%}
+      - type: section
+        label: {{ label }}
+      - entity: sensor.{{ meter_prefix }}_energy_daily
+        type: custom:multiple-entity-row
+        name: Today
+        state_header: Cons.
+        entities:
+          - entity: sensor.{{ sensor_power }}
+            name: Current
+          - entity: sensor.{{ meter_prefix }}_energy_daily_costs
+            name: Costs
+      - entity: sensor.{{ meter_prefix }}_energy_monthly
+        type: custom:multiple-entity-row
+        name: Month
+        state_header: Cons.
+        entities:
+          - entity: sensor.{{ meter_prefix }}_energy_monthly_costs
+            name: Costs
+{%- endmacro %}
+
+title: Energy Monitor
+id: energy_monitor
+icon: mdi:flash-circle
+cards:
+  - type: entities
+    title: Kitchen
+    entities:
+      {{ device("Bezzera BZ10", "bezzera", "zway_device_20_power") }}
+      {{ device("Refrigerator", "refrigerator", "refrigerator_current_power") }}
+  - type: entities
+    title: Living
+    entities:
+      {{ device("TV", "tv_living", "zway_device_4_power") }}
+      {{ device("Stairway", "stairway", "stairway_current_power") }}
+      {{ device("Wall", "wall", "wall_current_power") }}
+      {{ device("Disc Rack", "disc_rack", "disc_rack_current_power") }}
+      {{ device("Mister Wattson", "mister_wattson", "mister_wattson_current_power") }}
+  - type: entities
+    title: Bath (Ground floor)
+    entities:
+      {{ device("Washing machine", "washing_machine", "zway_device_13_power") }}
+  - type: entities
+    title: Gallery
+    entities:
+      {{ device("Purifier", "goker", "zway_device_17_power") }}
+      {{ device("Desk", "desk", "zway_device_5_power") }}
+      {{ device("Fritz!Box", "fritzbox", "fritzbox_current_power") }}
+      {{ device("Vintage lamp", "vintage_lamp", "vintage_lamp_current_power") }}
+  - type: entities
+    title: Bedroom
+    entities:
+      {{ device("TV", "tv_bedroom", "zway_device_21_power") }}
+

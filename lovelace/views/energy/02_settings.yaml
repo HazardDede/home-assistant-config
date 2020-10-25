@@ -1,0 +1,8 @@
+# lovelace_gen
+title: Energy Settings
+id: energy_settings
+icon: mdi:cog
+cards:
+  - type: entities
+    entities:
+      - input_number.energy_tariff

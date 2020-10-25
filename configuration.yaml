@@ -73,18 +73,25 @@ lovelace:
     - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
       type: module
   dashboards:
-    lovelace-yaml:
-      mode: yaml
-      title: Overview
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      filename: ui-lovelace.yaml
     lovelace-generated:
       mode: yaml
       filename: notexist.yaml
       title: Generated
       icon: mdi:tools
       show_in_sidebar: true
+      require_admin: true
+    lovelace-energy:
+      mode: yaml
+      title: Energy
+      icon: mdi:power-plug-outline
+      show_in_sidebar: true
+      filename: ui-energy.yaml
+    lovelace-settings:
+      mode: yaml
+      title: Settings
+      icon: mdi:cog
+      show_in_sidebar: true
+      filename: ui-settings.yaml
       require_admin: true
 
 # Enables configuration UI

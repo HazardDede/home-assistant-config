@@ -4,7 +4,7 @@ binary_sensor:
     name: zway_device_17
     payload_on: "on"
     payload_off: "off"
-    device_class: light
+    device_class: plug
 
 sensor:
   - platform: mqtt
@@ -35,7 +35,7 @@ switch:
             device_id: 17
         icon_template: >-
           {% if is_state('binary_sensor.zway_device_17', 'on') %}
-            mdi:lightbulb-on-outline
+            mdi:air-purifier
           {% else %}
-            mdi:lightbulb-outline
+            mdi:air-purifier
           {% endif %}

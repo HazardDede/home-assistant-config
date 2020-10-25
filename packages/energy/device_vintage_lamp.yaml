@@ -6,7 +6,7 @@ sensor:
       vintage_lamp_current_power:
         unit_of_measurement: W
         value_template: |
-          {% if is_state('switch.gosund_04', 'on') %}
+          {% if is_state('switch.gosund_03', 'on') %}
             6
           {% else %}
             0

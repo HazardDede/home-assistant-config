@@ -1,5 +1,13 @@
 # Estimation of power consumption of our wall lights
 
+utility_meter:
+  disc_rack_energy_daily:
+    source: sensor.disc_rack_power_consumption
+    cycle: daily
+  disc_rack_energy_monthly:
+    source: sensor.disc_rack_power_consumption
+    cycle: monthly
+
 sensor:
   - platform: template
     sensors:
@@ -11,6 +19,15 @@ sensor:
           {% else %}
             0
           {% endif %}
+      disc_rack_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.disc_rack_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      disc_rack_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.disc_rack_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
   - platform: integration
     source: sensor.disc_rack_current_power
     name: disc_rack_power_consumption

@@ -1,0 +1,32 @@
+# Estimation of power consumption of the raspi hifipi
+
+utility_meter:
+  rpi_hifipi_energy_daily:
+    source: sensor.rpi_hifipi_power_consumption
+    cycle: daily
+  rpi_hifipi_energy_monthly:
+    source: sensor.rpi_hifipi_power_consumption
+    cycle: monthly
+
+sensor:
+  - platform: template
+    sensors:
+      rpi_hifipi_current_power:
+        unit_of_measurement: W
+        value_template: |
+          {{ states('sensor.time') and range(20, 30) | random | float / 10 }}
+      rpi_hifipi_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.rpi_hifipi_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      rpi_hifipi_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.rpi_hifipi_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
+  - platform: integration
+    source: sensor.rpi_hifipi_current_power
+    name: rpi_hifipi_power_consumption
+    unit_prefix: k
+    round: 2
+

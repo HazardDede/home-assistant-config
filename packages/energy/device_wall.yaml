@@ -1,5 +1,13 @@
 # Estimation of power consumption of our wall lights
 
+utility_meter:
+  wall_energy_daily:
+    source: sensor.wall_power_consumption
+    cycle: daily
+  wall_energy_monthly:
+    source: sensor.wall_power_consumption
+    cycle: monthly
+
 sensor:
   - platform: template
     sensors:
@@ -11,6 +19,15 @@ sensor:
           {% else %}
             0
           {% endif %}
+      wall_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.wall_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      wall_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.wall_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
   - platform: integration
     source: sensor.wall_current_power
     name: wall_power_consumption

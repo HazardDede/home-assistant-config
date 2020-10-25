@@ -1,0 +1,19 @@
+utility_meter:
+  bezzera_energy_daily:
+    source: sensor.zway_device_20_consumption
+    cycle: daily
+  bezzera_energy_monthly:
+    source: sensor.zway_device_20_consumption
+    cycle: monthly
+
+sensor:
+  - platform: template
+    sensors:
+      bezzera_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.bezzera_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      bezzera_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.bezzera_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}

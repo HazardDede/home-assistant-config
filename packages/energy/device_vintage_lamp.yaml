@@ -1,4 +1,11 @@
 # Estimation of power consumption of our wall lights
+utility_meter:
+  vintage_lamp_energy_daily:
+    source: sensor.vintage_lamp_power_consumption
+    cycle: daily
+  vintage_lamp_energy_monthly:
+    source: sensor.vintage_lamp_power_consumption
+    cycle: monthly
 
 sensor:
   - platform: template
@@ -11,6 +18,15 @@ sensor:
           {% else %}
             0
           {% endif %}
+      vintage_lamp_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.vintage_lamp_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      vintage_lamp_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.vintage_lamp_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
   - platform: integration
     source: sensor.vintage_lamp_current_power
     name: vintage_lamp_power_consumption

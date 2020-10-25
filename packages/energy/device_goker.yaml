@@ -1,0 +1,19 @@
+utility_meter:
+  goker_energy_daily:
+    source: sensor.zway_device_17_consumption
+    cycle: daily
+  goker_energy_monthly:
+    source: sensor.zway_device_17_consumption
+    cycle: monthly
+
+sensor:
+  - platform: template
+    sensors:
+      goker_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.goker_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      goker_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.goker_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}

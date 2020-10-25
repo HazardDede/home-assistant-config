@@ -1,4 +1,11 @@
 # Estimation of power consumption of our wall lights
+utility_meter:
+  mister_wattson_energy_daily:
+    source: sensor.mister_wattson_power_consumption
+    cycle: daily
+  mister_wattson_energy_monthly:
+    source: sensor.mister_wattson_power_consumption
+    cycle: monthly
 
 sensor:
   - platform: template
@@ -11,6 +18,15 @@ sensor:
           {% else %}
             0
           {% endif %}
+      mister_wattson_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.mister_wattson_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      mister_wattson_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.mister_wattson_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+
   - platform: integration
     source: sensor.mister_wattson_current_power
     name: mister_wattson_power_consumption

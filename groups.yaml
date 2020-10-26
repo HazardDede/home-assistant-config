@@ -6,7 +6,7 @@ lights_living:
     - switch.gosund_01  # Treppenlicht
     - switch.gosund_02  # Filmregal
 
-entrance_lights:
+lights_entrance:
   name: "Entrance lights"
   entities:
     - switch.gosund_01  # Treppenlicht

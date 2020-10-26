@@ -1,13 +1,13 @@
 scene:
   - name: lights_all_off
     entities:
-      group.lights_living: off
-      group.lights_nursery: off
-      group.lights_bedroom: off
+      group.lights_living: "off"
+      group.lights_nursery: "off"
+      group.lights_bedroom: "off"
   - name: light_living_cinematic
     entities:
-      switch.zway_device_4: on  # TV
-      switch.gosund_03: on  # Vintage lamp
+      switch.zway_device_4: "on"  # TV
+      switch.gosund_03: "on"  # Vintage lamp
       light.zway_device_22:  # Couch lamp
-        state: on
+        state: "on"
         brightness: 30

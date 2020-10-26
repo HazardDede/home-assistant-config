@@ -15,4 +15,4 @@
       value_template: "{{ not is_state('sensor.jennifer_status', 'Home') }}"
   action:
     - service: homeassistant.turn_on
-      entity_id: group.entrance_lights
+      entity_id: group.lights_entrance

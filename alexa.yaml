@@ -41,3 +41,6 @@ entities:
   switch.rocky:
     name: "Rocky"
     hidden: false
+  script.night_mode:
+    name: "Nachtmodus"
+    hidden: false

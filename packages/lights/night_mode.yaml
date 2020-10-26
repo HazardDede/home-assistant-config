@@ -1,0 +1,36 @@
+# Enables the scene "Night Mode". It will prepare the household for bedtime.
+# Turns off any unnecessary lights and just a few necessary ones
+# Turns out the necessary ones after one hour
+
+script:
+  night_mode:
+    alias: "Night mode"
+    mode: restart
+    sequence:
+      - service: homeassistant.turn_off
+        data_template:
+          # Turn off every light except Galerielampe and Treppe
+          entity_id: >
+            {%- set exclude = ['switch.gosund_03', 'switch.gosund_01'] %}
+            {%- set lights = namespace(value=[]) -%}
+            {%- for grp in states.group %}
+              {%- if grp.entity_id.startswith('group.lights') %}
+                {%- for light_entity in grp.attributes.entity_id %}
+                  {%- if light_entity not in exclude %}
+                    {%- set lights.value = lights.value + [light_entity] %}
+                  {% endif %}
+                {%- endfor %}
+              {%- endif%}
+            {%- endfor %}
+            {{ ",".join(lights.value | unique) }}
+      - service: homeassistant.turn_on
+        data:
+          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe
+      - service: dyson.set_speed  # Slow down purifier
+        data:
+          dyson_speed: 1
+          entity_id: fan.goker
+      - delay: '01:00'  # One hour
+      - service: homeassistant.turn_off
+        data:
+          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe

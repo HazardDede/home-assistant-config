@@ -1,0 +1,5 @@
+vacuum:
+  - platform: xiaomi_miio
+    name: Rocky
+    host: !secret rocky_local_ip
+    token: !secret rocky_token

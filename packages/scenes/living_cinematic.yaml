@@ -1,0 +1,8 @@
+scene:
+  - name: light_living_cinematic
+    entities:
+      switch.zway_device_4: "on"  # TV
+      switch.gosund_03: "on"  # Vintage lamp
+      light.zway_device_22:  # Couch lamp
+        state: "on"
+        brightness: 30

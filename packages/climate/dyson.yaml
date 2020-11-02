@@ -1,7 +1,0 @@
-dyson:
-  username: !secret dyson_link_user
-  password: !secret dyson_link_pwd
-  language: DE
-  devices:
-    device_id: !secret dyson_goker_serial
-    device_ip: !secret dyson_goker_ip

@@ -1,0 +1,7 @@
+title: Health
+
+views:
+  - !include lovelace/views/health/01_health.yaml
+  - !include lovelace/views/health/02_alerts.yaml
+  - !include lovelace/views/health/03_monitoring.yaml
+  - !include lovelace/views/health/04_settings.yaml

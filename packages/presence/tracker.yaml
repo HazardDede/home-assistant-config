@@ -1,9 +1,0 @@
-# Fritz!Box mqtt tracker for personal devices
-# Will be used to consider if somebody is home or not
-device_tracker:
-  - platform: mqtt
-    devices:
-      dennis_phone: 'tracker/C0:E8:62:31:2C:7A'
-      jennifer_phone: 'tracker/D0:C5:F3:6A:91:13'
-    qos: 1
-    source_type: router

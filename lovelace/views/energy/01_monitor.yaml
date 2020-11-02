@@ -39,8 +39,6 @@ cards:
       {{ device("Floor lamp", "floor_lamp", "floor_lamp_current_power") }}
       {{ device("Disc Rack", "disc_rack", "disc_rack_current_power") }}
       {{ device("Mister Wattson", "mister_wattson", "mister_wattson_current_power") }}
-      {{ device("RPi Hifipi", "rpi_hifipi", "rpi_hifipi_current_power") }}
-      {{ device("RPi motion02", "rpi_motion02", "rpi_motion02_current_power") }}
   - type: entities
     title: Bath (Ground floor)
     entities:
@@ -50,11 +48,7 @@ cards:
     entities:
       {{ device("Purifier", "goker", "zway_device_17_power") }}
       {{ device("Desk", "desk", "zway_device_5_power") }}
-      {{ device("Fritz!Box", "fritzbox", "fritzbox_current_power") }}
       {{ device("Vintage lamp", "vintage_lamp", "vintage_lamp_current_power") }}
-      {{ device("RPi Zway", "rpi_zway", "rpi_zway_current_power") }}
-      {{ device("RPi stack01", "rpi_stack01", "rpi_stack01_current_power") }}
-      {{ device("RPi stack02", "rpi_stack02", "rpi_stack02_current_power") }}
   - type: entities
     title: Bedroom
     entities:

@@ -1,0 +1,11 @@
+automation:
+  - alias: 'Purifier: Turn on AUTO mode in the morning'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '00:15:00'
+    action: 
+      service: dyson.set_auto_mode
+      data:
+        auto_mode: true
+        entity_id: fan.goker

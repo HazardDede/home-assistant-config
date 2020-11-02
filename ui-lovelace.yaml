@@ -3,10 +3,7 @@ title: Humletorp
 views:
   - !include lovelace/views/01_dashboard.yaml
   - !include lovelace/views/02_home.yaml
-  - !include lovelace/views/03_family.yaml
-  - !include lovelace/views/04_health.yaml
-  - !include lovelace/views/05_climate.yaml
-  - !include lovelace/views/06_outdoor.yaml
-  - !include lovelace/views/07_cctv.yaml
-  - !include lovelace/views/08_flower.yaml
-  - !include lovelace/views/09_media.yaml
+  - !include lovelace/views/03_media.yaml
+  - !include lovelace/views/04_climate.yaml
+  - !include lovelace/views/05_cctv.yaml
+  - !include lovelace/views/06_flower.yaml

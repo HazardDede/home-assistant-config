@@ -1,0 +1,17 @@
+sensor:
+  - platform: yr
+    name: weather
+    monitored_conditions:
+      - symbol
+      - cloudiness
+
+homeassistant:
+  customize:
+    sensor.weather_cloudiness:
+      friendly_name: Cloudiness
+      icon: mdi:cloud-outline
+    
+    sensor.weather_symbol:
+      friendly_name: Weather
+
+    

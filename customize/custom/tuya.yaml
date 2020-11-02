@@ -1,0 +1,15 @@
+switch.gosund_01:
+  friendly_name: "Stairway"
+  icon: mdi:stairs
+
+switch.gosund_02:
+  friendly_name: "Disc-Rack"
+  icon: mdi:disc
+
+switch.gosund_03:
+  friendly_name: "Vintage lamp"
+  icon: mdi:floor-lamp-variant
+
+switch.gosund_04:
+  friendly_name: "Mr. Wattson"
+  icon: mdi:desk-lamp

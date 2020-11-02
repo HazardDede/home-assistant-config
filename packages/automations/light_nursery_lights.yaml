@@ -1,0 +1,27 @@
+automation:
+  - alias: "Nursery lights: Turn on when there is movement"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.zway_device_19
+      to: 'on'
+    condition:
+      condition: numeric_state
+      entity_id: sensor.zway_device_19_illumination
+      below: 5
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.433rc_generic02
+      - service: homeassistant.turn_on
+        entity_id: switch.433rc_generic01
+  - alias: "Nursery lights: Turn off some minutes after last movement"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.zway_device_19
+      to: 'off'
+      for:
+        minutes: 2
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.433rc_generic02
+      - service: homeassistant.turn_off
+        entity_id: switch.433rc_generic01

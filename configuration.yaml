@@ -88,10 +88,10 @@ lovelace:
       filename: ui-energy.yaml
     lovelace-settings:
       mode: yaml
-      title: Settings
-      icon: mdi:cog
+      title: Health
+      icon: mdi:heart-pulse
       show_in_sidebar: true
-      filename: ui-settings.yaml
+      filename: ui-health.yaml
       require_admin: true
 
 # Enables configuration UI
@@ -159,7 +159,7 @@ person:
       - device_tracker.iphone_von_jennifer  # iOS App
 
 # Groups
-group: !include groups.yaml
+#  !include groups.yaml
 
 # Cloud
 cloud:

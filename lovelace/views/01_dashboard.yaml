@@ -106,6 +106,19 @@ cards:
   - type: vertical-stack
     cards:
       - type: markdown
+        content: "### Family"
+      - type: entities
+        state_color: true
+        entities:
+          - person.jennifer
+          - sensor.jonathan_status
+          - person.dennis
+          - binary_sensor.somebody_home
+          - input_boolean.notify_nobody_at_home
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
         content: "### Traffic & Vacation"
       - type: entities
         entities:

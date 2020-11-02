@@ -1,0 +1,223 @@
+###########################################################
+# Bin status
+###########################################################
+
+binary_sensor:
+  - platform: template
+    sensors:
+      # The vacuum cleaner has multiple states that indicate that the device is running...
+      # Unfortunately not all of them mark them as 'on', so we need to create our own 'on' state.
+      # Optional: Do not show this helping sensor in your frotend
+      pumbaa_running:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'status')|default('charging', True)|lower in ['running', 'user docking', 'docking', 'end mission'] }}
+      # Logic that marks the bin as full
+      pumbaa_bin_full:
+        # Cleaning time is greater equal to x hours
+        value_template: >-
+          {{ states('counter.pumbaa_running_time')|int >= (12 * 60) }}
+      # Switches to 'on' if the attribute 'error' appears on the entity
+      pumbaa_error_alert:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'error') is not none }}
+
+counter:
+  pumbaa_running_time:
+    initial: 0
+    step: 1
+
+input_datetime:
+  pumbaa_last_bin_cleaning:
+    name: Last bin cleaning
+    has_date: true
+    has_time: true
+
+script:
+  # Shortcut to set the last cleaning time to now()
+  pumbaa_set_bin_clean:
+    sequence:
+      - service: counter.reset
+        entity_id: counter.pumbaa_running_time
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.pumbaa_last_bin_cleaning
+          date: "{{ now().strftime('%Y-%m-%d') }}"
+          time: '{{ now().strftime("%H:%M:00") }}'
+
+sensor:
+  - platform: template
+    sensors:
+      pumbaa_state:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'status') }}
+      pumbaa_running_time:
+        value_template: >
+            {% set ct = states('counter.pumbaa_running_time') | int %}
+            {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }} hours{% else %}{{ct}} minutes{% endif %}
+      pumbaa_battery:
+        value_template: >-
+          {{ state_attr('vacuum.pumbaa', 'battery_level')|default(0, True)|int }}
+        device_class: battery
+        unit_of_measurement: "%"
+      pumbaa_battery_status:
+        value_template: >-
+          {% if states('sensor.pumbaa_battery') == 'unknown' %}
+            unknown
+          {% else %}
+            {% if states('sensor.pumbaa_battery')|int <= 30 %}
+              low
+            {% elif states('sensor.pumbaa_battery')|int <= 55 %}
+              medium
+            {% else %}
+              high
+            {% endif %}
+          {% endif %}
+      pumbaa_last_bin_cleaning:
+        friendly_name: Last bin cleaning
+        icon_template: mdi:calendar-clock
+        device_class: timestamp
+        value_template: >-
+          {{ states.input_datetime.pumbaa_last_bin_cleaning.state[:10] }}T{{ states.input_datetime.pumbaa_last_bin_cleaning.state[11:] }}+02:00
+
+
+###########################################################
+# Notifications
+###########################################################
+
+alert:
+  # Does the actual alerting when the device's bin is full based
+  # on the rule of binary_sensor.pumbaa_bin_full
+  pumbaa_bin_full:
+    name: 'Pumbaa''s stomach is full'
+    done_message: 'Pumbaa is hungry again...'
+    entity_id: binary_sensor.pumbaa_bin_full
+    state: 'on'
+    repeat: 720  # Renotify every 12h
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - all
+  pumbaa_error:
+    name: 'Pumbaa is stuck and needs your help!'
+    entity_id: binary_sensor.pumbaa_error_alert
+    state: 'on'
+    repeat: 120  # Renotify every 2h
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - all
+  pumbaa_battery_low:
+    name: 'Pumbaa''s battery is low'
+    entity_id: input_boolean.pumbaa_battery_alert
+    state: 'on'
+    repeat: 60  # Renotify every hour
+    can_acknowledge: False
+    skip_first: False
+    notifiers:
+      - all
+
+###########################################################
+# Automatic startup in the night
+###########################################################
+
+input_boolean:
+  pumbaa_nightly_run:
+    name: Nightly run
+    icon: mdi:weather-night
+  pumbaa_battery_alert:
+
+# We need this to be a switch to "behave" this correctly in the ui
+switch:
+  - platform: template
+    switches:
+      pumbaa_nightly_run:
+        value_template: "{{ is_state('input_boolean.pumbaa_nightly_run', 'on') }}"
+        icon_template: mdi:weather-night
+        turn_on:
+          service: homeassistant.turn_on
+          data:
+            entity_id: input_boolean.pumbaa_nightly_run
+        turn_off:
+          service: homeassistant.turn_off
+          data:
+            entity_id: input_boolean.pumbaa_nightly_run
+
+automation:
+  - alias: "Pumbaa: Reset Nightly Run"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '04:00:00'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.pumbaa_nightly_run
+  - alias: "Pumbaa: Run nightly"
+    trigger:
+      # Run two times to make sure everything is cleaned up well
+      - platform: time
+        at: '01:30:00'
+      # sometimes pumbaa only cleans a short period of time (< 30 mins)
+      # Just re-run in such a case
+      - platform: time
+        at: '02:30:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.pumbaa_nightly_run
+        state: 'on'
+      # Not already running
+      - condition: state
+        entity_id: binary_sensor.pumbaa_running
+        state: 'off'
+      # Make sure battery is in good shape
+      - condition: template
+        value_template: "{{ state_attr('vacuum.pumbaa', 'battery_level')|default(100, True)|int >= 80 }}"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: vacuum.pumbaa
+  - alias: 'Pumbaa: Increment counter when running'
+    initial_state: True
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+        seconds: 0
+    condition:
+      condition: state
+      entity_id: binary_sensor.pumbaa_running
+      state: 'on'
+    action:
+      - service: counter.increment
+        entity_id: counter.pumbaa_running_time
+  - alias: 'Pumbaa: Call home after work'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: binary_sensor.pumbaa_running
+      from: "off"
+      to: "on"
+      for: "01:00:00"
+    action:
+      - service: vacuum.stop
+        entity_id: vacuum.pumbaa
+      - delay: '00:00:10'
+      - service: vacuum.return_to_base
+        entity_id: vacuum.pumbaa
+  - alias: 'Pumbaa: Set low battery alert flag'
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.pumbaa_battery
+      below: 90
+      for:
+        hours: 3
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.pumbaa_battery_alert
+  - alias: 'Pumbaa: Unset low battery alert flag'
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.pumbaa_battery
+      above: 90
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.pumbaa_battery_alert

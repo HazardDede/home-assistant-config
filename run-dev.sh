@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# mv packages/_system/guest_wifi.yaml packages/_system/guest_wifi.yaml.ignore
-mv packages/vacuum/pumbaa.yaml packages/vacuum/pumbaa.yaml.ignore
+mv packages/hubs/roomba.yaml packages/hubs/roomba.yaml.ignore
+mv packages/logic/vacuum_pumbaa.yaml packages/logic/vacuum_pumbaa.ignore
+mv packages/hubs/homeconnect.yaml packages/hubs/homeconnect.yaml.ignore
 
 docker-compose -f ./.dev/docker-compose.yaml up hass $@
 docker-compose -f ./.dev/docker-compose.yaml stop hass $@
 docker-compose -f ./.dev/docker-compose.yaml down
 
-# mv packages/_system/guest_wifi.yaml.ignore packages/_system/guest_wifi.yaml
-mv packages/vacuum/pumbaa.yaml.ignore packages/vacuum/pumbaa.yaml
+mv packages/logic/vacuum_pumbaa.ignore packages/logic/vacuum_pumbaa.yaml
+mv packages/hubs/roomba.yaml.ignore packages/hubs/roomba.yaml
+mv packages/hubs/homeconnect.yaml.ignore packages/hubs/homeconnect.yaml

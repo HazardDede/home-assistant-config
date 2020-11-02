@@ -115,7 +115,30 @@ cards:
           - person.dennis
           - binary_sensor.somebody_home
           - input_boolean.notify_nobody_at_home
-
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: "### Guest Wifi"
+    - type: custom:layout-card
+      layout: horizontal
+      column_num: 2
+      max_columns: 2
+      max_width: [81%, 20%]
+      cards:
+      - id: settings_guest_wifi_info
+        type: markdown
+        content: >
+          SSID: **Humletorp Gastzugang**
+          
+          Key: **welcome1!**
+      - id: settings_guest_wifi_button
+        type: custom:button-card
+        entity: input_boolean.guestwifi
+        show_name: false
+        show_state: false
+        size: 100%
+        lock: 
+          enabled: true
   - type: vertical-stack
     cards:
       - type: markdown

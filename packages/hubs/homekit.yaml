@@ -1,4 +1,0 @@
-homekit:
-  filter:
-    include_entity_globs:
-      - "switch.gosund_*"

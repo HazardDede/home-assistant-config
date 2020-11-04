@@ -2,4 +2,4 @@ name: Work (G+J)
 latitude: !secret work_gj_latitude
 longitude: !secret work_gj_longitude
 radius: 115
-icon: mdi:worker
+icon: mdi:account-hard-hat

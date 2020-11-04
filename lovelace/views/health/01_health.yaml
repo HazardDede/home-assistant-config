@@ -13,21 +13,25 @@ cards:
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.gelbe_tonne
           format: datetime
       - entity: sensor.biotonne
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.biotonne
           format: datetime
       - entity: sensor.papiertonne
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.papiertonne
           format: datetime
       - entity: sensor.restabfall_2wo
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.restabfall_2wo
           format: datetime
   - id: health_bezzera
     type: entities
@@ -38,12 +42,14 @@ cards:
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.bezzera_last_cleaning
           format: datetime
       - entity: sensor.bezzera_next_cleaning
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
         format: relative
         secondary_info:
+          entity: sensor.bezzera_next_cleaning
           format: datetime
       - entity: script.bezzera_set_last_cleaning
         name: "Cleaned"
@@ -52,12 +58,14 @@ cards:
         type: custom:multiple-entity-row
         format: relative
         secondary_info:
+          entity: sensor.bezzera_last_filter_replacement
           format: datetime
       - entity: sensor.bezzera_next_filter_replacement
         type: custom:multiple-entity-row
         icon: mdi:calendar-clock
         format: relative
         secondary_info:
+          entity: sensor.bezzera_next_filter_replacement
           format: datetime
       - entity: script.bezzera_set_last_filter_replacement
         name: "Filter replaced"
@@ -81,6 +89,7 @@ cards:
             type: custom:multiple-entity-row
             format: relative
             secondary_info:
+              entity: sensor.pumbaa_last_bin_cleaning
               format: datetime
           - entity: script.pumbaa_set_bin_clean
             name: "Cleaned the bin"
@@ -103,6 +112,7 @@ cards:
             type: custom:multiple-entity-row
             format: relative
             secondary_info:
+              entity: sensor.rocky_last_bin_cleaning
               format: datetime
           - entity: script.rocky_set_bin_clean
             name: "Cleaned the bin"

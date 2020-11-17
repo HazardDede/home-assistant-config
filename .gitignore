@@ -41,3 +41,6 @@ www/community
 
 # Testing stuff
 sandbox/
+
+# Archive
+.archive/

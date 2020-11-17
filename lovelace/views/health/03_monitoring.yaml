@@ -9,7 +9,7 @@ cards:
     title: System
     show_header_toggle: False
     entities:
-      - sensor.processor_use
+      - sensor.processor_use_percent
       - sensor.memory_use_percent
       - sensor.disk_use_percent
       - sensor.swap_use_percent

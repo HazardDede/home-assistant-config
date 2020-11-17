@@ -134,6 +134,3 @@ cards:
       temperature: sensor.weather_temperature
       labeled_states: 
         - sensor.weather_humidity
-        - sensor.weather_cloudiness
-      switches: 
-        - sensor.weather_symbol

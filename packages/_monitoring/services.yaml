@@ -11,8 +11,8 @@ binary_sensor:
   - platform: template
     sensors:
       services_down_alert:
-        entity_id: sensor.time
         value_template: >-
+          {% set _ = states('sensor.time') -%}
           {% set service_states = namespace(value=[]) -%}
           {% for entity in states.binary_sensor -%}
             {% if entity.entity_id.startswith('binary_sensor.service_') -%}

@@ -18,10 +18,8 @@ sensor:
         friendly_name: "Last updated"
         unit_of_measurement: mins ago
         value_template: >-
-          {% if states.sensor.miflora07_lastpull %}
+          {% if states('sensor.time') and states.sensor.miflora07_lastpull %}
             {{ (as_timestamp(utcnow()) - as_timestamp(strptime(states.sensor.miflora07_lastpull.state, '%Y-%m-%dT%H:%M:%S.%f'))) | int // 60 }}
           {% else %}
             unknown
           {% endif %}
-        entity_id:
-          - sensor.time

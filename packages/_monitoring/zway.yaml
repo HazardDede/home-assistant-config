@@ -2,10 +2,10 @@ sensor:
   - platform: template
     sensors:
       zway_last_sensor_update:
-        entity_id: sensor.time
         unit_of_measurement: minutes
         icon_template: mdi:alarm-snooze
         value_template: >-
+          {%- set _ = states('sensor.time') -%}
           {% set updates = namespace(value=[]) %}
           {%- for entity in states.binary_sensor %}
             {%- if entity.entity_id.startswith('binary_sensor.zway_') and entity.attributes.device_class == 'motion' %}

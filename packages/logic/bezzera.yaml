@@ -65,11 +65,8 @@ binary_sensor:
   - platform: template
     sensors:
       bezzera_next_cleaning_alert:
-        entity_id:
-          - sensor.time
-          - sensor.bezzera_next_cleaning
         value_template: >-
-          {% if states('sensor.bezzera_next_cleaning') != 'unknown' %}
+          {% if states('sensor.time') and states('sensor.bezzera_next_cleaning') != 'unknown' %}
               {{ as_timestamp(states('sensor.bezzera_next_cleaning')) <= as_timestamp(now()) }}
           {% else %}
               False
@@ -78,11 +75,8 @@ binary_sensor:
   - platform: template
     sensors:
       bezzera_next_filter_replacement_alert:
-        entity_id:
-          - sensor.time
-          - sensor.bezzera_next_filter_replacement
         value_template: >-
-          {% if states('sensor.bezzera_next_filter_replacement') != 'unknown' %}
+          {% if states('sensor.time') and states('sensor.bezzera_next_filter_replacement') != 'unknown' %}
               {{ as_timestamp(states('sensor.bezzera_next_filter_replacement')) <= as_timestamp(now()) }}
           {% else %}
               False

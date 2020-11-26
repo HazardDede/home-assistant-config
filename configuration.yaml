@@ -169,6 +169,9 @@ emulated_hue: !include alexa.yaml
 # Groups and automation
 automation: !include_dir_merge_list automations
 
+# Enable python scripts
+python_script:
+
 # Additional side panel stuff
 # panel_iframe:
 #   grafana:

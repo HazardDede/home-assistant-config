@@ -1,0 +1,19 @@
+utility_meter:
+  dishwasher_energy_daily:
+    source: sensor.shelly_plug_s_shellyplug01_energy_0
+    cycle: daily
+  dishwasher_energy_monthly:
+    source: sensor.shelly_plug_s_shellyplug01_energy_0
+    cycle: monthly
+
+sensor:
+  - platform: template
+    sensors:
+      dishwasher_energy_daily_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.dishwasher_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      dishwasher_energy_monthly_costs:
+        unit_of_measurement: "€"
+        value_template: |
+          {{ ((states.sensor.dishwasher_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}

@@ -45,7 +45,7 @@ cards:
           - entity: sensor.weather_temperature
             name: Outdoor
             icon: mdi:cloud-circle
-          - entity: sensor.shellyht_01_temperature
+          - entity: sensor.shelly_h_t_shellyht01_temperature
             type: custom:multiple-entity-row
             name: Indoor
             state_header: Living
@@ -60,7 +60,7 @@ cards:
           - entity: sensor.weather_humidity
             name: Outdoor
             icon: mdi:cloud-circle
-          - entity: sensor.shellyht_01_humidity
+          - entity: sensor.shelly_h_t_shellyht01_humidity
             type: custom:multiple-entity-row
             name: Indoor
             state_header: Living

@@ -1,5 +1,5 @@
-sensor.shellyht_01_temperature:
+sensor.shelly_h_t_shellyht01_temperature:
   friendly_name: Living
 
-sensor.shellyht_01_humidity:
+sensor.shelly_h_t_shellyht01_humidity:
   friendly_name: Living

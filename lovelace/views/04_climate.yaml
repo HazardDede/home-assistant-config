@@ -55,7 +55,7 @@ cards:
         refresh_interval: 60
         hours_to_show: 12
         entities:
-          - sensor.shellyht_01_temperature
+          - sensor.shelly_h_t_shellyht01_temperature
           - sensor.zway_device_7_temperature
           - sensor.living_setpoint
           - sensor.bath_downstairs_setpoint

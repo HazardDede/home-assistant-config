@@ -30,12 +30,12 @@ cards:
     entities:
       {{ device("Bezzera BZ10", "bezzera", "zway_device_20_power") }}
       {{ device("Refrigerator", "refrigerator", "refrigerator_current_power") }}
-      {{ device("Dishwasher", "dishwasher", "shelly_plug_s_shellyplug02_power_0") }}
+      {{ device("Dishwasher", "dishwasher", "shelly_plug_s_shellyplug01_power_0") }}
   - type: entities
     title: Living
     entities:
       {{ device("TV", "tv_living", "zway_device_4_power") }}
-      {{ device("Mediastation", "mediastation", "shelly_plug_s_shellyplug01_power_0") }}
+      {{ device("Mediastation", "mediastation", "shelly_plug_s_shellyplug02_power_0") }}
       {{ device("Stairway", "stairway", "stairway_current_power") }}
       {{ device("Wall", "wall", "wall_current_power") }}
       {{ device("Floor lamp", "floor_lamp", "floor_lamp_current_power") }}

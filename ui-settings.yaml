@@ -1,0 +1,4 @@
+title: Settings
+
+views:
+  - !include lovelace/views/settings/01_main.yaml

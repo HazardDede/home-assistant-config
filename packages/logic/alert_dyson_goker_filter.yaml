@@ -1,0 +1,31 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      alert_goker_carbon_filter:
+        value_template: >-
+          {{ (state_attr('fan.goker', 'carbon_filter') or '100') | int <= 10 }}
+      alert_goker_hepa_filter:
+        value_template: >-
+          {{ (state_attr('fan.goker', 'hepa_filter') or '100') | int <= 10 }}
+
+alert:
+  goker_carbon_filter:
+    name: "Goker: Carbon Filter low"
+    message: "{{ Goker: Carbon filter is @ {{ state_attr('fan.goker', 'carbon_filter') }}%"
+    done_message: "{{ Goker: Carbon filter replaced @ {{ state_attr('fan.goker', 'carbon_filter') }}%"
+    entity_id: binary_sensor.alert_goker_carbon_filter
+    repeat: 1440  # Renotify every 24h
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - all
+  goker_hepa_filter:
+    name: "Goker: Hepa Filter low"
+    message: "{{ Goker: Hepa filter is @ {{ state_attr('fan.goker', 'hepa_filter') }}%"
+    done_message: "{{ Goker: Hepa filter replaced @ {{ state_attr('fan.goker', 'hepa_filter') }}%"
+    entity_id: binary_sensor.alert_goker_hepa_filter
+    repeat: 1440  # Renotify every 24h
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - all

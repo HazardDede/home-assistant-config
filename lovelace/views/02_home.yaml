@@ -39,7 +39,9 @@ cards:
     - ../components/room.yaml
     - id: home_kitchen
       image: /local/rooms/kitchen_banner.png
-      temperature: sensor.shelly_h_t_shellyht01_temperature
+      temperature: sensor.zway_device_24_temperature
+      labeled_states:
+        - sensor.zway_device_24_illumination
       switches:
         - switch.zway_device_20
         - switch.gosund_01
@@ -76,7 +78,6 @@ cards:
       image: /local/rooms/gallery_banner.png
       temperature: sensor.goker_temperature
       labeled_states: 
-        # - sensor.zway_device_24_illumination
         - sensor.goker_humidity
         - sensor.goker_aqi
       switches:

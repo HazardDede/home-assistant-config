@@ -1,0 +1,54 @@
+# lovelace_gen
+title: Vacuum
+id: vacuum
+icon: mdi:robot-vacuum
+cards:
+  - id: health_pumbaa
+    type: vertical-stack
+    cards:
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.pumbaa
+        image: /local/vacuum/pumbaa.png
+        vendor: roomba
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.pumbaa_nightly_run
+            name: "Nightly Run"
+          - entity: sensor.pumbaa_running_time
+            name: Runtime
+            icon: mdi:clock-outline
+          - entity: sensor.pumbaa_last_bin_cleaning
+            type: custom:multiple-entity-row
+            format: relative
+            secondary_info:
+              entity: sensor.pumbaa_last_bin_cleaning
+              name: false
+              format: datetime
+          - entity: script.pumbaa_set_bin_clean
+            name: "Cleaned the bin"
+            icon: mdi:delete-outline
+  - id: health_rocky
+    type: vertical-stack
+    cards:
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.rocky
+        image: /local/vacuum/rocky.png
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.rocky_nightly_run
+            name: "Nightly Run"
+          - entity: sensor.rocky_running_time
+            name: Runtime
+            icon: mdi:clock-outline
+          - entity: sensor.rocky_last_bin_cleaning
+            type: custom:multiple-entity-row
+            format: relative
+            secondary_info:
+              entity: sensor.rocky_last_bin_cleaning
+              name: false
+              format: datetime
+          - entity: script.rocky_set_bin_clean
+            name: "Cleaned the bin"
+            icon: mdi:delete-outline

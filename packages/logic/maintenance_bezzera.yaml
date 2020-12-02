@@ -91,7 +91,7 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - channel
+      - all
   bezzera_next_filter_replacement:
     name: 'Bezzera: Please replace my filter'
     entity_id: binary_sensor.bezzera_next_filter_replacement_alert
@@ -100,4 +100,4 @@ alert:
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - channel
+      - all

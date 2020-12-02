@@ -85,12 +85,20 @@ lovelace:
       icon: mdi:power-plug-outline
       show_in_sidebar: true
       filename: ui-energy.yaml
-    lovelace-settings:
+    lovelace-health:
       mode: yaml
       title: Health
       icon: mdi:heart-pulse
       show_in_sidebar: true
       filename: ui-health.yaml
+      require_admin: true
+
+    lovelace-settings:
+      mode: yaml
+      title: Settings
+      icon: mdi:cog
+      show_in_sidebar: true
+      filename: ui-settings.yaml
       require_admin: true
 
 # Enables configuration UI

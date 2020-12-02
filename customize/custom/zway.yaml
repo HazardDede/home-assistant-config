@@ -99,10 +99,10 @@ sensor.zway_device_23_temperature:
   friendly_name: Bedroom
 
 binary_sensor.zway_device_24:
-  friendly_name: "Motion (gallery)"
+  friendly_name: "Motion (Kitchen)"
 
 sensor.zway_device_24_illumination:
-  friendly_name: Gallery
+  friendly_name: Kitchen
 
 sensor.zway_device_24_temperature:
-  friendly_name: Gallery
+  friendly_name: Kitchen

@@ -2,8 +2,33 @@
 title: Health
 id: health
 icon: mdi:heart-pulse
-# background: var(--background-image)
 cards:
+  - id: alerts_alert
+    type: custom:auto-entities
+    show_empty: False
+    filter:
+      include:
+        - domain: alert
+      exclude:
+        - state: "idle"
+    sort:
+      method: last_changed
+    card: 
+      type: entities
+      title: Alerts
+      show_header_toggle: False
+  - id: alerts_battery
+    type: custom:auto-entities
+    show_empty: False
+    card:
+      type: glance
+      title: Low Batteries
+    filter:
+      include:
+        - entity_id: "sensor.*_battery"
+          state: "< 25"
+    sort:
+      method: state
   - id: health_wastebin
     title: Trash
     type: entities
@@ -78,52 +103,3 @@ cards:
       - entity: script.bezzera_set_last_filter_replacement
         name: "Filter replaced"
         icon: mdi:water
-  - id: health_pumbaa
-    type: vertical-stack
-    cards:
-      - type: custom:xiaomi-vacuum-card
-        entity: vacuum.pumbaa
-        image: /local/vacuum/pumbaa.png
-        vendor: roomba
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: switch.pumbaa_nightly_run
-            name: "Nightly Run"
-          - entity: sensor.pumbaa_running_time
-            name: Runtime
-            icon: mdi:clock-outline
-          - entity: sensor.pumbaa_last_bin_cleaning
-            type: custom:multiple-entity-row
-            format: relative
-            secondary_info:
-              entity: sensor.pumbaa_last_bin_cleaning
-              name: false
-              format: datetime
-          - entity: script.pumbaa_set_bin_clean
-            name: "Cleaned the bin"
-            icon: mdi:delete-outline
-  - id: health_rocky
-    type: vertical-stack
-    cards:
-      - type: custom:xiaomi-vacuum-card
-        entity: vacuum.rocky
-        image: /local/vacuum/rocky.png
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: switch.rocky_nightly_run
-            name: "Nightly Run"
-          - entity: sensor.rocky_running_time
-            name: Runtime
-            icon: mdi:clock-outline
-          - entity: sensor.rocky_last_bin_cleaning
-            type: custom:multiple-entity-row
-            format: relative
-            secondary_info:
-              entity: sensor.rocky_last_bin_cleaning
-              name: false
-              format: datetime
-          - entity: script.rocky_set_bin_clean
-            name: "Cleaned the bin"
-            icon: mdi:delete-outline

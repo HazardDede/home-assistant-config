@@ -57,6 +57,7 @@ cards:
         entities:
           - sensor.shelly_h_t_shellyht01_temperature
           - sensor.zway_device_7_temperature
+          - sensor.zway_device_24_temperature
           - sensor.living_setpoint
           - sensor.bath_downstairs_setpoint
       - id: climate_ground_floor_setpoints
@@ -74,7 +75,7 @@ cards:
         refresh_interval: 60
         hours_to_show: 12
         entities:
-          - sensor.zway_device_24_temperature
+          - sensor.goker_temperature
           - sensor.living_setpoint
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint

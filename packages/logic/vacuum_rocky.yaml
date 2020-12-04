@@ -179,7 +179,7 @@ automation:
       from: returning
       to: docked
     action:
-      - service: notify.channel
+      - service: notify.all
         data:
           message: |
             *Rocky* just returned to the dock from his successful mission

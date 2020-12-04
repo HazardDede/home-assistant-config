@@ -39,3 +39,4 @@ alert:
     skip_first: false
     notifiers:
       - alertmanager
+      - dennis

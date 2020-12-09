@@ -1,0 +1,7 @@
+person:
+  - name: Jennifer
+    id: jennifer
+    user_id: !secret user_id_jennifer
+    device_trackers:
+      - device_tracker.jennifer_phone  # Router
+      - device_tracker.iphone_von_jennifer  # iOS App

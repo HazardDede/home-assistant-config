@@ -8,12 +8,18 @@ automation:
       - condition: numeric_state
         entity_id: sensor.zway_device_24_illumination
         below: 10
-      # State can be: Home, Just Arrived, Just Left, Away, Extended Away
       - condition: template
-        value_template: "{{ not is_state('sensor.dennis_status', 'Home') }}"
-      # State can be: Home, Just Arrived, Just Left, Away, Extended Away
+        value_template: >
+          {{
+            not is_state('person.dennis', 'home')
+            or (as_timestamp(now()) - as_timestamp(states.person.dennis.last_changed)) / 60 < 20
+          }}
       - condition: template
-        value_template: "{{ not is_state('sensor.jennifer_status', 'Home') }}"
+        value_template: >
+          {{
+            not is_state('person.jennifer', 'home')
+            or (as_timestamp(now()) - as_timestamp(states.person.jennifer.last_changed)) / 60 < 20
+          }}
     action:
       - service: homeassistant.turn_on
         entity_id: group.lights_entrance

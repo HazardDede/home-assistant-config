@@ -1,0 +1,7 @@
+sensor:
+  - platform: template
+    sensors:
+      jonathan_status:
+        entity_picture_template: /local/family/jonathan.png
+        value_template: 'Near to mom'
+        friendly_name: 'Jonathan'

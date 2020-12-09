@@ -2,7 +2,5 @@
 
 !.gitignore
 !emulated_hue/
-!fritzbox_guestwifi/
 !icalendar/
 !lovelace_gen/
-!sun2/

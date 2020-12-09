@@ -1,41 +1,22 @@
-fritzbox_guestwifi:
-  host: 192.168.178.1
-  username: admin
-  password: !secret fritzbox_pwd
-
-input_boolean:
-  guestwifi:
-    name: "Guest Wifi"
-    icon: mdi:wifi
-    initial: off
-
 automation:
-  - alias: "Guest Wifi: Turn on"
-    initial_state: True
+  - alias: "Guests Wifi: Turned On -> Send Password To Phone"
     trigger:
       platform: state
-      entity_id: input_boolean.guestwifi
-      from: 'off'
+      entity_id: switch.fritzbox_7530_guest_wifi
       to: 'on'
     action:
-      - service: fritzbox_guestwifi.turn_on
-  - alias: "Guest Wifi: Turn off"
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: input_boolean.guestwifi
-      from: 'on'
-      to: 'off'
-    action:
-      - service: fritzbox_guestwifi.turn_off
+      - service: notify.all_devices
+        data:
+          title: "Guest wifi is enabled"
+          message: "Password: welcome1!"
 
 alert:
   guestwifi_on:
     name: 'Guest Wifi is still on'
-    entity_id: input_boolean.guestwifi
+    entity_id: switch.fritzbox_7530_guest_wifi
     state: 'on'
     repeat: 240
     can_acknowledge: true
     skip_first: true
     notifiers:
-      - alertmanager
+      - all

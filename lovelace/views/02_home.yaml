@@ -18,7 +18,7 @@ cards:
         - switch.zway_device_4
         - switch.433rc_brennenstuhl_a
         - switch.gosund_02
-        - switch.switch.shelly_plug_s_shellyplug03_relay_0
+        - switch.shelly_plug_s_shellyplug03_relay_0
       labels:
         - entity: sensor.zway_device_4_power
           top: 48%
@@ -46,7 +46,7 @@ cards:
       switches:
         - switch.zway_device_20
         - switch.gosund_01
-        - switch.switch.shelly_plug_s_shellyplug04_relay_0
+        - switch.shelly_plug_s_shellyplug04_relay_0
       labels:
         - entity: sensor.zway_device_20_power
           top: 77%

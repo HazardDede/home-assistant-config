@@ -4,10 +4,10 @@ sensor.shelly_h_t_shellyht01_temperature:
 sensor.shelly_h_t_shellyht01_humidity:
   friendly_name: Living
 
-switch.switch.shelly_plug_s_shellyplug03_relay_0:
+switch.shelly_plug_s_shellyplug03_relay_0:
   friendly_name: Christmas Tree
   icon: mdi:pine-tree
 
-switch.switch.shelly_plug_s_shellyplug04_relay_0:
+switch.shelly_plug_s_shellyplug04_relay_0:
   friendly_name: Coffee Station Lights
   icon: mdi:globe-light

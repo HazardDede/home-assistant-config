@@ -9,5 +9,5 @@ switch.shelly_plug_s_shellyplug03_relay_0:
   icon: mdi:pine-tree
 
 switch.shelly_plug_s_shellyplug04_relay_0:
-  friendly_name: Coffee Station Lights
+  friendly_name: Coffee Corner Lights
   icon: mdi:globe-light

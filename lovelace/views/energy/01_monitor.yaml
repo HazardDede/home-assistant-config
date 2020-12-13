@@ -31,6 +31,7 @@ cards:
       {{ device("Bezzera BZ10", "bezzera", "zway_device_20_power") }}
       {{ device("Refrigerator", "refrigerator", "refrigerator_current_power") }}
       {{ device("Dishwasher", "dishwasher", "shelly_plug_s_shellyplug01_power_0") }}
+      {{ device("Coffee Corner Lights", "coffee_corner_lights", "shelly_plug_s_shellyplug04_power_0") }}
   - type: entities
     title: Living
     entities:
@@ -41,6 +42,7 @@ cards:
       {{ device("Floor lamp", "floor_lamp", "floor_lamp_current_power") }}
       {{ device("Disc Rack", "disc_rack", "disc_rack_current_power") }}
       {{ device("Mister Wattson", "mister_wattson", "mister_wattson_current_power") }}
+      {{ device("Christmas Tree", "christmas_tree", "shelly_plug_s_shellyplug03_power_0") }}
   - type: entities
     title: Bath (Ground floor)
     entities:

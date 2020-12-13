@@ -44,3 +44,6 @@ entities:
   script.night_mode:
     name: "Nachtmodus"
     hidden: false
+  switch.shelly_plug_s_shellyplug04_relay_0:
+    name: Coffee Corner
+    hidden: false

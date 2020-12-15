@@ -33,4 +33,4 @@ script:
       - delay: '01:00'  # One hour
       - service: homeassistant.turn_off
         data:
-          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe
+          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn off Galerielampe and Treppe

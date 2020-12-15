@@ -2,5 +2,6 @@ scene:
   - name: lights_all_off
     entities:
       group.lights_living: "off"
+      group.lights_kitchen: "off"
       group.lights_nursery: "off"
       group.lights_bedroom: "off"

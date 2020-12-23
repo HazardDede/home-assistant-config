@@ -43,6 +43,8 @@ cards:
       temperature: sensor.zway_device_24_temperature
       labeled_states:
         - sensor.zway_device_24_illumination
+      states:
+        - binary_sensor.zway_device_24
       switches:
         - switch.zway_device_20
         - switch.gosund_01

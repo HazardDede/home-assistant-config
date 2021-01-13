@@ -1,0 +1,21 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      alert_ground_bath_window_open:
+        value_template: >-
+          {{ 
+            is_state('binary_sensor.shelly_door_window_2_shellydw01_opening', 'on') 
+            and is_state('sensor.season', 'winter')
+          }}
+
+alert:
+  ground_bath_window_open:
+    name: "Bath (Ground): Window is still open"
+    message: "Bath (Ground): Window is still open"
+    done_message: "Bath (Ground): Window was closed"
+    entity_id: binary_sensor.alert_ground_bath_window_open
+    repeat: 30  # Renotify every 30 mins
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - all

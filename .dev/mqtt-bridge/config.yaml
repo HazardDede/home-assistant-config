@@ -7,7 +7,7 @@ tasks:
     pull:
       plugin: pnp.plugins.pull.mqtt.Subscribe
       args:
-        host: services
+        host: stack02
         port: 1883
         topic: homeassistant/#
     push:
@@ -23,7 +23,7 @@ tasks:
     pull:
       plugin: pnp.plugins.pull.mqtt.Subscribe
       args:
-        host: services
+        host: stack02
         port: 1883
         topic: zway/#
     push:
@@ -39,7 +39,7 @@ tasks:
     pull:
       plugin: pnp.plugins.pull.mqtt.Subscribe
       args:
-        host: services
+        host: stack02
         port: 1883
         topic: tracker/#
     push:
@@ -55,7 +55,7 @@ tasks:
     pull:
       plugin: pnp.plugins.pull.mqtt.Subscribe
       args:
-        host: services
+        host: stack02
         port: 1883
         topic: shellies/#
     push:

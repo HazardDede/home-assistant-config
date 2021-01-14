@@ -5,6 +5,19 @@ icon: mdi:cog-outline
 # background: var(--background-image)
 cards:
   - type: vertical-stack
+    cards:
+      - type: markdown
+        content: '### Versions'
+      - type: entities
+        entities:
+          - entity: sensor.current_version
+          - entity: sensor.latest_version
+          - entity: binary_sensor.updater
+            icon: mdi:update
+          - entity: sensor.hacs
+            name: HACS
+        show_header_toggle: false
+  - type: vertical-stack
     id: settings_theme
     cards:
       - type: markdown

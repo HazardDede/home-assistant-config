@@ -1,0 +1,11 @@
+automation:
+  - alias: "Notify: Hass Update Available"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.updater
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.channel
+        data:
+          message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. Notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"

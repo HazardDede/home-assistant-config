@@ -1,0 +1,9 @@
+sensor:
+  - platform: version
+    name: Current Version
+    source: local
+
+  - platform: version
+    name: Latest Version
+    image: raspberrypi3
+    source: docker

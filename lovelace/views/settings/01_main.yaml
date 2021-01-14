@@ -76,14 +76,14 @@ cards:
           - entity: script.backup_ssl_now
             name: SSL Cert
             icon: mdi:certificate
-  - type: custom:auto-entities
-    id: settings_all_automations
-    card:
-      type: entities
-      title: Automations
-      show_header_toggle: False
-    filter:
-      include:
-        - domain: automation
-    sort:
-      method: name
+  # - type: custom:auto-entities
+  #   id: settings_all_automations
+  #   card:
+  #     type: entities
+  #     title: Automations
+  #     show_header_toggle: False
+  #   filter:
+  #     include:
+  #       - domain: automation
+  #   sort:
+  #     method: name

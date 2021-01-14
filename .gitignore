@@ -49,4 +49,4 @@ sandbox/
 blueprints/
 
 # These auatomations get created via the UI. No need to put them to github
-automation.yaml
+automations.yaml

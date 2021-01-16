@@ -7,33 +7,12 @@ cards:
     cards:
       - type: markdown
         content: "### Weather"
-      - type: picture-elements
-        image: https://harbour-hall.de/webcam/video.jpg
-        elements:
-          - type: state-label
-            entity: sensor.time
-            style:
-              left: 10%
-              top: 10%
-              color: var(--text-primary-color)
-              font-weight: bold
-              font-size: large
-          - type: state-label
-            entity: sensor.weather_temperature
-            style:
-              left: 40%
-              top: 10%
-              color: var(--text-primary-color)
-              font-weight: bold
-              font-size: large
-          - type: state-label
-            entity: sensor.weather_humidity
-            style:
-              left: 60%
-              top: 10%
-              color: var(--text-primary-color)
-              font-weight: bold
-              font-size: large
+      - !include
+          - ../components/weather-card.yaml
+          - image_url: https://harbour-hall.de/webcam/video.jpg
+            time: sensor.time
+            temperature: sensor.weather_temperature
+            humidity: sensor.weather_humidity
       - type: weather-forecast
         entity: weather.dark_sky_hourly
   - type: vertical-stack
@@ -47,14 +26,24 @@ cards:
             icon: mdi:cloud-circle
           - entity: sensor.shelly_h_t_shellyht01_temperature
             type: custom:multiple-entity-row
-            name: Indoor
+            name: Ground floor
             state_header: Living
-            icon: mdi:home-circle
+            icon: mdi:home-floor-0
+            entities:
+              - entity: sensor.zway_device_7_temperature
+                name: Hallway
+              - entity: sensor.zway_device_24_temperature
+                name: Kitchen
+          - entity: sensor.goker_temperature
+            type: custom:multiple-entity-row
+            name: First floor
+            state_header: Gallery
+            icon: mdi:home-floor-1
             entities:
               - entity: sensor.zway_device_19_temperature
                 name: Nursery
-              - entity: sensor.goker_temperature
-                name: Gallery
+              - entity: sensor.zway_device_23_temperature
+                name: Bedroom
           - type: section
             label: Humidity
           - entity: sensor.weather_humidity
@@ -62,24 +51,24 @@ cards:
             icon: mdi:cloud-circle
           - entity: sensor.shelly_h_t_shellyht01_humidity
             type: custom:multiple-entity-row
-            name: Indoor
+            name: Ground floor
             state_header: Living
-            icon: mdi:home-circle
-            entities:
-              # - entity: sensor.zway_device_7_temperature
-              #   name: Hallway
-              - entity: sensor.goker_humidity
-                name: Gallery
+            icon: mdi:home-floor-0
+          - entity: sensor.goker_humidity
+            type: custom:multiple-entity-row
+            name: First floor
+            state_header: Gallery
+            icon: mdi:home-floor-1
           - type: section
             label: Air quality
-          # - entity: sensor.luftdaten_10870_p1
-          #   type: custom:multiple-entity-row
-          #   name: Outdoor
-          #   state_header: P1
-          #   icon: mdi:cloud-circle
-          #   entities:
-          #     - entity: sensor.luftdaten_10870_p2
-          #       name: P2
+          - entity: sensor.luftdaten_10870_p1
+            type: custom:multiple-entity-row
+            name: Outdoor
+            state_header: P1
+            icon: mdi:cloud-circle
+            entities:
+              - entity: sensor.luftdaten_10870_p2
+                name: P2
           - entity: sensor.goker_p1
             type: custom:multiple-entity-row
             name: Particles

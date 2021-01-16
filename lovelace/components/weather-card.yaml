@@ -1,0 +1,28 @@
+# lovelace_gen
+type: picture-elements
+image: {{ image_url }}
+elements:
+  - type: state-label
+    entity: {{ time }}
+    style:
+      left: 10%
+      top: 10%
+      color: var(--text-primary-color)
+      font-weight: bold
+      font-size: large
+  - type: state-label
+    entity: {{ temperature }}
+    style:
+      left: 40%
+      top: 10%
+      color: var(--text-primary-color)
+      font-weight: bold
+      font-size: large
+  - type: state-label
+    entity: {{ humidity }}
+    style:
+      left: 60%
+      top: 10%
+      color: var(--text-primary-color)
+      font-weight: bold
+      font-size: large

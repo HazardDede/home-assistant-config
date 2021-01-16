@@ -11,6 +11,11 @@ Automatically lower volume of media player
 Pause media player on a phone call
 https://community.home-assistant.io/t/pause-media-player-on-a-calll/263024
 
+## Climate monitor
+
+Each room: setpoint, actual temperature, difference
+Humidity alerts; requires more H&T sensors
+
 ## Mediaplayer volume
 Buttons for 25%, 50%, 75%, 100% of volume
 

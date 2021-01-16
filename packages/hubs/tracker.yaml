@@ -3,7 +3,7 @@
 device_tracker:
   - platform: mqtt
     devices:
-      dennis_phone: 'tracker/C0:E8:62:31:2C:7A'
-      jennifer_phone: 'tracker/D0:C5:F3:6A:91:13'
+      dennis_phone: 'tracker/BE:2F:FB:3F:0D:A6'
+      jennifer_phone: 'tracker/3A:A7:EF:6B:26:5A'
     qos: 1
     source_type: router

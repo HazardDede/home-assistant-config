@@ -1,8 +1,5 @@
 # Smart Home Roadmap & Ideas
 
-## Sensors
-Differentiate in Ground floor / First Floor
-
 ## Call Monitor
 Send Notifications when somebody is calling (done)
 Bug: Phonebook is not working (even with fritzconnection directly)
@@ -15,9 +12,6 @@ https://community.home-assistant.io/t/pause-media-player-on-a-calll/263024
 
 Each room: setpoint, actual temperature, difference
 Humidity alerts; requires more H&T sensors
-
-## Mediaplayer volume
-Buttons for 25%, 50%, 75%, 100% of volume
 
 ## Evaluate new thermostats
 Tado, Fritz!Thermostat?

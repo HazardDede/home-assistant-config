@@ -29,9 +29,32 @@ cards:
     icon: mdi:plex
     artwork: full-cover
     source: icon
-    volume_stateless: true
     scale: 1
+    shortcuts:
+      columns: 3
+      buttons:
+        - icon: mdi:volume-low
+          type: service
+          id: media_player.volume_set
+          data:
+            entity_id: media_player.plex_plexamp_hifipi
+            volume_level: 0.4
+        - icon: mdi:volume-medium
+          type: service
+          id: media_player.volume_set
+          data:
+            entity_id: media_player.plex_plexamp_hifipi
+            volume_level: 0.7
+        - icon: mdi:volume-high
+          type: service
+          id: media_player.volume_set
+          data:
+            entity_id: media_player.plex_plexamp_hifipi
+            volume_level: 0.9
     hide:
+      volume: true
+      volume_level: true
+      mute: true
       power: true
 {% for entity_id in players %}
   - !include

@@ -1,0 +1,11 @@
+automation:
+  - alias: "Notify: Incoming home call"
+    trigger:
+      - platform: state
+        entity_id: sensor.fritzbox_phone
+        to: ringing
+    action:
+      - service: notify.all
+        data:
+          message:
+            Incoming call from {{ state_attr('sensor.phone', 'from_name') }} ({{ state_attr('sensor.phone', 'from') }})

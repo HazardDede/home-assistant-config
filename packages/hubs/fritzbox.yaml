@@ -1,0 +1,11 @@
+sensor:
+  - platform: fritzbox_callmonitor
+    name: "Fritzbox Phone"
+    host: 192.168.178.1
+    username: !secret fritzbox_user
+    password: !secret fritzbox_pwd
+    phonebook: 0
+    prefixes:
+      - '+49'
+      - '+494121'
+      - '04121'

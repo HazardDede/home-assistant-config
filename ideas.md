@@ -1,6 +1,6 @@
 # Smart Home Roadmap & Ideas
 
-## Se
+## Sensors
 Differentiate in Ground floor / First Floor
 
 ## Call Monitor
@@ -39,9 +39,14 @@ Implement sensor to figure out if a device is stall
 
 ## Fix appdaemon when home assistant restarts
 Unfortunately the window sensor is None / unavailable when home assistant starts and this fails
-in appdaemon
+in appdaemon (done)
 
 ## Convert the appdaemon stuff to a real home assistant plugin
+I want to deprecate home assistant. The only thing that is still running and adds benefit is the climate controller.
+
+# Find a nice way to control our regular lights
+
+Find out how to use flush-mounting switches to preserve our Busch&Jaeger design
 
 ## More Sensors
 HT: Bath Ground, Bedroom

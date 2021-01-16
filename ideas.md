@@ -4,7 +4,8 @@
 Differentiate in Ground floor / First Floor
 
 ## Call Monitor
-Send Notifications when somebody is calling
+Send Notifications when somebody is calling (done)
+Bug: Phonebook is not working (even with fritzconnection directly)
 Automatically lower volume of media player
 
 Pause media player on a phone call

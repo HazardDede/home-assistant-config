@@ -31,7 +31,7 @@ cards:
     source: icon
     scale: 1
     shortcuts:
-      columns: 3
+      columns: 4
       buttons:
         - icon: mdi:volume-low
           type: service
@@ -44,8 +44,14 @@ cards:
           id: media_player.volume_set
           data:
             entity_id: media_player.plex_plexamp_hifipi
-            volume_level: 0.7
+            volume_level: 0.5
         - icon: mdi:volume-high
+          type: service
+          id: media_player.volume_set
+          data:
+            entity_id: media_player.plex_plexamp_hifipi
+            volume_level: 0.7
+        - icon: mdi:volume-vibrate
           type: service
           id: media_player.volume_set
           data:

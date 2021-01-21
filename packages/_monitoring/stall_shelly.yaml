@@ -1,0 +1,20 @@
+binary_sensor:
+  - platform: stall
+    name: stall_shelly_h_t_shellyht01
+    entities:
+      - sensor.shelly_h_t_shellyht01_temperature
+      - sensor.shelly_h_t_shellyht01_humidity
+    threshold: 360
+
+alert:
+  stall_shelly_h_t_shellyht01:
+    name: "Shelly H&T 01: No sensor update"
+    done_message: "Shelly H&T 01: Recovered"
+    entity_id: binary_sensor.stall_shelly_h_t_shellyht01
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis

@@ -1,0 +1,23 @@
+binary_sensor:
+  - platform: stall
+    name: stall_purifier_goker
+    entities:
+      - sensor.goker_p2
+      - sensor.goker_p1
+      - sensor.goker_no2
+      - sensor.goker_voc
+      - sensor.goker_aqi
+    threshold: 10
+
+alert:
+  stall_purifier_goker:
+    name: "Goker: No sensor update"
+    done_message: "Goker: Recovered"
+    entity_id: binary_sensor.stall_purifier_goker
+    state: 'on'
+    repeat: 120  # Renotify every two hours
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis

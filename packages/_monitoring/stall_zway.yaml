@@ -1,0 +1,113 @@
+sensor:
+  - platform: template
+    sensors:
+      zway_last_sensor_update:
+        unit_of_measurement: minutes
+        icon_template: mdi:alarm-snooze
+        value_template: >-
+          {%- set _ = states('sensor.time') -%}
+          {% set updates = namespace(value=[]) %}
+          {%- for entity in states.binary_sensor %}
+            {%- if entity.entity_id.startswith('binary_sensor.zway_') and entity.attributes.device_class == 'motion' %}
+              {% set updates.value = updates.value + [entity.last_updated] %}
+            {%- endif -%}
+          {%- endfor %}
+          {%- for entity in states.sensor %}
+            {%- if entity.entity_id.startswith('sensor.zway_') and entity.attributes.device_class in ['illuminance', 'temperature'] %}
+              {% set updates.value = updates.value + [entity.last_updated] %}
+            {%- endif -%}
+          {%- endfor %}
+          {{ ((as_timestamp(now()) - as_timestamp((updates.value | max))) / 60) | round(0) }}
+
+binary_sensor:
+  - platform: stall
+    name: stall_zway_device_7
+    entities:
+      - binary_sensor.zway_device_7
+      - sensor.zway_device_7_illumination
+      - sensor.zway_device_7_temperature
+    threshold: 120
+  - platform: stall
+    name: stall_zway_device_19
+    entities:
+      - binary_sensor.zway_device_19
+      - sensor.zway_device_19_illumination
+      - sensor.zway_device_19_temperature
+    threshold: 120
+  - platform: stall
+    name: stall_zway_device_23
+    entities:
+      - binary_sensor.zway_device_23
+      - sensor.zway_device_23_illumination
+      - sensor.zway_device_23_temperature
+    threshold: 120
+  - platform: stall
+    name: stall_zway_device_24
+    entities:
+      - binary_sensor.zway_device_24
+      - sensor.zway_device_24_illumination
+      - sensor.zway_device_24_temperature
+    threshold: 120
+  - platform: template
+    sensors:
+      zway_no_sensor_update_alert:
+        value_template: >-
+          {% set threshold = 120 %}
+          {{ states.sensor.zway_last_sensor_update.state | default(0) | int > threshold }}
+
+alert:
+  zway_down:
+    name: "Z-Way: Service might be down (no sensor update)"
+    done_message: "Z-Way: Recovered and healthy"
+    entity_id: binary_sensor.zway_no_sensor_update_alert
+    state: 'on'
+    repeat: 60  # Renotify every hour
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis
+  stall_zway_device_7:
+    name: "Z-Way Motion 07 (Hallway): No sensor update"
+    done_message: "Z-Way Motion 07 (Hallway): Recovered"
+    entity_id: binary_sensor.stall_zway_device_7
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis
+  stall_zway_device_19:
+    name: "Z-Way Motion 19 (Nursery): No sensor update"
+    done_message: "Z-Way Motion 19 (Hallway): Recovered"
+    entity_id: binary_sensor.stall_zway_device_19
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis
+  stall_zway_device_23:
+    name: "Z-Way Motion 23 (Bedroom): No sensor update"
+    done_message: "Z-Way Motion 23 (Bedroom): Recovered"
+    entity_id: binary_sensor.stall_zway_device_23
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis
+  stall_zway_device_24:
+    name: "Z-Way Motion 24 (Kitchen): No sensor update"
+    done_message: "Z-Way Motion 24 (Kitchen): Recovered"
+    entity_id: binary_sensor.stall_zway_device_24
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis

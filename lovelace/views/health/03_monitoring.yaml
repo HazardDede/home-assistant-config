@@ -86,3 +86,16 @@ cards:
             secondary_info:
               attribute: expires_at
               name: Expires at
+  - id: mon_devices
+    type: custom:auto-entities
+    show_empty: False
+    filter:
+      include:
+        - entity_id: "binary_sensor.stall_*"
+    sort:
+      method: name
+    card: 
+      type: entities
+      title: Devices
+      show_header_toggle: false
+      state_color: true

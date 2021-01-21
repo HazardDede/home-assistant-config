@@ -39,7 +39,7 @@ sensor:
         device_class: timestamp
         value_template: >-
           {% set last_clean_ts = as_timestamp(strptime(states.input_datetime.bezzera_last_filter_replacement.state[:10] + ' 09:30:00', 'YYYY-MM-DD')) -%}
-          {% set target_ts = last_clean_ts + 30 * 24 * 60 * 60 -%}
+          {% set target_ts = last_clean_ts + 60 * 24 * 60 * 60 -%}
           {{ target_ts | timestamp_custom('%Y-%m-%dT%H:%M:%S+02:00') }}
 
 script:

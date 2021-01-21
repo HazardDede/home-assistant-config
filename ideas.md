@@ -7,6 +7,7 @@ Automatically lower volume of media player
 
 Pause media player on a phone call
 https://community.home-assistant.io/t/pause-media-player-on-a-calll/263024
+https://community.home-assistant.io/t/mute-media-player-when-on-phone-only-when-home/255221
 
 ## Climate monitor
 

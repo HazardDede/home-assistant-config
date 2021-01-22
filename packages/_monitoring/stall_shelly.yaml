@@ -4,7 +4,7 @@ binary_sensor:
     entities:
       - sensor.shelly_h_t_shellyht01_temperature
       - sensor.shelly_h_t_shellyht01_humidity
-    threshold: 360
+    threshold: 720
 
 alert:
   stall_shelly_h_t_shellyht01:

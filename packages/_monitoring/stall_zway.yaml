@@ -26,28 +26,28 @@ binary_sensor:
       - binary_sensor.zway_device_7
       - sensor.zway_device_7_illumination
       - sensor.zway_device_7_temperature
-    threshold: 120
+    threshold: 360
   - platform: stall
     name: stall_zway_device_19
     entities:
       - binary_sensor.zway_device_19
       - sensor.zway_device_19_illumination
       - sensor.zway_device_19_temperature
-    threshold: 120
+    threshold: 360
   - platform: stall
     name: stall_zway_device_23
     entities:
       - binary_sensor.zway_device_23
       - sensor.zway_device_23_illumination
       - sensor.zway_device_23_temperature
-    threshold: 120
+    threshold: 360
   - platform: stall
     name: stall_zway_device_24
     entities:
       - binary_sensor.zway_device_24
       - sensor.zway_device_24_illumination
       - sensor.zway_device_24_temperature
-    threshold: 120
+    threshold: 360
   - platform: template
     sensors:
       zway_no_sensor_update_alert:
@@ -80,7 +80,7 @@ alert:
       - dennis
   stall_zway_device_19:
     name: "Z-Way Motion 19 (Nursery): No sensor update"
-    done_message: "Z-Way Motion 19 (Hallway): Recovered"
+    done_message: "Z-Way Motion 19 (Nursery): Recovered"
     entity_id: binary_sensor.stall_zway_device_19
     state: 'on'
     repeat: 1440  # Renotify every day

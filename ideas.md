@@ -3,9 +3,9 @@
 ## Call Monitor
 Send Notifications when somebody is calling (done)
 Bug: Phonebook is not working (even with fritzconnection directly)
-Automatically lower volume of media player
+Automatically lower volume of media player (done)
 
-Pause media player on a phone call
+Pause media player on a phone call (done)
 https://community.home-assistant.io/t/pause-media-player-on-a-calll/263024
 https://community.home-assistant.io/t/mute-media-player-when-on-phone-only-when-home/255221
 
@@ -23,6 +23,21 @@ Tado, Fritz!Thermostat?
 
 Send camera snapshot when motion is detected:
 https://community.home-assistant.io/t/send-camera-snapshot-notification-on-motion/254565
+
+Using the webhook api incl. Lonvlive access token:
+https://community.home-assistant.io/t/motioneye-home-assistant-camera-motion-automation/41712/59
+ 
+MQTT Integration for on/off
+https://community.home-assistant.io/t/motioneye-home-assistant-camera-motion-automation/41712/34
+ 
+Howto enable motioneye webcontrol
+https://community.home-assistant.io/t/motioneye-integration/194350
+ 
+HASS Integration for showing latetst motion
+https://www.home-assistant.io/integrations/push/
+ 
+Realtime Camera
+https://www.floriangaechter.com/blog/motioneye-in-home-assistant/
 
 ## Summary of energy costs
 Summary of daily, monthly, yearly energy consumption and costs

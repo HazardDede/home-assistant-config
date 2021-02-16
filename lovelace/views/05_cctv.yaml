@@ -6,7 +6,8 @@ id: cctv
 icon: mdi:cctv
 cards:
   - type: picture-entity
-    entity: camera.motion02
+    entity: camera.motion02_stream
+    camera_view: live
     show_state: false
     show_name: false
   - type: picture

@@ -1,0 +1,17 @@
+automation:
+  - alias: "motion02: Enable detection when away"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.somebody_home
+        to: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.motion02_motion_detection
+  - alias: "motion02: Disable detection when home"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.somebody_home
+        to: 'on'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.motion02_motion_detection

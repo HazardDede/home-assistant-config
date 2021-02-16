@@ -137,6 +137,9 @@ map:
 # Track the sun
 sun:
 
+# Enable to proxy live streams through home assistant
+stream:
+
 # External MQTT host
 mqtt:
   broker: !secret mqtt_host

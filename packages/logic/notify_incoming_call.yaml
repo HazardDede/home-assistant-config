@@ -8,4 +8,4 @@ automation:
       - service: notify.all
         data:
           message:
-            Incoming call from {{ state_attr('sensor.fritzbox_phone', 'from_name') }} ({{ state_attr('sensor.fritzbox_phone', 'from') }})
+            Incoming call from {{ state_attr('sensor.fritz_box_7530_call_monitor_fritzbox_phone', 'from_name') }} ({{ state_attr('sensor.fritz_box_7530_call_monitor_fritzbox_phone', 'from') }})

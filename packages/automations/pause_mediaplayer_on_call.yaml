@@ -1,0 +1,23 @@
+automation:
+  - alias: 'Phone: Pause media_player hifpi while calling'
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.fritz_box_7530_call_monitor_fritzbox_phone
+      to: ringing
+    condition:
+    - condition: state
+      entity_id: media_player.plex_plexamp_hifipi
+      state: playing
+    action:
+    - service: media_player.media_pause
+      data: {}
+      entity_id: media_player.plex_plexamp_hifipi
+    - wait_for_trigger:
+      - platform: state
+        entity_id: sensor.fritz_box_7530_call_monitor_fritzbox_phone
+        to: idle
+    - service: media_player.media_play
+      data: {}
+      entity_id: media_player.plex_plexamp_hifipi
+    mode: single

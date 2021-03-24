@@ -1,0 +1,9 @@
+automation:
+  - alias: 'Notify: Home Assistant Update'
+    description: ''
+    use_blueprint:
+      path: home-assistant-update-notification.yaml
+      input:
+        delay: '0'
+        updater: binary_sensor.updater
+        notify_device: 5bf03aa9e24940a89d96feb23e8b4ecc

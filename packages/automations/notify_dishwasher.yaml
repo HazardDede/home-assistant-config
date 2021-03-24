@@ -1,0 +1,16 @@
+automation:
+  - alias: 'Notify: Dishwasher has finished'
+    description: ''
+    use_blueprint:
+      path: notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+      input:
+        finishing_hysteresis: '2'
+        power_sensor: sensor.shelly_plug_s_shellyplug01_power_0
+        starting_threshold: '3'
+        starting_hysteresis: '2'
+        finishing_threshold: '2'
+        actions:
+        - service: notify.all
+          data:
+            message: 'Dishwasher is finished! Daily Costs: {{ states(''sensor.dishwasher_energy_daily_costs'')
+              }} €'

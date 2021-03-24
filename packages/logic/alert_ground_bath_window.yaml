@@ -5,7 +5,7 @@ binary_sensor:
         value_template: >-
           {{ 
             is_state('binary_sensor.shelly_door_window_2_shellydw01_opening', 'on') 
-            and is_state('sensor.season', 'winter')
+            and states('sensor.weather_temperature') | float < 16.0
           }}
 
 alert:

@@ -108,26 +108,22 @@ cards:
     cards:
     - type: markdown
       content: "### Guest Wifi"
-    - type: custom:layout-card
-      layout: horizontal
-      column_num: 2
-      max_columns: 2
-      max_width: [81%, 20%]
+    - type: horizontal-stack
       cards:
-      - id: settings_guest_wifi_info
-        type: markdown
-        content: >
-          SSID: **Humletorp Gastzugang**
-          
-          Key: **welcome1!**
-      - id: settings_guest_wifi_button
-        type: custom:button-card
-        entity: switch.fritzbox_7530_guest_wifi
-        show_name: false
-        show_state: false
-        size: 100%
-        lock: 
-          enabled: true
+        - id: settings_guest_wifi_info
+          type: markdown
+          content: >
+            SSID: **Humletorp Gastzugang**
+            
+            Key: **welcome1!**
+        - id: settings_guest_wifi_button
+          type: custom:button-card
+          entity: switch.fritzbox_7530_guest_wifi
+          show_name: false
+          show_state: false
+          size: 25%
+          lock: 
+            enabled: true
   - type: vertical-stack
     cards:
       - type: markdown

@@ -80,6 +80,14 @@ Use a local dyson via mqtt which does not need to login to your dyson account:
 
 https://github.com/shenxn/ha-dyson/
 
+## Shelly Firmware
+
+Get an update when a new shelly firmware is available! Make it an alert so it will get pesky!
+
+## Docker image update
+
+Find a way to retrieve the current image tag of the deployed docker images and retrieve the latest and greatest image tag from the web!
+
 ## Appendix
 
 Disable automations when not home

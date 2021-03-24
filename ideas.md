@@ -74,6 +74,12 @@ Find out how to use flush-mounting switches to preserve our Busch&Jaeger design
 HT: Bath Ground, Bedroom
 Window: Gallery, Nursery
 
+## Local Dyson
+
+Use a local dyson via mqtt which does not need to login to your dyson account:
+
+https://github.com/shenxn/ha-dyson/
+
 ## Appendix
 
 Disable automations when not home

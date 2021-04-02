@@ -2,7 +2,7 @@ automation:
   - alias: "Notify: Incoming home call"
     trigger:
       - platform: state
-        entity_id: sensor.fritzbox_phone
+        entity_id: sensor.fritz_box_7530_call_monitor_fritzbox_phone
         to: ringing
     action:
       - service: notify.all

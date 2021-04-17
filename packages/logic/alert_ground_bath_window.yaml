@@ -11,8 +11,8 @@ binary_sensor:
 alert:
   ground_bath_window_open:
     name: "Bath (Ground): Window is still open"
-    message: "Bath (Ground): Window is still open"
-    done_message: "Bath (Ground): Window was closed"
+    message: "Bath (Ground): Window is still open. Current humidity: {{ states('sensor.shelly_h_t_shellyht02_humidity') }}%"
+    done_message: "Bath (Ground): Window was closed. Current humidity: {{ states('sensor.shelly_h_t_shellyht02_humidity') }}%"
     entity_id: binary_sensor.alert_ground_bath_window_open
     repeat: 30  # Renotify every 30 mins
     can_acknowledge: true

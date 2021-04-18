@@ -32,8 +32,8 @@ cards:
             entities:
               - entity: sensor.zway_device_7_temperature
                 name: Hallway
-              - entity: sensor.zway_device_24_temperature
-                name: Kitchen
+              - entity: sensor.shelly_h_t_shellyht02_temperature
+                name: Bath
           - entity: sensor.goker_temperature
             type: custom:multiple-entity-row
             name: First floor
@@ -54,6 +54,9 @@ cards:
             name: Ground floor
             state_header: Living
             icon: mdi:home-floor-0
+            entities:
+              - entity: sensor.shelly_h_t_shellyht02_humidity
+                name: Bath 
           - entity: sensor.goker_humidity
             type: custom:multiple-entity-row
             name: First floor

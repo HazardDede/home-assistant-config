@@ -56,14 +56,9 @@ Find a better way to track housekeeping job schedules
 
 Implement sensor to figure out if a device is stall
 
-## Fix appdaemon when home assistant restarts
-
-Unfortunately the window sensor is None / unavailable when home assistant starts and this fails
-in appdaemon (done)
-
 ## Convert the appdaemon stuff to a real home assistant plugin
 
-I want to deprecate home assistant. The only thing that is still running and adds benefit is the climate controller.
+I want to deprecate appdaemon. The only thing that is still running and adds benefit is the climate controller.
 
 # Find a nice way to control our regular lights
 
@@ -71,8 +66,8 @@ Find out how to use flush-mounting switches to preserve our Busch&Jaeger design
 
 ## More Sensors
 
-HT: Bath Ground, Bedroom
-Window: Gallery, Nursery
+HT: Bath Ground (done), Bedroom
+Window: Gallery (done), Nursery
 
 ## Local Dyson
 
@@ -87,6 +82,11 @@ Get an update when a new shelly firmware is available! Make it an alert so it wi
 ## Docker image update
 
 Find a way to retrieve the current image tag of the deployed docker images and retrieve the latest and greatest image tag from the web!
+
+## More smart reminders
+
+* Alert when nobody home and gallery and/or bath window open
+* Alert when nobody home and gallery window turns from off to on (burglar!)
 
 ## Appendix
 

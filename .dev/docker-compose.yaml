@@ -1,7 +1,7 @@
 version: '3'
 services:
   hass:
-    image: homeassistant/home-assistant:2021.3.4
+    image: homeassistant/home-assistant:2021.6.6
     links:
       - influxdb
       - mqtt

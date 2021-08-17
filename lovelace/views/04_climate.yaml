@@ -75,7 +75,7 @@ cards:
         refresh_interval: 60
         hours_to_show: 12
         entities:
-          - sensor.goker_temperature
+          - sensor.pure_cool_temperature
           - sensor.living_setpoint
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint
@@ -88,5 +88,8 @@ cards:
           - input_number.zway_device_11
       - !include  # Dyson Purifier: Goker
           - ../components/purifier.yaml
-          - air_quality: goker
-            fan: goker
+          - air_quality: pure_cool_air_quality
+            fan: pure_cool
+            carbon_filter: pure_cool_carbon_filter_life
+            hepa_filter: pure_cool_hepa_filter_life
+            auto_mode: switch.pure_cool_auto_mode

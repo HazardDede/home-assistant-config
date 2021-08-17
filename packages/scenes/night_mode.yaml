@@ -26,10 +26,10 @@ script:
       - service: homeassistant.turn_on
         data:
           entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe
-      - service: dyson.set_speed  # Slow down purifier
+      - service: fan.set_percentage  # Slow down purifier
         data:
-          dyson_speed: 1
-          entity_id: fan.goker
+          dyson_speed: 10
+          entity_id: fan.pure_cool
       - delay: '01:00'  # One hour
       - service: homeassistant.turn_off
         data:

@@ -6,8 +6,6 @@ entities:
     name: Air Quality
     state_header: P2
     entities:
-      - attribute: air_quality_index
-        name: AQI
       - attribute: particulate_matter_10
         unit: "µg/m³"
         name: P1
@@ -28,12 +26,12 @@ entities:
     name: Air Purifier
     state_color: true
     entities:
-      - attribute: dyson_speed
+      - attribute: percentage
         name: Speed
-      - attribute: hepa_filter
+      - entity: sensor.{{ hepa_filter }}
         unit: "%"
         name: HEPA
-      - attribute: carbon_filter
+      - entity: sensor.{{ carbon_filter }}
         unit: "%"
         name: Carbon
   - type: "custom:paper-buttons-row"
@@ -41,42 +39,41 @@ entities:
       - icon: mdi:weather-night
         tap_action:
           action: call-service
-          service: dyson.set_speed
+          service: fan.set_percentage
           service_data:
-            dyson_speed: 1
+            percentage: 10
             entity_id: fan.{{ fan }}
       - icon: mdi:circle-slice-2
         tap_action:
           action: call-service
-          service: dyson.set_speed
+          service: fan.set_percentage
           service_data:
-            dyson_speed: 3
+            percentage: 30
             entity_id: fan.{{ fan }}
       - icon: mdi:circle-slice-4
         tap_action:
           action: call-service
-          service: dyson.set_speed
+          service: fan.set_percentage
           service_data:
-            dyson_speed: 5
+            percentage: 50
             entity_id: fan.{{ fan }}
       - icon: mdi:circle-slice-6
         tap_action:
           action: call-service
-          service: dyson.set_speed
+          service: fan.set_percentage
           service_data:
-            dyson_speed: 8
+            percentage: 80
             entity_id: fan.{{ fan }}
       - icon: mdi:circle-slice-8
         tap_action:
           action: call-service
-          service: dyson.set_speed
+          service: fan.set_percentage
           service_data:
-            dyson_speed: 10
+            percentage: 100
             entity_id: fan.{{ fan }}
       - icon: mdi:brightness-auto
         tap_action:
           action: call-service
-          service: dyson.set_auto_mode
+          service: switch.turn_on
           service_data:
-            auto_mode: true
-            entity_id: fan.{{ fan }}
+            entity_id: {{ auto_mode }}

@@ -5,7 +5,6 @@ automation:
       event: sunrise
       offset: '00:15:00'
     action: 
-      service: dyson.set_auto_mode
+      service: switch.turn_on
       data:
-        auto_mode: true
-        entity_id: fan.goker
+        entity_id: switch.pure_cool_auto_mode

@@ -34,7 +34,7 @@ cards:
                 name: Hallway
               - entity: sensor.shelly_h_t_shellyht02_temperature
                 name: Bath
-          - entity: sensor.goker_temperature
+          - entity: sensor.pure_cool_temperature
             type: custom:multiple-entity-row
             name: First floor
             state_header: Gallery
@@ -57,7 +57,7 @@ cards:
             entities:
               - entity: sensor.shelly_h_t_shellyht02_humidity
                 name: Bath 
-          - entity: sensor.goker_humidity
+          - entity: sensor.pure_cool_humidity
             type: custom:multiple-entity-row
             name: First floor
             state_header: Gallery

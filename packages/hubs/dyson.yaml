@@ -1,33 +1,34 @@
-dyson:
-  username: !secret dyson_link_user
-  password: !secret dyson_link_pwd
-  language: DE
-  devices:
-    device_id: !secret dyson_goker_serial
-    device_ip: !secret dyson_goker_ip
+# dyson:
+#   username: !secret dyson_link_user
+#   password: !secret dyson_link_pwd
+#   language: DE
+#   devices:
+#     device_id: !secret dyson_goker_serial
+#     device_ip: !secret dyson_goker_ip
 
-# Dyson Goker 
+# Dyson Local is configured via the Integrations page
+
 sensor:
   - platform: template
     sensors:
       goker_p1:
         friendly_name: "Gallery P1"
         unit_of_measurement: 'µg/m³'
-        value_template: "{{ state_attr('air_quality.goker', 'particulate_matter_10') | round(2) }}"
+        value_template: "{{ state_attr('air_quality.pure_cool_air_quality', 'particulate_matter_10') | round(2) }}"
       goker_p2:
         friendly_name: "Gallery P2"
         unit_of_measurement: 'µg/m³'
-        value_template: "{{ state_attr('air_quality.goker', 'particulate_matter_2_5') | round(2) }}"
+        value_template: "{{ state_attr('air_quality.pure_cool_air_quality', 'particulate_matter_2_5') | round(2) }}"
       goker_voc:
         friendly_name: "Gallery VOC"
         unit_of_measurement: 'µg/m³'
-        value_template: "{{ state_attr('air_quality.goker', 'volatile_organic_compounds') }}"
+        value_template: "{{ state_attr('air_quality.pure_cool_air_quality', 'volatile_organic_compounds') }}"
       goker_no2:
         friendly_name: "Gallery NO2"
         unit_of_measurement: 'µg/m³'
-        value_template: "{{ state_attr('air_quality.goker', 'nitrogen_dioxide') }}"
+        value_template: "{{ state_attr('air_quality.pure_cool_air_quality', 'nitrogen_dioxide') }}"
       goker_aqi:
         friendly_name: "Gallery AQI"
         icon_template: mdi:air-filter
-        value_template: "{{ (state_attr('air_quality.goker', 'air_quality_index') or '999') | int}}"
+        value_template: "{{ states('air_quality.pure_cool_air_quality') }}"
   

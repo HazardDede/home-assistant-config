@@ -2,11 +2,9 @@ binary_sensor:
   - platform: stall
     name: stall_purifier_goker
     entities:
-      - sensor.goker_p2
-      - sensor.goker_p1
-      - sensor.goker_no2
-      - sensor.goker_voc
-      - sensor.goker_aqi
+      - air_quality.pure_cool_air_quality
+      - sensor.pure_cool_humidity
+      - sensor.pure_cool_temperature
     threshold: 60
 
 alert:

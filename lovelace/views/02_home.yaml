@@ -80,10 +80,10 @@ cards:
     - ../components/room.yaml
     - id: home_krymmel
       image: /local/rooms/gallery_banner.png
-      temperature: sensor.goker_temperature
+      temperature: sensor.pure_cool_temperature
       labeled_states: 
-        - sensor.goker_humidity
-        - sensor.goker_aqi
+        - sensor.pure_cool_humidity
+        - air_quality.pure_cool_air_quality
       switches:
         - switch.gosund_03
         - switch.gosund_01

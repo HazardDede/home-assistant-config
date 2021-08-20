@@ -28,7 +28,7 @@ script:
           entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe
       - service: fan.set_percentage  # Slow down purifier
         data:
-          dyson_speed: 10
+          percentage: 10
           entity_id: fan.pure_cool
       - delay: '01:00'  # One hour
       - service: homeassistant.turn_off

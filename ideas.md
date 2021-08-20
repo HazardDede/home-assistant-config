@@ -69,12 +69,6 @@ Find out how to use flush-mounting switches to preserve our Busch&Jaeger design
 HT: Bath Ground (done), Bedroom
 Window: Gallery (done), Nursery
 
-## Local Dyson
-
-Use a local dyson via mqtt which does not need to login to your dyson account:
-
-https://github.com/shenxn/ha-dyson/
-
 ## Shelly Firmware
 
 Get an update when a new shelly firmware is available! Make it an alert so it will get pesky!
@@ -83,7 +77,7 @@ Get an update when a new shelly firmware is available! Make it an alert so it wi
 
 Find a way to retrieve the current image tag of the deployed docker images and retrieve the latest and greatest image tag from the web!
 
-## More smart reminders
+## More smart reminders / alerts
 
 * Alert when nobody home and gallery and/or bath window open
 * Alert when nobody home and gallery window turns from off to on (burglar!)

@@ -19,7 +19,7 @@ binary_sensor:
               {% set service_states.value = service_states.value + [entity.state == 'on'] %}
             {% endif -%}
           {%- endfor -%}
-          {{ True if service_states.value|select|first else False }}
+          {{ service_states.value | select | list | length > 0 }}
 
 alert:
   service_down:

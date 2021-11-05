@@ -75,7 +75,8 @@ cards:
         refresh_interval: 60
         hours_to_show: 12
         entities:
-          - sensor.pure_cool_temperature
+          - entity: sensor.pure_cool_temperature
+            name: Gallery
           - sensor.living_setpoint
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint

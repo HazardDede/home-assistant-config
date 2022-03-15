@@ -15,7 +15,7 @@ sensor:
         unit_of_measurement: W
         value_template: |
           {% if is_state('switch.433rc_brennenstuhl_a', 'on') %}
-            21
+            51
           {% else %}
             1
           {% endif %}

@@ -20,58 +20,58 @@ icon: mdi:plex
 # background: var(--background-image)
 cards:
   - type: picture-entity
-    entity: sensor.tautulli
+    entity: sensor.plex_stack01
     show_name: false
     image: /local/media/plex-logo.png?v=2
-  - type: custom:mini-media-player
-    entity: media_player.plex_plexamp_hifipi
-    name: Hifi Pi
-    icon: mdi:plex
-    artwork: full-cover
-    source: icon
-    scale: 1
-    shortcuts:
-      columns: 4
-      buttons:
-        - icon: mdi:volume-low
-          type: service
-          id: media_player.volume_set
-          data:
-            entity_id: media_player.plex_plexamp_hifipi
-            volume_level: 0.4
-        - icon: mdi:volume-medium
-          type: service
-          id: media_player.volume_set
-          data:
-            entity_id: media_player.plex_plexamp_hifipi
-            volume_level: 0.5
-        - icon: mdi:volume-high
-          type: service
-          id: media_player.volume_set
-          data:
-            entity_id: media_player.plex_plexamp_hifipi
-            volume_level: 0.7
-        - icon: mdi:volume-vibrate
-          type: service
-          id: media_player.volume_set
-          data:
-            entity_id: media_player.plex_plexamp_hifipi
-            volume_level: 0.9
-    hide:
-      volume: true
-      volume_level: true
-      mute: true
-      power: true
+#   - type: custom:mini-media-player
+#     entity: media_player.plex_plexamp_hifipi
+#     name: Hifi Pi
+#     icon: mdi:plex
+#     artwork: full-cover
+#     source: icon
+#     scale: 1
+#     shortcuts:
+#       columns: 4
+#       buttons:
+#         - icon: mdi:volume-low
+#           type: service
+#           id: media_player.volume_set
+#           data:
+#             entity_id: media_player.plex_plexamp_hifipi
+#             volume_level: 0.4
+#         - icon: mdi:volume-medium
+#           type: service
+#           id: media_player.volume_set
+#           data:
+#             entity_id: media_player.plex_plexamp_hifipi
+#             volume_level: 0.5
+#         - icon: mdi:volume-high
+#           type: service
+#           id: media_player.volume_set
+#           data:
+#             entity_id: media_player.plex_plexamp_hifipi
+#             volume_level: 0.7
+#         - icon: mdi:volume-vibrate
+#           type: service
+#           id: media_player.volume_set
+#           data:
+#             entity_id: media_player.plex_plexamp_hifipi
+#             volume_level: 0.9
+#     hide:
+#       volume: true
+#       volume_level: true
+#       mute: true
+#       power: true
 {% for entity_id in players %}
   - !include
     - ../components/plex_media_player.yaml
     - entity_id: {{ entity_id }}
 {% endfor %}
-  - !include
-    - ../components/monitor.yaml
-    - name: Monitor
-      entities:
-        - entity_id: sensor.plex_lan_bandwidth
-          name: LAN
-        - entity_id: sensor.plex_wan_bandwidth
-          name: WAN
+#   - !include
+#     - ../components/monitor.yaml
+#     - name: Monitor
+#       entities:
+#         - entity_id: sensor.plex_lan_bandwidth
+#           name: LAN
+#         - entity_id: sensor.plex_wan_bandwidth
+#           name: WAN

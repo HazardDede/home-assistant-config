@@ -18,3 +18,24 @@ alert:
     notifiers:
       - alertmanager
       - dennis
+
+binary_sensor:
+  - platform: stall
+    name: stall_shelly_h_t_shellyht02
+    entities:
+      - sensor.shelly_h_t_shellyht02_temperature
+      - sensor.shelly_h_t_shellyht02_humidity
+    threshold: 720
+
+alert:
+  stall_shelly_h_t_shellyht02:
+    name: "Shelly H&T 02: No sensor update"
+    done_message: "Shelly H&T 02: Recovered"
+    entity_id: binary_sensor.stall_shelly_h_t_shellyht02
+    state: 'on'
+    repeat: 1440  # Renotify every day
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - alertmanager
+      - dennis

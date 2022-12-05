@@ -1,0 +1,19 @@
+#
+# DOCS: https://www.home-assistant.io/components/system_log/
+#
+
+automation:
+  - alias: "System Log: Forward to slack"
+    mode: parallel
+    max: 25
+    trigger:
+      platform: event
+      event_type: system_log_event
+    condition:
+      # Avoid to send messages when slack is down and we get a slack.com not reachable error
+      condition: template
+      value_template: '{{ "slack.com" not in trigger.event.data.exception }}'
+    action:
+      - service: notify.logs
+        data_template:
+          message: '[{{ trigger.event.data.level }}] @ {{ trigger.event.data.source }}: {{ trigger.event.data.message }}'

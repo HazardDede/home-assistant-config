@@ -94,7 +94,6 @@ cards:
     - id: home_bedroom
       image: /local/rooms/bedroom_banner.png
       temperature: sensor.pure_cool_temperature
-      labeled_states:
       labeled_states: 
         - sensor.pure_cool_humidity
         - air_quality.pure_cool_air_quality

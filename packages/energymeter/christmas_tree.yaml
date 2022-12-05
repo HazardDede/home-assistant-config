@@ -1,19 +1,19 @@
 utility_meter:
-  christmas_tree_energy_daily:
+  highboard_energy_daily:
     source: sensor.shelly_plug_s_shellyplug03_energy_0
     cycle: daily
-  christmas_tree_energy_monthly:
+  highboard_energy_monthly:
     source: sensor.shelly_plug_s_shellyplug03_energy_0
     cycle: monthly
 
 sensor:
   - platform: template
     sensors:
-      christmas_tree_energy_daily_costs:
+      highboard_energy_daily_costs:
         unit_of_measurement: "€"
         value_template: |
-          {{ ((states.sensor.christmas_tree_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
-      christmas_tree_energy_monthly_costs:
+          {{ ((states.sensor.highboard_energy_daily.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+      highboard_energy_monthly_costs:
         unit_of_measurement: "€"
         value_template: |
-          {{ ((states.sensor.christmas_tree_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}
+          {{ ((states.sensor.highboard_energy_monthly.state | float *  states.input_number.energy_tariff.state | float) / 100) | round(2) }}

@@ -6,7 +6,6 @@ group:
       - switch.gosund_01  # Treppenlicht
       - switch.gosund_02  # Filmregal
       - switch.gosund_04  # Mr. Wattson
-      - switch.shelly_plug_s_shellyplug03_relay_0  # Christmas Tree
 
   lights_kitchen:
     name: "Kitchen lights"

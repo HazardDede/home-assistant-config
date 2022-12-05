@@ -42,7 +42,10 @@ cards:
       {{ device("Floor lamp", "floor_lamp", "floor_lamp_current_power") }}
       {{ device("Disc Rack", "disc_rack", "disc_rack_current_power") }}
       {{ device("Mister Wattson", "mister_wattson", "mister_wattson_current_power") }}
-      {{ device("Christmas Tree", "christmas_tree", "shelly_plug_s_shellyplug03_power_0") }}
+  - type: entities
+    title: Hallway
+    entities:
+      {{ device("Highboard", "highboard", "shelly_plug_s_shellyplug03_power_0") }}
   - type: entities
     title: Bath (Ground floor)
     entities:

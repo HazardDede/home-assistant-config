@@ -5,7 +5,7 @@ sensor.shelly_h_t_shellyht01_humidity:
   friendly_name: Living
 
 switch.shelly_plug_s_shellyplug03_relay_0:
-  friendly_name: Hallway: Highboard
+  friendly_name: Highboard
   icon: mdi:wardrobe
 
 switch.shelly_plug_s_shellyplug04_relay_0:

@@ -5,6 +5,12 @@ binary_sensor:
       - sensor.shelly_h_t_shellyht01_temperature
       - sensor.shelly_h_t_shellyht01_humidity
     threshold: 720
+  - platform: stall
+    name: stall_shelly_h_t_shellyht02
+    entities:
+      - sensor.shelly_h_t_shellyht02_temperature
+      - sensor.shelly_h_t_shellyht02_humidity
+    threshold: 720
 
 alert:
   stall_shelly_h_t_shellyht01:
@@ -18,16 +24,6 @@ alert:
     notifiers:
       - alertmanager
       - dennis
-
-binary_sensor:
-  - platform: stall
-    name: stall_shelly_h_t_shellyht02
-    entities:
-      - sensor.shelly_h_t_shellyht02_temperature
-      - sensor.shelly_h_t_shellyht02_humidity
-    threshold: 720
-
-alert:
   stall_shelly_h_t_shellyht02:
     name: "Shelly H&T 02: No sensor update"
     done_message: "Shelly H&T 02: Recovered"

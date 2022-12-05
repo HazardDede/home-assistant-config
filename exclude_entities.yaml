@@ -19,7 +19,6 @@ entities:
   - binary_sensor.zway_device_21
   - binary_sensor.zway_device_4
   - binary_sensor.zway_device_5
-  - sensor.zway_device_22
   # Presence stuff
   - input_select.dennis_state
   - input_select.jennifer_state

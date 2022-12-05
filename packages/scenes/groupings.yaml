@@ -2,7 +2,6 @@ group:
   lights_living:
     name: "Living Room lights"
     entities:
-      - light.zway_device_22  # Couch lamp
       - switch.433rc_brennenstuhl_a  # Wohnzimmer: Wohnwand
       - switch.gosund_01  # Treppenlicht
       - switch.gosund_02  # Filmregal

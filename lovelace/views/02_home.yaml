@@ -27,9 +27,6 @@ cards:
         - entity: switch.gosund_01  # Stairway
           top: 15%
           left: 85%
-        - entity: light.zway_device_22  # Stehlampe
-          top: 30%
-          left: 9%
         - entity: switch.gosund_04  # Mr. Wattson
           top: 38%
           left: 53%

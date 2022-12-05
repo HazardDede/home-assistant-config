@@ -70,10 +70,6 @@ sensor.zway_device_21_power:
 sensor.zway_device_21_consumption:
   friendly_name: "TV (bedroom)"
 
-light.zway_device_22:
-  friendly_name: "Couch lamp"
-  icon: mdi:floor-lamp
-
 binary_sensor.zway_device_23:
   friendly_name: "Motion (bedroom)"
 

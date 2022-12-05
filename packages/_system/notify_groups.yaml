@@ -3,7 +3,6 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphone_work  # Work mobile
-      - service: mobile_app_ipad_von_dennis
   - name: jennifer
     platform: group
     services:

@@ -76,10 +76,11 @@ cards:
     - ../components/room.yaml
     - id: home_krymmel
       image: /local/rooms/gallery_banner.png
-      temperature: sensor.pure_cool_temperature
+      temperature: sensor.zway_device_23_temperature
       labeled_states: 
-        - sensor.pure_cool_humidity
-        - air_quality.pure_cool_air_quality
+        - sensor.zway_device_23_illumination
+      states: 
+        - binary_sensor.zway_device_23
       switches:
         - switch.gosund_03
         - switch.gosund_01
@@ -94,11 +95,11 @@ cards:
     - ../components/room.yaml
     - id: home_bedroom
       image: /local/rooms/bedroom_banner.png
-      temperature: sensor.zway_device_23_temperature
+      temperature: sensor.pure_cool_temperature
+      labeled_states:
       labeled_states: 
-        - sensor.zway_device_23_illumination
-      states: 
-        - binary_sensor.zway_device_23
+        - sensor.pure_cool_humidity
+        - air_quality.pure_cool_air_quality
       switches:
         - switch.zway_device_21
         - switch.433rc_generic04

@@ -34,7 +34,7 @@ cards:
                 name: Hallway
               - entity: sensor.shelly_h_t_shellyht02_temperature
                 name: Bath
-          - entity: sensor.pure_cool_temperature
+          - entity: sensor.zway_device_23_temperature
             type: custom:multiple-entity-row
             name: First floor
             state_header: Gallery
@@ -42,7 +42,7 @@ cards:
             entities:
               - entity: sensor.zway_device_19_temperature
                 name: Nursery
-              - entity: sensor.zway_device_23_temperature
+              - entity: sensor.pure_cool_temperature
                 name: Bedroom
           - type: section
             label: Humidity
@@ -60,7 +60,7 @@ cards:
           - entity: sensor.pure_cool_humidity
             type: custom:multiple-entity-row
             name: First floor
-            state_header: Gallery
+            state_header: Bedroom
             icon: mdi:home-floor-1
           - type: section
             label: Air quality

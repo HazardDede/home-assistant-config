@@ -71,7 +71,7 @@ cards:
         hours_to_show: 12
         entities:
           - entity: sensor.pure_cool_temperature
-            name: Gallery
+            name: Bedroom
           - sensor.living_setpoint
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint

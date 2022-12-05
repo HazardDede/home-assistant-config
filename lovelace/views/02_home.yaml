@@ -68,11 +68,7 @@ cards:
         - binary_sensor.motion02_motion
         - binary_sensor.doorbell
         - camera.motion02
-      labels:
-        - entity: input_number.zway_device_12
-          top: 75%
-          left: 57%
-          color: white
+
   #
   # Krymmels palace
   #
@@ -88,10 +84,6 @@ cards:
         - switch.gosund_03
         - switch.gosund_01
       labels:
-        - entity: input_number.zway_device_9
-          top: 54%
-          left: 55%
-          color: white
         - entity: sensor.zway_device_5_power
           top: 52%
           left: 70%
@@ -125,10 +117,7 @@ cards:
       switches:
         - switch.433rc_generic01
         - switch.433rc_generic02
-      labels:
-        - entity: input_number.zway_device_8
-          top: 56%
-          left: 63%
+
   #
   # Outdoor
   #

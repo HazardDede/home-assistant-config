@@ -16,9 +16,6 @@ sensor.zway_device_5_power:
 sensor.zway_device_5_consumption:
   friendly_name: "Desk"
 
-sensor.zway_device_6_battery:
-  friendly_name: "Heater: Bath downstairs"
-
 binary_sensor.zway_device_7:
   friendly_name: "Motion (hallway)"
 
@@ -27,18 +24,6 @@ sensor.zway_device_7_illumination:
 
 sensor.zway_device_7_temperature:
   friendly_name: Hallway
-
-sensor.zway_device_8_battery:
-  friendly_name: "Heater: Nursery"
-
-sensor.zway_device_9_battery:
-  friendly_name: "Heater: Gallery"
-
-sensor.zway_device_11_battery:
-  friendly_name: "Heater: Bath upstairs"
-
-sensor.zway_device_12_battery:
-  friendly_name: "Heater: Hallway"
 
 switch.zway_device_13:
   friendly_name: "Washing machine (Power plug)"

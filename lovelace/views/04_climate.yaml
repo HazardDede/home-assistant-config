@@ -60,11 +60,6 @@ cards:
           - sensor.zway_device_24_temperature
           - sensor.living_setpoint
           - sensor.bath_downstairs_setpoint
-      - id: climate_ground_floor_setpoints
-        type: entities
-        entities:
-          - input_number.zway_device_12
-          - input_number.zway_device_6
   - id: climate_first
     type: vertical-stack
     cards:
@@ -81,12 +76,6 @@ cards:
           - sensor.zway_device_19_temperature
           - sensor.nursery_setpoint
           - sensor.zway_device_23_temperature
-      - id: climate_first_setpoints
-        type: entities
-        entities:
-          - input_number.zway_device_9
-          - input_number.zway_device_8
-          - input_number.zway_device_11
       - !include  # Dyson Purifier: Goker
           - ../components/purifier.yaml
           - air_quality: pure_cool_air_quality

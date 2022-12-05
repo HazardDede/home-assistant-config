@@ -23,8 +23,6 @@ entities:
   # Presence stuff
   - input_select.dennis_state
   - input_select.jennifer_state
-  # Pumbaa
-  - sensor.pumbaa_running_time
   # Miflora
   - sensor.miflora01_last_updated
   - sensor.miflora02_last_updated

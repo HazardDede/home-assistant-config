@@ -3,7 +3,6 @@ group:
     name: "Living Room lights"
     entities:
       - switch.433rc_brennenstuhl_a  # Wohnzimmer: Wohnwand
-      - switch.gosund_01  # Treppenlicht
       - switch.gosund_02  # Filmregal
       - switch.gosund_04  # Mr. Wattson
 
@@ -15,7 +14,6 @@ group:
   lights_entrance:
     name: "Entrance lights"
     entities:
-      - switch.gosund_01  # Treppenlicht
       - switch.gosund_02  # Filmregal
   
   lights_gallery:

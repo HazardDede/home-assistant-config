@@ -11,7 +11,7 @@ script:
         data_template:
           # Turn off every light except Galerielampe and Treppe
           entity_id: >
-            {%- set exclude = ['switch.gosund_03', 'switch.gosund_01', 'switch.433rc_generic04'] %}
+            {%- set exclude = ['switch.gosund_03', 'switch.433rc_generic04'] %}
             {%- set lights = namespace(value=[]) -%}
             {%- for grp in states.group %}
               {%- if grp.entity_id.startswith('group.lights') %}
@@ -25,7 +25,7 @@ script:
             {{ ",".join(lights.value | unique) }}
       - service: homeassistant.turn_on
         data:
-          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn on Galerielampe and Treppe
+          entity_id: "switch.gosund_03"  # Turn on Galerielampe and Treppe
       - service: fan.set_percentage  # Slow down purifier
         data:
           percentage: 10
@@ -33,4 +33,4 @@ script:
       - delay: '01:00'  # One hour
       - service: homeassistant.turn_off
         data:
-          entity_id: "switch.gosund_03,switch.gosund_01"  # Turn off Galerielampe and Treppe
+          entity_id: "switch.gosund_03"  # Turn off Galerielampe and Treppe

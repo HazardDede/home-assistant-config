@@ -43,7 +43,6 @@ cards:
         - binary_sensor.zway_device_24
       switches:
         - switch.zway_device_20
-        - switch.gosund_01
         - switch.shelly_plug_s_shellyplug04_relay_0
       labels:
         - entity: sensor.zway_device_20_power
